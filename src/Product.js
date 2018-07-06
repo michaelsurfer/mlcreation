@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import styled from "styled-components";
 import ImageSlider from './ImageSlider';
+import { device } from "./device";
+import SloganBanner from './SloganBanner';
 
 
 let himProductIDArray=[[1,2,3,4,5],[6,7,8,9,10]];
@@ -35,11 +37,20 @@ const ProductList=({className,children,list})=>(
 const StyledProductList=styled(ProductList)`
   display:flex;
   flex:1;
-  flex-direction:row;
+  flex-direction:column;
   flex-wrap:nowrap;
-  background-color:grey;
-  justify-content:space-around;
+  background-color:white;
+  justify-content:center;
+  align-items:center;
+
+  @media ${device.tablet}{
+    flex-direction:row;
   margin:10px;
+  justify-content:space-around;
+
+   }
+
+
  `;
 
 
@@ -82,8 +93,9 @@ class Product extends Component{
       <div style={{'background-color':'black'}}>
       <ImageSlider gender={this.props.gender}/>
         {this.renderProduct()}
-
-        </div>
+        <SloganBanner gender='him'/>
+  
+      </div>
     );
   }
 

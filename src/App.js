@@ -3,35 +3,76 @@ import {BrowserRouter as Router,Route,NavLink,Redirect} from "react-router-dom";
 import styled from "styled-components";
 import Home from "./Home";
 import Product from "./Product";
+import Retailer from "./Retailer/Retailer";
 import Login from "./Login";
- 
+import {observer,inject} from "mobx-react";
+import { device } from "./device";
+import LogoImg from './image/logo.png';
+import menuIcon from './image/menuIcon.png';
+
+const Logo=styled.div`
+  display:flex;
+  flex-wrap: wrap;
+  margin: auto;
+`;
+
+const StyledDiv = styled.div`
+  display:flex;
+  justify-content:center;
+  flex-direction:inherit;
+`;
 const StyledLink = styled(NavLink)`
-  color:palevioletred;
+text-decoration: none;
+
+  color:grey;
   padding:5px;
 `;
 
 const MainDiv = styled.div`
 display:flex;
 flex-direction:column;
-border:1px solid grey;
-border-radius:1px;
+
 `;
 
-const LeftNavBar = () =>(
-  <div>
+const LeftNavBar = ({className,children}) =>(
+  <div className={className}>
     <StyledLink to="/">HOME</StyledLink>
     <StyledLink to="/her">FOR HER</StyledLink>
     <StyledLink to="/him">FOR HIM</StyledLink>
     <StyledLink to="/comments">COMMENTS</StyledLink>
   </div>
 );
-const RightNavBar = () =>(
-  <div>
+
+const StyledLeftNavBar=styled(LeftNavBar)`
+display:none;
+@media ${device.tablet}
+  {
+  display:flex;
+
+  flex-wrap: wrap;
+  margin: auto;
+  width:360px;
+  };
+`;
+
+const RightNavBar = ({className,children}) =>(
+  <div className={className}>
     <StyledLink to="/about">ABOUT US</StyledLink>
     <StyledLink to="/contact">CONTACT US</StyledLink>
   </div>
 );
+const StyledRightNavBar=styled(RightNavBar)`
+display:none;
+@media ${device.tablet}
+  {
+  display:flex;
 
+  flex-wrap: wrap;
+  margin: auto;
+  width:360px;
+  flex-direction:row-reverse;
+     };
+`;
 const TopBar = ({className,children})=>(
   <div className={className}>
   <StyledLink to="/retailer">RETAILER ACCOUNT</StyledLink>
@@ -41,30 +82,70 @@ const TopBar = ({className,children})=>(
 );
 
 const StyledTopBar=styled(TopBar)`
-  display:flex;
-  background-color:blue;
+  display:none;
+  background-color:black;
   justify-content:flex-end;
+  @media ${device.tablet}
+    {
+    display:flex；
+    };
+`;
 
+const DropDownMenu=({className,children,show})=>(
+  <div className={className}>
+    {children}
+    {show?(
+      <StyledDiv>
+      <div><StyledLink to="/">HOME</StyledLink></div>
+      <div><StyledLink to="/her">FOR HER</StyledLink></div>
+      <div><StyledLink to="/him">FOR HIM</StyledLink></div>
+      <div><StyledLink to="/comments">COMMENTS</StyledLink></div>
+      <div><StyledLink to="/retailer">RETAILER ACCOUNT</StyledLink></div>
+      <div><StyledLink to="/">SHOPPING LIST</StyledLink></div>
+      <div><StyledLink to="/">LANGUAGE</StyledLink></div>
+      <div>  <StyledLink to="/about">ABOUT US</StyledLink></div>
+        <div><StyledLink to="/contact">CONTACT US</StyledLink></div>
+      </StyledDiv>
+    ):(<div></div>)}
+  </div>
+);
 
+const StyledDropDownMenu=styled(DropDownMenu)`
+display:flex;
+flex-direction:column;
+background-color:blue;
+justify-content:flex-end;
+@media ${device.tablet}
+  {
+  display:none;
+  };
 `;
 
 
 const NavBar = ({className,children}) =>(
   //stateless main navigation bar
   <div className={className}>
-    <LeftNavBar/>
-    LOGO
-    <RightNavBar/>
+    <div>
+    <StyledLeftNavBar/>
+    </div>
+    <Logo><img src={LogoImg}/></Logo>
+    <div>
+    <StyledRightNavBar/>
+    </div>
   </div>
 );
 
 const StyledNavBar=styled(NavBar)`
   display:flex;
   flex-direction:row;
-  justify-content:space-between;
+  justify-content:center;
+  align-items:flex-end;
   text-align:center;
-  border:1px solid grey;
-  border-radius:1px;
+   @media ${device.tablet}
+    {
+      justify-content:space-between;
+    };
+
 `;
 
 const HomeView = () =>(
@@ -80,18 +161,21 @@ const CommentsView = () =>(
   <div>COMMENTS</div>
 );
 const RetailerView = () =>(
-  <div>RETAILER</div>
+  <Retailer/>
 );
 const LoginView = () =>(
-  <Login/>
-);
+<Login/>
 
+);
+@inject('store')
+@observer
 class App extends Component{
 
 
   constructor(props){
       super(props);
-      this.state = {login:false};
+      this.state={show:false};
+      this.props.store.login=sessionStorage.getItem("login");
   }
 
   render(){
@@ -102,6 +186,11 @@ class App extends Component{
       <Router>
       <MainDiv>
         <StyledTopBar/>
+        <StyledDropDownMenu show={this.state.show}>
+        <div>
+        <img src={menuIcon} onClick={()=>this.setState({show:!this.state.show})}/>
+        </div>
+        </StyledDropDownMenu>
         <StyledNavBar/>
 
         <Route exact path="/" component={Home}/>
@@ -111,7 +200,7 @@ class App extends Component{
 
 
         <Route exact path="/retailer" render={()=>(
-          this.state.login ? (<RetailerView/>):(<LoginView/>)
+          this.props.store.login ? (<RetailerView/>):(<LoginView/>)
         )}/>
 
 

@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { device } from "./device";
 import mainImage from './image/mainImage.jpg';
 import ImageSlider from './ImageSlider';
-
-
-let imgArray=[mainImage,mainImage,mainImage];
+import himSubImg from './image/himSubImg.png';
+import herSubImg from './image/herSubImg.png';
+import SloganBanner from './SloganBanner';
 
 const Page=styled.div`
 flex:1;
@@ -24,8 +24,12 @@ border-radius:1px;
    }
 `;
 
- 
 
+const Title=styled.p`
+color:${(props)=>props.him ? '#fff' : '#000'}
+font-size:${(props)=>props.big ? 'x-large' : 'small'}
+
+`;
 
 const Section=styled.div`
 display:flex;
@@ -53,29 +57,30 @@ const StyledImgCard=styled(ImgCard).attrs({
 display:flex;
 flex:1;
 flex-direction:row;
-border:1px solid red;
-border-radius:1px;
+
 height:400px;
 justify-content:center;
-
 background-image:url(${props=>props.src});
+background-repeat:no-repeat;
+background-size: cover;
+background-position: center;
 `;
 
-const Card=({className,children,type,onClick=f=>f})=>(
+const Card=({className,children,onClick=f=>f})=>(
   <div className={className}>
-    <div>{type}</div>
-    {children}
+     {children}
   </div>
  );
 
 const StyledCard=styled(Card)`
 display:flex;
 flex:1;
-flex-direction:row;
-border:1px solid red;
-border-radius:1px;
+flex-direction:column;
+background-color:${props=>props.him ? '#000':'rgb(251,160,132)'};
 height:400px;
 justify-content:center;
+align-items:center;
+text-align:center;
  `;
 
 class Home extends Component {
@@ -86,16 +91,28 @@ class Home extends Component {
 render(){
   return(
     <Page>
-      <ImageSlider page="main"/>
+      <ImageSlider gender="main"/>
+
       <Section>
-      <StyledImgCard src={imgArray[0]}/>
-      <StyledCard type='him'/>
-      </Section>
-      <Section reverse>
-      <StyledCard type='her'/>
-      <StyledImgCard src={imgArray[1]}/>
+      <StyledCard her>
+      <Title her big>For Her</Title>
+      <Title her>Woman is beauity....</Title>
+      <Title her>Find your pleasure of.......</Title>
+      </StyledCard>
+      <StyledImgCard src={himSubImg}/>
       </Section>
 
+      <Section reverse>
+      <StyledImgCard src={herSubImg}/>
+      <StyledCard him>
+        <Title him big>For Him</Title>
+        <Title him>Man is power....</Title>
+        <Title him>Disciver the power of.......</Title>
+      </StyledCard>
+      </Section>
+
+
+      <SloganBanner gender='him'/>
     </Page>
   )
 }

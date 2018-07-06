@@ -6,14 +6,14 @@ import leftArrow from './image/slider-left-arrow.svg';
 
 
 
-let imageArray=[require('./image/herMain01.jpg'),require('./image/himMain01.jpg')];
+let imageArray=[require('./image/main01.png'), require('./image/herMain01.jpg'),require('./image/himMain01.jpg')];
 
 
 const Images=styled.div`
 display:flex;
 justify-content:space-between;
 width:100%;
-height:90vh;
+height:80vh;
 align-items:center;
 border:0px solid blue;
 border-radius:1px;
@@ -27,7 +27,13 @@ background-position: center;
 class ImageSlider extends Component{
   constructor(props){
     super(props);
-    this.state = {imageIndex:0};
+
+    var index = 0 ;
+
+    if(this.props.gender == 'her'){index=1}
+    if(this.props.gender == 'him'){index=2}
+
+    this.state = {imageIndex:index};
     this.nextSlide = this.nextSlide.bind(this);
     this.previousSlide = this.previousSlide.bind(this);
   }
@@ -44,23 +50,27 @@ previousSlide=()=>{
   }
 
   render(){
-    let img;
-    if(this.props.gender == 'her'){
+    let img = imageArray[this.state.imageIndex];
+    /*
+    if(this.props.gender == 'main'){
     img=imageArray[0];
+    }
+
+    if(this.props.gender == 'her'){
+    img=imageArray[1];
     }
 
 
     if(this.props.gender == 'him'){
-    img=imageArray[1];
+    img=imageArray[2];
     }
-
+*/
 
     return(
       <div>
         <Images image={img}>
 
         <img src={leftArrow} onClick={this.previousSlide}/>
-        {this.state.imageIndex}
         <img src={rightArrow} onClick={this.nextSlide}/>
         </Images>
       </div>
