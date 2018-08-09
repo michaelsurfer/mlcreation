@@ -1,0 +1,58 @@
+{
+
+    "1":{
+      "uid":"1",
+      "itemName":"Intense",
+      "refNo":"W-ITS-S",
+      "color":"red",
+      "description":"Zine alloy super powerful USB..........................",
+      "retailPrice":100,
+      "UPC":"46898976580",
+      "MSRP":"73.99",
+      "MAP":"69.99"
+    },
+    "2":{
+      "uid":"2",
+      "itemName":"Intense2",
+      "refNo":"W-ITS-S",
+      "color":"red",
+      "description":"Zine alloy super powerful USB..........................",
+      "retailPrice":200,
+      "UPC":"46898976580",
+      "MSRP":"73.99",
+      "MAP":"69.99"
+    },
+    "3":{
+      "uid":"3",
+      "itemName":"Intense3",
+      "refNo":"W-ITS-S",
+      "color":"red",
+      "description":"Zine alloy super powerful USB..........................",
+      "retailPrice":300,
+      "UPC":"46898976580",
+      "MSRP":"73.99",
+      "MAP":"69.99"
+    },
+    "4":{
+      "uid":"4",
+      "itemName":"Intense",
+      "refNo":"W-ITS-S",
+      "color":"red",
+      "description":"Zine alloy super powerful USB..........................",
+      "retailPrice":400,
+      "UPC":"46898976580",
+      "MSRP":"73.99",
+      "MAP":"69.99"
+    },
+    "5":{
+      "uid":"5",
+      "itemName":"Intense",
+      "refNo":"W-ITS-S",
+      "color":"red",
+      "description":"Zine alloy super powerful USB..........................",
+      "retailPrice":500,
+      "UPC":"46898976580",
+      "MSRP":"73.99",
+      "MAP":"69.99"
+    }
+}
