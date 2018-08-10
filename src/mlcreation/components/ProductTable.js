@@ -179,6 +179,8 @@ const StyledTd=styled.td`
      //this.setState({showConfirmForm:true})
    }
 
+ 
+
   getTotalQty(){
     var total=0;
     var cartData=this.state.cart;

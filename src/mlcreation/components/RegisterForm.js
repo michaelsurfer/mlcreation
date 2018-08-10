@@ -4,7 +4,11 @@ import styled from "styled-components";
 import * as s from '../common/Css2.js';
 import { device } from "../common/device";
 
-
+const Wrapper=s.FullPureDiv.extend`
+background-color:white;
+flex-direction:column;
+width:70%;
+`;
 
 var fieldData = {
   company:{
@@ -409,7 +413,7 @@ class RegisterForm extends Component{
 
   render(){
     return(
-      <s.FullPureDiv direction='column'>
+      <Wrapper>
       {this.renderFormHeader('Company Details')}
       <FormRow border>
       {this.renderFormElement('company')}
@@ -481,7 +485,7 @@ class RegisterForm extends Component{
        </s.ButtonDiv>
        </FormRow>
 
-      </s.FullPureDiv>
+      </Wrapper>
 
     );
   }

@@ -6,15 +6,21 @@ export const apis = {
     endpoint:domain+"payment/",
     method:'POST'
   },
-
   createOrder:{
-    endpoint:domain+"createOrder/",
+    endpoint:domain+"createOrder",
     method:'POST'
   },
 
   checkOrder:{
     endpoint:domain+"checkOrder/",
     method:'GET'
+  },
+  login:{
+    endpoint:domain+"login/",
+    method:'POST'
+  },
+  getNextOrderNo:{
+    endpoint:domain+"getNextOrderNo",
+    method:'GET'
   }
-
 }

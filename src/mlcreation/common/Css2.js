@@ -20,8 +20,8 @@ export const ColorSchema={
   titleBlue:{color:'rgb(119,214,228)'},
   tdBlue:{color:'rgb(222,238,243)'},
   headerBlue:{color:'rgb(190,220,231)'},
-  skyBlue:{color:'rgb(98,190,215)'}
-  
+  skyBlue:{color:'rgb(98,190,215)'},
+  grey:{color:'rgb(239,238,242)'}
 };
 
 

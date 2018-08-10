@@ -39,6 +39,9 @@ align-items:center;
 const EmptyText=styled.label`
 opacity:0;
 `;
+
+
+
 class LoginForm extends Component{
 
 
@@ -58,6 +61,19 @@ class LoginForm extends Component{
         newJson[key]=value;
         this.setState({formData:newJson});
     }
+
+
+    SignIn(){
+      var json={
+        email:'guest',
+        password:'guest'
+      };
+      console.log("loginCallBack");
+
+
+      this.props.callBackf('login',json);
+    }
+
   render(){
     var formData = this.state.formData;
     var canSubmit = true;
@@ -69,7 +85,9 @@ class LoginForm extends Component{
       <Wrapper>
         <Input type='text' placeholder="susnna@mlcreationco.com"/>
         <Input type='password' placeholder="Password"/>
-        <SignInButton>Sign In</SignInButton>
+        <SignInButton
+        onClick={()=>this.SignIn()}
+        >Sign In</SignInButton>
         <ColDiv>
         <Text2>Forget password ?</Text2>
         <Text1>Create account now</Text1>

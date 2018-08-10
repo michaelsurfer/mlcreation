@@ -57,12 +57,17 @@ constructor(props){
 
 componentDidMount(){
   //fetch('http://localhost:3001/checkOrder/'+this.props.orderNo)
-  fetch(apis.checkOrder+this.props.orderNo)
+  fetch(apis.checkOrder.endpoint+this.props.orderNo)
 
     .then(response=>response.json())
     .then(data=>{
       console.log("server response on total cost"+data.total);
-      this.setState({total:data.total});
+      console.log("server response on order No"+data.orderNo);
+
+      this.setState({
+        orderNo:data.orderNo,
+        total:data.total
+      });
     });
 
 }
@@ -130,7 +135,7 @@ return(
           'background-color':'rgb(242,242,242)',
           'border-bottom':'1px solid grey',
         }} >
-        Your Order No: {this.props.orderNo}
+        Your Order No: {this.state.orderNo}
         </td>
     <td
           style={{
@@ -155,7 +160,9 @@ return(
     </tr>
     <tr>
     <td>
-    <Button black>BACK TO PURCHASE ORDER</Button>
+    <Button black
+    onClick={()=>this.props.callbackf("",'takeOrder')}
+    >BACK TO PURCHASE ORDER</Button>
     </td>
     <td>
     <Button

@@ -149,8 +149,23 @@ const StyledTd=styled.td`
       cart = sessionData;
     }
 
+    //get the possible orderNo
+ 
+     fetch(apis.getNextOrderNo.endpoint)
+    .then(response=>response.json())
+    .then(data=>{
+      console.log("order No:"+data.id);
+      this.setState({orderNo:data.id});
+
+    });
 
     this.setState({cart:cart});
+
+   }
+
+
+   back(){
+     this.props.callbackf("",'takeOrder');
    }
 
    confirmOrder(){
@@ -158,7 +173,7 @@ const StyledTd=styled.td`
      sessionStorage.setItem("retailerOrder", data);
      //this.setState({showConfirmForm:true})
     // fetch('http://localhost:3001/createOrder',{
-    fetch(apis.createOrder,{
+    fetch(apis.createOrder.endpoint,{
 
        method:'POST',
        headers:{
@@ -358,7 +373,7 @@ const StyledTd=styled.td`
       <td style={{
         'background-color':headerBlue,
         'border':'1px solid black'
-      }} colspan={headerRowSpan[device]}>ML Creation Order No:</td>
+      }} colspan={headerRowSpan[device]}>ML Creation Order No: {this.state.orderNo}</td>
       <td style={{
         'background-color':headerBlue,
         'border':'1px solid black'
@@ -518,7 +533,7 @@ const StyledTd=styled.td`
       'background-color':headerBlue,'margin':0,'padding':0
     }}
     >
-    <Button black onClick={()=>this.confirmOrder()}>Back to Order Draft</Button>
+    <Button black onClick={()=>this.back()}>Back to Order Draft</Button>
 
     </td>
 

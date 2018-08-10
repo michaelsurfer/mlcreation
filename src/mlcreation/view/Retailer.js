@@ -8,6 +8,7 @@ import ProductTable from '../components/ProductTable';
 import ProductTableConfirm from '../components/ProductTableConfirm';
 import PaymentForm from '../components/PaymentForm';
 import LoginForm from '../components/LoginForm';
+import {observer,inject} from "mobx-react";
 
 
 import * as c from '../common/Css2.js';
@@ -24,6 +25,7 @@ width:70%;
 display:flex;
 justify-content:center;
 align-items:center;
+padding:20px;
 `;
 
 const Outter=styled.div`
@@ -34,19 +36,20 @@ display:flex;
 `;
 
 
-
+@inject('store')
+@observer
 
 //export const Retailer=(({gender})=>{
 class Retailer extends Component{
 constructor(props){
   super(props);
   this.state={
-    login:false,
-    page:'signin',
+    page:'takeOrder',
     totalCost:0,
     orderNo:0
   };
   this.confirmCallBack=this.confirmCallBack.bind(this);
+  this.back=this.back.bind(this);
 }
 
 confirmCallBack(data,nextStep){
@@ -64,12 +67,17 @@ confirmCallBack(data,nextStep){
       orderNo:data.data.uuid
     });
   }
-
   this.setState({page:nextStep});
+
+
+
+}
+
+back(){
+  this.setState({page:'takeOrder'});
 }
 
 render(){
-
 
 
   var device='desktop';
@@ -78,16 +86,7 @@ render(){
   var productView=[];
 
   switch (this.state.page){
-    case 'signin':
-      productView.push(
-        <LoginForm/>
-      )
-    break;
-    case 'signup':
-      productView.push(
-      <RegisterForm/>
-      )
-    break;
+
     case 'takeOrder':
       productView.push(
       <ProductTable device={device} callbackf={this.confirmCallBack}/>
@@ -105,6 +104,7 @@ render(){
          orderDate="order date"
          productCost={this.state.totalCost}
          shipmentCost='50'
+         callbackf={this.back}
          />
       )
     break;
@@ -116,11 +116,9 @@ render(){
   <div>
   <Outter page={this.state.page}>
   <Wrapper>
-  {this.state.login?(
-    productView
-    ):(
-    productView
-  )}
+
+    {productView}
+
    </Wrapper>
   </Outter>
 

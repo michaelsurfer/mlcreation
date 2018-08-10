@@ -10,6 +10,9 @@ import {Product} from './mlcreation/view/Product';
 import {ProductList} from './mlcreation/view/ProductList';
 import Retailer from './mlcreation/view/Retailer';
 import {StripePayment} from './mlcreation/stripe/StripePayment';
+import LoginView from './mlcreation/view/LoginView';
+import {observer,inject} from "mobx-react";
+
 
 
 const HomeView = () =>(
@@ -34,21 +37,49 @@ const ProductListView = ({match}) =>(
 </div>
 );
 
-const RetailerView =()=>(
-<div>
+const RetailerView=inject('store')(observer((props)=>{
+  return(
+  <div>
   <NavBar/>
-  <Retailer/>
-</div>
+  {props.login?(
+    <Retailer/>
+  ):(
+    <LoginView/>
+  )}
+  </div>
+);
+}));
+
+/*
+const RetailerView =()=>(
+  <div>
+  <NavBar/>
+  {this.props.store.login?(
+    <Retailer/>
+  ):(
+    <LoginView/>
+  )}
+  </div>
 );
 
-
+*/
 const Payment=()=>(
 <div>
 <StripePayment/>
 </div>
 );
 
+
+
+
+@inject('store')
+@observer
 class App extends Component {
+
+  constructor(props){
+    super(props);
+   }
+
   render() {
     return (
       <Router>
@@ -56,8 +87,8 @@ class App extends Component {
        <Route exact path="/" component={HomeView}/>
       <Route exact path="/product/:gender" component={ProductView}/>
       <Route exact path="/productList/:gender" component={ProductListView}/>
-      <Route exact path="/retailerLogin" component={RetailerView}/>
-      <Route exact path="/payment" component={Payment}/>
+      <Route exact path="/retailerLogin2" render={(props)=>(<RetailerView state={this.props.store.login}/>)}/>
+      <Route exact path="/retailerLogin" component={LoginView}/>
 
       {<Footer/>}
       </div>
