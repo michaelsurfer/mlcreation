@@ -3,6 +3,7 @@ import styled from "styled-components";
 import * as c from '../common/Css2.js';
 import {StripePayment} from '../stripe/StripePayment';
 import {apis} from '../common/config.js';
+import {observer,inject} from "mobx-react";
 
 
 const ModalWrapper=styled.div`
@@ -25,12 +26,16 @@ left:50%;
 transform: translate(-50%,-50%);
 `;
 
+const Wrapper=styled.div`
+width:80%`;
 
 const Table=styled.table`
 border-collapse: collapse;
 border:0px solid grey;
 width:100%;
 `;
+
+ 
 
 const Button=styled.button`
 background-color:${(props)=>props.black? 'black':'rgb(240,160,143)'};
@@ -45,13 +50,14 @@ export const PaymentForm=({
 orderNo,orderDate,productCost,shipmentCost
 })=>{
 */
+@inject('store')
+@observer
 
 class PaymentForm extends Component{
 constructor(props){
   super(props);
   this.state={
-    displayModal:'none',
-    total:0
+     total:0
   }
 }
 
@@ -63,7 +69,7 @@ componentDidMount(){
     .then(data=>{
       console.log("server response on total cost"+data.total);
       console.log("server response on order No"+data.orderNo);
-
+      this.props.store.showPaymentModal = 'none';
       this.setState({
         orderNo:data.orderNo,
         total:data.total
@@ -76,7 +82,7 @@ componentDidMount(){
 
 render(){
 return(
-  <div>
+  <Wrapper>
   <Table>
     <tr>
     <td
@@ -166,7 +172,7 @@ return(
     </td>
     <td>
     <Button
-    onClick={()=>this.setState({displayModal:true})}
+    onClick={()=>this.props.store.showPaymentModal='block'}
     >Pay $ {parseInt(this.props.shipmentCost)+parseInt(this.props.productCost)} Now</Button>
     </td>
     </tr>
@@ -177,18 +183,21 @@ return(
     </td>
     </tr>
   </Table>
-  <ModalWrapper display={this.state.displayModal}>
+  <ModalWrapper display={this.props.store.showPaymentModal}>
+
     <Modal>
-    <StripePayment
+
+     <StripePayment
       total={this.state.total}
       shipmentCost={this.props.shipmentCost}
       orderNo={this.props.orderNo}
     />
+
     </Modal>
   </ModalWrapper>
 
 
-  </div>
+  </Wrapper>
 )}
 }
 

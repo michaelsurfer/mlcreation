@@ -43,6 +43,10 @@ border-collapse: collapse;
 border:1px solid grey;
 `;
 
+const Wrapper=styled.div`
+width:80%`;
+
+
 const Button=styled.button`
 background-color:${(props)=>props.black? 'black':'rgb(240,160,143)'};
 color: ${(props)=>props.black? 'white':'black'};
@@ -128,7 +132,10 @@ const StyledTd=styled.td`
   constructor(props){
     super(props);
     var shoppingCart={};
-    this.state={cart:{}};
+    this.state={
+      cart:{},
+      orderNo:0
+    };
 
    }
 
@@ -150,7 +157,7 @@ const StyledTd=styled.td`
     }
 
     //get the possible orderNo
- 
+
      fetch(apis.getNextOrderNo.endpoint)
     .then(response=>response.json())
     .then(data=>{
@@ -485,6 +492,7 @@ const StyledTd=styled.td`
   render(){
      var device = this.props.device;
      return(
+    <Wrapper>
     <c.ColPureDiv>
     <Table>
     {this.renderTop(device)}
@@ -542,6 +550,7 @@ const StyledTd=styled.td`
       'background-color':headerBlue,'margin':0,'padding':0
     }}
     >
+
     <Button onClick={()=>this.confirmOrder()}>Pay this order</Button>
 
     </td>
@@ -550,7 +559,7 @@ const StyledTd=styled.td`
     </Table>
 
     </c.ColPureDiv>
-
+    </Wrapper>
   )
   }
 

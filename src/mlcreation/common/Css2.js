@@ -38,7 +38,7 @@ font-size:small;
 `;
 
 export const ButtonDiv=styled.div`
-width:95%;
+width:100%;
 display:flex;
 justify-content:${(props)=>props.center ? 'center' : 'space-between'};
 `;
@@ -70,7 +70,7 @@ flex-direction:column;
 `;
 
 export const FullPureDiv=BasicDiv.extend`
-width:99%;
+width:100%;
 flex-direction:${(props)=>props.direction};
   `;
 export const ColCenterDiv=ColPureDiv.extend`

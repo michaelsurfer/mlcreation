@@ -21,7 +21,7 @@ const BGColorSchema={
 }
 
 const Wrapper=styled.div`
-width:70%;
+width:90%;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -33,6 +33,7 @@ background-color:${(props)=>BGColorSchema[props.page]};
 justify-content:center;
 align-items:center;
 display:flex;
+ 
 `;
 
 

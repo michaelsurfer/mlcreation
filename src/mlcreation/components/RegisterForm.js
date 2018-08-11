@@ -3,6 +3,57 @@ import ReactDOM from 'react-dom';
 import styled from "styled-components";
 import * as s from '../common/Css2.js';
 import { device } from "../common/device";
+import {apis} from '../common/config.js';
+
+
+
+const ModalWrapper=styled.div`
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:${(props)=>props.display};
+`;
+
+const Modal=styled.div`
+position:fixed;
+background:white;
+width:auto;
+height:auto;
+top:50%;
+left:50%;
+transform: translate(-50%,-50%);
+
+display:flex;
+flex-direction:column;
+padding:20px;
+`;
+
+
+const WarningText=styled.label`
+color:red;
+font-size:small;
+padding:5px;
+`;
+
+const WarningTitle=styled.label`
+color:grey;
+font-size:small;
+padding:5px;
+`;
+
+const Button=styled.button`
+background-color:${(props)=>props.black? 'black':'rgb(240,160,143)'};
+color: ${(props)=>props.black? 'white':'black'};
+margin:0;
+border:1px solid ;
+border-color:${(props)=>props.black? 'black':'rgb(240,160,143)'};
+width:100%;
+margin-top:20px;
+ `;
+
 
 const Wrapper=s.FullPureDiv.extend`
 background-color:white;
@@ -28,7 +79,7 @@ var fieldData = {
     validateType:'text',
     title:'Tax I.D/EIN No.',
     mandatory:true,
-    warningText:'enter EIN no'
+    warningText:'please enter EIN no'
   },
   website:{
     key:'website',
@@ -36,8 +87,8 @@ var fieldData = {
     needValidation:true,
     validateType:'url',
     title:'Website',
-    mandatory:false,
-    warningText:'enter website'
+    mandatory:true,
+    warningText:'please enter website'
   },
   buyer:{
     key:'buyer',
@@ -46,7 +97,7 @@ var fieldData = {
     validateType:'text',
     title:'Buyers Name',
     mandatory:true,
-    warningText:'enter buyers name'
+    warningText:'please enter buyers name'
   },
   phone:{
     key:'phone',
@@ -55,7 +106,7 @@ var fieldData = {
     validateType:'text',
     title:'Contact Phone No',
     mandatory:true,
-    warningText:'enter phone no'
+    warningText:'please enter phone no'
   },
   email:{
     key:'email',
@@ -82,7 +133,7 @@ var fieldData = {
     validateType:'text',
     title:'Company Address',
     mandatory:true,
-    warningText:'invalid'
+    warningText:'please enter Address'
   },
   city:{
     key:'city',
@@ -91,7 +142,7 @@ var fieldData = {
     validateType:'text',
     title:'City',
     mandatory:true,
-    warningText:'invalid'
+    warningText:'please enter city'
   },
   area:{
     key:'area',
@@ -100,7 +151,7 @@ var fieldData = {
     validateType:'text',
     title:'Area',
     mandatory:true,
-    warningText:'invalid'
+    warningText:'please enter area'
   },
   street:{
     key:'street',
@@ -109,7 +160,7 @@ var fieldData = {
     validateType:'text',
     title:'Street',
     mandatory:true,
-    warningText:'invalid'
+    warningText:'please enter street'
   },
   no:{
     key:'no',
@@ -118,7 +169,7 @@ var fieldData = {
     validateType:'text',
     title:'No',
     mandatory:true,
-    warningText:'invalid'
+    warningText:'please enter street no'
   },
   floor:{
     key:'floor',
@@ -127,7 +178,7 @@ var fieldData = {
     validateType:'text',
     title:'Floor',
     mandatory:true,
-    warningText:'invalid'
+    warningText:'please enter floor'
   },
   room:{
     key:'room',
@@ -136,7 +187,7 @@ var fieldData = {
     validateType:'text',
     title:'Room',
     mandatory:true,
-    warningText:'invalid'
+    warningText:'please enter room'
   },
   zip:{
     key:'zip',
@@ -145,7 +196,7 @@ var fieldData = {
     validateType:'text',
     title:'Zip code',
     mandatory:true,
-    warningText:'invalid'
+    warningText:'please enter zip'
   },
   country:{
     key:'country',
@@ -154,7 +205,7 @@ var fieldData = {
     validateType:'text',
     title:'Country',
     mandatory:true,
-    warningText:'invalid'
+    warningText:'please enter country'
   },
   retailer:{
     key:'retailer',
@@ -163,7 +214,7 @@ var fieldData = {
     validateType:'text',
     title:'Retailer',
     mandatory:true,
-    warningText:'invalid'
+    warningText:'please enter retailer name'
   },
   retailerNo:{
     key:'retailerNo',
@@ -172,7 +223,7 @@ var fieldData = {
     validateType:'number',
     title:'Number of Retailer Stores',
     mandatory:true,
-    warningText:'invalid'
+    warningText:'please enter retailer No'
   },
   mine:{
     key:'mine',
@@ -181,7 +232,7 @@ var fieldData = {
     validateType:'text',
     title:'Mine Store Name',
     mandatory:true,
-    warningText:'invalid'
+    warningText:'please enter mine store name'
   },
   eTailer:{
     key:'eTailer',
@@ -189,7 +240,7 @@ var fieldData = {
     needValidation:false,
     validateType:'text',
     title:'E-Tailer',
-    mandatory:true,
+    mandatory:false,
     warningText:'invalid'
   },
   eTailerNo:{
@@ -198,7 +249,7 @@ var fieldData = {
     needValidation:false,
     validateType:'number',
     title:'Number of E-tailer Stores',
-    mandatory:true,
+    mandatory:false,
     warningText:'invalid'
   },
   amazon:{
@@ -207,7 +258,7 @@ var fieldData = {
     needValidation:false,
     validateType:'text',
     title:'Amazon Store Name',
-    mandatory:true,
+    mandatory:false,
     warningText:'invalid'
   },
   eBay:{
@@ -216,7 +267,7 @@ var fieldData = {
     needValidation:false,
     validateType:'text',
     title:'e-bay Store Name',
-    mandatory:true,
+    mandatory:false,
     warningText:'invalid'
   },
   other:{
@@ -225,18 +276,11 @@ var fieldData = {
       needValidation:false,
       validateType:'text',
       title:'Other',
-      mandatory:true,
+      mandatory:false,
       warningText:'invalid'
     },
 
 }
-
-
-
-
-
-
-
 
 
 const FormCol=s.BasicDiv.extend`
@@ -279,24 +323,33 @@ display:none;
 @media ${device.tablet}{
   display:block;
  }
-
-`
+`;
 
 class RegisterForm extends Component{
   constructor(props){
     super(props);
     var state = {};
     for(var item in fieldData){
+      //* for testing
+      var data = {
+        key:fieldData[item].key,
+        value:"TESTING",
+        validFormat:true
+      };
+
+      /*
       var data = {
         key:fieldData[item].key,
         value:"",
         validFormat:false
       };
-
+      */
       state[fieldData[item].key] = data;
       this.state = {
         formData:state,
         formReady:false,
+        showModal:'none',
+        warning:[]
       };
       /*
         you can access to state value like this :
@@ -411,10 +464,53 @@ class RegisterForm extends Component{
   );
   }
 
+handleSubmit(){
+   //check all data then pop up modal
+  console.log(this.state.formData);
+  var data = this.state.formData;
+  var warning = [];
+  for(var item in data){
+    var key = data[item].key;
+
+    if(!data[item].validFormat && fieldData[key].mandatory){
+       console.log(key);
+      var warningText = fieldData[key].warningText;
+      warning.push(
+        <WarningText>{warningText}</WarningText>
+      )
+    }
+  }
+  console.log(warning.length);
+  if(warning.length==0){
+    //check email duplication...
+    fetch(apis.checkEmail.endpoint+"/"+data.email.value)
+      .then(response=>response.json())
+      .then(data=>{
+        if(data.result){
+          //duplicated Email
+          var warning=<WarningText>Duplicated Email address</WarningText>
+          this.setState({
+            warning:warning,
+            showModal:'block'
+          });
+        }
+      });
+
+  }else{
+    //show warning modal
+    this.setState({
+      warning:warning,
+      showModal:'block'
+    });
+  }
+}
+
+
+
   render(){
     return(
       <Wrapper>
-      {this.renderFormHeader('Company Details')}
+       {this.renderFormHeader('Company Details')}
       <FormRow border>
       {this.renderFormElement('company')}
       </FormRow>
@@ -479,11 +575,24 @@ class RegisterForm extends Component{
       </FormRow>
       <FormRow border>
        <s.ButtonDiv>
-       <button>Reset</button>
+       <Button type='button' black>Reset</Button>
 
-       <button>Confirm</button>
+       <Button
+        onClick={()=>this.handleSubmit()}
+       >Confirm</Button>
        </s.ButtonDiv>
        </FormRow>
+
+       <ModalWrapper display={this.state.showModal}>
+        <Modal>
+        <WarningTitle>Cannot register because of following:</WarningTitle>  
+        {this.state.warning}
+        <Button black
+          onClick={()=>this.setState({showModal:'none'})}
+          >Got it</Button>
+        </Modal>
+       </ModalWrapper>
+
 
       </Wrapper>
 

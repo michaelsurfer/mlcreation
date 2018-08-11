@@ -3,6 +3,7 @@ import styled from "styled-components";
 import data from "../asset/ProductList.json";
 import * as c from '../common/Css2.js';
 import itemSmall from '../image/itemSmall.png';
+import {apis} from '../common/config.js';
 
 
 const titlePink=c.ColorSchema.titlePink.color;
@@ -46,6 +47,11 @@ const Button=styled.button`
 background-color:rgb(240,160,143);
 margin:10px;
 `;
+
+
+const Wrapper=styled.div`
+width:80%`;
+
 
 const TableField={
   refNo:{
@@ -147,7 +153,10 @@ const StyledTd=styled.td`
   constructor(props){
     super(props);
     var shoppingCart={};
-    this.state={cart:{}};
+    this.state={
+      cart:{},
+      orderNo:0
+    };
 
    }
 
@@ -168,6 +177,13 @@ const StyledTd=styled.td`
       cart = sessionData;
     }
 
+    fetch(apis.getNextOrderNo.endpoint)
+   .then(response=>response.json())
+   .then(data=>{
+     console.log("order No:"+data.id);
+     this.setState({orderNo:data.id});
+
+   });
 
     this.setState({cart:cart});
    }
@@ -179,7 +195,7 @@ const StyledTd=styled.td`
      //this.setState({showConfirmForm:true})
    }
 
- 
+
 
   getTotalQty(){
     var total=0;
@@ -366,7 +382,9 @@ const StyledTd=styled.td`
       <td style={{
         'background-color':headerBlue,
         'border':'1px solid black'
-      }} colspan={headerRowSpan[device]}>ML Creation Order No:</td>
+      }} colspan={headerRowSpan[device]}>ML Creation Order No: {this.state.orderNo}
+
+      </td>
       <td style={{
         'background-color':headerBlue,
         'border':'1px solid black'
@@ -478,6 +496,7 @@ const StyledTd=styled.td`
   render(){
      var device = this.props.device;
      return(
+    <Wrapper>
     <c.ColPureDiv>
     <Table>
     {this.renderTop(device)}
@@ -504,7 +523,7 @@ const StyledTd=styled.td`
       <Button onClick={()=>this.confirmOrder()}>Submit order draft</Button>
     </c.RowCenterDiv>
     </c.ColPureDiv>
-
+    </Wrapper>
   )
   }
 

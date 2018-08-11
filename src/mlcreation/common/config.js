@@ -22,5 +22,9 @@ export const apis = {
   getNextOrderNo:{
     endpoint:domain+"getNextOrderNo",
     method:'GET'
+  },
+  checkEmail:{
+    endpoint:domain+"checkEmail",
+    method:'GET'
   }
 }

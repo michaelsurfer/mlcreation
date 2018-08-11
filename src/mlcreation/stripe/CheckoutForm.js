@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {injectStripe} from 'react-stripe-elements';
+import {observer,inject} from "mobx-react";
+
 import {
   CardElement,
   CardCVCElement,
@@ -21,7 +23,7 @@ align-items:center;
 
 const FormWrapper=styled.div`
  background-color:rgb(239,238,242);
-   width:600px;
+   width:400px;
   padding:10px;
  `;
 
@@ -44,8 +46,8 @@ margin:10px;
 
 const Button=styled.button`
 display:block;
+width:100%;
 padding:10px;
-width:280px;
 margin:10px;
 margin-top:40px;
 background-color:black;
@@ -75,11 +77,14 @@ const createOptions = (fontSize: string, padding: ?string) => {
 };
 
 
+@inject('store')
+@observer
+
 
 class CheckoutForm extends Component{
   constructor(props) {
     super(props);
-
+    console.log(this.props.store.login);
     // For full documentation of the available paymentRequest options, see:
     // https://stripe.com/docs/stripe.js#the-payment-request-object
     const paymentRequest = props.stripe.paymentRequest({
@@ -147,8 +152,6 @@ render(){
     <Total>Total :$ {this.props.total} (USD)</Total>
     <Total>Shipment Cost :$ {this.props.shipmentCost} (USD)</Total>
 
-    <Total>Order No :{this.props.orderNo} (USD)</Total>
-
     </FormWrapper>
     <form onSubmit={this.handleSubmit}>
     {this.props.format=='full'?(
@@ -191,7 +194,10 @@ render(){
   {...createOptions(this.props.fontSize)}
        />
        </ElementDiv>
+       <c.ButtonDiv>
+       <Button type='button' onClick={()=>this.props.store.showPaymentModal='none'}>Cancel</Button>
        <Button>Pay</Button>
+       </c.ButtonDiv>
        </FormWrapper>
       )}
     </form>

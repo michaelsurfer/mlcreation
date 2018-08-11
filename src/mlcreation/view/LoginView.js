@@ -35,6 +35,7 @@ loginCallBack(action,data){
   //login logic
   switch(action){
     case 'register':
+    this.setState({signIn:false});
     break;
     case 'login':
     /*
