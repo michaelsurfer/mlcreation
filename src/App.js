@@ -12,6 +12,7 @@ import Retailer from './mlcreation/view/Retailer';
 import {StripePayment} from './mlcreation/stripe/StripePayment';
 import LoginView from './mlcreation/view/LoginView';
 import {observer,inject} from "mobx-react";
+import {YourAccountView} from './mlcreation/view/YourAccountView';
 
 
 
@@ -28,8 +29,6 @@ const ProductView = ({match}) =>(
   <Product gender={match.params.gender}/>
 </div>
 );
-
-
 const ProductListView = ({match}) =>(
 <div>
 <NavBar gender={match.params.gender}/>
@@ -37,11 +36,59 @@ const ProductListView = ({match}) =>(
 </div>
 );
 
+const YourAccount=inject('store')(observer((props)=>{
+  console.log(props.store.login);
+  return(
+  <div>
+  <NavBar/>
+
+  {props.store.login?(
+    <YourAccountView/>
+  ):(
+    <LoginView/>
+  )}
+  </div>
+);
+}));
+
+
 const RetailerView=inject('store')(observer((props)=>{
   return(
   <div>
   <NavBar/>
-  {props.login?(
+
+  {props.store.login?(
+
+    <Retailer/>
+  ):(
+    <LoginView/>
+  )}
+  </div>
+);
+}));
+
+const PriceList=inject('store')(observer((props)=>{
+  return(
+  <div>
+  <NavBar/>
+
+  {props.store.login?(
+
+    <Retailer priceList/>
+  ):(
+    <LoginView/>
+  )}
+  </div>
+);
+}));
+
+const TakeOrder=inject('store')(observer((props)=>{
+  return(
+  <div>
+  <NavBar/>
+
+  {props.store.login?(
+
     <Retailer/>
   ):(
     <LoginView/>
@@ -87,8 +134,11 @@ class App extends Component {
        <Route exact path="/" component={HomeView}/>
       <Route exact path="/product/:gender" component={ProductView}/>
       <Route exact path="/productList/:gender" component={ProductListView}/>
-      <Route exact path="/retailerLogin2" render={(props)=>(<RetailerView state={this.props.store.login}/>)}/>
-      <Route exact path="/retailerLogin" component={LoginView}/>
+       <Route exact path="/retailerLogin" component={RetailerView}/>
+       <Route exact path="/takeOrder" component={TakeOrder}/>
+       <Route exact path="/yourAccount" component={YourAccount}/>
+       <Route exact path="/priceList" component={PriceList}/>
+
 
       {<Footer/>}
       </div>

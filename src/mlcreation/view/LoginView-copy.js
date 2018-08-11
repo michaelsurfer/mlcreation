@@ -108,9 +108,12 @@ render(){
 
 return(
   <div>
-
-     {this.displaySignIn()}
-
+ 
+  {this.props.store.login ?(
+    this.displayRetailer()
+  ):(
+     this.displaySignIn()
+    )}
   </div>
 );
 

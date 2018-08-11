@@ -100,7 +100,7 @@ class NavBar extends Component{
       <div>
       </div>
       <div>
-      <c.Link to="/retailerLogin">RETAILER ACCOUNT</c.Link>
+      <c.Link to="/YourAccount">RETAILER ACCOUNT</c.Link>
       <TopBarLink>SHOPPING LIST</TopBarLink>
       <TopBarLink>LANGUAGE</TopBarLink>
       </div>

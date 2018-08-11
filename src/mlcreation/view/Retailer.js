@@ -9,6 +9,8 @@ import ProductTableConfirm from '../components/ProductTableConfirm';
 import PaymentForm from '../components/PaymentForm';
 import LoginForm from '../components/LoginForm';
 import {observer,inject} from "mobx-react";
+import RetailerBar from '../components/RetailerBar';
+import ProductPriceList from '../components/ProductPriceList';
 
 
 import * as c from '../common/Css2.js';
@@ -33,7 +35,7 @@ background-color:${(props)=>BGColorSchema[props.page]};
 justify-content:center;
 align-items:center;
 display:flex;
- 
+
 `;
 
 
@@ -44,11 +46,20 @@ display:flex;
 class Retailer extends Component{
 constructor(props){
   super(props);
+  var page;
+
+  if(this.props.priceList){
+    page='priceList';
+  }else{
+    page='takeOrder';
+  }
+
   this.state={
-    page:'takeOrder',
+    page:page,
     totalCost:0,
     orderNo:0
   };
+
   this.confirmCallBack=this.confirmCallBack.bind(this);
   this.back=this.back.bind(this);
 }
@@ -84,22 +95,22 @@ render(){
   var device='desktop';
   if(window.innerWidth <= 768){device='mobile'}
   console.log(window.innerWidth);
-  var productView=[];
+  var resultView=[];
 
   switch (this.state.page){
 
     case 'takeOrder':
-      productView.push(
+      resultView.push(
       <ProductTable device={device} callbackf={this.confirmCallBack}/>
       )
     break;
     case 'confirmOrder':
-      productView.push(
+      resultView.push(
         <ProductTableConfirm device={device}  callbackf={this.confirmCallBack}/>
       )
     break;
     case 'payment':
-      productView.push(
+      resultView.push(
          <PaymentForm
          orderNo={this.state.orderNo}
          orderDate="order date"
@@ -109,16 +120,22 @@ render(){
          />
       )
     break;
+    case 'priceList':
+    resultView.push(
+        <ProductPriceList device={device}/>
+      )
+    break;
   }
 
 
 
  return(
   <div>
-  <Outter page={this.state.page}>
+  <RetailerBar/>
+   <Outter page={this.state.page}>
   <Wrapper>
 
-    {productView}
+    {resultView}
 
    </Wrapper>
   </Outter>

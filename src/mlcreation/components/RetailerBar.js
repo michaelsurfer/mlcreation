@@ -6,11 +6,14 @@ import { device } from "../common/device";
 
 
 const Wrapper=styled.div`
-background-color:rgb('92,190,214');
+background-color:rgb(92,190,214);
 width:100%;
-padding:10px;
 display:flex;
 justify-content:space-between;
+`;
+
+const SubWrapper=styled.div`
+padding:5px;
 `;
 
 class RetailerBar extends Component{
@@ -18,4 +21,29 @@ class RetailerBar extends Component{
     super(props);
   }
 
+render(){
+  return(
+    <Wrapper>
+      <SubWrapper>
+        <c.Link to='/yourAccount'>
+          Your Account
+        </c.Link>
+        <c.Link to=''>
+          Retailer Price List
+        </c.Link>
+        <c.Link to='/takeOrder'>
+          Take Order
+        </c.Link>
+      </SubWrapper>
+      <SubWrapper>
+        <c.Link to=''>
+          Your Order History
+        </c.Link>
+      </SubWrapper>
+    </Wrapper>
+  );
 }
+
+}
+
+export default RetailerBar;
