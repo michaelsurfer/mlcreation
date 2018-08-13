@@ -7,8 +7,8 @@ import LoginForm from "../components/LoginForm";
 import {apis} from '../common/config.js';
 import {observer,inject} from "mobx-react";
 import Retailer from './Retailer';
-import NavBar from '../components/NavBar';
-
+import NavBar from '../navigation/NavBar';
+import ForgetPasswordForm from '../components/ForgetPasswordForm';
 
 
 const Wrapper=c.ColCenterDiv.extend`
@@ -25,7 +25,8 @@ constructor(props){
   super(props);
 
   this.state={
-    signIn:true
+    signIn:true,
+    forgetPassword:false
   }
 
   this.loginCallBack=this.loginCallBack.bind(this);
@@ -34,6 +35,9 @@ constructor(props){
 loginCallBack(action,data){
   //login logic
   switch(action){
+    case 'forgetPassword':
+    this.setState({forgetPassword:true});
+    break;
     case 'register':
     this.setState({signIn:false});
     break;
@@ -44,7 +48,7 @@ loginCallBack(action,data){
       password:password
     };
     */
-
+/*
     fetch(apis.login.endpoint,{
       method:'POST',
       headers:{
@@ -56,11 +60,14 @@ loginCallBack(action,data){
     .then(response=>response.json())
     .then(data=>{
       if(data.result){
+        this.props.store.retailerData=data.retailerData;
         this.props.store.login=true;
+        console.log(this.props.store.retailerData);
       }
     });
-
-
+*/
+    console.log(data);
+    this.props.store.retailerLogin(data);
 
     break;
   }
@@ -74,12 +81,19 @@ displaySignIn(){
 
   var color='rgb(239,238,242)';
 
-
-  if(this.state.signIn){
+  if(this.state.forgetPassword){
     color=c.ColorSchema.skyBlue.color;
-    result.push(<LoginForm callBackf={this.loginCallBack}/>);
+
+      result.push(<ForgetPasswordForm/>);
   }else{
-    result.push(<RegisterForm callBackf={this.RegisterCallBack}/>);
+
+    if(this.state.signIn){
+      color=c.ColorSchema.skyBlue.color;
+      result.push(<LoginForm callBackf={this.loginCallBack}/>);
+    }else{
+      result.push(<RegisterForm callBackf={this.RegisterCallBack}/>);
+    }
+
   }
 
   return(
@@ -97,14 +111,7 @@ displayRetailer(){
 }
 
 render(){
-  var color='rgb(239,238,242)';
-  if(this.state.signIn){
-    color=c.ColorSchema.skyBlue.color;
-  };
 
-  if(this.props.store.login){
-    color=c.ColorSchema.grey.color;
-  };
 
 return(
   <div>

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import * as s from '../common/Css2.js';
 import { device } from "../common/device";
 import {apis} from '../common/config.js';
+import {observer,inject} from "mobx-react";
 
 
 
@@ -213,7 +214,7 @@ var fieldData = {
     needValidation:false,
     validateType:'text',
     title:'Retailer',
-    mandatory:true,
+    mandatory:false,
     warningText:'please enter retailer name'
   },
   retailerNo:{
@@ -222,7 +223,7 @@ var fieldData = {
     needValidation:false,
     validateType:'number',
     title:'Number of Retailer Stores',
-    mandatory:true,
+    mandatory:false,
     warningText:'please enter retailer No'
   },
   mine:{
@@ -310,6 +311,10 @@ margin:1px;
 padding:2px;
 `;
 
+
+const TextInputDiv=styled.div`
+width:100%;
+`;
 const TextInput=styled.input`
 width:100%;
 color:${(props)=>props.color};
@@ -325,9 +330,18 @@ display:none;
  }
 `;
 
+
+@inject('store')
+@observer
 class RegisterForm extends Component{
   constructor(props){
     super(props);
+    this.state={
+      loaded:false,
+      showRegisterModal:false,
+      waiting:false
+    }
+    /*
     var state = {};
     for(var item in fieldData){
       //* for testing
@@ -337,13 +351,6 @@ class RegisterForm extends Component{
         validFormat:true
       };
 
-      /*
-      var data = {
-        key:fieldData[item].key,
-        value:"",
-        validFormat:false
-      };
-      */
       state[fieldData[item].key] = data;
       this.state = {
         formData:state,
@@ -351,13 +358,53 @@ class RegisterForm extends Component{
         showModal:'none',
         warning:[]
       };
-      /*
-        you can access to state value like this :
-          {this.state.formData.email.key}
-      */
+
+
+    }
+    */
+    /*
+      you can access to state value like this :
+        {this.state.formData.email.key}
+    */
+  }
+  componentDidMount(){
+    var state={};
+    var data;
+    if(this.props.store.login){
+
+      for(var item in fieldData){
+        data={
+          key:fieldData[item].key,
+          value:"testing",
+          validFormat:true
+        };
+        state[fieldData[item].key]=data;
+      }
+
+    }else{
+
+      for(var item in fieldData){
+        var value="";
+        if(fieldData[item].type=='checkbox'){
+          value=false;
+        }
+        data={
+          key:fieldData[item].key,
+          value:value,
+          validFormat:true
+        };
+        state[fieldData[item].key]=data;
+      }
 
     }
 
+    this.setState({
+      formData:state,
+      formReady:false,
+      showModal:'none',
+      warning:[],
+      loaded:true
+    });
   }
 
   renderFormHeader(title){
@@ -396,21 +443,35 @@ class RegisterForm extends Component{
     var key = e.target.id;
     var formData = this.state.formData;
     formData[key].value = value;
+
+
     this.setState({
       formData: formData
     });
+
+
   }
   validateItem(e){
     //define all validating method of different type
 
     var key = e.target.id;
     var value = e.target.value;
+    console.log(key);
+    console.log(value);
+
     var formData = this.state.formData;
     var result=true;
 
+    if(fieldData[key].type=='checkbox'){
+      console.log('current value'+formData[key].value);
+      formData[key].value=!formData[key].value;
+    }else{
+      formData[key].value=value;
+    }
+
+
+
     if(fieldData[key].needValidation){
-
-
 
     switch(key){
       case 'email':
@@ -425,13 +486,20 @@ class RegisterForm extends Component{
       break;
     }
 
-    formData[key].validFormat = result;
-    this.setState({
-      formData: formData
-    });
+    }
 
-  }
-  }
+    formData[key].validFormat = result;
+/*
+    if(fieldData[key].type=='checkbox'){
+      formData[key].value=!formData[key].value;
+    }
+*/
+    console.log(formData);
+    if(result){this.setState({formData: formData})}
+
+}
+
+
   renderFormElement(key,_align){
     var align;
     var color='grey';
@@ -444,12 +512,18 @@ class RegisterForm extends Component{
       color='red';
     }
 
-    return(
-    <FormRow >
-    <Cell flex='1' align={align}>
-      <s.RegistrationFormText>{title}</s.RegistrationFormText>
-    </Cell>
-    <Cell flex='2' align={align}>
+    var input;
+    if(type=='checkbox'){
+      input=(
+      <TextInput
+      type={type}
+      color={color}
+      id={key}
+       onBlur={(e)=>this.validateItem(e)}
+      onFocus={(e)=>this.cancelWarning(e)}
+      />)
+    }else{
+      input=(
       <TextInput
       type={type}
       color={color}
@@ -458,32 +532,92 @@ class RegisterForm extends Component{
       onChange={(e)=>this.updateItem(e)}
       onBlur={(e)=>this.validateItem(e)}
       onFocus={(e)=>this.cancelWarning(e)}
-      />
+      />)
+    }
+
+    return(
+    <FormRow >
+    <Cell flex='1' align={align}>
+      <s.RegistrationFormText>{title}</s.RegistrationFormText>
+    </Cell>
+    <Cell flex='2' align={align}>
+
+    {(this.props.store.login && key=='email')?
+
+    (
+      <label
+      style={{
+        'color':'grey','font-size':'small'
+
+      }}
+      >{currentValue}</label>
+    ):
+    (
+        <TextInputDiv>{input}</TextInputDiv>
+     )
+    }
     </Cell>
     </FormRow>
   );
   }
 
+
+renderButton(){
+  if(this.props.store.login){
+    return(
+      <s.ButtonDiv>
+        <Button type='button' black>Update</Button>
+      </s.ButtonDiv>
+
+    );
+  }else{
+    return(
+      <s.ButtonDiv>
+      <Button type='button' black>Reset</Button>
+      <Button
+       onClick={()=>this.handleSubmit()}
+      >Confirm</Button>
+      </s.ButtonDiv>
+    );
+  }
+}
+
 handleSubmit(){
    //check all data then pop up modal
   console.log(this.state.formData);
-  var data = this.state.formData;
+  var formData = this.state.formData;
   var warning = [];
-  for(var item in data){
-    var key = data[item].key;
+  for(var item in formData){
+    var key = formData[item].key;
 
-    if(!data[item].validFormat && fieldData[key].mandatory){
+    if(!formData[item].validFormat && fieldData[key].mandatory){
        console.log(key);
       var warningText = fieldData[key].warningText;
       warning.push(
         <WarningText>{warningText}</WarningText>
       )
     }
+
+    if(formData[item].value=="" && fieldData[key].mandatory){
+       console.log(key);
+       warning.push(
+        <WarningText>{key} is missing</WarningText>
+      )
+    }
+
+
   }
+
+
+
+
+
   console.log(warning.length);
   if(warning.length==0){
     //check email duplication...
-    fetch(apis.checkEmail.endpoint+"/"+data.email.value)
+    this.setState({showModal:'block',waiting:true});
+
+    fetch(apis.checkEmail.endpoint+"/"+formData.email.value)
       .then(response=>response.json())
       .then(data=>{
         if(data.result){
@@ -491,8 +625,32 @@ handleSubmit(){
           var warning=<WarningText>Duplicated Email address</WarningText>
           this.setState({
             warning:warning,
-            showModal:'block'
+            waiting:false
           });
+        }else{
+          //register to server
+          this.setState({showRegisterModal:true});
+          console.log("registering data ");
+          console.log(formData);
+          fetch(apis.register.endpoint,{
+            method:'POST',
+            headers:{
+              'Accept':'application/json',
+              'Content-Type':'application/json',
+            },
+            body:JSON.stringify(formData),
+          })
+          .then(response=>response.json())
+          .then(data=>{
+            console.log(data);
+            if(data.result){
+              //this.props.store.login=true
+              this.setState({
+                waiting:false
+              });
+            }
+          });
+
         }
       });
 
@@ -505,9 +663,62 @@ handleSubmit(){
   }
 }
 
+login(data){
+  console.log(data);
+  var json={
+    email:'guest@guest.com',
+    password:'guest'
+  };
+  this.props.store.retailerLogin(data);
+
+  this.setState({showModal:'none'});
+ }
+handleModal(){
+  var result=[];
+
+
+  if(this.state.showRegisterModal){
+    var formData = this.state.formData;
+
+  result.push(
+    <Modal>
+    <WarningTitle>Registration Success !</WarningTitle>
+    <Button black
+      onClick={()=>this.login({
+        email:formData.email.value,
+        password:formData.password.value
+      })}
+      >Great! Take me to my account now. </Button>
+    </Modal>
+  )
+  }else{
+  result.push(
+    <Modal>
+    <WarningTitle>Cannot register because of following:</WarningTitle>
+    {this.state.warning}
+    <Button black
+      onClick={()=>this.setState({showModal:'none'})}
+      >Got it</Button>
+    </Modal>
+  );
+  }
+
+
+
+  return(
+    <div>
+    {this.state.waiting?(<Modal>Loading</Modal>):(<div>{result}</div>)}
+    </div>
+  )
+}
+
 
 
   render(){
+    if(!this.state.loaded){
+      return(<div>loading</div>);
+    }
+
     return(
       <Wrapper>
        {this.renderFormHeader('Company Details')}
@@ -574,23 +785,11 @@ handleSubmit(){
       </FormCol>
       </FormRow>
       <FormRow border>
-       <s.ButtonDiv>
-       <Button type='button' black>Reset</Button>
-
-       <Button
-        onClick={()=>this.handleSubmit()}
-       >Confirm</Button>
-       </s.ButtonDiv>
+      {this.renderButton()}
        </FormRow>
 
        <ModalWrapper display={this.state.showModal}>
-        <Modal>
-        <WarningTitle>Cannot register because of following:</WarningTitle>  
-        {this.state.warning}
-        <Button black
-          onClick={()=>this.setState({showModal:'none'})}
-          >Got it</Button>
-        </Modal>
+       {this.handleModal()}
        </ModalWrapper>
 
 

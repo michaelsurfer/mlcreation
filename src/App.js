@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 
 import {Footer} from './mlcreation/components/Footer';
-import NavBar from './mlcreation/components/NavBar';
+import NavBar from './mlcreation/navigation/NavBar';
 import Home from './mlcreation/view/Home';
 import {Product} from './mlcreation/view/Product';
 import {ProductList} from './mlcreation/view/ProductList';
@@ -97,19 +97,6 @@ const TakeOrder=inject('store')(observer((props)=>{
 );
 }));
 
-/*
-const RetailerView =()=>(
-  <div>
-  <NavBar/>
-  {this.props.store.login?(
-    <Retailer/>
-  ):(
-    <LoginView/>
-  )}
-  </div>
-);
-
-*/
 const Payment=()=>(
 <div>
 <StripePayment/>
@@ -136,8 +123,9 @@ class App extends Component {
       <Route exact path="/productList/:gender" component={ProductListView}/>
        <Route exact path="/retailerLogin" component={RetailerView}/>
        <Route exact path="/takeOrder" component={TakeOrder}/>
-       <Route exact path="/yourAccount" component={YourAccount}/>
-       <Route exact path="/priceList" component={PriceList}/>
+        <Route exact path="/priceList" component={PriceList}/>
+        <Route exact path="/yourAccount" component={YourAccount}/>
+        <Route exact path="/activation/:code" component={Activation}/>
 
 
       {<Footer/>}

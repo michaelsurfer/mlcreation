@@ -9,7 +9,7 @@ import ProductTableConfirm from '../components/ProductTableConfirm';
 import PaymentForm from '../components/PaymentForm';
 import LoginForm from '../components/LoginForm';
 import {observer,inject} from "mobx-react";
-import RetailerBar from '../components/RetailerBar';
+import RetailerBar from '../navigation/RetailerBar';
 import ProductPriceList from '../components/ProductPriceList';
 
 
@@ -47,7 +47,7 @@ class Retailer extends Component{
 constructor(props){
   super(props);
   var page;
-
+  console.log(this.props.store.retailerData);
   if(this.props.priceList){
     page='priceList';
   }else{

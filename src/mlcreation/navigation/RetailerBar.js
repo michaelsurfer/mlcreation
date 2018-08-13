@@ -28,7 +28,7 @@ render(){
         <c.Link to='/yourAccount'>
           Your Account
         </c.Link>
-        <c.Link to=''>
+        <c.Link to='/priceList'>
           Retailer Price List
         </c.Link>
         <c.Link to='/takeOrder'>

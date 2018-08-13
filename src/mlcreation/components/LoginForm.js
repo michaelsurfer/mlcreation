@@ -25,17 +25,20 @@ padding:10px;
 const CreateNew=styled.label`
 color:grey;
 font-size:small;
+padding:10px;
 `;
 const ForgetPass=styled.label`
 color:grey;
 font-size:small;
+padding:10px;
 `;
 
 const ColDiv=styled.div`
 display:flex;
 flex-direction:column;
 align-items:center;
-`;
+
+ `;
 const EmptyText=styled.label`
 opacity:0;
 `;
@@ -89,13 +92,14 @@ class LoginForm extends Component{
         onClick={()=>this.SignIn()}
         >Sign In</SignInButton>
         <ColDiv>
-        <ForgetPass>Forget password ?</ForgetPass>
+        <ForgetPass
+        onClick={()=>this.props.callBackf('forgetPassword',{})}
+        >Forget password ?</ForgetPass>
         <CreateNew onClick={()=>this.props.callBackf('register',{})}>Create account now</CreateNew>
         </ColDiv>
         <ColDiv>
         <EmptyText>empty</EmptyText>
-        <EmptyText>empty</EmptyText>
-        </ColDiv>
+         </ColDiv>
       </Wrapper>
 /*
       <css.ColDiv>

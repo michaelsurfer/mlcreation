@@ -10,7 +10,6 @@ export const apis = {
     endpoint:domain+"createOrder",
     method:'POST'
   },
-
   checkOrder:{
     endpoint:domain+"checkOrder/",
     method:'GET'
@@ -26,5 +25,9 @@ export const apis = {
   checkEmail:{
     endpoint:domain+"checkEmail",
     method:'GET'
+  },
+  register:{
+    endpoint:domain+"register",
+    method:'POST'
   }
 }

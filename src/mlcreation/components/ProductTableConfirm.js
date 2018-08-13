@@ -4,6 +4,7 @@ import data from "../asset/ProductList.json";
 import * as c from '../common/Css2.js';
 import itemSmall from '../image/itemSmall.png';
 import {apis} from '../common/config.js';
+import {observer,inject} from "mobx-react";
 
 
 const titlePink=c.ColorSchema.titlePink.color;
@@ -127,7 +128,11 @@ const StyledTd=styled.td`
   font-size:15px;
   margin:0px;
   `
-  class ProductTableConfirm extends Component{
+
+
+@inject('store')
+@observer
+class ProductTableConfirm extends Component{
 
   constructor(props){
     super(props);
@@ -246,7 +251,7 @@ const StyledTd=styled.td`
               'border':'1px solid black'
             }}
             >
-            Company Name:
+            Company Name:{this.props.store.retailerData.companyName}
             </td>
           </tr>
           <tr>
@@ -256,7 +261,7 @@ const StyledTd=styled.td`
               'border':'1px solid black'
             }}
             >
-            Address :
+            Address : {this.props.store.retailerData.address}
             </td>
           </tr>
 
@@ -270,7 +275,8 @@ const StyledTd=styled.td`
         <td
         colspan={headerRowSpan[device]}
         rowspan='5'
-        >Company Name:<br/>Address:</td>
+        >Company Name:{this.props.store.retailerData.companyName}
+        <br/>Address:{this.props.store.retailerData.address}</td>
 
          <td
           colspan={totalRowSpan[device]-headerRowSpan[device]}
