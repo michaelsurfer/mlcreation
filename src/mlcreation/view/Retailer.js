@@ -47,6 +47,7 @@ class Retailer extends Component{
 constructor(props){
   super(props);
   var page;
+  console.log("retailerData :");
   console.log(this.props.store.retailerData);
   if(this.props.priceList){
     page='priceList';

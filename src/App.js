@@ -90,7 +90,7 @@ const TakeOrder=inject('store')(observer((props)=>{
   <NavBar/>
 
   {props.store.login?(
-
+    
     <Retailer/>
   ):(
     <LoginView/>

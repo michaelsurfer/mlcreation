@@ -371,11 +371,12 @@ class RegisterForm extends Component{
     var state={};
     var data;
     if(this.props.store.login){
-
+      var retailerData=this.props.store.retailerData;
       for(var item in fieldData){
+
         data={
           key:fieldData[item].key,
-          value:"testing",
+          value:retailerData[item].value,
           validFormat:true
         };
         state[fieldData[item].key]=data;

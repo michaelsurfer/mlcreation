@@ -96,8 +96,8 @@ export default class Store{
     .then(data=>{
       console.log(data);
       if(data.result){
-        this.retailerData=data.retailerData;
-        this.login=true;
+         this.retailerData=data.retailerData;
+         this.login=true;
        }else{
          this.loginError=true;
        }

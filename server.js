@@ -263,6 +263,8 @@ app.post('/login/',function(req,res){
 		}else if(!activated){	
 			res.send({state:200,result:false,error:'inactive'});
 		}else{
+					console.log(retailerData);
+
 			res.send({state:200,result:true,retailerData:retailerData});
 		}
 

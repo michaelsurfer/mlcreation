@@ -186,8 +186,8 @@ const StyledTd=styled.td`
      this.setState({orderNo:data.id});
 
    });
-
     this.setState({cart:cart});
+    console.log("ProductTable Did mount");
    }
 
    confirmOrder(){
@@ -250,7 +250,7 @@ const StyledTd=styled.td`
               'border':'1px solid black'
             }}
             >
-            Company Name: {this.props.store.retailerData.companyName}
+            Company Name:
             </td>
           </tr>
           <tr>
@@ -260,7 +260,7 @@ const StyledTd=styled.td`
               'border':'1px solid black'
             }}
             >
-            Address : {this.props.store.retailerData.address}
+            Address :
             </td>
           </tr>
 
@@ -268,16 +268,15 @@ const StyledTd=styled.td`
       );
     }else{
       result.push(
-        <tbody
-        >
+        <tbody>
         <tr>
         <td
         colspan={headerRowSpan[device]}
         rowspan='5'
         >
-        Company Name: {this.props.store.retailerData.companyName}
+        Company Name: {this.props.store.retailerData.company.value}
         <br/>
-        Address: {this.props.store.retailerData.address}</td>
+        Address: {this.props.store.retailerData.address.value}</td>
 
          <td
           colspan={totalRowSpan[device]-headerRowSpan[device]}
@@ -295,7 +294,7 @@ const StyledTd=styled.td`
           style={{
             'border':'1px solid black'
           }}
-          >Contact Person : {this.props.store.retailerData.contact}</td>
+          >Contact Person : {this.props.store.retailerData.buyer.value}</td>
           </tr>
           <tr>
           <td
@@ -305,7 +304,7 @@ const StyledTd=styled.td`
             'border':'1px solid black'
           }}
 
-          >Phone No : {this.props.store.retailerData.phone}</td>
+          >Phone No : {this.props.store.retailerData.phone.value}</td>
           </tr>
           <tr>
           <td
@@ -315,7 +314,7 @@ const StyledTd=styled.td`
             'border':'1px solid black'
           }}
 
-          >Email : {this.props.store.retailerData.email}</td>
+          >Email : {this.props.store.retailerData.email.value}</td>
           </tr>
           </tbody>
 
