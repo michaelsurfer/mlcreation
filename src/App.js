@@ -13,6 +13,7 @@ import {StripePayment} from './mlcreation/stripe/StripePayment';
 import LoginView from './mlcreation/view/LoginView';
 import {observer,inject} from "mobx-react";
 import {YourAccountView} from './mlcreation/view/YourAccountView';
+import ShoppingCartView from './mlcreation/view/ShoppingCartView';
 
 
 
@@ -67,6 +68,7 @@ const RetailerView=inject('store')(observer((props)=>{
 );
 }));
 
+
 const PriceList=inject('store')(observer((props)=>{
   return(
   <div>
@@ -103,8 +105,16 @@ const Payment=()=>(
 </div>
 );
 
+const ShoppingCart=()=>(
+  <div>
+  <ShoppingCartView/>
+  </div>
+);
 
-
+const Activation=()=>(
+  <div>
+  </div>
+);
 
 @inject('store')
 @observer
@@ -119,13 +129,14 @@ class App extends Component {
       <Router>
       <div>
        <Route exact path="/" component={HomeView}/>
-      <Route exact path="/product/:gender" component={ProductView}/>
-      <Route exact path="/productList/:gender" component={ProductListView}/>
+       <Route exact path="/product/:gender" component={ProductView}/>
+       <Route exact path="/productList/:gender" component={ProductListView}/>
        <Route exact path="/retailerLogin" component={RetailerView}/>
        <Route exact path="/takeOrder" component={TakeOrder}/>
-        <Route exact path="/priceList" component={PriceList}/>
-        <Route exact path="/yourAccount" component={YourAccount}/>
-        <Route exact path="/activation/:code" component={Activation}/>
+       <Route exact path="/priceList" component={PriceList}/>
+       <Route exact path="/yourAccount" component={YourAccount}/>
+       <Route exact path="/activation/:code" component={Activation}/>
+       <Route exact path="/cart" component={ShoppingCart}/>
 
 
       {<Footer/>}

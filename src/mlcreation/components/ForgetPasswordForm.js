@@ -47,7 +47,14 @@ constructor(props){
     };
 }
 
+handleSubmit(event){
+  event.preventDefault();
+  var email=event.target.email.value;
+  var password=event.target.password.value;
+  console.log(email);
+  console.log(password);
 
+}
 render(){
   var result=[];
   if(this.state.submited){
@@ -68,6 +75,7 @@ render(){
   }
   return(
   <Wrapper>
+
     {result}
   </Wrapper>
 )
