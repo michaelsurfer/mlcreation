@@ -6,7 +6,7 @@ import styled from "styled-components";
 import {Footer} from './mlcreation/components/Footer';
 import NavBar from './mlcreation/navigation/NavBar';
 import Home from './mlcreation/view/Home';
-import {Product} from './mlcreation/view/Product';
+import Product from './mlcreation/view/Product';
 import {ProductList} from './mlcreation/view/ProductList';
 import Retailer from './mlcreation/view/Retailer';
 import {StripePayment} from './mlcreation/stripe/StripePayment';
@@ -27,7 +27,7 @@ const HomeView = () =>(
 const ProductView = ({match}) =>(
 <div>
 <NavBar gender={match.params.gender}/>
-  <Product gender={match.params.gender}/>
+  <Product gender={match.params.gender} productID={match.params.productID}/>
 </div>
 );
 const ProductListView = ({match}) =>(
@@ -90,7 +90,7 @@ const TakeOrder=inject('store')(observer((props)=>{
   <NavBar/>
 
   {props.store.login?(
-    
+
     <Retailer/>
   ):(
     <LoginView/>
@@ -107,6 +107,8 @@ const Payment=()=>(
 
 const ShoppingCart=()=>(
   <div>
+  <NavBar/>
+
   <ShoppingCartView/>
   </div>
 );
@@ -129,7 +131,7 @@ class App extends Component {
       <Router>
       <div>
        <Route exact path="/" component={HomeView}/>
-       <Route exact path="/product/:gender" component={ProductView}/>
+       <Route exact path="/product/:gender/:productID" component={ProductView}/>
        <Route exact path="/productList/:gender" component={ProductListView}/>
        <Route exact path="/retailerLogin" component={RetailerView}/>
        <Route exact path="/takeOrder" component={TakeOrder}/>

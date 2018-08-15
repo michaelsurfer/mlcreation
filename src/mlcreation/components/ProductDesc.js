@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import styled from "styled-components";
 import * as c from '../common/Css2.js';
 import itemSmall from '../image/itemSmall.png';
+import data from "../asset/ProductList.json";
 
 
 const Wrapper=c.RowPureDiv.extend`
@@ -64,13 +65,13 @@ margin:5px;
 const ColorBox=styled.div`
 width:20px;
 height:20px;
-background-color:${(props)=>props.color}
+background-color:${(props)=> c.ProductColorCode[props.color].color};
 margin-bottom:10px;
 margin-left:10px;
 `;
 
 export const Description=({
-
+  productID=0,
   price="$$$",
   description1="description1",
   description2="description2",
@@ -78,15 +79,18 @@ export const Description=({
   diameter="diameter",
   weight="weight",
   remark="remark",
-  colorArray=['red','black','blue']
-
+  colorArray=['red','black','blue'],
+  callback
 })=>{
 
 
   var selectColor=[];
 
-  colorArray.map((item,i)=>
-    selectColor.push (<ColorBox color={item}/>)
+  colorArray.map((item,i)=>{
+    //var color = c.ProductColorCode[item].color;
+    //console.log(color);
+    selectColor.push (<ColorBox color={item}/>);
+    }
   );
 
 return(
@@ -134,7 +138,9 @@ return(
 <c.AutoFullCol>
 
 
-<Button>ADD TO SHOPPING LIST</Button>
+<Button
+  onClick={()=>callback()}
+>ADD TO SHOPPING LIST</Button>
 <SplitDiv bottom>
 <Desc>Shipping & Return</Desc>
 <Desc>See Comments</Desc>

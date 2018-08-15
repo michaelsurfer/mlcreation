@@ -5,6 +5,7 @@ import * as c from '../common/Css2.js';
 import { device } from "../common/device";
 import LogoImg from '../image/logo.png';
 import menuIcon from '../image/menuIcon.png';
+import {observer,inject} from "mobx-react";
 
 
 
@@ -66,6 +67,8 @@ margin:10px;
 
 
 
+@inject('store')
+@observer
 class NavBar extends Component{
   constructor(props){
     super(props);
@@ -101,7 +104,7 @@ class NavBar extends Component{
       </div>
       <div>
       <c.Link to="/YourAccount">RETAILER ACCOUNT</c.Link>
-      <TopBarLink>SHOPPING LIST</TopBarLink>
+      <c.Link to="/cart">SHOPPING LIST ({this.props.store.cartSize})</c.Link>
       <TopBarLink>LANGUAGE</TopBarLink>
       </div>
       </TopBar>

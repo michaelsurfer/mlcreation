@@ -4,6 +4,7 @@ Table Title:
 Item,W-refNo,Name,color,Qty,price
 */
 import {observer,inject} from "mobx-react";
+import {computed} from "mobx";
 import styled from "styled-components";
 import React,{Component} from 'react';
 import data from "../asset/ProductList.json";
@@ -58,6 +59,10 @@ class ShoppingCart extends Component{
       cart:cart
     });
   }
+
+
+
+
 
   updateQty(e){
     var key=e.target.id;
@@ -169,7 +174,7 @@ class ShoppingCart extends Component{
     <tr>
       <td colspan='4'></td>
       <td>SUBTOTAL</td>
-      <td>{this.props.store.subTotalCost}</td>
+      <td>{this.props.store.total}</td>
     </tr>
     <tr>
       <td colspan='4'></td>

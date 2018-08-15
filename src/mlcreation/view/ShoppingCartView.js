@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import ShoppingCart from '../components/ShoppingCart';
 import {observer,inject} from "mobx-react";
 import {StripePayment} from '../stripe/StripePayment';
+import {NavLink} from "react-router-dom";
 
 
 
@@ -32,8 +33,17 @@ align-items:center;
 display:flex;
 width:100%;
 background-color:rgb(240,163,135);
-
 `;
+
+const BackLink=styled(NavLink)`
+background-color:black;
+color:white;
+margin-left:70px;
+margin-right:70px;
+padding:5px;
+font-size:small;
+`;
+
 
 const ButtonBarWrapper=styled.div`
 width:90%;
@@ -90,7 +100,7 @@ return(
 <ButtonBar>
 <ButtonBarWrapper>
 
-  <Button black>Back to Shopping</Button>
+  <BackLink to="/">Back to Shopping</BackLink>
   <Button black
   onClick={()=>this.props.store.showPaymentModal=true}
   >Pay</Button>
@@ -105,7 +115,7 @@ return(
   <Modal>
 
    <StripePayment
-    total={this.props.store.subTotalCost}
+    total={this.props.store.total}
     shipmentCost={100}
     orderNo=""
   />

@@ -137,8 +137,21 @@ class ProductTableConfirm extends Component{
   constructor(props){
     super(props);
     var shoppingCart={};
+    var cart={};
+    var sessionData=JSON.parse(sessionStorage.getItem("retailerOrder"));
+    if(!sessionData){
+
+     for(var item in data){
+      //var id = data[item].uid;
+      cart[item]=0;
+      };
+    }else{
+
+      cart = sessionData;
+    }
+
     this.state={
-      cart:{},
+      cart:cart,
       orderNo:0
     };
 
@@ -146,15 +159,15 @@ class ProductTableConfirm extends Component{
 
 
   componentDidMount(){
-
+/*
     var cart={};
 
     var sessionData=JSON.parse(sessionStorage.getItem("retailerOrder"));
     if(!sessionData){
 
      for(var item in data){
-      var id = data[item].uid;
-      cart[id]=0;
+      //var id = data[item].uid;
+      cart[item]=0;
       };
     }else{
 
@@ -170,9 +183,9 @@ class ProductTableConfirm extends Component{
       this.setState({orderNo:data.id});
 
     });
-
+    console.log(cart);
     this.setState({cart:cart});
-
+*/
    }
 
 
@@ -251,7 +264,7 @@ class ProductTableConfirm extends Component{
               'border':'1px solid black'
             }}
             >
-            Company Name:{this.props.store.retailerData.companyName}
+            Company Name:{this.props.store.retailerData.company.value}
             </td>
           </tr>
           <tr>
@@ -261,7 +274,7 @@ class ProductTableConfirm extends Component{
               'border':'1px solid black'
             }}
             >
-            Address : {this.props.store.retailerData.address}
+            Address : {this.props.store.retailerData.address.value}
             </td>
           </tr>
 
@@ -275,8 +288,8 @@ class ProductTableConfirm extends Component{
         <td
         colspan={headerRowSpan[device]}
         rowspan='5'
-        >Company Name:{this.props.store.retailerData.companyName}
-        <br/>Address:{this.props.store.retailerData.address}</td>
+        >Company Name:{this.props.store.retailerData.company.value}
+        <br/>Address:{this.props.store.retailerData.address.value}</td>
 
          <td
           colspan={totalRowSpan[device]-headerRowSpan[device]}
@@ -450,7 +463,8 @@ class ProductTableConfirm extends Component{
                   }}
                   />
               */
-              output = this.state.cart[dataJson.uid];
+              output = this.state.cart[item];
+              //console.log(this.state.cart);
              break;
              case 'img':
               output=
@@ -459,14 +473,14 @@ class ProductTableConfirm extends Component{
              case 'button':
                 output =
                   <button
-                  id={dataJson.uid}
+                  id={item}
                   value={0}
                   onClick={(e)=>this.updateCart(e)}
                   >Delete</button>
              break;
             case 'state':
             //state mean real time form data, state.
-              var qty = this.state.cart[dataJson.uid];
+              var qty = this.state.cart[item];
               if(qty==""){qty=0;}
               output = parseInt(qty)*dataJson.retailPrice;
              break;

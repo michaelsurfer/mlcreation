@@ -12,6 +12,15 @@ color:grey;
 padding:5px;
 `;
 
+export const ProductColorCode={
+  S:{name:"silver",color:'rgb(10,0,0)'},
+  B:{name:"black",color:"rgb(10,0,0)"},
+  LPI:{name:"Light Pink",color:'pink'},
+  PIPP:{name:"Pink Purple",color:'rgb(0,10,0)'},
+  PP:{name:"Purple",color:'purple'},
+  R:{name:"Red",color:'rgb(0,0,10)'}
+};
+
 export const ColorSchema={
   m:{color:'rgb(42,99,135)'},
   g:{color:'rgb(207,105,67)'},

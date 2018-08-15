@@ -171,8 +171,8 @@ const StyledTd=styled.td`
     if(!sessionData){
 
      for(var item in data){
-      var id = data[item].uid;
-      cart[id]=0;
+      //var id = data[item].uid;
+      cart[item]=0;
       };
     }else{
 
@@ -187,7 +187,9 @@ const StyledTd=styled.td`
 
    });
     this.setState({cart:cart});
+
     console.log("ProductTable Did mount");
+    console.log(cart);
    }
 
    confirmOrder(){
@@ -218,6 +220,16 @@ const StyledTd=styled.td`
       var qty = cartData[item];
       if(qty==""){qty=0;}
       total=total+parseInt(qty)*parseInt(data[item].retailPrice);
+      console.log("log");
+      console.log(item);
+      console.log(qty);
+      console.log(data[item]);
+      console.log(data[item].retailPrice);
+
+
+
+
+
     };
      return total;
   }
@@ -443,9 +455,9 @@ const StyledTd=styled.td`
 
                output =
                   <input type='number'
-                  id={dataJson.uid}
+                  id={item}
                   min={0}
-                  value={this.state.cart[dataJson.uid]}
+                  value={this.state.cart[item]}
                   onChange={(e)=>this.updateCart(e)}
                   style={{
                     'width':'30px'
@@ -468,7 +480,7 @@ const StyledTd=styled.td`
              break;
             case 'state':
             //state mean real time form data, state.
-              var qty = this.state.cart[dataJson.uid];
+              var qty = this.state.cart[item];
               if(qty==""){qty=0;}
               output = parseInt(qty)*dataJson.retailPrice;
              break;
