@@ -66,10 +66,20 @@ const ColorBox=styled.div`
 width:20px;
 height:20px;
 background-color:${(props)=> c.ProductColorCode[props.color].color};
-margin-bottom:10px;
-margin-left:10px;
+
 `;
 
+const OutterColorBox=styled.div`
+width:20px;
+height:30px;
+margin-bottom:10px;
+margin-left:10px;
+display:flex;
+justify-content:center;
+align-items:center;
+border-bottom:${(props)=>props.selected ? '1px solid grey':'0px'}
+`;
+/*
 export const Description=({
   productID=0,
   price="$$$",
@@ -82,16 +92,57 @@ export const Description=({
   colorArray=['red','black','blue'],
   callback
 })=>{
+*/
+class ProductDesc extends Component{
+  constructor(props){
+    super(props);
+    this.state={
+      //default selected color
+      selectedColor:this.props.colorArray[0]
+    }
+  }
 
 
+
+render(){
+  var productID=this.props.productID;
+  var price=this.props.price;
+  var description1=this.props.description1;
+  var description2=this.props.description2;
+  var length=this.props.length;
+  var diameter=this.props.diameter;
+  var weight=this.props.weight;
+  var remark=this.props.remark;
+  var colorArray=this.props.colorArray;
+  var callback = this.props.callback;
   var selectColor=[];
 
   colorArray.map((item,i)=>{
     //var color = c.ProductColorCode[item].color;
     //console.log(color);
-    selectColor.push (<ColorBox color={item}/>);
+    if(this.state.selectedColor == item)
+    {
+      selectColor.push (
+        <OutterColorBox selected
+        onClick={()=>this.setState({selectedColor:item})}
+        >
+        <ColorBox color={item}/>
+        </OutterColorBox>
+      );
+    }else{
+      selectColor.push (
+        <OutterColorBox
+        onClick={()=>this.setState({selectedColor:item})}
+
+        >
+        <ColorBox color={item}/>
+        </OutterColorBox>
+      );
+
     }
+     }
   );
+
 
 return(
 <Wrapper>
@@ -139,7 +190,7 @@ return(
 
 
 <Button
-  onClick={()=>callback()}
+  onClick={()=>callback(this.state.selectedColor)}
 >ADD TO SHOPPING LIST</Button>
 <SplitDiv bottom>
 <Desc>Shipping & Return</Desc>
@@ -156,9 +207,9 @@ IMAGE
 </RightBox>
 </Wrapper>
 
-
-
 );
-
+}
 
 }
+
+export default ProductDesc;

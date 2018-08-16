@@ -4,7 +4,7 @@ import ImageSlider from '../components/ImageSlider';
 import { device } from "../common/device";
 import {SloganBanner} from '../components/SloganBanner';
 import {ProductDetail} from '../components/ProductDetail';
-import {Description} from '../components/ProductDesc';
+import ProductDesc from '../components/ProductDesc';
 import {observer,inject} from "mobx-react";
 
 import {Header} from '../components/ProductHeader';
@@ -21,8 +21,9 @@ class Product extends Component{
     this.callbackF=this.callbackF.bind(this);
   }
 
-  callbackF(){
-    this.props.store.addOne2Cart(this.props.productID);
+  callbackF(selectedColor){
+    //var productID = this.props.productID +"-"+ selectedColor;
+     this.props.store.addOne2Cart(this.props.productID,selectedColor);
   }
 
   render(){
@@ -47,7 +48,7 @@ class Product extends Component{
       image="image url"
       gender={gender}
       />
-      <Description
+      <ProductDesc
       productID={productID}
       price={price}
       description1={description1}

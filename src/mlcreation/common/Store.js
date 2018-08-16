@@ -26,7 +26,8 @@ export default class Store{
     var cart = this.shoppingCart;
     for(var item in cart){
       var qty = cart[item].qty;
-      var price = data[item].retailPrice;
+      var code = cart[item].name;
+      var price = data[code].retailPrice;
       if(qty==''){qty=0}
       total = total + parseInt(qty)*parseInt(price);
     }
@@ -55,8 +56,8 @@ export default class Store{
       //load dummy data if not existing for testing
       /*
       this.shoppingCart={
-                        "W-ITS-S":{qty:10},
-                        "W-DB-B":{qty:2}
+                        "ITS":{B:{qty:10},S:{qty:2}},
+                        "DB":{B:{qty:10},S:{qty:2}}
                         }
      */
     }
@@ -70,18 +71,24 @@ export default class Store{
     sessionStorage.setItem("cart",this.shoppingCart);
 
   }
-  addOne2Cart(id){
+  addOne2Cart(id,color){
     var cart = this.shoppingCart;
-    var qty=0;
-    if(cart[id]){
-      qty = cart[id].qty+1;
-    }else{
-      qty=1;
+    var qty=1;
+    var json={};
+    var productID=id+"-"+color;
+
+    if(cart[productID]){
+      qty = cart[productID].qty+1;
     }
 
-    var json={qty:qty}
+    var json={
+      qty:qty,
+      name:id,
+      color:color
+    }
 
-    cart[id]=json;
+    cart[productID]=json;
+
     this.shoppingCart=cart;
   }
 
@@ -93,6 +100,7 @@ export default class Store{
       newQty=newQty+this.shoppingCart[id].qty;
     };
     */
+    console.log(id);
     var cart = this.shoppingCart;
     cart[id].qty=qty;
     this.shoppingCart=cart;
@@ -105,9 +113,10 @@ export default class Store{
     console.log(cartData);
         for(var item in cartData){
           var qty = cartData[item].qty;
+          var code = cartData[item].name;
           console.log(qty);
           if(qty==""){qty=0;}
-          total=total+parseInt(qty)*parseInt(data[item].retailPrice);
+          total=total+parseInt(qty)*parseInt(data[code].retailPrice);
         };
     this.subTotalCost = total;
   }

@@ -8,6 +8,7 @@ import {computed} from "mobx";
 import styled from "styled-components";
 import React,{Component} from 'react';
 import data from "../asset/ProductList.json";
+import * as c from '../common/Css2.js';
 
 
 
@@ -100,19 +101,22 @@ class ShoppingCart extends Component{
     var cart=this.props.store.shoppingCart;
     for(var id in cart){
         var qty = cart[id].qty;
+         var productCode = cart[id].name;
+        //id = productCode[0];
+        //console.log(id);
         result.push(
            <tr>
             <td>
               IMAGE
             </td>
             <td>
-              {data[id].refNo}
+              {data[productCode].refNo}
             </td>
             <td>
-              {data[id].itemName}
+              {data[productCode].itemName}
             </td>
             <td>
-              {data[id].color}
+              {data[productCode].color}
             </td>
             <td>
               <Input type='number' value={qty} id={id} onChange={(e)=>this.updateQty(e)}/>
@@ -122,7 +126,7 @@ class ShoppingCart extends Component{
             </td>
 
             <td>
-              {data[id].retailPrice}
+              {data[productCode].retailPrice}
             </td>
 
           </tr>

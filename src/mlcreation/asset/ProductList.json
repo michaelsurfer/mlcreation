@@ -1,7 +1,7 @@
 {
 
-    "W-ITS-S":{
-       "itemName":"Intense",
+    "ITS":{
+      "itemName":"Intense",
       "refNo":"W-ITS-S",
       "color":["S"],
       "description":"Zine alloy super powerful USB..........................",
@@ -14,9 +14,9 @@
       "MSRP":"73.99",
       "MAP":"69.99"
     },
-    "W-DB-B":{
+    "DB":{
       "itemName":"Intense2",
-      "refNo":"W-ITS-S",
+      "refNo":"W-DB-S",
       "color":["B","R","PP","LPI","PIPP"],
       "title1":"Super Powerful USB Rechar......",
       "title2":"Enviroment Friendly....",
@@ -28,10 +28,10 @@
       "MSRP":"73.99",
       "MAP":"69.99"
     },
-    "W-DB-R":{
+    "LB":{
        "itemName":"Intense3",
-      "refNo":"W-ITS-S",
-      "color":["red","blue","yellow"],
+      "refNo":"W-LB-S",
+      "color":["B","R","PP","LPI","PIPP"],
       "title1":"Super Powerful USB Rechar......",
       "title2":"Enviroment Friendly....",
       "description":"Zine alloy super powerful USB..........................",
@@ -42,10 +42,10 @@
       "MSRP":"73.99",
       "MAP":"69.99"
     },
-    "W-DB-PP":{
+    "RVKB":{
        "itemName":"Intense",
-      "refNo":"W-ITS-S",
-      "color":["red","blue","yellow"],
+      "refNo":"W-RVKB-S",
+      "color":["B","R","PP","LPI","PIPP"],
       "title1":"Super Powerful USB Rechar......",
       "title2":"Enviroment Friendly....",
       "description":"Zine alloy super powerful USB..........................",
@@ -56,16 +56,30 @@
       "MSRP":"73.99",
       "MAP":"69.99"
     },
-    "W-DB-LPI":{
+    "EVVA":{
        "itemName":"Intense",
       "refNo":"W-ITS-S",
-      "color":["red","blue","yellow"],
+      "color":["B","R","PP","LPI","PIPP"],
       "title1":"Super Powerful USB Rechar......",
       "title2":"Enviroment Friendly....",
       "description":"Zine alloy super powerful USB..........................",
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
       "retailPrice":500,
+      "UPC":"46898976580",
+      "MSRP":"73.99",
+      "MAP":"69.99"
+    },
+    "MR":{
+      "itemName":"Intense",
+      "refNo":"W-ITS-S",
+      "color":["B","R","PP","LPI","PIPP"],
+      "description":"Zine alloy super powerful USB..........................",
+      "title1":"Super Powerful USB Rechar......",
+      "title2":"Enviroment Friendly....",
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":100,
       "UPC":"46898976580",
       "MSRP":"73.99",
       "MAP":"69.99"
