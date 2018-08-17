@@ -154,14 +154,30 @@ const StyledTd=styled.td`
 
   constructor(props){
     super(props);
+    var shoppingCart={};
     this.state={
+      cart:{},
       orderNo:0
     };
+
    }
 
 
   componentDidMount(){
 
+    var cart={};
+
+    var sessionData=JSON.parse(sessionStorage.getItem("retailerOrder"));
+    if(!sessionData){
+
+     for(var item in data){
+      //var id = data[item].uid;
+      cart[item]=0;
+      };
+    }else{
+
+      cart = sessionData;
+    }
 
     fetch(apis.getNextOrderNo.endpoint)
    .then(response=>response.json())
@@ -170,23 +186,23 @@ const StyledTd=styled.td`
      this.setState({orderNo:data.id});
 
    });
+    this.setState({cart:cart});
 
-     }
+    console.log("ProductTable Did mount");
+    console.log(cart);
+   }
 
    confirmOrder(){
-     /*
      var data = JSON.stringify(this.state.cart);
      sessionStorage.setItem("retailerOrder", data);
      this.props.callbackf(data,'confirmOrder');
-     */
-    }
+     //this.setState({showConfirmForm:true})
+   }
 
 
 
   getTotalQty(){
-    /*
     var total=0;
-
     var cartData=this.state.cart;
     for(var item in cartData){
       var qty = cartData[item];
@@ -194,13 +210,10 @@ const StyledTd=styled.td`
       total=total+parseInt(qty);
     };
     return total;
-    */
-    return this.props.store.totalRetailerQty;
   }
 
 
   getTotalCost(){
-    /*
     var total=0;
     var cartData=this.state.cart;
     for(var item in cartData){
@@ -219,8 +232,6 @@ const StyledTd=styled.td`
 
     };
      return total;
-     */
-     return this.props.store.totalRetailerCost;
   }
 
 
@@ -230,14 +241,9 @@ const StyledTd=styled.td`
     var qty = e.target.value;
     if(qty==""){qty=0;}
     qty=parseInt(qty).toFixed(0);
-    /*
     var cart = this.state.cart;
     cart[key]=qty;
     this.setState({cart:cart});
-    */
-
-    this.props.store.setCart(key,qty,'retailer');
-
   }
 
   renderTop(device){
@@ -428,22 +434,11 @@ const StyledTd=styled.td`
   }
 
 
-  renderRow(device,rowData,code,color){
+  renderRow(device,rowData,key){
 
     var dataJson=rowData;
-    var productID = code+"-"+color;
-    var output="";
-    var rowData=[];
-    console.log("render Row");
-    console.log(productID);
-    console.log(dataJson);
-    if(!this.props.store.retailerCart[productID]){
-      this.props.store.retailerCart[productID]={
-        name:code,
-        qty:0,
-        color:color
-      }
-    }
+
+    var output;
 
     for(var field in TableField){
       var json = TableField[field];
@@ -453,11 +448,12 @@ const StyledTd=styled.td`
             output = dataJson[field];
           break;
           case 'input':
-            output =
+
+             output =
                 <input type='number'
-                id={productID}
+                id={key}
                 min={0}
-                value={this.props.store.retailerCart[productID].qty}
+                value={this.state.cart[key]}
                 onChange={(e)=>this.updateCart(e)}
                 style={{
                   'width':'30px'
@@ -472,14 +468,14 @@ const StyledTd=styled.td`
            case 'button':
               output =
                 <button
-                id={productID}
+                id={dataJson.uid}
                 value={0}
                 onClick={(e)=>this.updateCart(e)}
                 >Delete</button>
            break;
           case 'state':
           //state mean real time form data, state.
-            var qty = this.props.store.retailerCart[productID].qty;
+            var qty = this.state.cart[key];
             if(qty==""){qty=0;}
             output = parseInt(qty)*dataJson.retailPrice;
            break;
@@ -487,48 +483,16 @@ const StyledTd=styled.td`
           break;
         }
       }
-
-      rowData.push(
-        <StyledTd color='white'>
-        {output}
-        </StyledTd>
-      );
-
-
     }
-
-
-      return rowData;
-
+      return output;
   }
 
   renderTableData(device,data){
     var result=[];
     console.log(data);
     for(var item in data){
-      //item = CODE only
-      var colorArray = data[item].color;
-      var rowData = data[item];
-      var code = item;
-      colorArray.map((color,i)=>{
-        result.push(
-          <tr>
-           {this.renderRow(device,rowData,code,color)}
-           </tr>
-        );
-      });
-    }
 
-    return result;
-  }
-
-
-/*
       var dataJson = data[item];
-
-
-
-
 
       var rowData=[];
 
@@ -596,7 +560,7 @@ const StyledTd=styled.td`
 
   }
 
-*/
+
 
   render(){
      var device = this.props.device;
@@ -615,8 +579,8 @@ const StyledTd=styled.td`
     }}
     ></td>
     <StyledTd color={headerBlue}>Total</StyledTd>
-    <StyledTd color={headerBlue}>{this.props.store.totalRetailerQty}</StyledTd>
-    <StyledTd color={headerBlue}>{this.props.store.totalRetailerCost}</StyledTd>
+    <StyledTd color={headerBlue}>{this.getTotalQty()}</StyledTd>
+    <StyledTd color={headerBlue}>{this.getTotalCost()}</StyledTd>
     <td  colspan={totalRowSpan[device]-qtyRowSpan[device]-1}
     style={{
       'background-color':headerBlue
@@ -625,7 +589,7 @@ const StyledTd=styled.td`
     </tr>
     </Table>
     <c.RowCenterDiv>
-      <Button onClick={()=>this.props.callbackf('confirmOrder')}>Submit order draft</Button>
+      <Button onClick={()=>this.confirmOrder()}>Submit order draft</Button>
     </c.RowCenterDiv>
     </c.ColPureDiv>
     </Wrapper>

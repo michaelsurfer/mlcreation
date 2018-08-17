@@ -76,7 +76,7 @@ class ShoppingCart extends Component{
     this.setState({cart:cart});
     this.props.store.subTotalCost = this.getSubTotalCost();
     */
-    this.props.store.setCart(key,qty);
+    this.props.store.setCart(key,qty,'');
   }
   getSubTotalCost(){
     var total=0;
@@ -100,6 +100,7 @@ class ShoppingCart extends Component{
     var result=[];
     var cart=this.props.store.shoppingCart;
     for(var id in cart){
+        //id : ITS-R
         var qty = cart[id].qty;
          var productCode = cart[id].name;
         //id = productCode[0];

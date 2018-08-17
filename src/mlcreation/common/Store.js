@@ -4,17 +4,47 @@ import data from "../asset/ProductList.json";
 import {computed} from "mobx";
 
 export default class Store{
-  @observable login = false;
+  @observable login = true;
   @observable showPaymentModal = 'none';
-  @observable retailerData ={};
+  @observable retailerData ={
+    company:{value:'test'},
+    ein:{value:'test'},
+    website:{value:'test'},
+    buyer:{value:'test'},
+    ein:{value:'test'},
+    phone:{value:'test'},
+    email:{value:'test'},
+    password:{value:'test'},
+    address:{value:'test'},
+    city:{value:'test'},
+    area:{value:'test'},
+    street:{value:'test'},
+    no:{value:'test'},
+    floor:{value:'test'},
+    room:{value:'test'},
+    zip:{value:'test'},
+    country:{value:'test'},
+    retailer:{value:'test'},
+    retailerNo:{value:'test'},
+    mine:{value:'test'},
+    eTailer:{value:'test'},
+    eTailerNo:{value:'test'},
+    amazon:{value:'test'},
+    eBay:{value:'test'},
+    other:{value:'test'}
+
+
+
+  };
   @observable loginError = false;
   @observable shoppingCart={};
+  @observable retailerCart={};
   @observable subTotalCost=0;
 
   /* shopping cart example
     {
     id as string:{qty:qty as number},
-    "1":{qty:10},
+    "ITS-B":{name:"ITS,color:B,qty:10},
     "2":{qty:2}
     }
   */
@@ -22,9 +52,10 @@ export default class Store{
 
   @computed
   get total(){
+    var cart;
+    cart=this.shoppingCart;
     var total = 0;
-    var cart = this.shoppingCart;
-    for(var item in cart){
+     for(var item in cart){
       var qty = cart[item].qty;
       var code = cart[item].name;
       var price = data[code].retailPrice;
@@ -34,7 +65,34 @@ export default class Store{
     console.log(total);
     return total;
   }
-
+  get totalRetailerCost(){
+    var cart;
+    cart=this.retailerCart;
+    var total = 0;
+     for(var item in cart){
+      var qty = cart[item].qty;
+      var code = cart[item].name;
+      var price = data[code].retailPrice;
+      if(qty==''){qty=0}
+      total = total + parseInt(qty)*parseInt(price);
+    }
+    console.log(total);
+    return total;
+  }
+  get totalRetailerQty(){
+      var cart;
+      cart=this.retailerCart;
+      var total = 0;
+       for(var item in cart){
+        var qty = cart[item].qty;
+        var code = cart[item].name;
+        var price = data[code].retailPrice;
+        if(qty==''){qty=0}
+        total = total + parseInt(qty);
+      }
+      console.log(total);
+      return total;
+    }
   get cartSize(){
     /*
     var size = Object.keys(this.shoppingCart).length;
@@ -46,6 +104,8 @@ export default class Store{
     }
     return size;
   }
+
+
 
 
   loadShoppingCart(){
@@ -72,6 +132,7 @@ export default class Store{
 
   }
   addOne2Cart(id,color){
+
     var cart = this.shoppingCart;
     var qty=1;
     var json={};
@@ -89,10 +150,13 @@ export default class Store{
 
     cart[productID]=json;
 
-    this.shoppingCart=cart;
+
+      this.shoppingCart = cart ;
+
+
   }
 
-  setCart(id,qty){
+  setCart(id,qty,type){
     /*
     var newQty=qty;
     var existingJson=this.shoppingCart[id];
@@ -101,10 +165,24 @@ export default class Store{
     };
     */
     console.log(id);
-    var cart = this.shoppingCart;
+    //id : ITS-B
+    var cart;
+    if(type=='retailer'){
+      cart = this.retailerCart;
+    }else{
+      cart = this.shoppingCart;
+    }
+
     cart[id].qty=qty;
-    this.shoppingCart=cart;
-    this.setSubTotal();
+
+    if(type=='retailer'){
+      this.retailerCart=cart;
+    }else{
+      this.shoppingCart=cart;
+      this.setSubTotal();
+    }
+
+
   }
 
   setSubTotal(){

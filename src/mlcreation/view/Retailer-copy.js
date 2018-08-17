@@ -65,18 +65,19 @@ constructor(props){
   this.back=this.back.bind(this);
 }
 
-confirmCallBack(nextStep){
+confirmCallBack(data,nextStep){
   /*
   nextStep :
   confirmOrder , data = purchase detail
   payOrder , data = server response uuid
   */
   console.log('confirm callback');
+  console.log(data);
 
   if(nextStep=='payment'){
     this.setState({
-       //orderNo:data.data.uui
-       orderNo:'234567890'
+      totalCost:data.totalCost,
+      orderNo:data.data.uuid
     });
   }
   this.setState({page:nextStep});
@@ -114,7 +115,7 @@ render(){
          <PaymentForm
          orderNo={this.state.orderNo}
          orderDate="order date"
-         productCost={this.props.store.totalRetailerCost}
+         productCost={this.state.totalCost}
          shipmentCost='50'
          callbackf={this.back}
          />
