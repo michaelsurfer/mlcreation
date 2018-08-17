@@ -16,6 +16,25 @@ import {YourAccountView} from './mlcreation/view/YourAccountView';
 import ShoppingCartView from './mlcreation/view/ShoppingCartView';
 
 
+const ModalWrapper=styled.div`
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:${(props)=>props.display};
+`;
+
+const Modal=styled.div`
+position:fixed;
+background:white;
+width:auto;
+height:auto;
+top:50%;
+left:50%;
+transform: translate(-50%,-50%);
+`;
 
 const HomeView = () =>(
   <div>
@@ -127,9 +146,23 @@ class App extends Component {
    }
 
   render() {
+    var loading = 'none';
+    if(this.props.store.loading){loading = 'block'}
+
     return (
       <Router>
       <div>
+      <ModalWrapper display={loading}>
+
+        <Modal>
+
+        LOADING....
+
+        </Modal>
+      </ModalWrapper>
+
+
+
        <Route exact path="/" component={HomeView}/>
        <Route exact path="/product/:gender/:productID" component={ProductView}/>
        <Route exact path="/productList/:gender" component={ProductListView}/>
@@ -139,8 +172,6 @@ class App extends Component {
        <Route exact path="/yourAccount" component={YourAccount}/>
        <Route exact path="/activation/:code" component={Activation}/>
        <Route exact path="/cart" component={ShoppingCart}/>
-
-
       {<Footer/>}
       </div>
       </Router>

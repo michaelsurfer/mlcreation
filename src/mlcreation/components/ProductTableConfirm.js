@@ -63,7 +63,7 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'text'
+    type:'refNo'
   },
   itemName:{
     title:"Item Name",
@@ -78,7 +78,7 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'text'
+    type:'color'
 
   },
   itemPic:{
@@ -136,117 +136,25 @@ class ProductTableConfirm extends Component{
 
   constructor(props){
     super(props);
-    var shoppingCart={};
-    var cart={};
-    var sessionData=JSON.parse(sessionStorage.getItem("retailerOrder"));
-    if(!sessionData){
-
-     for(var item in data){
-      //var id = data[item].uid;
-      cart[item]=0;
-      };
-    }else{
-
-      cart = sessionData;
-    }
-
-    this.state={
-      cart:cart,
-      orderNo:0
-    };
 
    }
 
 
   componentDidMount(){
-/*
-    var cart={};
-
-    var sessionData=JSON.parse(sessionStorage.getItem("retailerOrder"));
-    if(!sessionData){
-
-     for(var item in data){
-      //var id = data[item].uid;
-      cart[item]=0;
-      };
-    }else{
-
-      cart = sessionData;
-    }
-
-    //get the possible orderNo
-
-     fetch(apis.getNextOrderNo.endpoint)
-    .then(response=>response.json())
-    .then(data=>{
-      console.log("order No:"+data.id);
-      this.setState({orderNo:data.id});
-
-    });
-    console.log(cart);
-    this.setState({cart:cart});
-*/
+    this.props.store.refreshOrderNo();
    }
 
 
    back(){
-     this.props.callbackf("",'takeOrder');
+     this.props.callbackf('takeOrder');
    }
 
    confirmOrder(){
-     var data = JSON.stringify(this.state.cart);
-     sessionStorage.setItem("retailerOrder", data);
-     //this.setState({showConfirmForm:true})
-    // fetch('http://localhost:3001/createOrder',{
-    fetch(apis.createOrder.endpoint,{
-
-       method:'POST',
-       headers:{
-         'Accept':'application/json',
-         'Content-Type':'application/json',
-       },
-       body:JSON.stringify({data:data}),
-     }).then(response=>response.json())
-     .then(data=>{
-       console.log("server response uuid :"+data.uuid);
-       this.props.callbackf({data:data,totalCost:this.getTotalCost()},'payment');
-     });
+     this.props.store.createOrder();
+     
+     this.props.callbackf('payment');
    }
 
-  getTotalQty(){
-    var total=0;
-    var cartData=this.state.cart;
-    for(var item in cartData){
-      var qty = cartData[item];
-      if(qty==""){qty=0;}
-      total=total+parseInt(qty);
-    };
-    return total;
-  }
-
-
-  getTotalCost(){
-    var total=0;
-    var cartData=this.state.cart;
-    for(var item in cartData){
-      var qty = cartData[item];
-      if(qty==""){qty=0;}
-      total=total+parseInt(qty)*parseInt(data[item].retailPrice);
-    };
-     return total;
-  }
-
-
-
-  updateCart(e){
-    var key = e.target.id;
-    var qty = e.target.value;
-    if(qty==""){qty=0;}
-    qty=parseInt(qty).toFixed(0);
-    var cart = this.state.cart;
-    cart[key]=qty;
-    this.setState({cart:cart});
-  }
 
   renderTop(device){
     var result=[];
@@ -399,7 +307,7 @@ class ProductTableConfirm extends Component{
       <td style={{
         'background-color':headerBlue,
         'border':'1px solid black'
-      }} colspan={headerRowSpan[device]}>ML Creation Order No: {this.state.orderNo}</td>
+      }} colspan={headerRowSpan[device]}>ML Creation Order No: {this.props.store.orderNo.orderNo}</td>
       <td style={{
         'background-color':headerBlue,
         'border':'1px solid black'
@@ -429,85 +337,110 @@ class ProductTableConfirm extends Component{
         {result}
       </tr>
     )
-
-
   }
 
-  renderTableData(device,data){
-    var result=[];
-    console.log(data);
-    for(var item in data){
 
-      var dataJson = data[item];
 
+    renderRow(device,rowData,code,color){
+
+      var dataJson=rowData;
+      var productID = code+"-"+color;
+      var output="";
       var rowData=[];
+      console.log("render Row");
+      console.log(productID);
+      console.log(dataJson);
+      /*
+      if(!this.props.store.retailerCart[productID]){
+        this.props.store.retailerCart[productID]={
+          name:code,
+          qty:0,
+          color:color
+        }
+      }
+      */
+      var id = this.props.store.retailerCart[productID];
+      if(id && id.qty!=0){
 
       for(var field in TableField){
         var json = TableField[field];
          if(json[device]){
-          var output;
-          switch(json.type){
+           switch(json.type){
+             case 'color':
+               output = c.ProductColorCode[color].name;
+             break;
+             case 'refNo':
+               output = "W-"+code+"-"+color;
+             break;
             case 'text':
               output = dataJson[field];
             break;
             case 'input':
+              output = this.props.store.retailerCart[productID].qty;
             /*
-               output =
+              output =
                   <input type='number'
-                  id={dataJson.uid}
+                  id={productID}
                   min={0}
-                  value={this.state.cart[dataJson.uid]}
+                  value={this.props.store.retailerCart[productID].qty}
                   onChange={(e)=>this.updateCart(e)}
                   style={{
                     'width':'30px'
                   }}
                   />
               */
-              output = this.state.cart[item];
-              //console.log(this.state.cart);
              break;
              case 'img':
               output=
                 <SmallImageBox image={itemSmall}/>
              break;
-             case 'button':
-                output =
-                  <button
-                  id={item}
-                  value={0}
-                  onClick={(e)=>this.updateCart(e)}
-                  >Delete</button>
-             break;
+
             case 'state':
             //state mean real time form data, state.
-              var qty = this.state.cart[item];
+              var qty = this.props.store.retailerCart[productID].qty;
               if(qty==""){qty=0;}
               output = parseInt(qty)*dataJson.retailPrice;
              break;
             default:
             break;
           }
-
-
-          rowData.push(
-            <StyledTd color='white'>
-            {output}
-            </StyledTd>
-          );
         }
-       }
-       result.push(<tr>{rowData}</tr>);
+
+        rowData.push(
+          <StyledTd color='white'>
+          {output}
+          </StyledTd>
+        );
 
 
-    };
+      }
+    }
 
-    return(
-      <tbody>{result}</tbody>
-    );
+        return rowData;
 
-  }
+    }
 
 
+
+      renderTableData(device,data){
+        var result=[];
+        console.log(data);
+        for(var item in data){
+          //item = CODE only
+          var colorArray = data[item].color;
+          var rowData = data[item];
+          var code = item;
+          colorArray.map((color,i)=>{
+            result.push(
+              <tr>
+               {this.renderRow(device,rowData,code,color)}
+               </tr>
+            );
+          });
+        }
+
+        return result;
+      }
 
   render(){
      var device = this.props.device;
@@ -526,8 +459,8 @@ class ProductTableConfirm extends Component{
     }}
     ></td>
     <StyledTd color={headerBlue}>Total</StyledTd>
-    <StyledTd color={headerBlue}>{this.getTotalQty()}</StyledTd>
-    <StyledTd color={headerBlue}>{this.getTotalCost()}</StyledTd>
+    <StyledTd color={headerBlue}>{this.props.store.totalRetailerQty}</StyledTd>
+    <StyledTd color={headerBlue}>{this.props.store.totalRetailerCost}</StyledTd>
 
     {device=='desktop' &&
 

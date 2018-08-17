@@ -60,7 +60,7 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'text'
+    type:'refNo'
   },
   itemName:{
     title:"Item Name",
@@ -75,7 +75,7 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'text'
+    type:'color'
 
   },
   itemPic:{
@@ -161,16 +161,7 @@ const StyledTd=styled.td`
 
 
   componentDidMount(){
-
-
-    fetch(apis.getNextOrderNo.endpoint)
-   .then(response=>response.json())
-   .then(data=>{
-     console.log("order No:"+data.id);
-     this.setState({orderNo:data.id});
-
-   });
-
+    this.props.store.refreshOrderNo();
      }
 
    confirmOrder(){
@@ -392,7 +383,7 @@ const StyledTd=styled.td`
       <td style={{
         'background-color':headerBlue,
         'border':'1px solid black'
-      }} colspan={headerRowSpan[device]}>ML Creation Order No: {this.state.orderNo}
+      }} colspan={headerRowSpan[device]}>ML Creation Order No: {this.props.store.orderNo.orderNo}
 
       </td>
       <td style={{
@@ -449,6 +440,12 @@ const StyledTd=styled.td`
       var json = TableField[field];
        if(json[device]){
          switch(json.type){
+          case 'color':
+            output = c.ProductColorCode[color].name;
+          break;
+          case 'refNo':
+            output = "W-"+code+"-"+color;
+          break;
           case 'text':
             output = dataJson[field];
           break;

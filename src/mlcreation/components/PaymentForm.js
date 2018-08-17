@@ -35,7 +35,7 @@ border:0px solid grey;
 width:100%;
 `;
 
- 
+
 
 const Button=styled.button`
 background-color:${(props)=>props.black? 'black':'rgb(240,160,143)'};
@@ -62,8 +62,9 @@ constructor(props){
 }
 
 componentDidMount(){
+  /*
   //fetch('http://localhost:3001/checkOrder/'+this.props.orderNo)
-  fetch(apis.checkOrder.endpoint+this.props.orderNo)
+  fetch(apis.checkOrder.endpoint+this.props.store.orderNo.uuid)
 
     .then(response=>response.json())
     .then(data=>{
@@ -75,7 +76,7 @@ componentDidMount(){
         total:data.total
       });
     });
-
+*/
 }
 
 
@@ -188,9 +189,9 @@ return(
     <Modal>
 
      <StripePayment
-      total={this.state.total}
+      total={this.props.store.totalRetailerCost}
       shipmentCost={this.props.shipmentCost}
-      orderNo={this.props.orderNo}
+      orderNo={this.props.store.orderNo.orderNo}
     />
 
     </Modal>

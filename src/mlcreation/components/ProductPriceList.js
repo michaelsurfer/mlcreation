@@ -3,7 +3,7 @@ import styled from "styled-components";
 import data from "../asset/ProductList.json";
 import * as c from '../common/Css2.js';
 import itemSmall from '../image/itemSmall.png';
-
+import {observer,inject} from "mobx-react";
 
 const titlePink=c.ColorSchema.titlePink.color;
 const titleBlue=c.ColorSchema.titleBlue.color;
@@ -52,7 +52,7 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'text'
+    type:'refNo'
   },
   itemName:{
     title:"Item Name",
@@ -67,7 +67,7 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'text'
+    type:'color'
 
   },
   itemPic:{
@@ -120,6 +120,8 @@ const StyledTd=styled.td`
 
 
 
+  @inject('store')
+  @observer
   class ProductPriceList extends Component{
 
   constructor(props){
@@ -152,6 +154,110 @@ const StyledTd=styled.td`
 
   }
 
+
+    renderRow(device,rowData,code,color){
+
+      var dataJson=rowData;
+      var productID = code+"-"+color;
+      var output="";
+      var rowData=[];
+      console.log("render Row");
+      console.log(productID);
+      console.log(dataJson);
+      if(!this.props.store.retailerCart[productID]){
+        this.props.store.retailerCart[productID]={
+          name:code,
+          qty:0,
+          color:color
+        }
+      }
+
+      for(var field in TableField){
+        var json = TableField[field];
+         if(json[device]){
+           switch(json.type){
+            case 'color':
+              output = c.ProductColorCode[color].name;
+            break;
+            case 'refNo':
+              output = "W-"+code+"-"+color;
+            break;
+            case 'text':
+              output = dataJson[field];
+            break;
+            case 'input':
+              output =
+                  <input type='number'
+                  id={productID}
+                  min={0}
+                  value={this.props.store.retailerCart[productID].qty}
+                  onChange={(e)=>this.updateCart(e)}
+                  style={{
+                    'width':'30px'
+                  }}
+                  />
+
+             break;
+             case 'img':
+              output=
+                <SmallImageBox image={itemSmall}/>
+             break;
+             case 'button':
+                output =
+                  <button
+                  id={productID}
+                  value={0}
+                  onClick={(e)=>this.updateCart(e)}
+                  >Delete</button>
+             break;
+            case 'state':
+            //state mean real time form data, state.
+              var qty = this.props.store.retailerCart[productID].qty;
+              if(qty==""){qty=0;}
+              output = parseInt(qty)*dataJson.retailPrice;
+             break;
+            default:
+            break;
+          }
+        }
+
+        rowData.push(
+          <StyledTd color='white'>
+          {output}
+          </StyledTd>
+        );
+
+
+      }
+
+
+        return rowData;
+
+    }
+
+    renderTableData(device,data){
+      var result=[];
+      console.log(data);
+      for(var item in data){
+        //item = CODE only
+        var colorArray = data[item].color;
+        var rowData = data[item];
+        var code = item;
+        colorArray.map((color,i)=>{
+          result.push(
+            <tr>
+             {this.renderRow(device,rowData,code,color)}
+             </tr>
+          );
+        });
+      }
+
+      return result;
+    }
+
+
+
+/*
   renderTableData(device,data){
     var result=[];
     console.log(data);
@@ -211,7 +317,7 @@ const StyledTd=styled.td`
     );
 
   }
-
+*/
 
 
   render(){

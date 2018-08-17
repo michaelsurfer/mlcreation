@@ -37,10 +37,11 @@ export default class Store{
 
   };
   @observable loginError = false;
-  @observable shoppingCart={};
-  @observable retailerCart={};
-  @observable subTotalCost=0;
-
+  @observable shoppingCart = {};
+  @observable retailerCart = {};
+  @observable subTotalCost = 0;
+  @observable orderNo = {orderNo:0,uuid:0};
+  @observable loading = false;
   /* shopping cart example
     {
     id as string:{qty:qty as number},
@@ -105,7 +106,32 @@ export default class Store{
     return size;
   }
 
+  createOrder(){
+    this.loading = true;
+    fetch(apis.createOrder.endpoint,{
 
+       method:'POST',
+       headers:{
+         'Accept':'application/json',
+         'Content-Type':'application/json',
+       },
+       body:JSON.stringify({data:this.retailerCart}),
+     }).then(response=>response.json())
+     .then(data=>{
+       this.orderNo.uuid=data.uuid;
+       console.log("order created on the server with uuid "+data.uuid);
+       this.loading = false;
+     });
+  }
+
+  refreshOrderNo(){
+    fetch(apis.getNextOrderNo.endpoint)
+   .then(response=>response.json())
+   .then(data=>{
+      this.orderNo.orderNo=data.id
+   });
+
+  }
 
 
   loadShoppingCart(){

@@ -151,6 +151,7 @@ render(){
      <FormWrapper>
     <Total>Total :$ {this.props.total} (USD)</Total>
     <Total>Shipment Cost :$ {this.props.shipmentCost} (USD)</Total>
+    <Total>Shipment Cost :$ {this.props.orderNo} (USD)</Total>
 
     </FormWrapper>
     <form onSubmit={this.handleSubmit}>
