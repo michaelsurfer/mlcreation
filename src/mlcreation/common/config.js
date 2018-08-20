@@ -1,7 +1,10 @@
 export const domain = 'http://localhost:3001/';
 
 export const apis = {
-
+  transactionHistory:{
+    endpoint:domain+"getTransactions/",
+    method:'GET'
+    },
   payment:{
     endpoint:domain+"payment/",
     method:'POST'

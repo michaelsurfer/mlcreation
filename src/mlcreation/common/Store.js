@@ -13,7 +13,7 @@ export default class Store{
     buyer:{value:'test'},
     ein:{value:'test'},
     phone:{value:'test'},
-    email:{value:'test'},
+    email:{value:'abc'},
     password:{value:'test'},
     address:{value:'test'},
     city:{value:'test'},

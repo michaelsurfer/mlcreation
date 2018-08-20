@@ -14,6 +14,7 @@ import LoginView from './mlcreation/view/LoginView';
 import {observer,inject} from "mobx-react";
 import {YourAccountView} from './mlcreation/view/YourAccountView';
 import ShoppingCartView from './mlcreation/view/ShoppingCartView';
+import TransactionView from './mlcreation/view/TransactionView';
 
 
 const ModalWrapper=styled.div`
@@ -42,6 +43,14 @@ const HomeView = () =>(
   <Home/>
   </div>
 );
+
+const Transaction = inject('store')(observer((props)=>{
+  return(
+  <div>
+    <TransactionView/>
+  </div>
+);
+}));
 
 const ProductView = ({match}) =>(
 <div>
@@ -172,6 +181,8 @@ class App extends Component {
        <Route exact path="/yourAccount" component={YourAccount}/>
        <Route exact path="/activation/:code" component={Activation}/>
        <Route exact path="/cart" component={ShoppingCart}/>
+       <Route exact path="/transaction" component={Transaction}/>
+
       {<Footer/>}
       </div>
       </Router>

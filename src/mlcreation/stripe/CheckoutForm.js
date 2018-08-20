@@ -126,7 +126,9 @@ class CheckoutForm extends Component{
           console.log(payload.token.id);
           var json = {
             token:payload.token.id,
-            orderNo:this.props.orderNo
+            orderNo:this.props.orderNo,
+            uuid:this.props.uuid,
+            email:this.props.store.retailerData.email.value
           }
         //  fetch('http://localhost:3001/payment/',{
         fetch(apis.payment,{
@@ -151,7 +153,8 @@ render(){
      <FormWrapper>
     <Total>Total :$ {this.props.total} (USD)</Total>
     <Total>Shipment Cost :$ {this.props.shipmentCost} (USD)</Total>
-    <Total>Shipment Cost :$ {this.props.orderNo} (USD)</Total>
+    <Total>Order No :$ {this.props.orderNo} (USD)</Total>
+    <Total>UUID :$ {this.props.uuid} (USD)</Total>
 
     </FormWrapper>
     <form onSubmit={this.handleSubmit}>

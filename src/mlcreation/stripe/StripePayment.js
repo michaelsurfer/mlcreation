@@ -9,7 +9,8 @@ export const StripePayment=({
   format,
   total=0,
   orderNo=0,
-  shipmentCost=0
+  shipmentCost=0,
+  uuid=0
 })=>{
 return(
   <c.FullPureDiv>
@@ -20,6 +21,7 @@ return(
       total={total}
       shipmentCost={shipmentCost}
       orderNo={orderNo}
+      uuid={uuid}
       />
     </Elements>
   </StripeProvider>

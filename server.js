@@ -1,7 +1,7 @@
 var bodyParser = require('body-parser');
 var express = require('express');
 const uuidv4 = require('uuid/v4');
-var productData = require('./ProductList.json');
+var productData = require('./src/mlcreation/asset/ProductList.json');
 var loki = require('lokijs');
 var nodemailer = require('nodemailer');
 
@@ -135,9 +135,48 @@ function add2Transactions(email,uuid){
 
 
 function getTransactions(email){
-  var record = transactionHistory.findOne({email:email});
-  if(record){
-  return record;
+  console.log("getTransactions "+email);
+  var uuidArray = transactionHistory.findOne({email:email});
+  var record="";
+  if(uuidArray){
+    console.log(typeof uuidArray.uuid);
+    //loop the uuid array and get order list
+     var resultArray=[];
+    //_uuidArray= uuidArray;
+    Object.values(uuidArray.uuid).map(function(obj){
+    //uuidArray.map((item,i)=>{
+      record = order.findOne({uuid:obj});
+      var json={};
+      if(record){
+        json={
+          uuid:record.uuid,
+          orderNo:record.orderNo,
+          orderList:record.orderList
+        };
+
+        resultArray.push(json);
+      }
+      console.log(resultArray);
+    });
+
+  var result={};
+
+  if(!uuidArray){
+    result= {state:404}
+  }else{
+    if(!record || record==""){
+      result= {state:404}
+    }else{
+      result = {
+        state:200,
+        data:resultArray
+      }
+    }
+
+  }
+
+
+  return result;
 }
 };
 
@@ -152,6 +191,8 @@ app.get('/add2Transactions/:email/:uuid',function(req,res){
 
 app.get('/getTransactions/:email',function(req,res){
   var email =req.params.email;
+  console.log("getTransactions "+email);
+
   var result = getTransactions(email);
   res.send(result);
 });
@@ -178,7 +219,7 @@ app.post('/createOrder',function(req,res){
 	//save orderList with uuid and return to user
 
 	var json = {
-		uid:uuid,
+		uuid:uuid,
 		orderNo:nextID,
 		orderList:orderList,
 		pay:false
@@ -199,8 +240,8 @@ app.post('/createOrder',function(req,res){
 app.get('/checkOrder/:uuid',function(req,res){
 		var uuid = req.params.uuid;
     console.log(uuid);
-		var result = order.findOne({uid:uuid});
-
+		var result = order.findOne({uuid:uuid});
+    console.log(result);
 		var total = checkTotal(uuid);
 
 		if(result){
@@ -208,7 +249,8 @@ app.get('/checkOrder/:uuid',function(req,res){
 				{
 				state:200,
 				total:total,
-				orderNo:result.orderNo
+				orderNo:result.orderNo,
+        orderList:result.orderList
 				});
 		}else{
 			res.send(
@@ -298,6 +340,14 @@ app.get('/activation/:email/:code',function(req,res){
 
 });
 
+
+app.post('/test2/',function(req,res){
+  var data = req.body;
+  console.log("test");
+  console.log(data);
+  res.send(200);
+});
+
 app.post('/login/',function(req,res){
 	var data=req.body;
 	console.log(data);
@@ -335,10 +385,14 @@ app.post('/login/',function(req,res){
 app.post('/payment/',async function(req,res){
 	var data=req.body;
 	var token = data.token;
-	var orderNo = data.orderNo
-
+	var orderNo = data.orderNo;
+  var uuid = data.uuid;
+  var email = data.email;
 	console.log("token :"+token);
 	console.log("Order No :"+orderNo);
+  console.log("UUID :"+uuid);
+  console.log("email :"+email);
+
 
 /*
 	const charge = await stripe.charges.create({

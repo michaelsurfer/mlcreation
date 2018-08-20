@@ -192,6 +192,7 @@ return(
       total={this.props.store.totalRetailerCost}
       shipmentCost={this.props.shipmentCost}
       orderNo={this.props.store.orderNo.orderNo}
+      uuid={this.props.store.orderNo.uuid}
     />
 
     </Modal>
