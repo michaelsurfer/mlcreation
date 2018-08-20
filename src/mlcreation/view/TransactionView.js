@@ -4,6 +4,7 @@ import Transactions from '../components/Transactions';
 import * as c from '../common/Css2.js';
 import {observer,inject} from "mobx-react";
 import {apis} from '../common/config.js';
+import RetailerBar from '../navigation/RetailerBar';
 
 @inject('store')
 @observer
@@ -33,8 +34,10 @@ class TransactionView extends Component{
 
   render(){
     var transactions=this.state.transactionHistory;
+    console.log(transactions);
     return(
       <div>
+      <RetailerBar/>
       {(this.state.loaded) &&
         <Transactions transactions={transactions}/>
       }

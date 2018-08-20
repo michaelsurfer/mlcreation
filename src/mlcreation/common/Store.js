@@ -115,7 +115,10 @@ export default class Store{
          'Accept':'application/json',
          'Content-Type':'application/json',
        },
-       body:JSON.stringify({data:this.retailerCart}),
+       body:JSON.stringify({
+         data:this.retailerCart,
+         email:this.retailerData.email.value
+       }),
      }).then(response=>response.json())
      .then(data=>{
        this.orderNo.uuid=data.uuid;

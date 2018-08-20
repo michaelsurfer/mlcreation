@@ -36,7 +36,7 @@ render(){
         </c.Link>
       </SubWrapper>
       <SubWrapper>
-        <c.Link to=''>
+        <c.Link to='/transaction'>
           Your Order History
         </c.Link>
       </SubWrapper>

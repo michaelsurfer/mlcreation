@@ -9,7 +9,7 @@ import styled from "styled-components";
 import React,{Component} from 'react';
 import data from "../asset/ProductList.json";
 import * as c from '../common/Css2.js';
-import {ShoppingCartTable} from './ShoppingCart/ShoppingCartTable';
+import ShoppingCartTable from './shoppingCart/ShoppingCartTable';
 
 
 const RemoveText=styled.label`
@@ -61,23 +61,6 @@ class ShoppingCart extends Component{
     });
   }
 
-
-
-
-
-  updateQty(e){
-    var key=e.target.id;
-    var qty=e.target.value;
-    if(qty==""){qty=0;}
-    qty=parseInt(qty).toFixed(0);
-    /*
-    var cart = this.state.cart;
-    cart[key]=qty;
-    this.setState({cart:cart});
-    this.props.store.subTotalCost = this.getSubTotalCost();
-    */
-    this.props.store.setCart(key,qty,'');
-  }
   getSubTotalCost(){
     var total=0;
     var cartData=this.state.cart;
@@ -96,121 +79,21 @@ class ShoppingCart extends Component{
     return total+10;
   }
 
-  renderTableData(){
-    var result=[];
-    var cart=this.props.store.shoppingCart;
-    for(var id in cart){
-        //id : ITS-R
-        var qty = cart[id].qty;
-         var productCode = cart[id].name;
-        //id = productCode[0];
-        //console.log(id);
-        result.push(
-           <tr>
-            <td>
-              IMAGE
-            </td>
-            <td>
-              {data[productCode].refNo}
-            </td>
-            <td>
-              {data[productCode].itemName}
-            </td>
-            <td>
-              {data[productCode].color}
-            </td>
-            <td>
-              <Input type='number' value={qty} id={id} onChange={(e)=>this.updateQty(e)}/>
-              <RemoveText
-              onClick={()=>this.props.store.removeFromCart(id)}
-              >remove</RemoveText>
-            </td>
-
-            <td>
-              {data[productCode].retailPrice}
-            </td>
-
-          </tr>
-        );
-
-        result.push(
-          <tr>
-          <td colspan='6'>
-          <Line>
-          </Line>
-          </td>
-          </tr>);
+  render(){
+    var history={
+      "ITS-S":{name:"ITS",qty:12,color:"S"}
     }
 
-    return(
-      <tbody>
-        {result}
-      </tbody>
-    );
+    return (
+      <div>
+      <ShoppingCartTable />
+      <ShoppingCartTable type='history' history={history}/>
+      <ShoppingCartTable type='history' history={history}/>
 
+      </div>
+          )
   }
 
-
-  render(){
-    return <ShoppingCartTable/>
-  }
-  render2(){
-    return(
-     <Table>
-    <tr style={{
-      'border':'1px solid grey'
-    }}>
-      <td>
-      Item
-      </td>
-      <td>
-      W-Ref. No.
-      </td>
-      <td>
-      Name
-      </td>
-      <td>
-      Color
-      </td>
-      <td>
-      Qty.
-      </td>
-      <td>
-      Price
-      </td>
-    </tr>
-    {this.renderTableData()}
-    <tr>
-      <td colspan='4'></td>
-      <td>SUBTOTAL</td>
-      <td>{this.props.store.total}</td>
-    </tr>
-    <tr>
-      <td colspan='4'></td>
-      <td>SHIPPING</td>
-      <td>21</td>
-    </tr>
-    <tr style={{
-       'border-left':'1px solid grey',
-      'border-right':'1px solid grey',
-      'border-bottom':'1px solid grey'
-    }}>
-    <td colspan='6'> </td>
-    </tr>
-    <tr style={{
-       'height':'50px',
-       'border-left':'1px solid white',
-      'border-right':'1px solid white',
-      'border-bottom':'1px solid grey'
-    }}>
-    <td colspan='4'></td>
-    <td><Total>TOTAL</Total></td>
-    <td></td>
-
-    </tr>
-    </Table>
-   )
-  }
 
 }
 

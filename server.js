@@ -90,7 +90,7 @@ function getNextOrderNumber(){
 	return id;
 }
 
-function checkTotal(uuid){
+function checkTotal2(uuid){
 
 	var result = order.findOne({uid:uuid});
 	if(!result){return 404}
@@ -103,7 +103,7 @@ function checkTotal(uuid){
 	for(var item in orderList){
 			console.log(orderList[item]);
 
-		total = total + (orderList[item]*productData[item].retailPrice);
+		total = total + (orderList[item]*productData[orderList[item].name].retailPrice);
 	}
 	console.log("Total price: "+total);
 	return total;
@@ -111,6 +111,15 @@ function checkTotal(uuid){
 
 };
 
+function checkTotal(orderList){
+  //var orderList=orderList.data;
+  var total=0;
+  for(var item in orderList){
+    total = total + orderList[item].qty * productData[orderList[item].name].retailPrice;
+   }
+  //console.log("Total price: "+total);
+  return total;
+}
 
 function add2Transactions(email,uuid){
   /*
@@ -139,6 +148,7 @@ function getTransactions(email){
   var uuidArray = transactionHistory.findOne({email:email});
   var record="";
   if(uuidArray){
+    console.log("transaction found");
     console.log(typeof uuidArray.uuid);
     //loop the uuid array and get order list
      var resultArray=[];
@@ -151,12 +161,12 @@ function getTransactions(email){
         json={
           uuid:record.uuid,
           orderNo:record.orderNo,
-          orderList:record.orderList
+          orderList:record.orderList,
         };
 
         resultArray.push(json);
       }
-      console.log(resultArray);
+      console.log("get transaction result"+resultArray);
     });
 
   var result={};
@@ -192,7 +202,6 @@ app.get('/add2Transactions/:email/:uuid',function(req,res){
 app.get('/getTransactions/:email',function(req,res){
   var email =req.params.email;
   console.log("getTransactions "+email);
-
   var result = getTransactions(email);
   res.send(result);
 });
@@ -210,7 +219,9 @@ app.get('/getNextOrderNo',function(req,res){
 
 app.post('/createOrder',function(req,res){
 	//var orderList=req.params.orderList;
-	var orderList=req.body;
+  var _data = req.body;
+	var orderList=_data.data;
+  var email = _data.email;
 	var uuid = uuidv4();
 	console.log("received orderList");
 	console.log(orderList);
@@ -222,10 +233,12 @@ app.post('/createOrder',function(req,res){
 		uuid:uuid,
 		orderNo:nextID,
 		orderList:orderList,
-		pay:false
+		pay:false,
+    total:checkTotal(orderList)
 	};
 
 	console.log("insert order to db");
+  console.log(json);
 	order.insert(json);
 	res.send(
 		{
@@ -405,6 +418,7 @@ app.post('/payment/',async function(req,res){
 
 	console.log(charge);
 */
+add2Transactions(email,uuid);
 
  	res.send(
  			{

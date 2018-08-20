@@ -44,13 +44,13 @@ const HomeView = () =>(
   </div>
 );
 
-const Transaction = inject('store')(observer((props)=>{
-  return(
+const Transaction = ()=>(
+
   <div>
+    <NavBar/>
     <TransactionView/>
   </div>
 );
-}));
 
 const ProductView = ({match}) =>(
 <div>

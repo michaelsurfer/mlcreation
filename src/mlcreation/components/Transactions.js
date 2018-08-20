@@ -2,8 +2,20 @@ import React, { Component } from 'react';
 import styled from "styled-components";
 import * as c from '../common/Css2.js';
 import {apis} from '../common/config.js';
+import ShoppingCartTable from './shoppingCart/ShoppingCartTable';
 
-
+const InnerWrapper=styled.div`
+width:80%;
+padding:20px;
+`;
+const Wrapper=styled.div`
+width:100%;
+background-color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+`;
 class Transactions extends Component{
   constructor(props){
     super(props);
@@ -16,7 +28,10 @@ class Transactions extends Component{
     //var history = this.state.transactionHistory;
        history.map((item,i)=>{
         result.push(
-          <p>{item.orderNo}</p>
+           <div>
+           <p>Order No {item.orderNo}</p>
+           <ShoppingCartTable type='history' history={item.orderList}/>
+           </div>
         );
       })
 
@@ -26,9 +41,11 @@ class Transactions extends Component{
   render(){
     var history = this.props.transactions;
     return(
-      <div>
+      <Wrapper>
+      <InnerWrapper>
         {this.renderTable(history)}
-      </div>
+      </InnerWrapper>
+      </Wrapper>
     );
   }
 

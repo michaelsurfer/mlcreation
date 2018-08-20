@@ -66,7 +66,6 @@ const ColorBox=styled.div`
 width:20px;
 height:20px;
 background-color:${(props)=> c.ProductColorCode[props.color].color};
-
 `;
 
 const OutterColorBox=styled.div`

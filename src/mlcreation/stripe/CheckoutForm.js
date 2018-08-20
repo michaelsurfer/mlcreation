@@ -131,7 +131,7 @@ class CheckoutForm extends Component{
             email:this.props.store.retailerData.email.value
           }
         //  fetch('http://localhost:3001/payment/',{
-        fetch(apis.payment,{
+        fetch(apis.payment.endpoint,{
             method:'POST',
             headers:{
               'Accept':'application/json',
