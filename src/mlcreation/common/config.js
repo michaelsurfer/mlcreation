@@ -1,6 +1,10 @@
 export const domain = 'http://localhost:3001/';
 
 export const apis = {
+  activation:{
+    endpoint:domain+"activation/",
+    method:'GET'
+  },
   retrievePassword:{
     endpoint:domain+"retrievePassword/",
     method:'GET'

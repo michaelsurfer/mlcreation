@@ -16,6 +16,7 @@ import {YourAccountView} from './mlcreation/view/YourAccountView';
 import ShoppingCartView from './mlcreation/view/ShoppingCartView';
 import TransactionView from './mlcreation/view/TransactionView';
 import ContactUsView from './mlcreation/view/ContactUsView';
+import AccountActivation from './mlcreation/view/AccountActivation';
 
 const ModalWrapper=styled.div`
 position:fixed;
@@ -150,8 +151,12 @@ const ShoppingCart=()=>(
   </div>
 );
 
-const Activation=()=>(
+const Activation =({match}) =>(
   <div>
+    <NavBar/>
+    <AccountActivation 
+    email={match.params.email}
+    code={match.params.code}/>
   </div>
 );
 
@@ -188,10 +193,11 @@ class App extends Component {
        <Route exact path="/takeOrder" component={TakeOrder}/>
        <Route exact path="/priceList" component={PriceList}/>
        <Route exact path="/yourAccount" component={YourAccount}/>
-       <Route exact path="/activation/:code" component={Activation}/>
+       <Route exact path="/activation/:email/:code" component={Activation}/>
        <Route exact path="/cart" component={ShoppingCart}/>
        <Route exact path="/transaction" component={Transaction}/>
        <Route exact path="/contact" component={ContactUs}/>
+
 
       {<Footer/>}
       </div>

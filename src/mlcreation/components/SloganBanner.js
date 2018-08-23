@@ -8,13 +8,23 @@ flex:1;
 display:flex;
 flex-direction:column;
 align-items:center;
-background-color:${(props)=>props.colors[props.gender].color}
+justify-content:center;
+background-color:${(props)=>props.colors[props.gender].color};
+height:250px;
+
 `;
 
-const StyledTitle=styled.p`
-font-size:${(props)=>props.big ? 'x-large' : 'small'}
+const StyledTitle=styled.label`
+font-size:50px;
+color:rgb(9,9,9);
+font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
  `;
-
+ const StyledDesc=styled.label`
+ font-size:40px;
+ color:rgb(9,9,9);
+ font-weight:lighter;
+ padding:15px;
+ `;
 
 export const SloganBanner = ({
   gender='general',
@@ -23,8 +33,8 @@ export const SloganBanner = ({
 }) => {
 return(
 <StyledBanner gender={gender} colors={colors}>
-<StyledTitle big>ML Creation</StyledTitle>
-<StyledTitle>COOL.....THATS WHY HOT</StyledTitle>
+<StyledTitle big>ML CREATION</StyledTitle>
+<StyledDesc>COOL.....THAT'S WHY HOT</StyledDesc>
 
 </StyledBanner>
 );

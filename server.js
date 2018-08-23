@@ -82,7 +82,7 @@ function sendEmail(to,subject,message){
 }
 
 function sendEmailActivation(email,code){
-	var link="http://localhost:3001/"+email+"/"+code;
+	var link="http://localhost:3001/activation/"+email+"/"+code;
 	var htmlMessage="<h1>Thanks for registration</h1><a href="+link+" />Here</a>";
 	sendEmail(email,"Activate your account",htmlMessage);
 }
@@ -387,18 +387,19 @@ app.get('/activation/:email/:code',function(req,res){
 	//var retailerData = users.findOne({email:email});
 	var retailerData = users.findOne({email:email});
 	if(!retailerData){
-			res.send({state:404,result:false});
-
-	}else{
- 		if(retailerData.activationCode!=code){
-			res.send({state:200,result:false,error:'password'});
+			//res.send({state:404,result:false});
+			res.status(404).send('We are not able to find your account');
 		}else{
+ 		if(retailerData.activationCode!=code){
+			 //res.send({state:200,result:false,error:'password'});
+			res.status(404).send("Your activation code is wrong");
+			}else{
 			//activate account
 			retailerData.activated=true;
 			users.update(retailerData);
-
-			res.send({state:200,result:true,retailerData:retailerData});
-			}
+			//res.send({state:200,result:true,retailerData:retailerData});
+			res.status(200).json(retailerData);	
+		}
 		}
 
 

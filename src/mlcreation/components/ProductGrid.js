@@ -54,24 +54,32 @@ border-top:9px solid black;
 `;
 const StyledProductBox=styled.a`
   width:100%;
-  height:150px;
+  height:300px;
   background-color:rgb(239,238,242);
-  margin-left:2px;
-  margin-right:2px;
+  margin:2px 0px 0px 2px;
+
   background-image2:url(${itemImg});
   background-image:url(${(props)=>props.img});
   background-repeat:no-repeat;
   background-size: contain;
   background-position: center;
+  @media ${device.tablet}{
+    flex-direction:row;
+    margin:2px 0px 0px 0px;
+  }
 `;
 
 const StyledRow=styled.div`
 display:flex;
-flex-direction:row;
+flex-direction:column;
 flex-wrap:no-wrap;
-background-color:white;
-margin:10px 0px 10px 0px;
+background-color:black;
+margin:0px 0px 0px 0px;
 justify-content:space-between;
+@media ${device.tablet}{
+  flex-direction:row;
+  margin:10px 0px 10px 0px;
+}
  `;
 
 
@@ -109,47 +117,3 @@ export const ProductGrid=(({gender})=>{
 
     </BasicDiv>);
 });
-
-/*
-export const ProductGrid=({gender})=>{
-  var result=[];
-  var data = ProductIDArray[gender];
-  console.log(data);
-
-
-  for(var item in data){
-    console.log("array :"+data[item]);
-
-    var arraydata = data[item];
-    console.log("arraydata :"+arraydata[0]);
-    result.push(
-      <StyledRow>
-    );
-
-    var arraydata2=[1,2,3,4,5];
-    for(var ite in arraydata2){console.log("test "+arraydata2[ite])}
-
-    arraydata.map(id=>{
-       result.push(
-        <StyledProductBox/>
-      )
-    });
-
-    result.push(</StyledRow>);
-
-  };
-
-
-
-
-  return(
-    <c.ColCenterDiv>
-    <StyledCol>
-      {result}
-    </StyledCol>
-    </c.ColCenterDiv>
-  );
-
-}
-
-*/

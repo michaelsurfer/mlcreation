@@ -4,15 +4,18 @@ import { device } from "../common/device";
 import ImageSlider from '../components/ImageSlider';
 import himSubImg from '../image/himSubImg.png';
 import herSubImg from '../image/herSubImg.png';
+import littleRedLogo from '../image/littleRedLogo.png';
+import littleBlackLogo from '../image/littleBlackLogo.png';
+
 import {SloganBanner} from '../components/SloganBanner';
 
 const StyledLink = styled.a`
 text-decoration: none;
-
-  color:grey;
-
+color:grey;
 `;
-
+const SmallLogo=styled.img`
+padding:30px;
+`;
 const Page=styled.div`
 flex:1;
 display:flex;
@@ -31,12 +34,16 @@ border-radius:0px;
 `;
 
 
-const Title=styled.p`
+const Title=styled.label`
 color:${(props)=>props.him ? '#fff' : '#000'}
-font-size:${(props)=>props.big ? 'x-large' : 'small'}
+font-size:${(props)=>props.big ? '35px' : '25px'}
+font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;	
 
 `;
-
+const Space=styled.div`
+display:block;
+height:40px;
+`;
 const Section=styled.div`
 display:flex;
 flex:1;
@@ -65,7 +72,7 @@ flex:1;
 flex-direction:row;
 
 width:100%;
-height:180px;
+height:300px;
 justify-content:center;
 background-image:url(${props=>props.src});
 background-repeat:no-repeat;
@@ -73,7 +80,7 @@ background-size: contain;
 background-position:${props=>props.him ? 'left bottom':'right bottom'};
 
 @media ${device.tablet}{
-  height:280px;
+  height:400px;
 
  }
 
@@ -89,11 +96,12 @@ const StyledCard=styled(Card)`
 display:flex;
 flex:1;
 flex-direction:column;
-background-color:${props=>props.him ? '#000':'rgb(251,160,132)'};
+background-color:${props=>props.him ? 'rgb(20,24,23)':'rgb(251,160,132)'};
 height:auto;
 justify-content:center;
 align-items:center;
 text-align:center;
+padding:0px;
  `;
 
 class Home extends Component {
@@ -110,8 +118,11 @@ render(){
       <Section>
       <StyledCard her>
       <Title her big>For Her</Title>
+      <Space/>
+
       <Title her>Woman is beauity....</Title>
       <Title her>Find your pleasure of.......</Title>
+      <SmallLogo src={littleRedLogo}/>
       </StyledCard>
       <StyledImgCard src={herSubImg}/>
       </Section>
@@ -123,14 +134,17 @@ render(){
       <StyledImgCard src={himSubImg} him/>
       <StyledCard him>
         <Title him big>For Him</Title>
+        <Space/>
         <Title him>Man is power....</Title>
         <Title him>Disciver the power of.......</Title>
+        <SmallLogo src={littleBlackLogo}/>
+
       </StyledCard>
       </Section>
       </StyledLink>
 
 
-      <SloganBanner gender='m'/>
+      <SloganBanner gender='g'/>
     </Page>
   )
 }

@@ -28,6 +28,8 @@ const Logo=styled.div`
   display:flex;
   flex-wrap: wrap;
   margin: auto;
+  padding:10px;
+  border:0px solid;
 `;
 const MainBar=c.AutoFullRow.extend`
 justify-content:space-between;
@@ -46,6 +48,7 @@ const TopBar=c.AutoFullRow.extend`
 background-color:rgb(13,34,33);
 justify-content:space-between;
 display:none;
+border:0px solid white;
 @media ${device.tablet}
  {
    display:flex
@@ -53,9 +56,9 @@ display:none;
 `;
 
 const MenuGroup=c.RowPureDiv.extend`
-width:360px;
+width:40%;
 flex-direction:${(props)=>props.reverse?'row-reverse':'row'};
-
+border:0px solid;
 `;
 
 const TopBarLink=styled.label`
@@ -98,7 +101,7 @@ class NavBar extends Component{
   }
 
   renderTopBar(){
-    return(
+     return(
       <TopBar>
       <div>
       </div>

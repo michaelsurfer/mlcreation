@@ -10,6 +10,9 @@ export const Link=styled(NavLink)`
 text-decoration:none;
 color:grey;
 padding:5px;
+font-size:20px;
+margin-left:10px;
+margin-right:10px;
 `;
 
 export const ProductColorCode={
@@ -48,7 +51,7 @@ export const ProductColorCode={
 
 export const ColorSchema={
   m:{color:'rgb(42,99,135)'},
-  g:{color:'rgb(207,105,67)'},
+  g:{color:'rgb(251,160,132)'},
   general:{color:'rgb(92,190,214)'},
   titlePink:{color:'rgb(246,205,193)'},
   titleBlue:{color:'rgb(119,214,228)'},
