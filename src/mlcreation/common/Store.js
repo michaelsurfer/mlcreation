@@ -2,10 +2,20 @@ import {observable,action} from 'mobx';
 import {apis} from '../common/config.js';
 import data from "../asset/ProductList.json";
 import {computed} from "mobx";
-
+ 
 export default class Store{
-  @observable login = true;
+  @observable login = false;
   @observable showPaymentModal = 'none';
+  @observable generalDialog = {
+    show:false,
+    message:'hello',
+    closeButton:{show:false},
+    actionButton:{
+      show:false,
+      name:"",
+      action:""
+    }
+  };
   @observable retailerData ={
     company:{value:'test'},
     ein:{value:'test'},
@@ -13,7 +23,7 @@ export default class Store{
     buyer:{value:'test'},
     ein:{value:'test'},
     phone:{value:'test'},
-    email:{value:'abc'},
+    email:{value:'abc2'},
     password:{value:'test'},
     address:{value:'test'},
     city:{value:'test'},
@@ -106,6 +116,28 @@ export default class Store{
     return size;
   }
 
+
+  showDialog(message,closeButton,actionButton){
+    console.log("showDialog");
+    if(!closeButton){
+      this.generalDialog.closeButton.show=false;
+    }else{
+      this.generalDialog.closeButton.show=true;
+    }
+    if(!actionButton){
+      this.generalDialog.actionButton.show=false;
+    }else{
+      this.generalDialog.actionButton.show=true;
+    }
+    this.generalDialog.message=message;
+    this.generalDialog.show=true;
+  }
+closeDialog(){
+  this.generalDialog.show=false;
+}
+
+
+
   createOrder(){
     this.loading = true;
     fetch(apis.createOrder.endpoint,{
@@ -115,10 +147,7 @@ export default class Store{
          'Accept':'application/json',
          'Content-Type':'application/json',
        },
-       body:JSON.stringify({
-         data:this.retailerCart,
-         email:this.retailerData.email.value
-       }),
+       body:JSON.stringify({data:this.retailerCart}),
      }).then(response=>response.json())
      .then(data=>{
        this.orderNo.uuid=data.uuid;
@@ -242,6 +271,35 @@ export default class Store{
     this.login=false;
   }
 
+
+  retailerLogin(data){
+    fetch(apis.login.endpoint,{
+      method:'POST',
+      headers:{
+        'Accept':'application/json',
+        'Content-Type':'application/json',
+      },
+      body:JSON.stringify(data),
+    })
+    .then((response)=>{
+      if(!response.ok){
+        response.text().then(function(text){
+          throw Error(text);
+        }).catch(error=>{
+          console.log(error.message);
+          this.showDialog(error.message,true,false);});  
+      }else{
+        response.json().then(json=>{
+          console.log(json);
+          this.retailerData=json;
+          this.login=true;
+        });
+      }
+    })
+
+  }
+
+/*
   retailerLogin(data){
     console.log("login function from store");
     console.log(data);
@@ -253,6 +311,15 @@ export default class Store{
       },
       body:JSON.stringify({email:'abc@g.com',password:'1234567'}),
     })
+    .then((response)=>{
+      if(!response.ok){
+        var message="";
+        response.text().then(function(text){
+           throw Error(text);
+        });
+        //this.showDialog(message,true,false);
+       } 
+    })
     .then(response=>response.json())
     .then(data=>{
       console.log(data);
@@ -262,9 +329,9 @@ export default class Store{
        }else{
          this.loginError=true;
        }
-
-    });
+    }).catch(error=>console.log(error));
 
     }
 
+    */
 }

@@ -126,7 +126,7 @@ class NavBar extends Component{
 
   <MenuGroup reverse>
   <c.Link to="/product/about">ABOUT US</c.Link>
-  <c.Link to="/product/contactus">CONTACT US</c.Link>
+  <c.Link to="/contact">CONTACT US</c.Link>
 
   </MenuGroup>
   </MainBar>

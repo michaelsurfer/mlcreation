@@ -1,6 +1,14 @@
 export const domain = 'http://localhost:3001/';
 
 export const apis = {
+  retrievePassword:{
+    endpoint:domain+"retrievePassword/",
+    method:'GET'
+  },
+  contactUs:{
+    endpoint:domain+"contactus/",
+    method:'POST'
+  },
   transactionHistory:{
     endpoint:domain+"getTransactions/",
     method:'GET'

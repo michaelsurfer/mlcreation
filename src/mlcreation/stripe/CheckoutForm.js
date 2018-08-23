@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {injectStripe} from 'react-stripe-elements';
 import {observer,inject} from "mobx-react";
+import {NavLink} from "react-router-dom";
 
 import {
   CardElement,
@@ -84,7 +85,7 @@ const createOptions = (fontSize: string, padding: ?string) => {
 class CheckoutForm extends Component{
   constructor(props) {
     super(props);
-    console.log(this.props.store.login);
+  
     // For full documentation of the available paymentRequest options, see:
     // https://stripe.com/docs/stripe.js#the-payment-request-object
     const paymentRequest = props.stripe.paymentRequest({
@@ -111,6 +112,8 @@ class CheckoutForm extends Component{
     this.state = {
       canMakePayment: false,
       paymentRequest,
+      showResult:false,
+      result:""
     };
   }
 
@@ -140,28 +143,69 @@ class CheckoutForm extends Component{
             body:JSON.stringify(json),
           })
             .then(response=>response.json())
-            .then(data=>console.log("server response:"+data))
-        });
+            .then(data=>
+              {
+              console.log("server response");
+              console.log(data);
+              var result=data.result;
+              this.setState({
+                result:result,
+                showResult:true
+              });
+              }
+            )
+              /*
+              var result=data.result;
+              this.setState({
+                result:result,
+                showResult:true
+              });
+               */ 
+            })
     } else {
       console.log("Stripe.js hasn't loaded yet.");
     }
   };
 
-render(){
+
+renderResultDialog(){
+  var result = this.state.result;
+  var Button = "";
+  var message="";
+
+  if(result=='success'){
+    message="Payment Success !";
+    Button = <NavLink to="/">Ok</NavLink>;
+  }
+
+  if(result=='fail'){
+    message="Payment Fail";
+    Button = <button onClick={()=>this.setState({showResult:false})}>Fail</button>;
+  }
+
+
+
+
+  return(
+  <Wrapper>
+  <Label>{message}</Label>
+  {Button}
+  </Wrapper>
+  );
+}
+
+renderPaymentForm(){
   return(
     <Wrapper>
-     <FormWrapper>
+    <FormWrapper>
     <Total>Total :$ {this.props.total} (USD)</Total>
     <Total>Shipment Cost :$ {this.props.shipmentCost} (USD)</Total>
     <Total>Order No :$ {this.props.orderNo} (USD)</Total>
     <Total>UUID :$ {this.props.uuid} (USD)</Total>
-
     </FormWrapper>
     <form onSubmit={this.handleSubmit}>
     {this.props.format=='full'?(
-
       <FormWrapper>
-
       <Label>Card Number:</Label>
       <ElementDiv>
       <CardNumberElement
@@ -209,6 +253,20 @@ render(){
   );
 }
 
+
+
+
+render(){
+  return(
+    <div>
+    {this.state.showResult ? (
+      <div>{this.renderResultDialog()}</div>
+    ):(
+      <div>{this.renderPaymentForm()}</div>
+    )}
+    </div>
+  );
 }
 
+}
 export default injectStripe(CheckoutForm);

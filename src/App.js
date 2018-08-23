@@ -15,7 +15,7 @@ import {observer,inject} from "mobx-react";
 import {YourAccountView} from './mlcreation/view/YourAccountView';
 import ShoppingCartView from './mlcreation/view/ShoppingCartView';
 import TransactionView from './mlcreation/view/TransactionView';
-
+import ContactUsView from './mlcreation/view/ContactUsView';
 
 const ModalWrapper=styled.div`
 position:fixed;
@@ -44,13 +44,15 @@ const HomeView = () =>(
   </div>
 );
 
-const Transaction = ()=>(
-
+const Transaction = inject('store')(observer((props)=>{
+  return(
   <div>
-    <NavBar/>
+      <NavBar/>
+
     <TransactionView/>
   </div>
 );
+}));
 
 const ProductView = ({match}) =>(
 <div>
@@ -63,6 +65,13 @@ const ProductListView = ({match}) =>(
 <NavBar gender={match.params.gender}/>
   <ProductList gender={match.params.gender}/>
 </div>
+);
+
+const ContactUs = () =>(
+  <div>
+    <NavBar/>
+    <ContactUsView/>
+  </div>
 );
 
 const YourAccount=inject('store')(observer((props)=>{
@@ -182,6 +191,7 @@ class App extends Component {
        <Route exact path="/activation/:code" component={Activation}/>
        <Route exact path="/cart" component={ShoppingCart}/>
        <Route exact path="/transaction" component={Transaction}/>
+       <Route exact path="/contact" component={ContactUs}/>
 
       {<Footer/>}
       </div>

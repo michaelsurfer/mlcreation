@@ -16,6 +16,16 @@ background-color:${(props)=>props.color};
 padding:20px;
 `;
 
+const BackDiv=styled.label`
+width:100%;
+left:0px;
+font-size:small;
+`
+const BackButton = ({callback})=>(
+  <BackDiv onClick={()=>callback()}>
+    Back
+  </BackDiv>
+);
 
 @inject('store')
 @observer
@@ -30,11 +40,16 @@ constructor(props){
   }
 
   this.loginCallBack=this.loginCallBack.bind(this);
+  this.backToLoginPage=this.backToLoginPage.bind(this);
 }
 
+backToLoginPage(){
+  this.setState({signIn:true,forgetPassword:false});
+}
+
+
 loginCallBack(action,data){
-  //login logic
-  switch(action){
+   switch(action){
     case 'forgetPassword':
     this.setState({forgetPassword:true});
     break;
@@ -42,38 +57,11 @@ loginCallBack(action,data){
     this.setState({signIn:false});
     break;
     case 'login':
-    /*
-    var json={
-      email:email,
-      password:password
-    };
-    */
-/*
-    fetch(apis.login.endpoint,{
-      method:'POST',
-      headers:{
-        'Accept':'application/json',
-        'Content-Type':'application/json',
-      },
-      body:JSON.stringify(data),
-    })
-    .then(response=>response.json())
-    .then(data=>{
-      if(data.result){
-        this.props.store.retailerData=data.retailerData;
-        this.props.store.login=true;
-        console.log(this.props.store.retailerData);
-      }
-    });
-*/
-    console.log(data);
-    this.props.store.retailerLogin(data);
-
+     this.props.store.retailerLogin(data);
     break;
   }
 
-  console.log("loginCallBack");
-}
+ }
 RegisterCallBack(){}
 
 displaySignIn(){
@@ -83,7 +71,7 @@ displaySignIn(){
 
   if(this.state.forgetPassword){
     color=c.ColorSchema.skyBlue.color;
-
+      result.push(<BackButton callback={this.backToLoginPage}/>);
       result.push(<ForgetPasswordForm/>);
   }else{
 
@@ -91,6 +79,8 @@ displaySignIn(){
       color=c.ColorSchema.skyBlue.color;
       result.push(<LoginForm callBackf={this.loginCallBack}/>);
     }else{
+      result.push(<BackButton callback={this.backToLoginPage}/>);
+
       result.push(<RegisterForm callBackf={this.RegisterCallBack}/>);
     }
 
@@ -98,29 +88,24 @@ displaySignIn(){
 
   return(
     <Wrapper color={color}>
-    {result}
+     {result}
     </Wrapper>
   );
 
 }
-
+/*
 displayRetailer(){
    return(
   <Retailer/>
 );
 }
-
+*/
 render(){
-
-
 return(
   <div>
-
-     {this.displaySignIn()}
-
+      {this.displaySignIn()}
   </div>
-);
-
+  );
 }
 
 }

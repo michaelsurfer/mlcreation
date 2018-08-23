@@ -5,6 +5,7 @@ import * as c from '../common/Css2.js';
 import itemSmall from '../image/itemSmall.png';
 import {apis} from '../common/config.js';
 import {observer,inject} from "mobx-react";
+import StaticData from "../asset/StaticData.json";
 
 
 const titlePink=c.ColorSchema.titlePink.color;
@@ -215,7 +216,7 @@ class ProductTableConfirm extends Component{
           style={{
             'border':'1px solid black'
           }}
-          >Contact Person</td>
+          >Contact Person: {this.props.store.retailerData.buyer.value}</td>
           </tr>
           <tr>
           <td
@@ -225,7 +226,7 @@ class ProductTableConfirm extends Component{
             'border':'1px solid black'
           }}
 
-          >Phone No</td>
+          >Phone No  {this.props.store.retailerData.phone.value}</td>
           </tr>
           <tr>
           <td
@@ -235,7 +236,7 @@ class ProductTableConfirm extends Component{
             'border':'1px solid black'
           }}
 
-          >Email</td>
+          >Email  {this.props.store.retailerData.email.value}</td>
           </tr>
           </tbody>
 
@@ -294,14 +295,15 @@ class ProductTableConfirm extends Component{
         'background-color':'white',
         'border':'1px solid black'
       }} colspan={headerRowSpan[device]}>
-      ML Creation Co, Limited(Hong Kong)
-      <br/>
-      Company Registration Certicate no:.....
+      {StaticData.companyInfo.name}      <br/>
+      Company Registration Certicate no: {StaticData.companyInfo.BR}
       </td>
       <td style={{
         'background-color':'white',
         'border':'1px solid black'
-      }} colspan={totalRowSpan[device]-headerRowSpan[device]}></td>
+      }} colspan={totalRowSpan[device]-headerRowSpan[device]}>
+                  {this.props.store.retailerData.address.value}      
+      </td>
       </tr>
       <tr>
       <td style={{

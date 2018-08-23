@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import styled from "styled-components";
 import data from "../asset/ProductList.json";
+import StaticData from "../asset/StaticData.json";
 import * as c from '../common/Css2.js';
 import itemSmall from '../image/itemSmall.png';
 import {apis} from '../common/config.js';
@@ -221,14 +222,7 @@ const StyledTd=styled.td`
     var qty = e.target.value;
     if(qty==""){qty=0;}
     qty=parseInt(qty).toFixed(0);
-    /*
-    var cart = this.state.cart;
-    cart[key]=qty;
-    this.setState({cart:cart});
-    */
-
     this.props.store.setCart(key,qty,'retailer');
-
   }
 
   renderTop(device){
@@ -327,8 +321,7 @@ const StyledTd=styled.td`
       result.push(
       <tbody>
         <tr>
-        <td style={{
-          'background-color':headerBlue,
+        <td style={{'background-color':headerBlue,
           'border':'1px solid black'
         }} colspan={totalRowSpan[device]}>Supplier:</td>
         </tr>
@@ -336,13 +329,16 @@ const StyledTd=styled.td`
         <td style={{
           'background-color':'white',
           'border':'1px solid black'
-        }} colspan={totalRowSpan[device]}> ML Creation Co, Limited(Hong Kong)</td>
+        }} colspan={totalRowSpan[device]}> {StaticData.companyInfo.name}
+        </td>
         </tr>
         <tr>
         <td style={{
           'background-color':headerBlue,
           'border':'1px solid black'
-        }} colspan={totalRowSpan[device]}>Ship To:</td>
+        }} colspan={totalRowSpan[device]}>Ship To: 
+        
+        </td>
         </tr>
         <tr>
         <td style={{
@@ -356,35 +352,36 @@ const StyledTd=styled.td`
     result.push(
       <tbody>
       <tr>
+      <td style={{'background-color':headerBlue,'border':'1px solid black'}} colspan={headerRowSpan[device]}>
+        Supplier:
+      </td>
       <td style={{
         'background-color':headerBlue,
         'border':'1px solid black'
-      }} colspan={headerRowSpan[device]}>Supplier:</td>
-      <td style={{
-        'background-color':headerBlue,
-        'border':'1px solid black'
-      }} colspan={totalRowSpan[device]-headerRowSpan[device]}>Ship To:</td>
+      }} colspan={totalRowSpan[device]-headerRowSpan[device]}>Ship To:
+       </td>
       </tr>
       <tr>
       <td style={{
         'background-color':'white',
         'border':'1px solid black'
       }} colspan={headerRowSpan[device]}>
-      ML Creation Co, Limited(Hong Kong)
+      {StaticData.companyInfo.name}
       <br/>
-      Company Registration Certicate no:.....
+      Company Registration Certicate no: {StaticData.companyInfo.BR}
       </td>
       <td style={{
         'background-color':'white',
         'border':'1px solid black'
-      }} colspan={totalRowSpan[device]-headerRowSpan[device]}></td>
+      }} colspan={totalRowSpan[device]-headerRowSpan[device]}>
+            {this.props.store.retailerData.address.value}
+      </td>
       </tr>
       <tr>
       <td style={{
         'background-color':headerBlue,
         'border':'1px solid black'
       }} colspan={headerRowSpan[device]}>ML Creation Order No: {this.props.store.orderNo.orderNo}
-
       </td>
       <td style={{
         'background-color':headerBlue,

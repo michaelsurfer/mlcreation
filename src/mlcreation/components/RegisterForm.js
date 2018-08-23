@@ -565,12 +565,14 @@ class RegisterForm extends Component{
 
 renderButton(){
   if(this.props.store.login){
+    /*
     return(
       <s.ButtonDiv>
         <Button type='button' black>Update</Button>
       </s.ButtonDiv>
 
     );
+    */
   }else{
     return(
       <s.ButtonDiv>
@@ -608,9 +610,6 @@ handleSubmit(){
 
 
   }
-
-
-
 
 
   console.log(warning.length);
@@ -683,13 +682,13 @@ handleModal(){
 
   result.push(
     <Modal>
-    <WarningTitle>Registration Success !</WarningTitle>
+    <WarningTitle>Registration Success ! Please check your email.</WarningTitle>
     <Button black
       onClick={()=>this.login({
         email:formData.email.value,
         password:formData.password.value
       })}
-      >Great! Take me to my account now. </Button>
+      >Got it.</Button>
     </Modal>
   )
   }else{

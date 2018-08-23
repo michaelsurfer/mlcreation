@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from "styled-components";
 import * as c from '../common/Css2.js';
 import {apis} from '../common/config.js';
-import ShoppingCartTable from './shoppingCart/ShoppingCartTable';
+import ShoppingCartTable from './ShoppingCartTable';
 
 const InnerWrapper=styled.div`
 width:80%;
@@ -40,11 +40,16 @@ class Transactions extends Component{
 
   render(){
     var history = this.props.transactions;
+    var isEmpty = this.props.isEmpty;
     return(
       <Wrapper>
       <InnerWrapper>
-        {this.renderTable(history)}
-      </InnerWrapper>
+        {isEmpty ? (
+          <p>No Transaction</p>
+        ):(
+          <div>{this.renderTable(history)}</div>
+        )}
+       </InnerWrapper>
       </Wrapper>
     );
   }

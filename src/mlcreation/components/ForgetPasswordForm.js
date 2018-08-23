@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import styled from "styled-components";
 import * as c from '../common/Css2.js';
+import {observer,inject} from "mobx-react";
+import Dialog from '../components/Dialog';
+import {apis} from '../common/config.js';
+import {validateEmail} from '../common/Utility.js';
 
 
 
@@ -9,7 +13,11 @@ const Wrapper=c.ColCenterDiv.extend`
 background-color:rgb(239,238,242);
 width:400px;
 height:200px;
-justify-content:space-around;
+`;
+const Form=styled.form`
+width:100%;
+height:100%;
+border:0px solid;
 `;
 const Button=styled.button`
 background-color:rgb(92,194,219);
@@ -33,10 +41,22 @@ flex-direction:column;
 align-items:center;
 justify-content:space-around;
 height:100%;
+border:0px solid;
 `;
 
 
+const InputDialog =({callback})=>(
+  <Form onSubmit={callback}>
+  <ColDiv>
+  <Title>Please enter your email address</Title>
+  <Input type='text' placeholder="enter your email address" id="email"/>
+  <Button>Retrieve Password</Button>
+  </ColDiv>
+  </Form>
+);
 
+@inject('store')
+@observer
 class ForgetPasswordForm extends Component{
 
 constructor(props){
@@ -45,42 +65,37 @@ constructor(props){
       validEmail:false,
       submited:false
     };
+    this.handleSubmit=this.handleSubmit.bind(this);
 }
 
 handleSubmit(event){
   event.preventDefault();
-  var email=event.target.email.value;
-  var password=event.target.password.value;
-  console.log(email);
-  console.log(password);
-
-}
-render(){
-  var result=[];
-  if(this.state.submited){
-    result.push(
-      <ColDiv>
-      <Title>We have sent you an email to change your password</Title>
-       <Button onClick={()=>this.setState({submited:true})}>Retrieve Password</Button>
-      </ColDiv>
-    )
+  var email=event.target.email.value; 
+  if(email=="" || !email){
+    this.props.store.showDialog("Please complete the form",true,false);
+    return;
   }else{
-    result.push(
-      <ColDiv>
-      <Title>Please enter your email address</Title>
-      <Input type='text' placeholder="enter your email address"/>
-      <Button onClick={()=>this.setState({submited:true})}>Retrieve Password</Button>
-      </ColDiv>
-    )
+    if(!validateEmail(email)){
+    this.props.store.showDialog("Please enter a valid email address",true,false);
+    }else{
+    fetch(apis.retrievePassword.endpoint+email)
+    .then(response=>response.json())
+    .then(data=>{
+    this.props.store.showDialog("Password sent to your email",true,false);
+    });
   }
+
+  }
+}
+
+render(){
   return(
   <Wrapper>
-
-    {result}
+    <Dialog/>
+    <InputDialog callback={this.handleSubmit}/>
   </Wrapper>
-)
-}
-
+  )
+  }
 }
 
 export default ForgetPasswordForm;

@@ -13,6 +13,7 @@ class TransactionView extends Component{
     super(props);
     this.state={
       transactionHistory:[],
+      isEmpty:true,
       loaded:false
     }
   }
@@ -23,14 +24,15 @@ class TransactionView extends Component{
     .then(response=>response.json())
     .then(data=>{
 
-      console.log(data.data);
-       this.setState({
-         transactionHistory:data.data,
-         loaded:true
-       }
-       );
-    });
-  }
+      if(data.state == 200){
+        this.setState({transactionHistory:data.data,loaded:true,isEmpty:false});
+        }else{
+        this.setState({loaded:true});
+        }
+
+      })
+    }
+  
 
   render(){
     var transactions=this.state.transactionHistory;
@@ -39,7 +41,7 @@ class TransactionView extends Component{
       <div>
       <RetailerBar/>
       {(this.state.loaded) &&
-        <Transactions transactions={transactions}/>
+        <Transactions transactions={transactions} isEmpty={this.state.isEmpty}/>
       }
       </div>
     );

@@ -4,10 +4,7 @@ const uuidv4 = require('uuid/v4');
 var productData = require('./src/mlcreation/asset/ProductList.json');
 var loki = require('lokijs');
 var nodemailer = require('nodemailer');
-
-
 var cors = require('cors')
-
 
 var db = new loki('example.db',{
   autoload: true,
@@ -19,6 +16,18 @@ var db = new loki('example.db',{
 var order;
 var users;
 var transactionHistory;
+
+var mailTransport = nodemailer.createTransport({
+	service:'Gmail',
+	auth:{
+		user:'bitentsio@gmail.com',
+		pass:'*#780910'
+	}
+});
+
+
+
+
 function databaseInitialize(){
 
 	if(!db.getCollection("order")){
@@ -62,26 +71,31 @@ app.use(bodyParser.json());
 var stripe = require("stripe")("sk_test_hxtTsvBObFWw4yWvEEummLZw");
 
 
-function sendEmailActivation(email,code){
-	var mailTransport = nodemailer.createTransport({
-		service:'Gmail',
-		auth:{
-			user:'bitentsio@gmail.com',
-			pass:'*#780910'
-		}
-	});
-
-	var link="http://localhost:3001/"+email+"/"+code;
-	var htmlMessage="<h1>Thanks for registration</h1><a href="+link+" />Here</a>";
-
+function sendEmail(to,subject,message){
 	mailTransport.sendMail({
 		from:'Admin <michael@sparrowchain.com>',
-		to:'personal.michael@gmail.com',
-		subject:'test',
-		html:htmlMessage
+		to:to,
+		subject:subject,
+		html:message
 	},function(err){console.log(err)});
 
 }
+
+function sendEmailActivation(email,code){
+	var link="http://localhost:3001/"+email+"/"+code;
+	var htmlMessage="<h1>Thanks for registration</h1><a href="+link+" />Here</a>";
+	sendEmail(email,"Activate your account",htmlMessage);
+}
+
+function sendPassword(email,password){
+	var message = "This is your password :"+password;
+	sendEmail(email,"Your MLcreation password",message);
+}
+function sendContactUsEmail(email,name,text){
+	sendEmail(email,"Message from customer :"+name,text);
+}
+
+
 
 
 function getNextOrderNumber(){
@@ -175,7 +189,10 @@ function getTransactions(email){
     result= {state:404}
   }else{
     if(!record || record==""){
-      result= {state:404}
+      result= {
+				state:204,
+				error:"No Transaction History"
+			}
     }else{
       result = {
         state:200,
@@ -184,9 +201,13 @@ function getTransactions(email){
     }
 
   }
-
-
   return result;
+}else{
+	//cannot find any email record
+	return {
+		state:404,
+		error: "account not find"
+		}
 }
 };
 
@@ -215,7 +236,15 @@ app.get('/getNextOrderNo',function(req,res){
 	});
 });
 
-
+app.post('/contactus',function(req,res){
+	console.log("/contactus");
+	var data = req.body;
+	var email = data.email;
+	var name = data.name;
+	var text = data.text;
+	sendContactUsEmail(email,name,text);
+	res.send({state:200});
+});
 
 app.post('/createOrder',function(req,res){
 	//var orderList=req.params.orderList;
@@ -326,6 +355,31 @@ app.post('/register/',function(req,res){
 	});
 });
 
+
+app.get('/retrievePassword/:email',function(req,res){
+	console.log('retrievePassword');
+	var email = req.params.email;
+	var record = users.findOne({email:email});
+	var password = "";
+	var result={};
+  if(record){
+		console.log("email record found ");
+		console.log(record);
+		password = record.data.password;
+		console.log('resending password to user :'+password);
+		result={
+			state:200
+		}
+	}else{
+		console.log("email not find");
+		result={
+			state:404
+		}
+	}
+	res.send(result);
+
+});
+
 app.get('/activation/:email/:code',function(req,res){
 	var code = req.params.code;
 	var email = req.params.email;
@@ -370,31 +424,38 @@ app.post('/login/',function(req,res){
 	var result;
 
 	var retailerData = users.findOne({email:email});
-		console.log(retailerData);
+	console.log(retailerData);
 
-	var activated = retailerData.activated;
-
-	retailerData=retailerData.data;
 
 	if(!retailerData){
-			res.send({state:404,result:false});
-
+		//res.status(404).send("Email record not found");
+		console.log("cannot find record");
+		res.status(404).send('Email record not found');
 	}else{
+		var activated = retailerData.activated;
+		retailerData=retailerData.data;
  		if(retailerData.password.value!=password){
-			res.send({state:200,result:false,error:'password'});
+		res.status(404).send('Password is wrong');	 
+			//res.send({state:200,result:false,error:'password'});
 		}else if(!activated){
-			res.send({state:200,result:false,error:'inactive'});
+		res.status(404).send('Please activate your account first');	 
+
+			//res.send({state:200,result:false,error:'inactive'});
 		}else{
 					console.log(retailerData);
+		res.status(200).json(retailerData);	 
 
-			res.send({state:200,result:true,retailerData:retailerData});
+		//res.send({state:200,result:true,retailerData:retailerData});
 		}
 
 	}
 
 
 });
-
+app.get('/showAll/',function(req,res){
+	var retailerData = users.find({});
+	res.send(retailerData);
+});
 app.post('/payment/',async function(req,res){
 	var data=req.body;
 	var token = data.token;
@@ -422,7 +483,8 @@ add2Transactions(email,uuid);
 
  	res.send(
  			{
- 			state:200
+			 state:200,
+			 result :'success'
  			}
  			);
 });

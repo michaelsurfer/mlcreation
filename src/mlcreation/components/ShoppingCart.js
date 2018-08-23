@@ -9,7 +9,7 @@ import styled from "styled-components";
 import React,{Component} from 'react';
 import data from "../asset/ProductList.json";
 import * as c from '../common/Css2.js';
-import ShoppingCartTable from './shoppingCart/ShoppingCartTable';
+import ShoppingCartTable from './ShoppingCartTable';
 
 
 const RemoveText=styled.label`
@@ -87,8 +87,7 @@ class ShoppingCart extends Component{
     return (
       <div>
       <ShoppingCartTable />
-      <ShoppingCartTable type='history' history={history}/>
-      <ShoppingCartTable type='history' history={history}/>
+
 
       </div>
           )
