@@ -28,12 +28,12 @@ class AccountActivation extends Component{
         .then((response)=>{
             if(!response.ok){
                 response.text().then((text)=>{
-                throw Error(text.message);}
+                throw Error(text);}
             ).catch(error=>{
                 this.setState({
                     loaded:true,
                     verified:false,
-                    error:error
+                    error:error.message
                 });
             })
             }else{
@@ -44,8 +44,8 @@ class AccountActivation extends Component{
             }
         });
     }
-    render(){return <div></div>}
-    render2(){
+     render(){
+         console.log(this.state);
         if(this.state.loaded){
             if(this.state.verified){
                 return(
@@ -53,14 +53,14 @@ class AccountActivation extends Component{
                 <label>Account Verified</label>
                 <c.Link to="/YourAccount">Login Now</c.Link>
                 </Wrapper>
-                )
+                );
             }else{
                 return(
                 <Wrapper>
                 <label>Cannot activate your account</label>
-                <label>{this.state.error}</label>
+                <label>Reason : {this.state.error}</label>
                 </Wrapper>
-                )
+                );
             }
         }else{
             return(

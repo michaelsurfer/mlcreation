@@ -13,7 +13,7 @@ const Images=styled.div`
 display:flex;
 justify-content:space-between;
 width:100%;
-height:40vh;
+height:680px;
 align-items:center;
 border:0px solid blue;
 border-radius:1px;

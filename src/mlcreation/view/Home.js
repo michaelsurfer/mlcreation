@@ -72,7 +72,7 @@ flex:1;
 flex-direction:row;
 
 width:100%;
-height:300px;
+height:390px;
 justify-content:center;
 background-image:url(${props=>props.src});
 background-repeat:no-repeat;
@@ -80,7 +80,7 @@ background-size: contain;
 background-position:${props=>props.him ? 'left bottom':'right bottom'};
 
 @media ${device.tablet}{
-  height:400px;
+  height:390px;
 
  }
 
@@ -97,7 +97,7 @@ display:flex;
 flex:1;
 flex-direction:column;
 background-color:${props=>props.him ? 'rgb(20,24,23)':'rgb(251,160,132)'};
-height:auto;
+height:390px;
 justify-content:center;
 align-items:center;
 text-align:center;

@@ -36,6 +36,7 @@ justify-content:space-between;
 align-items:flex-end;
 text-align:center;
 padding:5px;
+height:115px;
 display:none;
 @media ${device.tablet}
  {
@@ -46,8 +47,11 @@ display:none;
 
 const TopBar=c.AutoFullRow.extend`
 background-color:rgb(13,34,33);
-justify-content:space-between;
+justify-content:flex-end;
+align-items:center;
 display:none;
+height:50px;
+padding-right:10px;
 border:0px solid white;
 @media ${device.tablet}
  {
@@ -103,13 +107,11 @@ class NavBar extends Component{
   renderTopBar(){
      return(
       <TopBar>
-      <div>
-      </div>
-      <div>
+      
       <c.Link to="/YourAccount">RETAILER ACCOUNT</c.Link>
       <c.Link to="/cart">SHOPPING LIST ({this.props.store.cartSize})</c.Link>
       <TopBarLink>LANGUAGE</TopBarLink>
-      </div>
+      
       </TopBar>
 
     );

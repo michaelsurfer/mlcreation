@@ -10,20 +10,23 @@ flex-direction:column;
 align-items:center;
 justify-content:center;
 background-color:${(props)=>props.colors[props.gender].color};
-height:250px;
+height:257px;
 
 `;
 
 const StyledTitle=styled.label`
 font-size:50px;
 color:rgb(9,9,9);
+letter-spacing:2px;
 font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
  `;
  const StyledDesc=styled.label`
  font-size:40px;
  color:rgb(9,9,9);
  font-weight:lighter;
+ letter-spacing:2px;
  padding:15px;
+ font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif
  `;
 
 export const SloganBanner = ({

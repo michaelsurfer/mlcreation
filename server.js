@@ -16,6 +16,7 @@ var db = new loki('example.db',{
 var order;
 var users;
 var transactionHistory;
+var comments;
 
 var mailTransport = nodemailer.createTransport({
 	service:'Gmail',
@@ -30,31 +31,37 @@ var mailTransport = nodemailer.createTransport({
 
 function databaseInitialize(){
 
-	if(!db.getCollection("order")){
-		order = db.addCollection("order");
-		console.log("new db created");
+	if(!db.getCollection("comments")){
+		comments = db.addCollection("comments");
+		console.log("comments db created");
 	}else{
-		order = db.getCollection("order");
-		console.log("db loaded");
+		comments = db.getCollection("comments");
+		console.log("comment db loaded");
 	}
 
+	if(!db.getCollection("order")){
+		order = db.addCollection("order");
+		console.log("order db created");
+	}else{
+		order = db.getCollection("order");
+		console.log("order loaded");
+	}
 
 	if(!db.getCollection("user")){
 		users = db.addCollection("user");
-		console.log("new db created");
+		console.log("user db created");
 	}else{
 		users = db.getCollection("user");
-		console.log("db loaded");
+		console.log("user loaded");
 	}
 
-
-  	if(!db.getCollection("transactions")){
-  		transactionHistory = db.addCollection("transactions");
-  		console.log("new db created");
-  	}else{
+  if(!db.getCollection("transactions")){
+  	transactionHistory = db.addCollection("transactions");
+  		console.log("transaction db created");
+  }else{
   		transactionHistory = db.getCollection("transactions");
-  		console.log("db loaded");
-  	}
+  		console.log("transaction loaded");
+  }
 
 
 }
@@ -388,6 +395,7 @@ app.get('/activation/:email/:code',function(req,res){
 	var retailerData = users.findOne({email:email});
 	if(!retailerData){
 			//res.send({state:404,result:false});
+			console.log("cannot find email");
 			res.status(404).send('We are not able to find your account');
 		}else{
  		if(retailerData.activationCode!=code){
@@ -453,6 +461,81 @@ app.post('/login/',function(req,res){
 
 
 });
+
+app.get('/getAllComments/',function(req,res){
+	var _record = comments.find({});
+	if(_record){
+		console.log("comment record found for all comment");
+		console.log(_record);
+		res.status(200).json(_record);
+	}else{
+		console.log("comment record not find");
+		res.status(404).send("Not comment yet");		
+	}
+}
+);
+
+app.get('/getComments/:productID',function(req,res){
+	var _productID = req.params.productID;
+	var _record = comments.findOne({productID:_productID});
+	if(_record){
+		console.log("comment record found");
+		console.log(_record);
+		var _commentJson = _record.comments;
+		console.log(_commentJson);
+		res.status(200).json(_commentJson);
+
+	}else{
+		console.log("comment record not find");
+		res.status(404).send("Not comment yet");
+
+	}
+
+
+});
+app.get('/leaveComment/:productID/:comment',function(req,res){
+	/*
+	{
+		productID:productID,
+		comments:{
+			uuid:{commend:xxxxx,time:timnestamp }
+		}
+	}
+	*/
+	//var _comment = req.body.comment;
+	var _comment = req.params.comment;
+	var _productID = req.params.productID;
+	var _uuid = uuidv4();
+	var shouldInsert=false;
+	//find any existing record
+	var _record=comments.findOne({productID:_productID});
+	if(!_record){
+		shouldInsert = true;
+		_record={
+			productID:_productID,
+			comments:{}
+		};
+	}
+
+	var _comments = _record.comments;
+	_comments[_uuid] = {
+		comment:_comment,
+		time:'time'
+	};
+
+_record.comments=_comments;
+console.log(_record);
+
+if(shouldInsert){
+	comments.insert(_record);
+}else{
+	comments.update(_record);
+}
+
+res.status(200).send("ok");
+
+});
+
 app.get('/showAll/',function(req,res){
 	var retailerData = users.find({});
 	res.send(retailerData);
