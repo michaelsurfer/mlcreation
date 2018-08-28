@@ -1,19 +1,78 @@
 import React,{Component} from 'react';
 import styled from "styled-components";
+import {CommentBox} from "./CommentBox";
+import {CommentHeader} from "./CommentBox";
 
+const Wrapper=styled.div`
+display:flex;
+width:100%;
+background-color:white;
+height:300px;
+`;
 
-export const CommentList=({json})=>{
+const Table=styled.table`
+width:100%;
+border-collapse: collapse;
+
+`;
+
+export const CommentList=({type,productID,json})=>{
 /*
+type: all
 json :
 {
-"7fe4a0d2-5ad6-4d7d-acef-15403423aebe":{"comment":"thisisgreat","time":"time"},
-"4a11e6c1-cc2b-4000-a622-34f3e4972983":{"comment":"thisisgreat","time":"time"},
-"f43f3bc7-a862-4413-a530-ca48d1ec24ee":{"comment":"thisisgreat","time":"time"},
-"ed3f6e0d-32f5-448d-8b74-d307b1b0aa98":{"comment":"thisisgreat2","time":"time"}
+    "AB":{"totalComments":4,"avgRating":4},
+    "ABC":{"totalComments":3,"avgRating":3}}
 }
+
+type:individual
+json :
+{
+"f681063d-42bc-4ac8-b07d-c4036ab546bb":{"comment":"thisisgreat","color":"R","rating":"2","time":"time"},
+"bd6255d3-4a28-4c06-b655-2472fc1366d5":{"comment":"thisisgreat","color":"R","rating":"3","time":"time"},
+"c6324507-cff1-4b6d-9727-2a6086dc05ec":{"comment":"thisisgreat","color":"R","rating":"5","time":"time"}}
+}
+
+
 */
+var result=[];
 
+if(type=='all'){
+    for(var item in json){
+        result.push(
+        <tbody>
+        <CommentHeader type='all'/>    
+        <CommentBox
+            type='all'
+            productID={item}
+            totalComment={json[item].totalComments}
+            noOfStar={json[item].avgRating}
+        />
+        </tbody>
+        );
+    }
+}else{
+    for(var item in json){
+        console.log(item);
+        result.push(
+        <tbody> 
+        <CommentHeader type='individual'/>    
+        <CommentBox
+            type='individual'
+            productID={productID}
+            color={json[item].color}
+            comment={json[item].comment}
+            noOfStar={json[item].rating}
+        />
+        </tbody>
+        );
+    }
 
+}        
 
-
+return (
+    <Wrapper><Table>{result}</Table></Wrapper>
+    );
 }
+
+

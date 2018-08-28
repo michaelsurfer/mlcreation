@@ -464,10 +464,20 @@ app.post('/login/',function(req,res){
 
 app.get('/getAllComments/',function(req,res){
 	var _record = comments.find({});
+	var _result={};
 	if(_record){
 		console.log("comment record found for all comment");
 		console.log(_record);
-		res.status(200).json(_record);
+
+		_record.map((item,i)=>{
+		//remove all comments content to reduce the size
+ 		_result[item.productID]={
+			 totalComments:item.totalComments,
+			 avgRating:item.avgRating
+		 } 
+	});
+
+		res.status(200).json(_result);
 	}else{
 		console.log("comment record not find");
 		res.status(404).send("Not comment yet");		
@@ -493,7 +503,32 @@ app.get('/getComments/:productID',function(req,res){
 
 
 });
-app.get('/leaveComment/:productID/:comment',function(req,res){
+
+
+function calculateAvgRating(commentsJson){
+	var _avgRating=0;
+	var _json = commentsJson;
+	/*
+		uuid:{
+		comment:_comment,
+		rating:_rating,
+		time:'time'
+		},
+		uuid:{...}
+	*/
+	var totalRating=0;
+	var totalComments=0;
+	
+	for(var item in _json){
+		totalRating=totalRating+_json[item].rating;
+		totalComments++;
+	}
+	_avgRating = totalComments%totalRating;
+	console.log(_avgRating);
+	return _avgRating;
+};
+
+app.get('/leaveComment/:productID/:color/:comment/:rating',function(req,res){
 	/*
 	{
 		productID:productID,
@@ -505,6 +540,8 @@ app.get('/leaveComment/:productID/:comment',function(req,res){
 	//var _comment = req.body.comment;
 	var _comment = req.params.comment;
 	var _productID = req.params.productID;
+	var _rating = req.params.rating;
+	var _color =req.params.color;
 	var _uuid = uuidv4();
 	var shouldInsert=false;
 	//find any existing record
@@ -513,17 +550,25 @@ app.get('/leaveComment/:productID/:comment',function(req,res){
 		shouldInsert = true;
 		_record={
 			productID:_productID,
+			totalComments:0,
+			avgRating:0,
 			comments:{}
 		};
 	}
-
+	_record.totalComments = _record.totalComments+1;
+	
 	var _comments = _record.comments;
 	_comments[_uuid] = {
 		comment:_comment,
+		color:_color,
+		rating:_rating,
 		time:'time'
 	};
 
 _record.comments=_comments;
+var _avgRating = calculateAvgRating(_comments);
+_record.avgRating = _avgRating;
+
 console.log(_record);
 
 if(shouldInsert){

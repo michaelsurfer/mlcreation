@@ -1,6 +1,9 @@
 export const domain = 'http://localhost:3001/';
 
 export const apis = {
+  leaveComment:{
+    endpoint:domain+"leaveComment"
+  },
   activation:{
     endpoint:domain+"activation/",
     method:'GET'

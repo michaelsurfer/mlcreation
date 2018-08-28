@@ -17,6 +17,9 @@ import ShoppingCartView from './mlcreation/view/ShoppingCartView';
 import TransactionView from './mlcreation/view/TransactionView';
 import ContactUsView from './mlcreation/view/ContactUsView';
 import AccountActivation from './mlcreation/view/AccountActivation';
+import MakeCommentView from './mlcreation/view/MakeCommentView';
+
+
 
 const ModalWrapper=styled.div`
 position:fixed;
@@ -37,6 +40,17 @@ top:50%;
 left:50%;
 transform: translate(-50%,-50%);
 `;
+
+const MakeComment=({match})=>(
+  <div>
+        <NavBar/>
+
+  <MakeCommentView 
+  productID={match.params.productID} 
+  color={match.params.color}
+  />
+  </div>  
+);
 
 const HomeView = () =>(
   <div>
@@ -175,6 +189,7 @@ class App extends Component {
     return (
       <Router>
       <div>
+ 
       <ModalWrapper display={loading}>
 
         <Modal>
@@ -197,7 +212,7 @@ class App extends Component {
        <Route exact path="/cart" component={ShoppingCart}/>
        <Route exact path="/transaction" component={Transaction}/>
        <Route exact path="/contact" component={ContactUs}/>
-
+       <Route exact path="/makeComment/:productID/:color" component={MakeComment}/> 
 
       {<Footer/>}
       </div>

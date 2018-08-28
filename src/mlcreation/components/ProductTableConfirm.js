@@ -44,7 +44,7 @@ const Table=styled.table`
 border-collapse: collapse;
 border:1px solid grey;
 `;
-
+ 
 const Wrapper=styled.div`
 width:80%`;
 
