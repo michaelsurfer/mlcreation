@@ -18,6 +18,8 @@ import TransactionView from './mlcreation/view/TransactionView';
 import ContactUsView from './mlcreation/view/ContactUsView';
 import AccountActivation from './mlcreation/view/AccountActivation';
 import MakeCommentView from './mlcreation/view/MakeCommentView';
+import CommentView from './mlcreation/view/CommentView';
+import AllCommentView from './mlcreation/view/AllCommentView';
 
 
 
@@ -51,6 +53,23 @@ const MakeComment=({match})=>(
   />
   </div>  
 );
+
+const Comment=({match})=>(
+<div>
+  <NavBar/>
+  <CommentView
+    productID={match.params.productID}
+  />
+</div>
+);
+
+
+const AllComment=()=>(
+  <div>
+    <NavBar/>
+    <AllCommentView/>
+  </div>
+  );
 
 const HomeView = () =>(
   <div>
@@ -213,6 +232,9 @@ class App extends Component {
        <Route exact path="/transaction" component={Transaction}/>
        <Route exact path="/contact" component={ContactUs}/>
        <Route exact path="/makeComment/:productID/:color" component={MakeComment}/> 
+       <Route exact path="/comment/:productID" component={Comment}/> 
+       <Route exact path="/allComment/" component={AllComment}/> 
+
 
       {<Footer/>}
       </div>

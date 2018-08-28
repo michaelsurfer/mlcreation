@@ -7,14 +7,17 @@ const Wrapper=styled.div`
 display:flex;
 width:100%;
 background-color:white;
+justify-content:center;
+align-items:center;
 height:300px;
+border:1px solid red;
+
 `;
 
 const Table=styled.table`
-width:100%;
+width:500px;
 border-collapse: collapse;
-
-`;
+ `;
 
 export const CommentList=({type,productID,json})=>{
 /*
@@ -40,38 +43,37 @@ var result=[];
 if(type=='all'){
     for(var item in json){
         result.push(
-        <tbody>
-        <CommentHeader type='all'/>    
-        <CommentBox
+          <CommentBox
             type='all'
             productID={item}
             totalComment={json[item].totalComments}
             noOfStar={json[item].avgRating}
         />
-        </tbody>
-        );
+         );
     }
 }else{
     for(var item in json){
         console.log(item);
         result.push(
-        <tbody> 
-        <CommentHeader type='individual'/>    
-        <CommentBox
+          <CommentBox
             type='individual'
             productID={productID}
             color={json[item].color}
             comment={json[item].comment}
             noOfStar={json[item].rating}
         />
-        </tbody>
-        );
+         );
     }
 
 }        
 
 return (
-    <Wrapper><Table>{result}</Table></Wrapper>
+    <Wrapper>
+    <Table>
+    <CommentHeader type={type}/>    
+    {result}
+    </Table>
+    </Wrapper>
     );
 }
 

@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import styled from "styled-components";
 import {CommentBox} from "../components/comments/CommentBox";
 import {CommentHeader} from "../components/comments/CommentBox";
- 
+import data from "../asset/ProductList.json"; 
 
 const Wrapper=styled.div`
 display:flex;
@@ -80,7 +80,7 @@ render(){
             noOfStar={this.state.rating}
             pickColorCallbackF={this.pickColorCallbackF}
             selectedColor={this.state.selectedColor}
-            colorArray={['R','B','R','B']}
+            colorArray={data[this.props.productID].color}
         />
         </Table>
         <SubmitButton onClick={()=>this.submit()}>Submit</SubmitButton>

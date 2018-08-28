@@ -4,6 +4,9 @@ import styled from "styled-components";
 import {RatingStar} from "./RatingStar";
 import productData from "../../asset/ProductList.json";
 import ColorPicker from "../colorPicker/ColorPicker";
+import {NavLink} from "react-router-dom";
+
+
 
 const TitleText=styled.label`
 font-size:20px;
@@ -117,7 +120,9 @@ export const CommentBox = ({
                 </CommentText>
                 </StyledTd>
                 <StyledTd>
-                    <button>leave comment</button>
+                    <NavLink
+                    to={"/makeComment/"+productID}>
+                    leave comment</NavLink>
                 </StyledTd>
                 </Fragment>
             }

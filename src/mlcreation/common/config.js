@@ -1,8 +1,18 @@
 export const domain = 'http://localhost:3001/';
 
 export const apis = {
+
+  getAllComments:{
+    endpoint:domain+"getAllComments",
+    method:'GET'
+  },
+  getComments:{
+    endpoint:domain+"getComments/",
+    method:'GET'
+  },
   leaveComment:{
-    endpoint:domain+"leaveComment"
+    endpoint:domain+"leaveComment/",
+    method:'GET'
   },
   activation:{
     endpoint:domain+"activation/",
