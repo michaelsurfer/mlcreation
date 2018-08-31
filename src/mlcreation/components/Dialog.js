@@ -59,7 +59,7 @@ renderButton(){
         result.push(<Button onClick={()=>this.props.store.closeDialog()}>Close</Button>);
     };
     if(showActionButton){
-        result.push(<Button onClick={()=>this.props.store}>Next</Button>);
+        result.push(<Button onClick={()=>this.props.callbackF}>Next</Button>);
     };
     return(
       <ButtonDiv>
@@ -68,7 +68,7 @@ renderButton(){
     );
 }
 render(){
-     var show = this.props.store.generalDialog.show;
+    var show = this.props.store.generalDialog.show;
     var message = this.props.store.generalDialog.message;
  
     return(

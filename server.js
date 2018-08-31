@@ -528,7 +528,7 @@ function calculateAvgRating(commentsJson){
 	return _avgRating;
 };
 
-app.get('/leaveComment/:productID/:color/:comment/:rating',function(req,res){
+app.post('/leaveComment',function(req,res){
 	/*
 	{
 		productID:productID,
@@ -538,10 +538,19 @@ app.get('/leaveComment/:productID/:color/:comment/:rating',function(req,res){
 	}
 	*/
 	//var _comment = req.body.comment;
+	var data=req.body;
+	/*
 	var _comment = req.params.comment;
 	var _productID = req.params.productID;
 	var _rating = req.params.rating;
 	var _color =req.params.color;
+	*/
+	var _comment = data.comment;
+	var _productID = data.productID;
+	var _rating = data.rating;
+	var _color =data.color;
+
+
 	var _uuid = uuidv4();
 	var shouldInsert=false;
 	//find any existing record
@@ -562,7 +571,7 @@ app.get('/leaveComment/:productID/:color/:comment/:rating',function(req,res){
 		comment:_comment,
 		color:_color,
 		rating:_rating,
-		time:'time'
+		time:new Date()
 	};
 
 _record.comments=_comments;

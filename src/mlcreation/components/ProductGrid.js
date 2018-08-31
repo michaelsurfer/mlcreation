@@ -4,6 +4,7 @@ import styled from "styled-components";
 import * as c from '../common/Css2.js';
 import { device } from "../common/device";
 import itemImg from '../image/batman/main.png';
+import {imagePath} from '../common/config.js';
 
 
 let ProductIDArray={
@@ -30,8 +31,8 @@ let ProductIDArray={
           {name:'ITS',color:'S'}
           ],
     row2:[
-          {name:'DB',color:'R'},
-          {name:'DB',color:'R'},
+          {name:'DB',color:'SR'},
+          {name:'DB',color:'SB'},
           {name:'DB',color:'LPI'},
           {name:'DB',color:'LPI'}
         ]
@@ -57,11 +58,9 @@ const StyledProductBox=styled.a`
   height:300px;
   background-color:rgb(239,238,242);
   margin:2px 0px 0px 2px;
-
-  background-image2:url(${itemImg});
   background-image:url(${(props)=>props.img});
   background-repeat:no-repeat;
-  background-size: contain;
+  background-size: 100%;
   background-position: center;
   @media ${device.tablet}{
     flex-direction:row;
@@ -94,8 +93,10 @@ export const ProductGrid=(({gender})=>{
         var data = productData[item][i];
         var productCode = data.name;
         var productColor = data.color;
-        var imgUrl = "/image/"+productCode+"/main/"+productColor+".png";
-        var link = "/product/"+gender+"/"+productCode;
+        var imgUrl=imagePath+productCode+"/"+productColor+"/1.jpg";
+
+        //var imgUrl = "/image/"+productCode+"/main/"+productColor+".png";
+        var link = "/product/"+productCode;
         result2.push(
            <StyledProductBox href={link} img={imgUrl}/>
          );

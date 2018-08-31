@@ -1,6 +1,39 @@
 {
     "S":{"name":"silver","rgbValue":"rgb(10,0,0)"},
+    "G":{"name":"Gold","rgbValue":"rgb(222,163,155)"},
+    "SB":{"name":"S-Black","rgbValue":"rgb(22,22,22)"},
+    "SR":{"name":"S-Rose","rgbValue":"rgb(214,65,157)"},
+    "SPP":{"name":"S-Purple","rgbValue":"rgb(64,46,104)"},
+    "SLPI":{"name":"S-Light Pink","rgbValue":"rgb(241,178,193)"},
+    "SPIPP":{"name":"S-Pink Purple","rgbValue":"rgb(180,119,167)"},
     "B":{"name":"black","rgbValue":"rgb(10,0,0)"},
+    "PP":{"name":"Purple","rgbValue":"purple"},
+    "BG":{"name":"Blue Green","rgbValue":"green"},
+    "R":{"name":"Rose","rgbValue":"rgb(200,20,10)"},
+    "GB":{"name":"G-Black","rgbValue":"rgb(16,16,16)"},
+    "GPIPP":{"name":"G-Pink Purple","rgbValue":"rgb(180,119,167)"},
+    "GPI":{"name":"G-Pink","rgbValue":"rgb(226,172,165)"},
+    "LPIPP":{"name":"Light Pink Purple","rgbValue":"rgb(0,10,0)"},
+    "PI":{"name":"Pink","rgbValue":"rgb(235,145,220)"},
+    "DBL":{"name":"Deep Blue","rgbValue":"rgb(59,122,241)"},
+    "LBL":{"name":"Water Blue","rgbValue":"rgb(90,194,248)"},
+    "SGB":{"name":"S-Blue Green","rgbValue":"rgb(89,170,178)"},
+    "BL":{"name":"Blue","rgbValue":"rgb(90,194,248)"},
+    "SBL":{"name":"S-Blue","rgbValue":"rgb(90,194,248)"},
+    "SG":{"name":"S-Gary","rgbValue":"rgb(90,194,248)"},
+    "GGBL":{"name":"S-Gray Blue","rgbValue":"rgb(90,194,248)"},
+    "GSBL":{"name":"S-Sapphire Blue","rgbValue":"rgb(90,194,248)"},
+    "MO":{"name":"Magic Orange","rgbValue":"rgb(90,194,248)"},
+    "SBL":{"name":"Sapphire Blue","rgbValue":"rgb(90,194,248)"},
+    "GSPO":{"name":"S-Special Orange","rgbValue":"rgb(90,194,248)"},
+    "GMG":{"name":"G-Magic Green","rgbValue":"rgb(61,107,116)"},
+    "GIDG":{"name":"G-Indogo","rgbValue":"rgb(48,82,101)"},
+    "GSPI":{"name":"G-Shrimp Pink","rgbValue":"rgb(217,145,151)"},
+    "TGBL":{"name":"Transparent Gray Blue","rgbValue":"rgb(217,145,151)"},
+
+
+
+
     "LPI":{"name":"Light Pink","rgbValue":"pink"},
     "PIPP":{"name":"Pink Purple","rgbValue":"rgb(0,10,0)"},
     "PP":{"name":"Purple","rgbValue":"purple"},
@@ -11,7 +44,6 @@
     "SPP":{"name":"S-Purple","rgbValue":"rgb(64,46,104)"},
     "SLPI":{"name":"S-Light Pink","rgbValue":"rgb(241,178,193)"},
     "SPIPP":{"name":"S-Pink Purple","rgbValue":"rgb(180,119,167)"},
-    "G":{"name":"Gold","rgbValue":"rgb(222,163,155)"},
     "GB":{"name":"G-Black","rgbValue":"rgb(16,16,16)"},
     "GMG":{"name":"G-Magic Green","rgbValue":"rgb(61,107,116)"},
     "GLPI":{"name":"G-Light Pink","rgbValue":"rgb(227,161,193)"},
@@ -27,6 +59,7 @@
     "GIDG":{"name":"G-Indogo","rgbValue":"rgb(48,82,101)"},
     "GSPI":{"name":"G-Special Pink","rgbValue":"rgb(217,145,151)"},
     "TB":{"name":"Transparent Black","rgbValue":"rgb(113,113,113)"},
-    "TO":{"name":"Transparent Orange","rgbValue":"rgb(171,75,66)"}
-  
+    "TO":{"name":"Transparent Orange","rgbValue":"rgb(171,75,66)"},
+    "GPIPP":{"name":"S-Pink Purple","rgbValue":"rgb(180,119,167)"}
+
   }

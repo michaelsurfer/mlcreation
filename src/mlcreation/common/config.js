@@ -1,61 +1,64 @@
-export const domain = 'http://localhost:3001/';
+export const apiEndPoint = 'http://localhost:3001/';
+export const domain = 'http://localhost:3000/';
+
+export const imagePath = domain+"image/products/";
 
 export const apis = {
 
   getAllComments:{
-    endpoint:domain+"getAllComments",
+    endpoint:apiEndPoint+"getAllComments",
     method:'GET'
   },
   getComments:{
-    endpoint:domain+"getComments/",
+    endpoint:apiEndPoint+"getComments/",
     method:'GET'
   },
   leaveComment:{
-    endpoint:domain+"leaveComment/",
-    method:'GET'
+    endpoint:apiEndPoint+"leaveComment/",
+    method:'POST'
   },
   activation:{
-    endpoint:domain+"activation/",
+    endpoint:apiEndPoint+"activation/",
     method:'GET'
   },
   retrievePassword:{
-    endpoint:domain+"retrievePassword/",
+    endpoint:apiEndPoint+"retrievePassword/",
     method:'GET'
   },
   contactUs:{
-    endpoint:domain+"contactus/",
+    endpoint:apiEndPoint+"contactus/",
     method:'POST'
   },
   transactionHistory:{
-    endpoint:domain+"getTransactions/",
+    endpoint:apiEndPoint+"getTransactions/",
     method:'GET'
     },
   payment:{
-    endpoint:domain+"payment/",
+    endpoint:apiEndPoint+"payment/",
     method:'POST'
   },
   createOrder:{
-    endpoint:domain+"createOrder",
+    endpoint:apiEndPoint+"createOrder",
     method:'POST'
   },
   checkOrder:{
-    endpoint:domain+"checkOrder/",
+    endpoint:apiEndPoint+"checkOrder/",
     method:'GET'
   },
   login:{
-    endpoint:domain+"login/",
+    endpoint:apiEndPoint+"login/",
     method:'POST'
   },
   getNextOrderNo:{
-    endpoint:domain+"getNextOrderNo",
+    endpoint:apiEndPoint+"getNextOrderNo",
     method:'GET'
   },
   checkEmail:{
-    endpoint:domain+"checkEmail",
+    endpoint:apiEndPoint+"checkEmail",
     method:'GET'
   },
   register:{
-    endpoint:domain+"register",
+    endpoint:apiEndPoint+"register",
     method:'POST'
   }
 }

@@ -5,7 +5,7 @@ import {RatingStar} from "./RatingStar";
 import productData from "../../asset/ProductList.json";
 import ColorPicker from "../colorPicker/ColorPicker";
 import {NavLink} from "react-router-dom";
-
+import {ItemImage} from "../../components/ItemImage";
 
 
 const TitleText=styled.label`
@@ -23,7 +23,6 @@ text-align:center;
 vertical-align:middle;
 border:1px solid grey;
 overflow:hidden;
-
 `;
 
 const CommentInput=styled.input`
@@ -34,6 +33,8 @@ margin:0;
 padding:0;
 background:transparent;
 `;
+
+
 /*
 const callbackF=(e)=>{
     console.log(e.target.id);
@@ -47,7 +48,7 @@ export const CommentHeader =({type})=>{
 
             <StyledTd><TitleText>Name</TitleText></StyledTd>
             <StyledTd><TitleText>Rating</TitleText></StyledTd>
-        
+
             {type=='all'?(
             <Fragment>    
             <StyledTd><TitleText>No of Comments</TitleText></StyledTd>
@@ -71,18 +72,41 @@ export const CommentBox = ({
     callbackF,updateCommentCallbackF,
     colorArray,pickColorCallbackF,selectedColor
 }) => {
+
+     var color = selectedColor;
+     if(!color || color == ""){
+        //use the first color in product json as default
+        color = productData[productID].color[0];
+     }   
+
      return(
         <tbody>
             <tr>
             <StyledTd>
             {(type=="makeComment")?(
+                <div>
+                <ItemImage 
+                width='100px'
+                height='100px'
+                productID={productID}
+                color={color}
+                />
                 <ColorPicker
-                    selectedColor={selectedColor}
+                    selectedColor={color}
                     colorArray={colorArray}
                     pickColorCallbackF={pickColorCallbackF}
                 />
+                </div>
             ):(
-                <p>IMG</p>
+                <a href={"/product/"+productID}>
+                <ItemImage 
+                    width='100px'
+                    height='100px'
+                    productID={productID}
+                    color={color}
+                    index={1}
+                />
+                </a>
             )}
 
             </StyledTd>

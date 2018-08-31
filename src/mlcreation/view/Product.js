@@ -1,18 +1,14 @@
 import React,{Component} from 'react';
 import styled from "styled-components";
-import ImageSlider from '../components/ImageSlider';
-import { device } from "../common/device";
-import {SloganBanner} from '../components/SloganBanner';
+ import {SloganBanner} from '../components/SloganBanner';
 import {ProductDetail} from '../components/ProductDetail';
 import ProductDesc from '../components/ProductDesc';
 import {observer,inject} from "mobx-react";
-
 import {Header} from '../components/ProductHeader';
 import * as c from '../common/Css2.js';
 import data from "../asset/ProductList.json";
 
-import itemImg from '../image/item.png';
-
+ 
 @inject('store')
 @observer
 class Product extends Component{

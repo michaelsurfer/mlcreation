@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router,Route,NavLink,Redirect} from "react-router-dom";
+import {BrowserRouter as Router,Route} from "react-router-dom";
 import styled from "styled-components";
-
-
+import data from "./mlcreation/asset/ProductList.json";
 import {Footer} from './mlcreation/components/Footer';
 import NavBar from './mlcreation/navigation/NavBar';
 import Home from './mlcreation/view/Home';
@@ -49,8 +48,7 @@ const MakeComment=({match})=>(
 
   <MakeCommentView 
   productID={match.params.productID} 
-  color={match.params.color}
-  />
+   />
   </div>  
 );
 
@@ -88,12 +86,15 @@ const Transaction = inject('store')(observer((props)=>{
 );
 }));
 
-const ProductView = ({match}) =>(
+const ProductView = ({match}) =>{
+var gender = data[match.params.productID].gender;
+return(
 <div>
-<NavBar gender={match.params.gender}/>
-  <Product gender={match.params.gender} productID={match.params.productID}/>
+<NavBar gender={gender}/>
+  <Product gender={gender} productID={match.params.productID}/>
 </div>
 );
+};
 const ProductListView = ({match}) =>(
 <div>
 <NavBar gender={match.params.gender}/>
@@ -199,6 +200,18 @@ class App extends Component {
 
   constructor(props){
     super(props);
+    //console.log(JSON.parse(sessionStorage.getItem("retailerData")));
+  
+    var sessionData=JSON.parse(sessionStorage.getItem("retailerData"));
+ 
+    if(sessionData){
+    this.props.store.login=true;
+    this.props.store.retailerData=sessionData;
+    console.log("session data");
+    console.log(sessionData);
+    }
+
+
    }
 
   render() {
@@ -221,7 +234,7 @@ class App extends Component {
 
 
        <Route exact path="/" component={HomeView}/>
-       <Route exact path="/product/:gender/:productID" component={ProductView}/>
+       <Route exact path="/product/:productID" component={ProductView}/>
        <Route exact path="/productList/:gender" component={ProductListView}/>
        <Route exact path="/retailerLogin" component={RetailerView}/>
        <Route exact path="/takeOrder" component={TakeOrder}/>
@@ -231,7 +244,7 @@ class App extends Component {
        <Route exact path="/cart" component={ShoppingCart}/>
        <Route exact path="/transaction" component={Transaction}/>
        <Route exact path="/contact" component={ContactUs}/>
-       <Route exact path="/makeComment/:productID/:color" component={MakeComment}/> 
+       <Route exact path="/makeComment/:productID" component={MakeComment}/> 
        <Route exact path="/comment/:productID" component={Comment}/> 
        <Route exact path="/allComment/" component={AllComment}/> 
 

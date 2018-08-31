@@ -124,7 +124,7 @@ class NavBar extends Component{
   <c.Link to="/">HOME</c.Link>
   <c.Link to="/productList/g">FOR HER</c.Link>
   <c.Link to="/productList/m">FOR HIM</c.Link>
-  <c.Link to="/product/comment">COMMENTS</c.Link>
+  <c.Link to="/allComment">COMMENTS</c.Link>
   </MenuGroup>
 
   <Logo><img src={LogoImg}/></Logo>

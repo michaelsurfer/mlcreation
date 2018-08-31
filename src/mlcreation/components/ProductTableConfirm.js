@@ -2,10 +2,11 @@ import React,{Component} from 'react';
 import styled from "styled-components";
 import data from "../asset/ProductList.json";
 import * as c from '../common/Css2.js';
-import itemSmall from '../image/itemSmall.png';
-import {apis} from '../common/config.js';
+ import {apis} from '../common/config.js';
 import {observer,inject} from "mobx-react";
 import StaticData from "../asset/StaticData.json";
+import {ItemImage} from "./ItemImage";
+import ProductColorCode from "../asset/ColorCode.json";
 
 
 const titlePink=c.ColorSchema.titlePink.color;
@@ -369,7 +370,7 @@ class ProductTableConfirm extends Component{
          if(json[device]){
            switch(json.type){
              case 'color':
-               output = c.ProductColorCode[color].name;
+               output = ProductColorCode[color].name;
              break;
              case 'refNo':
                output = "W-"+code+"-"+color;
@@ -394,8 +395,14 @@ class ProductTableConfirm extends Component{
              break;
              case 'img':
               output=
-                <SmallImageBox image={itemSmall}/>
-             break;
+              <ItemImage 
+              width='100px'
+              height='100px'
+              productID={code}
+              color={color}
+              index={1}
+               /> 
+            break;
 
             case 'state':
             //state mean real time form data, state.

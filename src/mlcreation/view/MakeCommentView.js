@@ -3,6 +3,10 @@ import styled from "styled-components";
 import {CommentBox} from "../components/comments/CommentBox";
 import {CommentHeader} from "../components/comments/CommentBox";
 import data from "../asset/ProductList.json"; 
+import {apis} from '../common/config.js';
+import Dialog from "../components/Dialog";
+import {observer,inject} from "mobx-react";
+
 
 const Wrapper=styled.div`
 display:flex;
@@ -26,15 +30,19 @@ color:white;
 width:300px;
 `;
 
+
+@inject('store')
+@observer
 class MakeCommentView extends Component{
 
 constructor(props){
     super(props);
+     
 
     this.state={
         rating:1,
         comment:"",
-        selectedColor:this.props.color
+        selectedColor:data[this.props.productID].color[0]
     };
     this.callbackF=this.callbackF.bind(this);
     this.updateCommentCallbackF=this.updateCommentCallbackF.bind(this);
@@ -63,12 +71,53 @@ submit=()=>{
     console.log("comments:"+this.state.comment);
     console.log("product Code:"+this.props.productID);
     console.log("rating:"+this.state.rating);
+ 
+    //var params =this.props.productID+"/"+this.state.selectedColor+"/"+this.state.comment+"/"+this.state.rating;
+    fetch(apis.leaveComment.endpoint,{
+        method:'POST',
+        headers:{
+          'Accept':'application/json',
+          'Content-Type':'application/json',
+        },
+        body:JSON.stringify({
+            
+                productID:this.props.productID,
+                comment:this.state.comment,
+                rating:this.state.rating,
+                color:this.state.selectedColor
+            
+        }),
+
+    })
+    .then((response)=>{
+        //this.props.store.loading=false;
+    
+        if(!response.ok){
+            response.text().then(function(text){
+              throw Error(text);
+            }).catch(error=>{
+              console.log(error.message);
+              //this.props.store.showDialog(error.message,true,false);
+            });  
+          }else{
+            response.text().then(json=>{
+                console.log(json)
+               });
+          }
+      });
 
 }
 
 render(){
+    var itemJson = data[this.props.productID];
+
+
+
     return(
         <Wrapper>
+        <Dialog/>    
+        {itemJson?(
+        <div>
         <Table>   
         <CommentHeader/>     
         <CommentBox
@@ -84,6 +133,14 @@ render(){
         />
         </Table>
         <SubmitButton onClick={()=>this.submit()}>Submit</SubmitButton>
+        </div>
+        ):(
+        <div>
+            Item not found
+        </div>    
+        )}
+ 
+
         </Wrapper>
     );
 }

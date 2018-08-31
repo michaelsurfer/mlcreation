@@ -12,7 +12,8 @@ flex-direction:column;
 width:100%;
 justify-content:center;
 align-items:center;
-border:1px solid;
+border:0px solid;
+min-height:500px;
 `;
 
 
@@ -49,13 +50,25 @@ class AllCommentView extends Component{
       }
 
       render(){
+          var json = this.state.json;
+          console.log(Object.keys(json).length);
+        
         return(
-           <Wrapper>
+        <Wrapper>
+        
+        {(Object.keys(json).length ==0)?(
+            <p>No Comment yet</p>
+        ):(
             <CommentList 
-         type="all" 
-         json={this.state.json}
-         />
-            </Wrapper>
+            type="all" 
+            json={this.state.json}
+            />
+        )}
+
+ 
+        
+        
+        </Wrapper>
        );
    }
 

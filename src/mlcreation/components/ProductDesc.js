@@ -4,6 +4,8 @@ import styled from "styled-components";
 import * as c from '../common/Css2.js';
 import itemSmall from '../image/itemSmall.png';
 import data from "../asset/ProductList.json";
+import {ItemImage} from "../components/ItemImage";
+import {NavLink} from "react-router-dom";
 
 
 const Wrapper=c.RowPureDiv.extend`
@@ -26,13 +28,11 @@ color:black;
 font-size:small;
 border-bottom:${(props)=>props.bottom ?  '1px solid black':'0px'};
 text-decoration:${(props)=>props.underline ?  'underline':'none'};
-
 padding:5px;
 `;
-const InnerDiv=styled(c.ColPureDiv)`
-align-items:flex-start;
-width:90%;
-margin:10px;
+
+const Link=styled(NavLink)`
+font-size:small;
 `;
 
 const LeftBox=c.ColCenterDiv.extend`
@@ -44,12 +44,23 @@ margin:10px;
 `;
 
 const RightBox=c.ColPureDiv.extend`
-flex:5;
+flex:4;
 border:0px solid black;
 width:90%;
 margin:10px;
-
+justify-content:center;
+align-items:center;
+border:0px solid red;
 `;
+
+const EmptyImageBox=styled.div`
+display:flex;
+width:100px;
+height:100px;
+background-color:white;
+margin:2px;
+`;
+
 const SmallImageBox=styled.div`
 width:50px;
 height:60px;
@@ -97,10 +108,11 @@ class ProductDesc extends Component{
     super(props);
     this.state={
       //default selected color
-      selectedColor:this.props.colorArray[0]
+      selectedColor:this.props.colorArray[0],
+      selectedImage:'1'
     }
+ 
   }
-
 
 
 render(){
@@ -168,10 +180,28 @@ return(
 
 <c.AutoFullRow>
 
+<ItemImage 
+  width='100px'
+  height='100px'
+  productID={productID}
+  color={this.state.selectedColor}
+  index={1}
+  onClickCallBAckF={()=>this.setState({selectedImage:'1'})}
+/>
+
+
+<ItemImage 
+  width='100px'
+  height='100px'
+  productID={productID}
+  color={this.state.selectedColor}
+  index={2}
+  onClickCallBAckF={()=>this.setState({selectedImage:'2'})}
+/>
+<EmptyImageBox/>
+
 <SmallImageBox image={itemSmall}/>
-<SmallImageBox image={itemSmall}/>
-<SmallImageBox image={itemSmall}/>
-<SmallImageBox image={itemSmall}/>
+
 <SmallImageBox image={itemSmall}/>
 
 
@@ -187,22 +217,24 @@ return(
 
 <c.AutoFullCol>
 
-
 <Button
   onClick={()=>callback(this.state.selectedColor)}
 >ADD TO SHOPPING LIST</Button>
 <SplitDiv bottom>
 <Desc>Shipping & Return</Desc>
-<Desc>See Comments</Desc>
+<Link to={"/comment/"+productID} >See Comments</Link>
 </SplitDiv>
-
 <Desc >Applicable to the adults aged 18 and above only</Desc>
-
 </c.AutoFullCol>
 </LeftBox>
-
 <RightBox>
-IMAGE
+<ItemImage 
+  width='400px'
+  height='400px'
+  productID={productID}
+  color={this.state.selectedColor}
+  index={this.state.selectedImage}
+ />
 </RightBox>
 </Wrapper>
 

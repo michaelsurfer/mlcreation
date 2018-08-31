@@ -23,7 +23,7 @@ padding-right:20px;
 
 `;
 const TextDiv=styled(c.ColPureDiv)`
-margin:10px;
+margin-left:50px;
 
 align-items:flex-start;
 

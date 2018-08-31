@@ -291,6 +291,8 @@ closeDialog(){
       }else{
         response.json().then(json=>{
           console.log(json);
+          var data = JSON.stringify(json);
+          sessionStorage.setItem("retailerData", data);
           this.retailerData=json;
           this.login=true;
         });
@@ -299,39 +301,5 @@ closeDialog(){
 
   }
 
-/*
-  retailerLogin(data){
-    console.log("login function from store");
-    console.log(data);
-    fetch(apis.login.endpoint,{
-      method:'POST',
-      headers:{
-        'Accept':'application/json',
-        'Content-Type':'application/json',
-      },
-      body:JSON.stringify({email:'abc@g.com',password:'1234567'}),
-    })
-    .then((response)=>{
-      if(!response.ok){
-        var message="";
-        response.text().then(function(text){
-           throw Error(text);
-        });
-        //this.showDialog(message,true,false);
-       } 
-    })
-    .then(response=>response.json())
-    .then(data=>{
-      console.log(data);
-      if(data.result){
-         this.retailerData=data.retailerData;
-         this.login=true;
-       }else{
-         this.loginError=true;
-       }
-    }).catch(error=>console.log(error));
 
-    }
-
-    */
 }

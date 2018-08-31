@@ -29,7 +29,7 @@ export const ProductColorCode={
   SLPI:{name:"S-Light Pink",color:'rgb(241,178,193)'},
   SPIPP:{name:"S-Pink Purple",color:'rgb(180,119,167)'},
   G:{name:"Gold",color:'rgb(222,163,155)'},
-  GB:{name:"G-Black",color:'rgb(16,16,16)'},
+  BG:{name:"G-Black",color:'rgb(16,16,16)'},
   GMG:{name:"G-Magic Green",color:'rgb(61,107,116)'},
   GLPI:{name:"G-Light Pink",color:'rgb(227,161,193)'},
   DBL:{name:"Deep Blue",color:'rgb(59,122,241)'},
@@ -45,6 +45,8 @@ export const ProductColorCode={
   GSPI:{name:"G-Special Pink",color:'rgb(217,145,151)'},
   TB:{name:"Transparent Black",color:'rgb(113,113,113)'},
   TO:{name:"Transparent Orange",color:'rgb(171,75,66)'},
+  GGBL:{name:"Transparent Orange",color:'rgb(171,75,66)'},
+  GSBL:{name:"Transparent Orange",color:'rgb(171,75,66)'},
 
 
 };
