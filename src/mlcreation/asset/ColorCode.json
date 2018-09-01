@@ -1,7 +1,7 @@
 {
-    "S":{"name":"silver","rgbValue":"rgb(10,0,0)"},
+    "S":{"name":"silver","rgbValue":"IMG"},
     "G":{"name":"Gold","rgbValue":"rgb(222,163,155)"},
-    "SB":{"name":"S-Black","rgbValue":"rgb(22,22,22)"},
+    "SB":{"name":"S-Black","rgbValue":"IMG"},
     "SR":{"name":"S-Rose","rgbValue":"rgb(214,65,157)"},
     "SPP":{"name":"S-Purple","rgbValue":"rgb(64,46,104)"},
     "SLPI":{"name":"S-Light Pink","rgbValue":"rgb(241,178,193)"},

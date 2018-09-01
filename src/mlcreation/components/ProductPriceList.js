@@ -2,8 +2,9 @@ import React,{Component} from 'react';
 import styled from "styled-components";
 import data from "../asset/ProductList.json";
 import * as c from '../common/Css2.js';
-import itemSmall from '../image/itemSmall.png';
 import {observer,inject} from "mobx-react";
+import {ItemImage} from "./ItemImage";
+import ProductColorCode from "../asset/ColorCode.json";
 
 const titlePink=c.ColorSchema.titlePink.color;
 const titleBlue=c.ColorSchema.titleBlue.color;
@@ -177,7 +178,7 @@ const StyledTd=styled.td`
          if(json[device]){
            switch(json.type){
             case 'color':
-              output = c.ProductColorCode[color].name;
+              output = ProductColorCode[color].name;
             break;
             case 'refNo':
               output = "W-"+code+"-"+color;
@@ -200,7 +201,13 @@ const StyledTd=styled.td`
              break;
              case 'img':
               output=
-                <SmallImageBox image={itemSmall}/>
+              <ItemImage 
+              width='100px'
+              height='100px'
+              productID={code}
+              color={color}
+              index={1}
+               /> 
              break;
              case 'button':
                 output =

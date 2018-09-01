@@ -14,42 +14,7 @@ font-size:20px;
 margin-left:10px;
 margin-right:10px;
 `;
-
-export const ProductColorCode={
-  S:{name:"silver",color:'rgb(10,0,0)'},
-  B:{name:"black",color:"rgb(10,0,0)"},
-  LPI:{name:"Light Pink",color:'pink'},
-  PIPP:{name:"Pink Purple",color:'rgb(0,10,0)'},
-  PP:{name:"Purple",color:'purple'},
-  R:{name:"Red",color:'rgb(0,0,10)'},
-  GO:{name:"Gold Orange",color:'rbg(194,115,93)'},
-  SB:{name:"S-Black",color:'rgb(22,22,22)'},
-  SR:{name:"S-Rose",color:'rgb(214,65,157)'},
-  SPP:{name:"S-Purple",color:'rgb(64,46,104)'},
-  SLPI:{name:"S-Light Pink",color:'rgb(241,178,193)'},
-  SPIPP:{name:"S-Pink Purple",color:'rgb(180,119,167)'},
-  G:{name:"Gold",color:'rgb(222,163,155)'},
-  BG:{name:"G-Black",color:'rgb(16,16,16)'},
-  GMG:{name:"G-Magic Green",color:'rgb(61,107,116)'},
-  GLPI:{name:"G-Light Pink",color:'rgb(227,161,193)'},
-  DBL:{name:"Deep Blue",color:'rgb(59,122,241)'},
-  LBL:{name:"Water Blue",color:'rgb(90,194,248)'},
-  PI:{name:"Pink",color:'rgb(235,145,220)'},
-  MG:{name:"Magic Green",color:'rgb(42,96,108)'},
-  GGO:{name:"G-Orange",color:'rgb(213,119,96)'},
-  SBG:{name:"S-Blue Green",color:'rgb(89,170,178)'},
-  IDG:{name:"Indogo",color:'rgb(53,84,105)'},
-  DO:{name:"Deep Orange",color:'rgb(114,57,25)'},
-  GPI:{name:"G-Pink",color:'rgb(226,172,165)'},
-  GIDG:{name:"G-Indogo",color:'rgb(48,82,101)'},
-  GSPI:{name:"G-Special Pink",color:'rgb(217,145,151)'},
-  TB:{name:"Transparent Black",color:'rgb(113,113,113)'},
-  TO:{name:"Transparent Orange",color:'rgb(171,75,66)'},
-  GGBL:{name:"Transparent Orange",color:'rgb(171,75,66)'},
-  GSBL:{name:"Transparent Orange",color:'rgb(171,75,66)'},
-
-
-};
+ 
 
 export const ColorSchema={
   m:{color:'rgb(42,99,135)'},

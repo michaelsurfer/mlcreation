@@ -89,20 +89,7 @@ justify-content:center;
 align-items:center;
 border-bottom:${(props)=>props.selected ? '1px solid grey':'0px'}
 `;
-/*
-export const Description=({
-  productID=0,
-  price="$$$",
-  description1="description1",
-  description2="description2",
-  length="length",
-  diameter="diameter",
-  weight="weight",
-  remark="remark",
-  colorArray=['red','black','blue'],
-  callback
-})=>{
-*/
+ 
 class ProductDesc extends Component{
   constructor(props){
     super(props);

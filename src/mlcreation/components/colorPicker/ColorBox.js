@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import colorJson from "../../asset/ColorCode.json";
 import React from 'react';
+import {imagePath} from '../../common/config.js';
 
 
 const OutterBox=styled.div`
@@ -18,8 +19,13 @@ const Box=styled.div`
 width:10px;
 height:10px;
 background-color:${(props)=>props.rgbValue};
-
 `;
+
+const ImgBox=styled.img`
+width:10px;
+height:10px;
+`;
+
 
 export const ColorBox=({
     colorCode,
@@ -34,11 +40,17 @@ export const ColorBox=({
         border='1px solid grey'}
      return(
         <OutterBox border={border}>
-        <Box
+
+        {(json.rgbValue == "IMG")?(
+            <ImgBox src={imagePath+"/colorbox/"+colorCode+".png"}/>
+        ):(
+            <Box
             id={colorCode}
             onClick={callbackF}
             rgbValue={json.rgbValue}
-        />
+            />
+        )}
+     
         </OutterBox>
     );
 }

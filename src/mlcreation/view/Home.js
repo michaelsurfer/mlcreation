@@ -114,7 +114,7 @@ render(){
     <Page>
       <ImageSlider gender="main"/>
 
-      <StyledLink href="/her">
+      <StyledLink href="/productList/g">
       <Section>
       <StyledCard her>
       <Title her big>For Her</Title>
@@ -128,7 +128,7 @@ render(){
       </Section>
       </StyledLink>
 
-      <StyledLink href="/him">
+      <StyledLink href="/productList/m">
 
       <Section reverse>
       <StyledImgCard src={himSubImg} him/>
