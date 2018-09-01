@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import styled from "styled-components";
 import * as c from '../common/Css2.js';
 import { device } from "../common/device";
-import itemImg from '../image/item.png';
+import {imagePath} from '../common/config.js';
 
 
 const Image=styled.div`
@@ -15,17 +15,33 @@ const Image=styled.div`
   height:150px;
   margin-left:2px;
   margin-right:2px;
-  background-image:url(${itemImg});
+  background-image:url(${(props)=>props.img});
   background-repeat:no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-size: ${(props)=>props.size};
+  background-position: center 0;
   z-index:1;
   display:block;
   @media ${device.tablet}{
   display:block;
    }
+`;   
 
+/*
+const Image=styled.div`
+  position:absolute;
+  left:${(props)=>props.left?'0px':''};
+  right:${(props)=>props.right?'0px':''};
+
+  width:150px;
+  height:150px;
+  margin-left:2px;
+  margin-right:2px;
+  z-index:1;
+  display:block;
 `;
+*/
+
+
 const DescArea=styled.div`
   display:flex;
   width:${(props)=>props.center?'100%':'80%'};
@@ -82,12 +98,20 @@ border:1px solid white;
   }
   `
 
-const ReturnInnerDescCell=(({direction})=>{
+const ReturnInnerDescCell=(({direction,productID,color})=>{
+  //var url1 = imagePath+"/products/"+productID+"/1/"+color+".png";
+  //var url2 = imagePath+"/products/"+productID+"/2/"+color+".png";
+
+  var url1=imagePath+"/products/"+productID+"/"+color+"/1.jpg";
+  var url2=imagePath+"/products/"+productID+"/"+color+"/2.jpg";
+
+
+
   switch(direction){
     case 'left':
     return(
     <InnerDescCell>
-      <Image/>
+      <Image img={url1} size='contain'/>
        <DescArea left>
         ;malsjflkasjlidfjaasdfasfdasfasfasdfaservris;ff
       </DescArea>
@@ -97,7 +121,7 @@ const ReturnInnerDescCell=(({direction})=>{
     case 'right':
     return(
     <InnerDescCell>
-    <Image right/>
+    <Image img={url2} right size='contain'/>
 
       <DescArea >
         ;saasdfasfasd;fkajw;fjaemwl;kfmnalk;wmnflawnflasndlfnmdnlaksdnfl;ff
@@ -121,13 +145,17 @@ const ReturnInnerDescCell=(({direction})=>{
     break;
   }
 });
-const Cell=(({direction})=>{
+const Cell=(({direction,productID,color})=>{
   return(
     <OutterCell>
       <InnerTitleCell>
         Title
       </InnerTitleCell>
-      <ReturnInnerDescCell direction={direction}/>
+      <ReturnInnerDescCell 
+        direction={direction} 
+        productID={productID} 
+        color={color}
+      />
     </OutterCell>
   );
 });
@@ -168,6 +196,7 @@ const ReturnLastRow=()=>{
 };
 
 export const ProductDetail=(({
+  productID,color,
   data={
     section1:{title:"title",desc:"dasdfljasdfnlasndf"},
     section2:{title:"title",desc:"dasdfljasdfnlasndf"}
@@ -177,8 +206,16 @@ export const ProductDetail=(({
   return(
     <div>
     <Row>
-    <Cell direction='left' section={data}/>
-    <Cell direction='right' section={data}/>
+    <Cell direction='left' 
+      section={data}
+      productID={productID}
+      color={color}
+      />
+    <Cell direction='right' 
+      section={data}
+      productID={productID}
+      color={color}      
+      />
     </Row>
     <ReturnLastRow/>
     </div>

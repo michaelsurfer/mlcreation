@@ -1,7 +1,7 @@
 export const apiEndPoint = 'http://localhost:3001/';
 export const domain = 'http://localhost:3000/';
 
-export const imagePath = domain+"image/products/";
+export const imagePath = domain+"image/";
 
 export const apis = {
 

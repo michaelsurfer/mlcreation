@@ -42,7 +42,10 @@ export const ColorBox=({
         <OutterBox border={border}>
 
         {(json.rgbValue == "IMG")?(
-            <ImgBox src={imagePath+"/colorbox/"+colorCode+".png"}/>
+            <ImgBox src={imagePath+"colorbox/"+colorCode+".png"}
+            id={colorCode}
+            onClick={callbackF}
+            />
         ):(
             <Box
             id={colorCode}

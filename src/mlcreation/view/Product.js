@@ -56,8 +56,7 @@ class Product extends Component{
       colorArray={colorArray}
       callback={this.callbackF}
       />
-      <ProductDetail/>
-      <SloganBanner gender={gender}/>
+       <SloganBanner gender={gender}/>
 
       </c.ColPureDiv>
     );

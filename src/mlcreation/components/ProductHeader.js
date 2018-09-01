@@ -7,23 +7,24 @@ import * as c from '../common/Css2.js';
 
 const Title=styled.label`
 color:white;
-font-size:x-large;
-padding:5px;
+font-size:55pt;
+margin-top:50px;
+font-family: Microsoft JhengHei;
 `;
 const Desc=styled.label`
 color:white;
-font-size:small;
+font-size:16pt;
+font-family: Microsoft YaHei UI;
 border-bottom:${(props)=>props.underline ?  '1px solid white':'0px'};
 `;
 const MainDiv=styled(c.RowPureDiv)`
 background-color:${(props)=>props.colors[props.gender].color};
 justify-content:space-between;
-padding-left:20px;
-padding-right:20px;
-
+ 
+height:265px;
 `;
 const TextDiv=styled(c.ColPureDiv)`
-margin-left:50px;
+margin-left:66px;
 
 align-items:flex-start;
 

@@ -6,10 +6,17 @@ import itemSmall from '../image/itemSmall.png';
 import data from "../asset/ProductList.json";
 import {ItemImage} from "../components/ItemImage";
 import {NavLink} from "react-router-dom";
+import ColorPicker from "./colorPicker/ColorPicker";
+import {ProductDetail} from "./ProductDetail";
 
+const OutterWrapper=styled.div`
+display:flex;
+flex-direction:column;
+`;
 
 const Wrapper=c.RowPureDiv.extend`
 background-color:rgb(239,238,242);
+justify-content:space-between;
 `;
 const Button=styled.button`
 background-color:black;
@@ -25,10 +32,11 @@ border-bottom:${(props)=>props.bottom ?  '1px solid grey':'0px'};
 `;
 const Desc=styled.label`
 color:black;
-font-size:small;
+font-size:16pt;
 border-bottom:${(props)=>props.bottom ?  '1px solid black':'0px'};
 text-decoration:${(props)=>props.underline ?  'underline':'none'};
 padding:5px;
+font-family: "Times New Roman", Times, serif;
 `;
 
 const Link=styled(NavLink)`
@@ -36,22 +44,20 @@ font-size:small;
 `;
 
 const LeftBox=c.ColCenterDiv.extend`
-flex:2;
+
 border:0px solid black;
-width:90%;
+width:400px;
 margin:10px;
 
 `;
 
 const RightBox=c.ColPureDiv.extend`
-flex:4;
 border:0px solid black;
-width:90%;
+width:60%;
 margin:10px;
 justify-content:center;
 align-items:center;
-border:0px solid red;
-`;
+ `;
 
 const EmptyImageBox=styled.div`
 display:flex;
@@ -73,6 +79,7 @@ background-size: contain;
 background-position: center;
 margin:5px;
 `;
+/*
 const ColorBox=styled.div`
 width:20px;
 height:20px;
@@ -89,7 +96,8 @@ justify-content:center;
 align-items:center;
 border-bottom:${(props)=>props.selected ? '1px solid grey':'0px'}
 `;
- 
+ */
+
 class ProductDesc extends Component{
   constructor(props){
     super(props);
@@ -98,9 +106,16 @@ class ProductDesc extends Component{
       selectedColor:this.props.colorArray[0],
       selectedImage:'1'
     }
- 
-  }
+    this.pickColorCallbackF=this.pickColorCallbackF.bind(this);
 
+  }
+  pickColorCallbackF=(e)=>{
+    var selectedColor=e.target.id;
+    console.log("pickColorCallbackF :"+selectedColor);
+
+   this.setState({selectedColor:selectedColor});
+
+}
 
 render(){
   var productID=this.props.productID;
@@ -114,7 +129,7 @@ render(){
   var colorArray=this.props.colorArray;
   var callback = this.props.callback;
   var selectColor=[];
-
+/*
   colorArray.map((item,i)=>{
     //var color = c.ProductColorCode[item].color;
     //console.log(color);
@@ -140,9 +155,10 @@ render(){
     }
      }
   );
-
+*/
 
 return(
+<OutterWrapper>
 <Wrapper>
 
 <LeftBox>
@@ -168,22 +184,24 @@ return(
 <c.AutoFullRow>
 
 <ItemImage 
-  width='100px'
-  height='100px'
+  width='95px'
+  height='110px'
   productID={productID}
   color={this.state.selectedColor}
   index={1}
   onClickCallBAckF={()=>this.setState({selectedImage:'1'})}
+  size='contain'
 />
 
 
 <ItemImage 
-  width='100px'
-  height='100px'
+  width='95px'
+  height='110px'
   productID={productID}
   color={this.state.selectedColor}
   index={2}
   onClickCallBAckF={()=>this.setState({selectedImage:'2'})}
+  size='contain'
 />
 <EmptyImageBox/>
 
@@ -199,7 +217,21 @@ return(
 
 <c.AutoFullCol>
  <Desc>SELECT COLOR</Desc>
-<c.RowPureDiv>{selectColor}</c.RowPureDiv>
+
+
+
+<c.RowPureDiv>
+<ColorPicker
+  colorArray={colorArray}
+  selectedColor={this.state.selectedColor}
+  
+  pickColorCallbackF={this.pickColorCallbackF}
+/>
+
+</c.RowPureDiv>
+
+
+
  </c.AutoFullCol>
 
 <c.AutoFullCol>
@@ -221,10 +253,15 @@ return(
   productID={productID}
   color={this.state.selectedColor}
   index={this.state.selectedImage}
+  size='contain'
  />
 </RightBox>
 </Wrapper>
-
+<ProductDetail
+  productID={productID}
+  color={this.state.selectedColor}
+/>
+</OutterWrapper>
 );
 }
 

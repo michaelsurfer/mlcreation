@@ -93,7 +93,7 @@ export const ProductGrid=(({gender})=>{
         var data = productData[item][i];
         var productCode = data.name;
         var productColor = data.color;
-        var imgUrl=imagePath+productCode+"/"+productColor+"/1.jpg";
+        var imgUrl=imagePath+"/products/"+productCode+"/"+productColor+"/1.jpg";
 
         //var imgUrl = "/image/"+productCode+"/main/"+productColor+".png";
         var link = "/product/"+productCode;
