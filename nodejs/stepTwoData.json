@@ -1,0 +1,380 @@
+{
+	"Batboy": {
+		"colorArray": [
+			{
+				"BK": "something"
+			},
+			{
+				"BL": "something"
+			},
+			{
+				"G": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	},
+	"Cool_Boy": {
+		"colorArray": [
+			{
+				"BK": "something"
+			},
+			{
+				"BKG": "something"
+			},
+			{
+				"BKS": "something"
+			},
+			{
+				"BL": "something"
+			},
+			{
+				"BLS": "something"
+			},
+			{
+				"DBL": "something"
+			},
+			{
+				"GY": "something"
+			},
+			{
+				"GYBL": "something"
+			},
+			{
+				"GYBLG": "something"
+			},
+			{
+				"GYS": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	},
+	"Cute_Bullet": {
+		"colorArray": [
+			{
+				"BK": "something"
+			},
+			{
+				"BLGR": "something"
+			},
+			{
+				"G": "something"
+			},
+			{
+				"GB": "something"
+			},
+			{
+				"O": "something"
+			},
+			{
+				"PP": "something"
+			},
+			{
+				"R": "something"
+			},
+			{
+				"S": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	},
+	"Double": {
+		"colorArray": [
+			{
+				"BK": "something"
+			},
+			{
+				"BKG": "something"
+			},
+			{
+				"GRBLG": "something"
+			},
+			{
+				"OG": "something"
+			},
+			{
+				"PI": "something"
+			},
+			{
+				"PIPP": "something"
+			},
+			{
+				"PP": "something"
+			},
+			{
+				"R": "something"
+			},
+			{
+				"RG": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	},
+	"Evva_K_Balls": {
+		"colorArray": [
+			{
+				"DPBL": "something"
+			},
+			{
+				"LBL": "something"
+			},
+			{
+				"PI": "something"
+			},
+			{
+				"PP": "something"
+			},
+			{
+				"RE": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	},
+	"G_Finger": {
+		"colorArray": [
+			{
+				"BK": "something"
+			},
+			{
+				"MGGR": "something"
+			},
+			{
+				"O": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	},
+	"Glittering_Bullet": {
+		"colorArray": [
+			{
+				"BG": "something"
+			},
+			{
+				"BS": "something"
+			},
+			{
+				"SP": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	},
+	"Intense": {
+		"colorArray": [
+			{
+				"G": "something"
+			},
+			{
+				"S": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	},
+	"Love_Bullet": {
+		"colorArray": [
+			{
+				"BKG": "something"
+			},
+			{
+				"BKR": "something"
+			},
+			{
+				"G": "something"
+			},
+			{
+				"GRBL": "something"
+			},
+			{
+				"O": "something"
+			},
+			{
+				"PP": "something"
+			},
+			{
+				"R": "something"
+			},
+			{
+				"S": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	},
+	"Magic_Ring": {
+		"colorArray": [
+			{
+				"BKG": "something"
+			},
+			{
+				"BLG": "something"
+			},
+			{
+				"GYG": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	},
+	"Power_Finger": {
+		"colorArray": [
+			{
+				"BK": "something"
+			},
+			{
+				"BL": "something"
+			},
+			{
+				"O": "something"
+			},
+			{
+				"PP": "something"
+			},
+			{
+				"RE": "something"
+			},
+			{
+				"R": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	},
+	"Power_Ring": {
+		"colorArray": [
+			{
+				"BK": "something"
+			},
+			{
+				"BL": "something"
+			},
+			{
+				"DBL": "something"
+			},
+			{
+				"GYBL": "something"
+			},
+			{
+				"PP": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	},
+	"Remote_Cherry": {
+		"colorArray": [
+			{
+				"BK": "something"
+			},
+			{
+				"BKG": "something"
+			},
+			{
+				"GBG": "something"
+			},
+			{
+				"GBL": "something"
+			},
+			{
+				"O": "something"
+			},
+			{
+				"PP": "something"
+			},
+			{
+				"RG": "something"
+			},
+			{
+				"R": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	},
+	"Remote_Hunter": {
+		"colorArray": [
+			{
+				"BKG": "something"
+			},
+			{
+				"BLG": "something"
+			},
+			{
+				"SHPIG": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	},
+	"Remote_VBKB": {
+		"colorArray": [
+			{
+				"BK": "something"
+			},
+			{
+				"BKG": "something"
+			},
+			{
+				"GRBLG": "something"
+			},
+			{
+				"OG": "something"
+			},
+			{
+				"PI": "something"
+			},
+			{
+				"PIG": "something"
+			},
+			{
+				"PIP": "something"
+			},
+			{
+				"PP": "something"
+			},
+			{
+				"R": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	},
+	"Super_Ring": {
+		"colorArray": [
+			{
+				"BK": "something"
+			},
+			{
+				"BKG": "something"
+			},
+			{
+				"BL": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	},
+	"Vertical_Attack": {
+		"colorArray": [
+			{
+				"TBK": "something"
+			},
+			{
+				"TGYBL": "something"
+			},
+			{
+				"TO": "something"
+			},
+			{
+				"TW": "something"
+			}
+		],
+		"male": false,
+		"female": false
+	}
+}

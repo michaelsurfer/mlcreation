@@ -1,0 +1,2685 @@
+{
+	"data": [
+		{
+			"productID": "",
+			"productName": ".DS_Store",
+			"colorCode": "",
+			"colorName": "",
+			"productImageFile": ".DS_Store",
+			"type": "unknown"
+		},
+		{
+			"productID": "",
+			"productName": "Batboy",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Batboy-Black.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Batboy",
+			"colorCode": "BL",
+			"colorName": "Blue",
+			"productImageFile": "Batboy-Blue.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Batboy",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Batboy-Charging-Black.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Batboy",
+			"colorCode": "BL",
+			"colorName": "Blue",
+			"productImageFile": "Batboy-Charging-Blue.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Batboy",
+			"colorCode": "G",
+			"colorName": "G",
+			"productImageFile": "Batboy-Charging-G.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Batboy",
+			"colorCode": "G",
+			"colorName": "G",
+			"productImageFile": "Batboy-G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Batboy",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Batboy-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Batboy",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Batboy-splashproof-Black.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Batboy",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Batboy-splashproof-Black_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Batboy",
+			"colorCode": "BL",
+			"colorName": "Blue",
+			"productImageFile": "Batboy-splashproof-Blue.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Cool_Boy-Black.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Cool_Boy-Black_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "BKS",
+			"colorName": "Black_S",
+			"productImageFile": "Cool_Boy-Black_S.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "BL",
+			"colorName": "Blue",
+			"productImageFile": "Cool_Boy-Blue.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "BLS",
+			"colorName": "Blue_S",
+			"productImageFile": "Cool_Boy-Blue_S.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Cool_Boy-Charging-Black.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "BL",
+			"colorName": "Blue",
+			"productImageFile": "Cool_Boy-Charging-Blue.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "DBL",
+			"colorName": "D_Blue",
+			"productImageFile": "Cool_Boy-Charging-D_Blue.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "GY",
+			"colorName": "Gray",
+			"productImageFile": "Cool_Boy-Charging-Gray.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "GYBL",
+			"colorName": "Gray_Blue",
+			"productImageFile": "Cool_Boy-Charging-Gray_Blue.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "RG",
+			"colorName": "Rose_G",
+			"productImageFile": "Cool_Boy-Charging-Rose_G.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "S",
+			"colorName": "Silver",
+			"productImageFile": "Cool_Boy-Charging-Silver.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "DBL",
+			"colorName": "D_Blue",
+			"productImageFile": "Cool_Boy-D_Blue.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "GY",
+			"colorName": "Gray",
+			"productImageFile": "Cool_Boy-Gray.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "GYBL",
+			"colorName": "Gray_Blue",
+			"productImageFile": "Cool_Boy-Gray_Blue.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "GYBLG",
+			"colorName": "Gray_Blue_G",
+			"productImageFile": "Cool_Boy-Gray_Blue_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "GYS",
+			"colorName": "Gray_S",
+			"productImageFile": "Cool_Boy-Gray_S.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Cool_Boy-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Cool_Boy-splashproof-Black.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Cool_Boy-splashproof-Black_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "BKS",
+			"colorName": "Black_S",
+			"productImageFile": "Cool_Boy-splashproof-Black_S.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "BL",
+			"colorName": "Blue",
+			"productImageFile": "Cool_Boy-splashproof-Blue.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "BLS",
+			"colorName": "Blue_S",
+			"productImageFile": "Cool_Boy-splashproof-Blue_S.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "DBL",
+			"colorName": "D_Blue",
+			"productImageFile": "Cool_Boy-splashproof-D_Blue.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "GY",
+			"colorName": "Gray",
+			"productImageFile": "Cool_Boy-splashproof-Gray.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "GYBL",
+			"colorName": "Gray_Blue",
+			"productImageFile": "Cool_Boy-splashproof-Gray_Blue.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "GYBLG",
+			"colorName": "Gray_Blue_G",
+			"productImageFile": "Cool_Boy-splashproof-Gray_Blue_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cool_Boy",
+			"colorCode": "GYS",
+			"colorName": "Gray_S",
+			"productImageFile": "Cool_Boy-splashproof-Gray_S.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Cute_Bullet-Black.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "BLGR",
+			"colorName": "Blue_Green",
+			"productImageFile": "Cute_Bullet-Blue_Green.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Cute_Bullet-Charging-Black.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "BLGR",
+			"colorName": "Blue_Green",
+			"productImageFile": "Cute_Bullet-Charging-Blue_Green.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "G",
+			"colorName": "G",
+			"productImageFile": "Cute_Bullet-Charging-G.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "GB",
+			"colorName": "GB",
+			"productImageFile": "Cute_Bullet-Charging-GB.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "O",
+			"colorName": "Orange",
+			"productImageFile": "Cute_Bullet-Charging-Orange.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Cute_Bullet-Charging-Purple.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Cute_Bullet-Charging-Rose.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "S",
+			"colorName": "Silver",
+			"productImageFile": "Cute_Bullet-Charging-Silver.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "G",
+			"colorName": "G",
+			"productImageFile": "Cute_Bullet-G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "GB",
+			"colorName": "GB",
+			"productImageFile": "Cute_Bullet-GB.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "O",
+			"colorName": "Orange",
+			"productImageFile": "Cute_Bullet-Orange.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Cute_Bullet-Purple.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Cute_Bullet-Rose.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "S",
+			"colorName": "Silver",
+			"productImageFile": "Cute_Bullet-Silver.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Cute_Bullet-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Cute_Bullet-splashproof-Black.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "BLGR",
+			"colorName": "Blue_Green",
+			"productImageFile": "Cute_Bullet-splashproof-Blue_Green.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "G",
+			"colorName": "G",
+			"productImageFile": "Cute_Bullet-splashproof-G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "GB",
+			"colorName": "GB",
+			"productImageFile": "Cute_Bullet-splashproof-GB.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "O",
+			"colorName": "Orange",
+			"productImageFile": "Cute_Bullet-splashproof-Orange.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Cute_Bullet-splashproof-Purple.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Cute_Bullet-splashproof-Rose.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Cute_Bullet",
+			"colorCode": "S",
+			"colorName": "Silver",
+			"productImageFile": "Cute_Bullet-splashproof-Silver.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Double-Black.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Double-Black_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Double-Charging-Black.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Double-Charging-Black_G.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "GRBLG",
+			"colorName": "Green_Blue_G",
+			"productImageFile": "Double-Charging-Green_Blue_G.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "OG",
+			"colorName": "Orange_G",
+			"productImageFile": "Double-Charging-Orange_G.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "PI",
+			"colorName": "Pink",
+			"productImageFile": "Double-Charging-Pink.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "PIPP",
+			"colorName": "Pink_Purple",
+			"productImageFile": "Double-Charging-Pink_Purple.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Double-Charging-Purple.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Double-Charging-Rose.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "RG",
+			"colorName": "Rose_G",
+			"productImageFile": "Double-Charging-Rose_G.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "GRBLG",
+			"colorName": "Green_Blue_G",
+			"productImageFile": "Double-Green_Blue_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "OG",
+			"colorName": "Orange_G",
+			"productImageFile": "Double-Orange_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "PI",
+			"colorName": "Pink",
+			"productImageFile": "Double-Pink.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "PIPP",
+			"colorName": "Pink_Purple",
+			"productImageFile": "Double-Pink_Purple.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Double-Purple.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Double-Rose.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "RG",
+			"colorName": "Rose_G",
+			"productImageFile": "Double-Rose_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Double-splashproof-Black.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Double-splashproof-Black_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "GRBLG",
+			"colorName": "Green_Blue_G",
+			"productImageFile": "Double-splashproof-Green_Blue_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "OG",
+			"colorName": "Orange_G",
+			"productImageFile": "Double-splashproof-Orange_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "PI",
+			"colorName": "Pink",
+			"productImageFile": "Double-splashproof-Pink.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "PIPP",
+			"colorName": "Pink_Purple",
+			"productImageFile": "Double-splashproof-Pink_Purple.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Double-splashproof-Purple.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Double-splashproof-Rose.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Double",
+			"colorCode": "RG",
+			"colorName": "Rose_G",
+			"productImageFile": "Double-splashproof-Rose_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Double_For_Her",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Double_For_Her-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Double_For_Him",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Double_For_Him-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Evva_K_Balls",
+			"colorCode": "DPBL",
+			"colorName": "Deep_Blue",
+			"productImageFile": "Evva_K_Balls-Deep_Blue.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Evva_K_Balls",
+			"colorCode": "LBL",
+			"colorName": "L_Blue",
+			"productImageFile": "Evva_K_Balls-L_Blue.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Evva_K_Balls",
+			"colorCode": "DPBL",
+			"colorName": "Deep_Blue",
+			"productImageFile": "Evva_K_Balls-Packaging-Deep_Blue.png",
+			"type": "Packaging"
+		},
+		{
+			"productID": "",
+			"productName": "Evva_K_Balls",
+			"colorCode": "LBL",
+			"colorName": "L_Blue",
+			"productImageFile": "Evva_K_Balls-Packaging-L_Blue.png",
+			"type": "Packaging"
+		},
+		{
+			"productID": "",
+			"productName": "Evva_K_Balls",
+			"colorCode": "PI",
+			"colorName": "Pink",
+			"productImageFile": "Evva_K_Balls-Packaging-Pink.png",
+			"type": "Packaging"
+		},
+		{
+			"productID": "",
+			"productName": "Evva_K_Balls",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Evva_K_Balls-Packaging-Purple.png",
+			"type": "Packaging"
+		},
+		{
+			"productID": "",
+			"productName": "Evva_K_Balls",
+			"colorCode": "RE",
+			"colorName": "Red",
+			"productImageFile": "Evva_K_Balls-Packaging-Red.png",
+			"type": "Packaging"
+		},
+		{
+			"productID": "",
+			"productName": "Evva_K_Balls",
+			"colorCode": "PI",
+			"colorName": "Pink",
+			"productImageFile": "Evva_K_Balls-Pink.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Evva_K_Balls",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Evva_K_Balls-Purple.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Evva_K_Balls",
+			"colorCode": "RE",
+			"colorName": "Red",
+			"productImageFile": "Evva_K_Balls-Red.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Evva_K_Balls",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Evva_K_Balls-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Evva_K_Balls",
+			"colorCode": "DPBL",
+			"colorName": "Deep_Blue",
+			"productImageFile": "Evva_K_Balls-splashproof-Deep_Blue.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Evva_K_Balls",
+			"colorCode": "LBL",
+			"colorName": "L_Blue",
+			"productImageFile": "Evva_K_Balls-splashproof-L_Blue.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Evva_K_Balls",
+			"colorCode": "PI",
+			"colorName": "Pink",
+			"productImageFile": "Evva_K_Balls-splashproof-Pink.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Evva_K_Balls",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Evva_K_Balls-splashproof-Purple.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Evva_K_Balls",
+			"colorCode": "RE",
+			"colorName": "Red",
+			"productImageFile": "Evva_K_Balls-splashproof-Red.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "G_Finger",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "G_Finger-Black.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "G_Finger",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "G_Finger-Charging-Black.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "G_Finger",
+			"colorCode": "MGGR",
+			"colorName": "Magic_Green",
+			"productImageFile": "G_Finger-Charging-Magic_Green.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "G_Finger",
+			"colorCode": "O",
+			"colorName": "Orange",
+			"productImageFile": "G_Finger-Charging-Orange.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "G_Finger",
+			"colorCode": "MGGR",
+			"colorName": "Magic_Green",
+			"productImageFile": "G_Finger-Magic_Green.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "G_Finger",
+			"colorCode": "O",
+			"colorName": "Orange",
+			"productImageFile": "G_Finger-Orange.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "G_Finger",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "G_Finger-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "G_Finger",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "G_Finger-splashproof-Black.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "G_Finger",
+			"colorCode": "MGGR",
+			"colorName": "Magic_Green",
+			"productImageFile": "G_Finger-splashproof-Magic_Green.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "G_Finger",
+			"colorCode": "O",
+			"colorName": "Orange",
+			"productImageFile": "G_Finger-splashproof-Orange.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Glittering",
+			"colorCode": "BG",
+			"colorName": "BG",
+			"productImageFile": "Glittering-Charging-BG.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Glittering",
+			"colorCode": "BS",
+			"colorName": "BS",
+			"productImageFile": "Glittering-Charging-BS.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Glittering",
+			"colorCode": "SP",
+			"colorName": "SP",
+			"productImageFile": "Glittering-Charging-SP.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Glittering_Bullet",
+			"colorCode": "BG",
+			"colorName": "BG",
+			"productImageFile": "Glittering_Bullet-BG.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Glittering_Bullet",
+			"colorCode": "BS",
+			"colorName": "BS",
+			"productImageFile": "Glittering_Bullet-BS.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Glittering_Bullet",
+			"colorCode": "SP",
+			"colorName": "SP",
+			"productImageFile": "Glittering_Bullet-SP.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Glittering_Bullet",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Glittering_Bullet-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Glittering_Bullet",
+			"colorCode": "BG",
+			"colorName": "BG",
+			"productImageFile": "Glittering_Bullet-splashproof-BG.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Glittering_Bullet",
+			"colorCode": "BS",
+			"colorName": "BS",
+			"productImageFile": "Glittering_Bullet-splashproof-BS.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Glittering_Bullet",
+			"colorCode": "SP",
+			"colorName": "SP",
+			"productImageFile": "Glittering_Bullet-splashproof-SP.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Intense",
+			"colorCode": "G",
+			"colorName": "G",
+			"productImageFile": "Intense-Charging-G.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Intense",
+			"colorCode": "S",
+			"colorName": "Silver",
+			"productImageFile": "Intense-Charging-Silver.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Intense",
+			"colorCode": "G",
+			"colorName": "G",
+			"productImageFile": "Intense-G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Intense",
+			"colorCode": "S",
+			"colorName": "Silver",
+			"productImageFile": "Intense-Silver.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Intense",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Intense-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Intense",
+			"colorCode": "G",
+			"colorName": "G",
+			"productImageFile": "Intense-splashproof-G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Intense",
+			"colorCode": "S",
+			"colorName": "Silver",
+			"productImageFile": "Intense-splashproof-Silver.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Love_Bullet-Black_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "BKR",
+			"colorName": "Black_R",
+			"productImageFile": "Love_Bullet-Black_R.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Love_Bullet-Charging-Black_G.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "BKR",
+			"colorName": "Black_R",
+			"productImageFile": "Love_Bullet-Charging-Black_R.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "G",
+			"colorName": "G",
+			"productImageFile": "Love_Bullet-Charging-G.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "GRBL",
+			"colorName": "Green_Blue",
+			"productImageFile": "Love_Bullet-Charging-Green_Blue.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "O",
+			"colorName": "Orange",
+			"productImageFile": "Love_Bullet-Charging-Orange.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Love_Bullet-Charging-Purple.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Love_Bullet-Charging-Rose.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "S",
+			"colorName": "Silver",
+			"productImageFile": "Love_Bullet-Charging-Silver.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "G",
+			"colorName": "G",
+			"productImageFile": "Love_Bullet-G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "GRBL",
+			"colorName": "Green_Blue",
+			"productImageFile": "Love_Bullet-Green_Blue.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "O",
+			"colorName": "Orange",
+			"productImageFile": "Love_Bullet-Orange.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Love_Bullet-Purple.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Love_Bullet-Rose.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "S",
+			"colorName": "Silver",
+			"productImageFile": "Love_Bullet-Silver.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Love_Bullet-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Love_Bullet-splashproof-Black_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "BKS",
+			"colorName": "Black_S",
+			"productImageFile": "Love_Bullet-splashproof-Black_S.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "G",
+			"colorName": "G",
+			"productImageFile": "Love_Bullet-splashproof-G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "GRBL",
+			"colorName": "Green_Blue",
+			"productImageFile": "Love_Bullet-splashproof-Green_Blue.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "O",
+			"colorName": "Orange",
+			"productImageFile": "Love_Bullet-splashproof-Orange.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Love_Bullet-splashproof-Purple.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Love_Bullet-splashproof-Rose.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Love_Bullet",
+			"colorCode": "S",
+			"colorName": "Silver",
+			"productImageFile": "Love_Bullet-splashproof-Silver.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Magic_Ring",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Magic_Ring-Big-Picture-Black_G.png",
+			"type": "unknown"
+		},
+		{
+			"productID": "",
+			"productName": "Magic_Ring",
+			"colorCode": "BLG",
+			"colorName": "Blue_G",
+			"productImageFile": "Magic_Ring-Big-Picture-Blue_G.png",
+			"type": "unknown"
+		},
+		{
+			"productID": "",
+			"productName": "Magic_Ring",
+			"colorCode": "GYBLG",
+			"colorName": "Gray_Blue_G",
+			"productImageFile": "Magic_Ring-Big-Picture-Gray_Blue_G.png",
+			"type": "unknown"
+		},
+		{
+			"productID": "",
+			"productName": "Magic_Ring",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Magic_Ring-Black_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Magic_Ring",
+			"colorCode": "BLG",
+			"colorName": "Blue_G",
+			"productImageFile": "Magic_Ring-Blue_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Magic_Ring",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Magic_Ring-Charging-Black.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Magic_Ring",
+			"colorCode": "BL",
+			"colorName": "Blue",
+			"productImageFile": "Magic_Ring-Charging-Blue.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Magic_Ring",
+			"colorCode": "GY",
+			"colorName": "Gray",
+			"productImageFile": "Magic_Ring-Charging-Gray.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Magic_Ring",
+			"colorCode": "GYG",
+			"colorName": "Gray_G",
+			"productImageFile": "Magic_Ring-Gray_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Magic_Ring",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Magic_Ring-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Magic_Ring",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Magic_Ring-splashproof-Black_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Magic_Ring",
+			"colorCode": "BLG",
+			"colorName": "Blue_G",
+			"productImageFile": "Magic_Ring-splashproof-Blue_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Magic_Ring",
+			"colorCode": "GYG",
+			"colorName": "Gray_G",
+			"productImageFile": "Magic_Ring-splashproof-Gray_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Power_Finger-Black.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "BL",
+			"colorName": "Blue",
+			"productImageFile": "Power_Finger-Blue.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Power_Finger-Charging-Black.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "BL",
+			"colorName": "Blue",
+			"productImageFile": "Power_Finger-Charging-Blue.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "O",
+			"colorName": "Orange",
+			"productImageFile": "Power_Finger-Charging-Orange.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Power_Finger-Charging-Purple.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "RE",
+			"colorName": "Red",
+			"productImageFile": "Power_Finger-Charging-Red.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Power_Finger-Charging-Rose.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "O",
+			"colorName": "Orange",
+			"productImageFile": "Power_Finger-Orange.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Power_Finger-Purple.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "RE",
+			"colorName": "Red",
+			"productImageFile": "Power_Finger-Red.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Power_Finger-Rose.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Power_Finger-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Power_Finger-splashproof-Black.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "BL",
+			"colorName": "Blue",
+			"productImageFile": "Power_Finger-splashproof-Blue.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "O",
+			"colorName": "Orange",
+			"productImageFile": "Power_Finger-splashproof-Orange.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Power_Finger-splashproof-Purple.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "RE",
+			"colorName": "Red",
+			"productImageFile": "Power_Finger-splashproof-Red.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Finger",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Power_Finger-splashproof-Rose.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Ring",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Power_Ring-Black.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Ring",
+			"colorCode": "BL",
+			"colorName": "Blue",
+			"productImageFile": "Power_Ring-Blue.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Ring",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Power_Ring-Charging-Black.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Ring",
+			"colorCode": "BL",
+			"colorName": "Blue",
+			"productImageFile": "Power_Ring-Charging-Blue.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Ring",
+			"colorCode": "DBL",
+			"colorName": "D_Blue",
+			"productImageFile": "Power_Ring-Charging-D_Blue.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Ring",
+			"colorCode": "GYBL",
+			"colorName": "Gray_Blue",
+			"productImageFile": "Power_Ring-Charging-Gray_Blue.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Ring",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Power_Ring-Charging-Purple.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Ring",
+			"colorCode": "DBL",
+			"colorName": "D_Blue",
+			"productImageFile": "Power_Ring-D_Blue.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Ring",
+			"colorCode": "GYBL",
+			"colorName": "Gray_Blue",
+			"productImageFile": "Power_Ring-Gray_Blue.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Ring",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Power_Ring-Purple.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Ring",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Power_Ring-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Ring",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Power_Ring-splashproof-Black.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Ring",
+			"colorCode": "BL",
+			"colorName": "Blue",
+			"productImageFile": "Power_Ring-splashproof-Blue.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Ring",
+			"colorCode": "DBL",
+			"colorName": "D_Blue",
+			"productImageFile": "Power_Ring-splashproof-D_Blue.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Ring",
+			"colorCode": "GYBL",
+			"colorName": "Gray_Blue",
+			"productImageFile": "Power_Ring-splashproof-Gray_Blue.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Power_Ring",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Power_Ring-splashproof-Purple.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Remote_Cherry-Black.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Remote_Cherry-Black_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "G",
+			"colorName": "G",
+			"productImageFile": "Remote_Cherry-Charging-G.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "S",
+			"colorName": "Silver",
+			"productImageFile": "Remote_Cherry-Charging-Silver.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "GBG",
+			"colorName": "GBG",
+			"productImageFile": "Remote_Cherry-GBG.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "GBL",
+			"colorName": "GBL",
+			"productImageFile": "Remote_Cherry-GBL.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "O",
+			"colorName": "Orange",
+			"productImageFile": "Remote_Cherry-Orange.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Remote_Cherry-Purple.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "RG",
+			"colorName": "RG",
+			"productImageFile": "Remote_Cherry-RG.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Remote_Cherry-Remote-Black.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Remote_Cherry-Remote-Black_G.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "GBL",
+			"colorName": "GBL",
+			"productImageFile": "Remote_Cherry-Remote-GBL.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "GRBLG",
+			"colorName": "Green_Blue_G",
+			"productImageFile": "Remote_Cherry-Remote-Green_Blue_G.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "OG",
+			"colorName": "Orange_G",
+			"productImageFile": "Remote_Cherry-Remote-Orange_G.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Remote_Cherry-Remote-Purple.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Remote_Cherry-Remote-Rose.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "RG",
+			"colorName": "Rose_G",
+			"productImageFile": "Remote_Cherry-Remote-Rose_G.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Remote_Cherry-Rose.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Remote_Cherry-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Remote_Cherry-splashproof-Black.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Remote_Cherry-splashproof-Black_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "GBL",
+			"colorName": "GBL",
+			"productImageFile": "Remote_Cherry-splashproof-GBL.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "GRBLG",
+			"colorName": "Green_Blue_G",
+			"productImageFile": "Remote_Cherry-splashproof-Green_Blue_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "OG",
+			"colorName": "Orange_G",
+			"productImageFile": "Remote_Cherry-splashproof-Orange_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Remote_Cherry-splashproof-Purple.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Remote_Cherry-splashproof-Rose.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Cherry",
+			"colorCode": "RG",
+			"colorName": "Rose_G",
+			"productImageFile": "Remote_Cherry-splashproof-Rose_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Hunter",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Remote_Hunter-Black_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Hunter",
+			"colorCode": "BLG",
+			"colorName": "Blue_G",
+			"productImageFile": "Remote_Hunter-Blue_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Hunter",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Remote_Hunter-Charging-Black_G.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Hunter",
+			"colorCode": "BLGRG",
+			"colorName": "Blue_Green_G",
+			"productImageFile": "Remote_Hunter-Charging-Blue_Green_G.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Hunter",
+			"colorCode": "SHPIG",
+			"colorName": "Shrimp_Pink_G",
+			"productImageFile": "Remote_Hunter-Charging-Shrimp_Pink_G.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Hunter",
+			"colorCode": "BLGRG",
+			"colorName": "Blue_Green_G",
+			"productImageFile": "Remote_Hunter-Remote-Blue_Green_G.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Hunter",
+			"colorCode": "OG",
+			"colorName": "Orange_G",
+			"productImageFile": "Remote_Hunter-Remote-Orange_G.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Hunter",
+			"colorCode": "SHPIG",
+			"colorName": "Shrimp_Pink_G",
+			"productImageFile": "Remote_Hunter-Remote-Shrimp_Pink_G.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Hunter",
+			"colorCode": "SHPIG",
+			"colorName": "Shrimp_Pink_G",
+			"productImageFile": "Remote_Hunter-Shrimp_Pink_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Hunter",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Remote_Hunter-splashproof-Black_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Hunter",
+			"colorCode": "GRBLG",
+			"colorName": "Green_Blue_G",
+			"productImageFile": "Remote_Hunter-splashproof-Green_Blue_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Hunter",
+			"colorCode": "SHPIG",
+			"colorName": "Shrimp_Pink_G",
+			"productImageFile": "Remote_Hunter-splashproof-Shrimp_Pink_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Hunter_For_Her",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Remote_Hunter_For_Her-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_Hunter_For_Him",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Remote_Hunter_For_Him-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Remote_VBKB-Black.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Remote_VBKB-Black_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Remote_VBKB-Charging-Black.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "G",
+			"colorName": "G",
+			"productImageFile": "Remote_VBKB-Charging-G.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "PI",
+			"colorName": "Pink",
+			"productImageFile": "Remote_VBKB-Charging-Pink.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "PIPP",
+			"colorName": "Pink_Purple",
+			"productImageFile": "Remote_VBKB-Charging-Pink_Purple.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Remote_VBKB-Charging-Purple.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Remote_VBKB-Charging-Rose.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "GRBLG",
+			"colorName": "Green_Blue_G",
+			"productImageFile": "Remote_VBKB-Green_Blue_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "OG",
+			"colorName": "Orange_G",
+			"productImageFile": "Remote_VBKB-Orange_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "PPG",
+			"colorName": "Purple_G",
+			"productImageFile": "Remote_VBKB-Pink-Purple_G.png",
+			"type": "Pink"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "PI",
+			"colorName": "Pink",
+			"productImageFile": "Remote_VBKB-Pink.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "PIG",
+			"colorName": "Pink_G",
+			"productImageFile": "Remote_VBKB-Pink_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "PIP",
+			"colorName": "Pink_P",
+			"productImageFile": "Remote_VBKB-Pink_P.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Remote_VBKB-Purple.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Remote_VBKB-Remote-Black.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Remote_VBKB-Remote-Black_G.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "GRBLG",
+			"colorName": "Green_Blue_G",
+			"productImageFile": "Remote_VBKB-Remote-Green_Blue_G.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "O",
+			"colorName": "Orange",
+			"productImageFile": "Remote_VBKB-Remote-Orange.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "PI",
+			"colorName": "Pink",
+			"productImageFile": "Remote_VBKB-Remote-Pink.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "PIG",
+			"colorName": "Pink_G",
+			"productImageFile": "Remote_VBKB-Remote-Pink_G.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "PIPP",
+			"colorName": "Pink_Purple",
+			"productImageFile": "Remote_VBKB-Remote-Pink_Purple.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Remote_VBKB-Remote-Purple.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Remote_VBKB-Remote-Rose.png",
+			"type": "Remote"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Remote_VBKB-Rose.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VBKB",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Remote_VBKB-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VKB",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Remote_VKB-splashproof-Black.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VKB",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Remote_VKB-splashproof-Black_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VKB",
+			"colorCode": "GRBLG",
+			"colorName": "Green_Blue_G",
+			"productImageFile": "Remote_VKB-splashproof-Green_Blue_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VKB",
+			"colorCode": "OG",
+			"colorName": "Orange_G",
+			"productImageFile": "Remote_VKB-splashproof-Orange_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VKB",
+			"colorCode": "PI",
+			"colorName": "Pink",
+			"productImageFile": "Remote_VKB-splashproof-Pink.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VKB",
+			"colorCode": "PIG",
+			"colorName": "Pink_G",
+			"productImageFile": "Remote_VKB-splashproof-Pink_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VKB",
+			"colorCode": "PIPP",
+			"colorName": "Pink_Purple",
+			"productImageFile": "Remote_VKB-splashproof-Pink_Purple.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VKB",
+			"colorCode": "PIPPG",
+			"colorName": "Pink_Purple_G",
+			"productImageFile": "Remote_VKB-splashproof-Pink_Purple_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VKB",
+			"colorCode": "PP",
+			"colorName": "Purple",
+			"productImageFile": "Remote_VKB-splashproof-Purple.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Remote_VKB",
+			"colorCode": "R",
+			"colorName": "Rose",
+			"productImageFile": "Remote_VKB-splashproof-Rose.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Super_Ring",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Super_Ring-Black.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Super_Ring",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Super_Ring-Black_G.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Super_Ring",
+			"colorCode": "BL",
+			"colorName": "Blue",
+			"productImageFile": "Super_Ring-Blue.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Super_Ring",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Super_Ring-Charging-Black.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Super_Ring",
+			"colorCode": "BL",
+			"colorName": "Blue",
+			"productImageFile": "Super_Ring-Charging-Blue.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Super_Ring",
+			"colorCode": "G",
+			"colorName": "G",
+			"productImageFile": "Super_Ring-Charging-G.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Super_Ring",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Super_Ring-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Super_Ring",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Super_Ring-splashproof-Black.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Super_Ring",
+			"colorCode": "BKG",
+			"colorName": "Black_G",
+			"productImageFile": "Super_Ring-splashproof-Black_G.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Super_Ring",
+			"colorCode": "BL",
+			"colorName": "Blue",
+			"productImageFile": "Super_Ring-splashproof-Blue.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Vertical_Attack",
+			"colorCode": "BK",
+			"colorName": "Black",
+			"productImageFile": "Vertical_Attack-Charging-Black.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Vertical_Attack",
+			"colorCode": "GYBL",
+			"colorName": "Gray_Blue",
+			"productImageFile": "Vertical_Attack-Charging-Gray_Blue.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Vertical_Attack",
+			"colorCode": "O",
+			"colorName": "Orange",
+			"productImageFile": "Vertical_Attack-Charging-Orange.png",
+			"type": "Charging"
+		},
+		{
+			"productID": "",
+			"productName": "Vertical_Attack",
+			"colorCode": "TBK",
+			"colorName": "T_Black",
+			"productImageFile": "Vertical_Attack-T_Black.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Vertical_Attack",
+			"colorCode": "TGYBL",
+			"colorName": "T_Gray_Blue",
+			"productImageFile": "Vertical_Attack-T_Gray_Blue.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Vertical_Attack",
+			"colorCode": "TO",
+			"colorName": "T_Orange",
+			"productImageFile": "Vertical_Attack-T_Orange.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Vertical_Attack",
+			"colorCode": "TW",
+			"colorName": "T_White",
+			"productImageFile": "Vertical_Attack-T_White.png",
+			"type": "cover"
+		},
+		{
+			"productID": "",
+			"productName": "Vertical_Attack",
+			"colorCode": "Top",
+			"colorName": "Top",
+			"productImageFile": "Vertical_Attack-Top.png",
+			"type": "top"
+		},
+		{
+			"productID": "",
+			"productName": "Vertical_Attack",
+			"colorCode": "TBK",
+			"colorName": "T_Black",
+			"productImageFile": "Vertical_Attack-splashproof-T_Black.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Vertical_Attack",
+			"colorCode": "TGYBL",
+			"colorName": "T_Gray_Blue",
+			"productImageFile": "Vertical_Attack-splashproof-T_Gray_Blue.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Vertical_Attack",
+			"colorCode": "TO",
+			"colorName": "T_Orange",
+			"productImageFile": "Vertical_Attack-splashproof-T_Orange.png",
+			"type": "splashproof"
+		},
+		{
+			"productID": "",
+			"productName": "Vertical_Attack",
+			"colorCode": "TW",
+			"colorName": "T_White",
+			"productImageFile": "Vertical_Attack-splashproof-T_White.png",
+			"type": "splashproof"
+		}
+	],
+	"uniqueProductNameList": {
+		".DS_Store": {
+			"shortCode": ""
+		},
+		"Batboy": {
+			"shortCode": ""
+		},
+		"Cool_Boy": {
+			"shortCode": ""
+		},
+		"Cute_Bullet": {
+			"shortCode": ""
+		},
+		"Double": {
+			"shortCode": ""
+		},
+		"Double_For_Her": {
+			"shortCode": ""
+		},
+		"Double_For_Him": {
+			"shortCode": ""
+		},
+		"Evva_K_Balls": {
+			"shortCode": ""
+		},
+		"G_Finger": {
+			"shortCode": ""
+		},
+		"Glittering": {
+			"shortCode": ""
+		},
+		"Glittering_Bullet": {
+			"shortCode": ""
+		},
+		"Intense": {
+			"shortCode": ""
+		},
+		"Love_Bullet": {
+			"shortCode": ""
+		},
+		"Magic_Ring": {
+			"shortCode": ""
+		},
+		"Power_Finger": {
+			"shortCode": ""
+		},
+		"Power_Ring": {
+			"shortCode": ""
+		},
+		"Remote_Cherry": {
+			"shortCode": ""
+		},
+		"Remote_Hunter": {
+			"shortCode": ""
+		},
+		"Remote_Hunter_For_Her": {
+			"shortCode": ""
+		},
+		"Remote_Hunter_For_Him": {
+			"shortCode": ""
+		},
+		"Remote_VBKB": {
+			"shortCode": ""
+		},
+		"Remote_VKB": {
+			"shortCode": ""
+		},
+		"Super_Ring": {
+			"shortCode": ""
+		},
+		"Vertical_Attack": {
+			"shortCode": ""
+		}
+	},
+	"uniqueColorNameList": {
+		"": {
+			"colorCode": ""
+		},
+		"Black": {
+			"colorCode": "BK"
+		},
+		"Blue": {
+			"colorCode": "BL"
+		},
+		"G": {
+			"colorCode": "G"
+		},
+		"Black_G": {
+			"colorCode": "BKG"
+		},
+		"Black_S": {
+			"colorCode": "BKS"
+		},
+		"Blue_S": {
+			"colorCode": "BLS"
+		},
+		"D_Blue": {
+			"colorCode": "DBL"
+		},
+		"Gray": {
+			"colorCode": "GY"
+		},
+		"Gray_Blue": {
+			"colorCode": "GYBL"
+		},
+		"Rose_G": {
+			"colorCode": "RG"
+		},
+		"Silver": {
+			"colorCode": "S"
+		},
+		"Gray_Blue_G": {
+			"colorCode": "GYBLG"
+		},
+		"Gray_S": {
+			"colorCode": "GYS"
+		},
+		"Blue_Green": {
+			"colorCode": "BLGR"
+		},
+		"GB": {
+			"colorCode": "GB"
+		},
+		"Orange": {
+			"colorCode": "O"
+		},
+		"Purple": {
+			"colorCode": "PP"
+		},
+		"Rose": {
+			"colorCode": "R"
+		},
+		"Green_Blue_G": {
+			"colorCode": "GRBLG"
+		},
+		"Orange_G": {
+			"colorCode": "OG"
+		},
+		"Pink": {
+			"colorCode": "PI"
+		},
+		"Pink_Purple": {
+			"colorCode": "PIPP"
+		},
+		"Deep_Blue": {
+			"colorCode": "DPBL"
+		},
+		"L_Blue": {
+			"colorCode": "LBL"
+		},
+		"Red": {
+			"colorCode": "RE"
+		},
+		"Magic_Green": {
+			"colorCode": "MGGR"
+		},
+		"BG": {
+			"colorCode": "BG"
+		},
+		"BS": {
+			"colorCode": "BS"
+		},
+		"SP": {
+			"colorCode": "SP"
+		},
+		"Black_R": {
+			"colorCode": "BKR"
+		},
+		"Green_Blue": {
+			"colorCode": "GRBL"
+		},
+		"Blue_G": {
+			"colorCode": "BLG"
+		},
+		"Gray_G": {
+			"colorCode": "GYG"
+		},
+		"GBG": {
+			"colorCode": "GBG"
+		},
+		"GBL": {
+			"colorCode": "GBL"
+		},
+		"RG": {
+			"colorCode": "RG"
+		},
+		"Blue_Green_G": {
+			"colorCode": "BLGRG"
+		},
+		"Shrimp_Pink_G": {
+			"colorCode": "SHPIG"
+		},
+		"Purple_G": {
+			"colorCode": "PPG"
+		},
+		"Pink_G": {
+			"colorCode": "PIG"
+		},
+		"Pink_P": {
+			"colorCode": "PIP"
+		},
+		"Pink_Purple_G": {
+			"colorCode": "PIPPG"
+		},
+		"T_Black": {
+			"colorCode": "TBK"
+		},
+		"T_Gray_Blue": {
+			"colorCode": "TGYBL"
+		},
+		"T_Orange": {
+			"colorCode": "TO"
+		},
+		"T_White": {
+			"colorCode": "TW"
+		}
+	}
+}

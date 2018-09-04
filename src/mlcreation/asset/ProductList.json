@@ -1,0 +1,146 @@
+{
+    "BR":{
+      "itemName":"Batboy",
+      "numOfImage":2,
+
+      "color":["BK","GBK","SBL"]
+    },
+    "CB":{
+      "itemName":"Cute Bullet",
+      "color":["BK","GO","GRBL","MGR","PP","R","S"]
+    },
+    "CBR":{
+      "itemName":"Cool Boy",
+      "color":["BK","BL","GGY","GY","SBK","SBL","SGY"]
+    },
+    "GB":{
+      "itemName":"Glittering Bullet",
+      "color":["GBK","GPI","SB"]
+    },
+    "GF":{
+      "itemName":"Gold Finger",
+      "color":["GBK","GMGGR","GSPO"]
+    },
+    "PF":{
+      "itemName":"Power Finger",
+      "color":["BK","PP","R"]
+    },
+    "PR":{
+      "itemName":"Power Ring",
+      "color":["BK","BL","GY","PP"]
+    },
+    "RC":{
+      "itemName":"Remote Cherry",
+      "color":["GGO","GMGR","SBK","SGRBL","SPP","SR"]
+    },
+    "RHT":{
+      "itemName":"Remote Hunter",
+      "color":["GBK","GIDG","GSHPI"]
+    },
+    "SR":{
+      "itemName":"Super Ring",
+      "color":["BK","GBK","SABL"]
+      },
+    "VA":{
+      "itemName":"Vertical Attack",
+      "color":["TBK","TGYBL","TMO","TW"]
+    },
+    "ITS":{
+      "itemName":"Intense",
+      "refNo":"W-ITS-S",
+      "color":["G","S"],
+      "numOfImage":2,
+      "gender":"g",
+      "description":"Zine alloy super powerful USB..........................",
+      "title1":"Super Powerful USB Rechar......",
+      "title2":"Enviroment Friendly....",
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":100,
+      "UPC":"46898976580",
+      "MSRP":"73.99",
+      "MAP":"69.99"
+    },
+    "DB":{
+      "itemName":"Double",
+      "refNo":"W-DB-S",
+      "color":["GO","GMGR","SBK","SLPI","SPIPP","SPP","SR"],
+      "numOfImage":2,
+      "gender":"m",
+      "title1":"Super Powerful USB Rechar......",
+      "title2":"Enviroment Friendly....",
+      "description":"Zine alloy super powerful USB..........................",
+      "description1":"10 vibration modes, 1 vibration intensity.",
+      "description2":"Can choose the 10-auto cycle mode",
+      "description3":"1 hour of charging = 1 hour usage",
+
+      "retailPrice":200,
+      "UPC":"46898976580",
+      "MSRP":"73.99",
+      "MAP":"69.99"
+    },
+    "LB":{
+      "itemName":"Love Bullet",
+      "refNo":"W-LB-S",
+      "color":["BK","BLGR","GBK","GO","PP","R","S"],
+      "numOfImage":2,
+      "gender":"g",
+      "title1":"Super Powerful USB Rechar......",
+      "title2":"Enviroment Friendly....",
+      "description":"Zine alloy super powerful USB..........................",
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":300,
+      "UPC":"46898976580",
+      "MSRP":"73.99",
+      "MAP":"69.99"
+    },
+    "RVKB":{
+      "itemName":"Intense",
+      "refNo":"W-RVKB-S",
+      "color":["BK","GMGR","GO","GPI","GPIPP","LPIPP","PI","PP","R"],
+      "numOfImage":2,
+      "gender":"g",
+      "title1":"Super Powerful USB Rechar......",
+      "title2":"Enviroment Friendly....",
+      "description":"Zine alloy super powerful USB..........................",
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":400,
+      "UPC":"46898976580",
+      "MSRP":"73.99",
+      "MAP":"69.99"
+    },
+    "EVVA":{
+      "itemName":"Intense",
+      "refNo":"W-ITS-S",
+      "color":["DBL","LBL","PI","PP","RE"],
+      "numOfImage":2,
+      "gender":"g",
+      "title1":"Super Powerful USB Rechar......",
+      "title2":"Enviroment Friendly....",
+      "description":"Zine alloy super powerful USB..........................",
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":500,
+      "UPC":"46898976580",
+      "MSRP":"73.99",
+      "MAP":"69.99"
+    },
+    "MR":{
+      "itemName":"Magic Ring",
+      "refNo":"W-ITS-S",
+      "color":["GBK","GGBL","GSHBL" ],
+      "numOfImage":2,
+      "gender":"m",
+      "description":"Zine alloy super powerful USB..........................",
+      "title1":"Super Powerful USB Rechar......",
+      "title2":"Enviroment Friendly....",
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":100,
+      "UPC":"46898976580",
+      "MSRP":"73.99",
+      "MAP":"69.99"
+    }
+}
