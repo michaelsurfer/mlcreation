@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import styled from "styled-components";
-
+import * as c from "./Css.js";
 
 const Wrapper=styled.div`
 flex-direction:column;
@@ -83,9 +83,17 @@ D.  Once fully recharged, the light indication will stay on.
     }
 }
 
+const titleJson={
+button:"Button Functions:",
+charge:"How To Charge It?",
+clean:"How To Clean It?",
+tips:"Important Tips",
+disclaimer:"Disclaimer"
+
+};
 
 export const HowToUseText=({
-    productID='ITS',type='clean',
+    productID='BR',type='charge',
     center,
     title,desc
 })=>{
@@ -112,20 +120,33 @@ export const HowToUseText=({
         result.push(<DescUL>{tempResult}</DescUL>);
 
     */
-
-     
-
+/*
+    var title_result=[]; 
+    if(type=='button'){
+        title_result.push(
+            <Title>
+            Button Functions
+            </Title>
+            );
+    }else if(type=='charge'){
+        title_result.push(
+            <Title>
+             How To Charge It?   
+            </Title>
+        );
+    }
+ */   
     return(
         <Wrapper>
          <TitleDiv>   
-         <Title>
-             {(title) ? title:data[productID][type].title}
-        </Title>   
+        <Title>
+            {titleJson[type]}
+        </Title>
         </TitleDiv>
         
         <DescDiv center={center}>
         <Desc>
-        {(desc)?desc:data[productID][type].text}
+        {(desc)?desc:c.text[productID][type]}
         </Desc>
         </DescDiv>
 

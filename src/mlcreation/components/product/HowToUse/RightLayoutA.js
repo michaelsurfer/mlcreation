@@ -14,7 +14,7 @@ export const RightLayoutA=({
     return( 
         <c.OutterWrapper right>
             <c.Image_A
-                top='50px'
+                top='100px'
                 right='0px'
                 img={url}
               />
@@ -23,8 +23,10 @@ export const RightLayoutA=({
                 right='10%'
                 left='5%'
                 >
-            <HowToUseText/>
-            <HowToUseText/>
+            <HowToUseText
+            type='charge'
+            productID={productID}
+            />
 
             </c.TextDiv>            
           </c.OutterWrapper>

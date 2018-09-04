@@ -257,7 +257,7 @@ return(
   productID={productID}
   color={this.state.selectedColor}
   index={3}
-  onClickCallBAckF={()=>this.setState({selectedImage:'2'})}
+  onClickCallBAckF={()=>this.setState({selectedImage:'3'})}
   size='contain'
 />
 

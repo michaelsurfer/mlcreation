@@ -1,5 +1,6 @@
 export const apiEndPoint = 'http://localhost:3001/';
 export const domain = 'http://localhost:3000/';
+export const debugBorder = '1px solid blue';
 
 export const imagePath = domain+"image/";
 export const productImagePath=domain+"image/products/"

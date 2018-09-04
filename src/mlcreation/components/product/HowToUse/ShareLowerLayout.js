@@ -76,11 +76,13 @@ export const ShareLowerLayout=({
                 title="Important Tips"
                 desc={tips}
                 center='center'
+                type='tips'
             />
             <HowToUseText
                 title="Disclaimer"
                 desc={disclaimer}
                 center='center'
+                type='disclaimer'
             />
              </RTextDiv>            
           </c.OutterWrapper>

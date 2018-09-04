@@ -20,9 +20,11 @@ export const LeftLayoutA=({
               />
             
             <c.LTextDiv>
-            <HowToUseText/>
-            <HowToUseText/>
-            </c.LTextDiv>            
+            <HowToUseText
+            type='button'
+            productID={productID}
+            />
+             </c.LTextDiv>            
           </c.OutterWrapper>
     );
 
