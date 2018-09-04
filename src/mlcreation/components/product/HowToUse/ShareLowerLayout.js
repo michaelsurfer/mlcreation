@@ -3,22 +3,44 @@ import {HowToUseText} from './HowToUseText';
 import styled from "styled-components";
 import * as c from "./Css";
 //import text from "./HowToUseText.json";
+const Title=styled.label`
+font-size:17px;
+font-family:Arial;
+font-weight:bold;
+margin-top:10px;
+margin-bottom:10px;
+align-text:center;
+`;
+const RTextDiv=styled.div`
+width:100%;
+display:flex;
+align-items:center;
+border:1px solid red;
+z-index:2;
+flex-direction:column;
+`;
 
+const Desc=styled.label` 
+font-size:100%;
+font-family:Arial;
+white-space:pre-wrap;
+line-height: 30px;
+`;
 const Row=styled.div`
 display:flex;
 flex-direction:row;
 width:100%;
+height:280px;
 `;
-var text =
+var clean =
     `
-    A.  Open the cover of the recharging hole.
-    B.  Gently insert the USB charger into the recharging hole (see picture).
-    C.  While under charge, the light indicator will be flashing.
-    D.  Once fully recharged, the light indication will stay on.
-    *    Please fully charge it before first use.
-    *    2.5 hours of charging = 2 hours of usage
-    *    For keeping the battery life, each 3 month charge it once even you don’t use it.
+•    It’s splashproof.
+•    Clean it with antibacterial soap after each use.
+•    Do not use alcohol, acetone-based or gasoline-based cleaning products.
     `;
+
+ var tips="It is only applicable to the adults aged 18 and above. Pregnant women or the patients with cardiac pacemaker, diabetes, phlebitis or thrombosis should consult a professional physician before using this product.";
+ var disclaimer="Use this product at your own risk. Neither ML Creation nor its retailers will bear any legal liability arising out of the use.";   
     
 export const ShareLowerLayout=({
     productID,
@@ -26,13 +48,13 @@ export const ShareLowerLayout=({
     textData={}
 })=>{
     //var url=c.path+"/products/"+productID+"/"+color+"/1.jpg";
-    var url=c.path+productID+"/"+color+"/1.png";
+    var url=c.path+productID+"/"+color+"/s.png";
     return(
         <Row>
         <c.OutterWrapper left>
             <c.Image_A
                 top='50px'
-                left='20px'
+                left='-20px'
                 img={url}
 
             />
@@ -40,22 +62,27 @@ export const ShareLowerLayout=({
             <c.TextDiv
                 left='100px'
             >
-            {text}
+            <HowToUseText
+                title="How to Clean It?"
+                desc={clean}
+            />
              </c.TextDiv>            
           </c.OutterWrapper>
           <c.OutterWrapper left>
-            <c.Image_A
-                top='50px'
-                left='20px'
-                img={url}
-
-            />
+  
             
-            <c.TextDiv
-                left='100px'
-            >
-            {text}
-             </c.TextDiv>            
+            <RTextDiv>
+            <HowToUseText
+                title="Important Tips"
+                desc={tips}
+                center='center'
+            />
+            <HowToUseText
+                title="Disclaimer"
+                desc={disclaimer}
+                center='center'
+            />
+             </RTextDiv>            
           </c.OutterWrapper>
           </Row>
     );

@@ -248,15 +248,22 @@ return(
   onClickCallBAckF={()=>this.setState({selectedImage:'2'})}
   size='contain'
 />
+
+{(data[productID].numOfImage==3) &&
+
 <ItemImage 
   width='95px'
   height='110px'
   productID={productID}
   color={this.state.selectedColor}
-  index={2}
+  index={3}
   onClickCallBAckF={()=>this.setState({selectedImage:'2'})}
   size='contain'
 />
+
+
+}
+ 
 <How2UseBox>HOW BIG IT IS?</How2UseBox>
 <How2UseBox>HOW TO USE IT?</How2UseBox>
 
@@ -310,12 +317,15 @@ return(
   color={this.state.selectedColor}
   index={this.state.selectedImage}
   size='contain'
+  type='cover'
  />
 </RightBox>
 </Wrapper>
 <HowToUseView
     productID={productID}
     color={this.state.selectedColor}
+    LLayout={data[productID].LLayout}
+    RLayout={data[productID].RLayout}
 />
 </OutterWrapper>
 );

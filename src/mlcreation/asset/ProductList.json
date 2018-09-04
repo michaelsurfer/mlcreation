@@ -2,50 +2,84 @@
     "BR":{
       "itemName":"Batboy",
       "numOfImage":2,
-
+      "RLayout":"A",
+      "LLayout":"A",
       "color":["BK","GBK","SBL"]
     },
     "CB":{
+      "numOfImage":2,
+      "RLayout":"A",
+      "LLayout":"A",
       "itemName":"Cute Bullet",
       "color":["BK","GO","GRBL","MGR","PP","R","S"]
     },
     "CBR":{
+      "numOfImage":2,
+      "RLayout":"A",
+      "LLayout":"A",
       "itemName":"Cool Boy",
       "color":["BK","BL","GGY","GY","SBK","SBL","SGY"]
     },
     "GB":{
+      "numOfImage":2,
+      "RLayout":"A",
+      "LLayout":"A",
       "itemName":"Glittering Bullet",
       "color":["GBK","GPI","SB"]
     },
     "GF":{
+      "numOfImage":2,
+      "RLayout":"A",
+      "LLayout":"A",
       "itemName":"Gold Finger",
       "color":["GBK","GMGGR","GSPO"]
     },
-    "PF":{
+    "PF":{      
+      "numOfImage":2,
+      "RLayout":"A",
+      "LLayout":"A",
       "itemName":"Power Finger",
       "color":["BK","PP","R"]
     },
     "PR":{
+      "numOfImage":2,
+      "RLayout":"A",
+      "LLayout":"A",
       "itemName":"Power Ring",
       "color":["BK","BL","GY","PP"]
     },
     "RC":{
+      "numOfImage":2,
+      "RLayout":"B",
+      "LLayout":"A",
+      "numOfImage":3,
       "itemName":"Remote Cherry",
       "color":["GGO","GMGR","SBK","SGRBL","SPP","SR"]
     },
     "RHT":{
+      "numOfImage":2,
+      "RLayout":"B",
+      "LLayout":"A",
       "itemName":"Remote Hunter",
       "color":["GBK","GIDG","GSHPI"]
     },
     "SR":{
+      "numOfImage":2,
+      "RLayout":"A",
+      "LLayout":"A",
       "itemName":"Super Ring",
       "color":["BK","GBK","SABL"]
       },
     "VA":{
+      "numOfImage":2,
+      "RLayout":"A",
+      "LLayout":"A",
       "itemName":"Vertical Attack",
       "color":["TBK","TGYBL","TMO","TW"]
     },
     "ITS":{
+      "RLayout":"C",
+      "LLayout":"A",
       "itemName":"Intense",
       "refNo":"W-ITS-S",
       "color":["G","S"],
@@ -62,6 +96,8 @@
       "MAP":"69.99"
     },
     "DB":{
+      "RLayout":"C",
+      "LLayout":"A",
       "itemName":"Double",
       "refNo":"W-DB-S",
       "color":["GO","GMGR","SBK","SLPI","SPIPP","SPP","SR"],
@@ -73,13 +109,14 @@
       "description1":"10 vibration modes, 1 vibration intensity.",
       "description2":"Can choose the 10-auto cycle mode",
       "description3":"1 hour of charging = 1 hour usage",
-
       "retailPrice":200,
       "UPC":"46898976580",
       "MSRP":"73.99",
       "MAP":"69.99"
     },
     "LB":{
+      "RLayout":"A",
+      "LLayout":"A",
       "itemName":"Love Bullet",
       "refNo":"W-LB-S",
       "color":["BK","BLGR","GBK","GO","PP","R","S"],
@@ -96,7 +133,9 @@
       "MAP":"69.99"
     },
     "RVKB":{
-      "itemName":"Intense",
+      "RLayout":"B",
+      "LLayout":"A",
+      "itemName":"Remote Vibration K-Balls",
       "refNo":"W-RVKB-S",
       "color":["BK","GMGR","GO","GPI","GPIPP","LPIPP","PI","PP","R"],
       "numOfImage":2,
@@ -112,6 +151,8 @@
       "MAP":"69.99"
     },
     "EVVA":{
+      "RLayout":"D",
+      "LLayout":"A",
       "itemName":"Intense",
       "refNo":"W-ITS-S",
       "color":["DBL","LBL","PI","PP","RE"],
@@ -128,6 +169,8 @@
       "MAP":"69.99"
     },
     "MR":{
+      "RLayout":"A",
+      "LLayout":"A",
       "itemName":"Magic Ring",
       "refNo":"W-ITS-S",
       "color":["GBK","GGBL","GSHBL" ],

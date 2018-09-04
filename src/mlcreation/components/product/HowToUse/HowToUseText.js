@@ -41,10 +41,15 @@ font-family:Arial;
 white-space:pre-wrap;
 line-height: 30px;
 `;
-
+const Desc2=styled.label` 
+font-size:100%;
+font-family:Arial;
+line-height: 30px;
+`;
 const DescDiv=styled.div`
 border:1px solid green;
 padding-left:0px;
+text-align:${(props)=>props.center?'center':''};
 `;
 var data={
 ITS:{
@@ -80,7 +85,9 @@ D.  Once fully recharged, the light indication will stay on.
 
 
 export const HowToUseText=({
-    productID='ITS',type='clean'
+    productID='ITS',type='clean',
+    center,
+    title,desc
 })=>{
     /*
     var result=[];
@@ -112,14 +119,16 @@ export const HowToUseText=({
         <Wrapper>
          <TitleDiv>   
          <Title>
-             {data[productID][type].title}
+             {(title) ? title:data[productID][type].title}
         </Title>   
         </TitleDiv>
-        <DescDiv>
+        
+        <DescDiv center={center}>
         <Desc>
-        {data[productID][type].text}
+        {(desc)?desc:data[productID][type].text}
         </Desc>
         </DescDiv>
+
          </Wrapper>
      );
 

@@ -2,6 +2,7 @@
     "S":{"name":"Silver","code":"Silver","rgbValue":"rgb(205,138.132)"},
     "G":{"name":"Gold","code":"Gold","rgbValue":"rgb(222,163,155)"},
     "GO":{"name":"G-Orange","rgbValue":"rgb(228,132,106)"},
+    "GGO":{"name":"G-Orange","rgbValue":"rgb(228,132,106)"},    
     "GMGR":{"name":"G-Magic Green","rgbValue":"rgb(44,135,148)"},
     "GPI":{"name":"G-Pink","rgbValue":"rgb(226,172,165)"},
     "MGR":{"name":"Magic Green","rgbValue":"rgb(3,77,89)"},

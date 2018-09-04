@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {RightLayoutA} from "./HowToUse/RightLayoutA";
 import {LeftLayoutA} from "./HowToUse/LeftLayoutA";
 import {ShareLowerLayout} from "./HowToUse/ShareLowerLayout";
+import {RightLayoutB} from "./HowToUse/RightLayoutB";
 
 
 const OutterWrapper=styled.div`
@@ -35,10 +36,10 @@ font-weight:bold;
 `;
 
 export const HowToUseView=({
-    productID,color
+    productID,color,RLayout,LLayout
 })=>{
     var LeftLayoutType='A';
-    var RightLayoutType='A';
+
 
     return(
         <OutterWrapper>
@@ -52,7 +53,7 @@ export const HowToUseView=({
                     </Title>
                 </TitleDiv>    
 
-                {LeftLayoutType == 'A' &&
+                {LLayout == 'A' &&
                 <LeftLayoutA
                 productID={productID}
                 color={color}
@@ -66,19 +67,31 @@ export const HowToUseView=({
                     </Title>
                 </TitleDiv>    
 
-                {RightLayoutType == 'A' &&
+                {RLayout == 'A' &&
                 <RightLayoutA
                 productID={productID}
                 color={color}
                 />
                  }
+
+                {RLayout == 'B' &&
+                <RightLayoutB
+                productID={productID}
+                color={color}
+                />
+                 }
+
+
                 </Cell>
                 
             </Row>
             
             
                 
-            <ShareLowerLayout/>
+            <ShareLowerLayout
+                productID={productID}
+                color={color}
+            />
             
         </OutterWrapper>
     );

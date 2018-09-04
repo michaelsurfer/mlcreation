@@ -4,25 +4,29 @@ import styled from "styled-components";
 import * as c from "./Css";
  
 
-export const LeftLayoutA=({
+export const RightLayoutC=({
     productID,
     color,
     textData={}
 })=>{
-    var url=c.path+productID+"/"+color+"/1.png";
+    var url=c.path+productID+"/"+color+"/2.png";
 
     return( 
-        <c.OutterWrapper left>
+        <c.OutterWrapper right>
             <c.Image_A
-                top='100px'
-                left='-30px'
+                top='50px'
+                right='0px'
                 img={url}
               />
             
-            <c.LTextDiv>
+            <c.TextDiv
+                right='10%'
+                left='5%'
+                >
             <HowToUseText/>
             <HowToUseText/>
-            </c.LTextDiv>            
+
+            </c.TextDiv>            
           </c.OutterWrapper>
     );
 
