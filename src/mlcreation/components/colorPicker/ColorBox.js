@@ -8,32 +8,32 @@ const OutterBox=styled.div`
 display:flex;
 justify-content:center;
 align-items:center;
-width:20px;
-height:20px;
+width:30px;
+height:30px;
 margin:2px;
 border-bottom:${(props)=>props.border}
  
 `;
 
 const Box=styled.div`
-width:10px;
-height:10px;
+width:27px;
+height:27px;
 background-color:${(props)=>props.rgbValue};
 `;
 
 const ImgBox=styled.img`
-width:10px;
-height:10px;
+width:27px;
+height:27px;
 `;
 
 
 export const ColorBox=({
+    productID,
     colorCode,
     callbackF,
     selected
 })=>{
     var json = colorJson[colorCode];
-    console.log(json.rgbValue);
     var border='0px solid grey';
     if(selected){
         console.log("sected");
@@ -41,8 +41,8 @@ export const ColorBox=({
      return(
         <OutterBox border={border}>
 
-        {(json.rgbValue == "IMG")?(
-            <ImgBox src={imagePath+"colorbox/"+colorCode+".png"}
+        {(!json.rgbValue)?(
+            <ImgBox src={imagePath+"colorbox/"+productID+"/"+colorCode+".png"}
             id={colorCode}
             onClick={callbackF}
             />

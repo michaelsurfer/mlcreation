@@ -92,7 +92,8 @@ border:1px solid blue;
 const How2UseBox=styled.div`
 width:95px;
 height:110px;
-background-color:white;
+background-color:${(props)=>(props.gender=='g')?'black':'rgb(251,159,130)'};
+color:${(props)=>(props.gender=='g')?'white':'black'};
 display:flex;
 justify-content:center;
 align-items:center;
@@ -155,6 +156,7 @@ class ProductDesc extends Component{
 }
 
 render(){
+  var gender=this.props.gender; 
   var productID=this.props.productID;
   var price=this.props.price;
   var description1=this.props.description1;
@@ -264,8 +266,12 @@ return(
 
 }
  
-<How2UseBox>HOW BIG IT IS?</How2UseBox>
-<How2UseBox>HOW TO USE IT?</How2UseBox>
+<How2UseBox
+gender={gender}
+>HOW BIG IT IS?</How2UseBox>
+<How2UseBox
+gender={gender}
+>HOW TO USE IT?</How2UseBox>
 
 
 
@@ -283,7 +289,8 @@ return(
 <ColorPicker
   colorArray={colorArray}
   selectedColor={this.state.selectedColor}
-  
+  productID={productID}
+
   pickColorCallbackF={this.pickColorCallbackF}
 />
 

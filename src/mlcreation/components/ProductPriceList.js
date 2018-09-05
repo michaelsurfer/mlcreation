@@ -5,6 +5,9 @@ import * as c from '../common/Css2.js';
 import {observer,inject} from "mobx-react";
 import {ItemImage} from "./ItemImage";
 import ProductColorCode from "../asset/ColorCode.json";
+import {Redirect} from "react-router";
+import SelectGenderDialog from "./dialog/SelectGenderDialog";
+
 
 const titlePink=c.ColorSchema.titlePink.color;
 const titleBlue=c.ColorSchema.titleBlue.color;
@@ -127,11 +130,26 @@ const StyledTd=styled.td`
 
   constructor(props){
     super(props);
+    this.state={
+       redirect:false,
+      toLink:""
+    };
     }
 
 
   componentDidMount(){}
+  redirect(productID){
+    var gender = data[productID].gender;
+    var toLink="";
+    if(gender=='both'){
+    this.props.store.showSelectGenderDialog.productID=productID;
+    this.props.store.showSelectGenderDialog.show=true;
+    }else{
+      toLink="/product/"+gender+"/"+productID;
+      this.setState({toLink:toLink,redirect:true});
 
+    }
+  }   
 
   renderTitle(device){
     var result=[];
@@ -201,13 +219,17 @@ const StyledTd=styled.td`
              break;
              case 'img':
               output=
+              <div onClick={()=>this.redirect(code)}>
+
               <ItemImage 
               width='100px'
               height='100px'
               productID={code}
               color={color}
               index={1}
+              size='contain'
                /> 
+               </div>
              break;
              case 'button':
                 output =
@@ -329,8 +351,14 @@ const StyledTd=styled.td`
 
   render(){
      var device = this.props.device;
+     if(this.state.redirect){
+      this.setState({redirect:false});
+      return <Redirect to={this.state.toLink}/>
+    }
      return(
     <Wrapper>
+          <SelectGenderDialog/>  
+
     <c.ColPureDiv>
     <Table>
     <tr><td

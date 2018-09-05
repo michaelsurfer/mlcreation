@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import styled from "styled-components";
 import * as c from '../common/Css2.js';
 import {observer,inject} from "mobx-react";
-import Dialog from '../components/Dialog';
+import Dialog from '../components/dialog/Dialog';
 
 
 const Wrapper=c.ColCenterDiv.extend`

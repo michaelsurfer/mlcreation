@@ -92,6 +92,7 @@ export const CommentBox = ({
                 color={color}
                 />
                 <ColorPicker
+                    productID={productID}
                     selectedColor={color}
                     colorArray={colorArray}
                     pickColorCallbackF={pickColorCallbackF}

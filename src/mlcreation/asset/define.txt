@@ -23,3 +23,5 @@ Type of Color box
 A: normal rgb color
 B: Silver and Gold:will use an image
 C: product mixed pure color and Silver/Gold: will use rgb with image on top
+
+Type of HowToUSe

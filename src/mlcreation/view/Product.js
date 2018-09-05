@@ -46,6 +46,7 @@ class Product extends Component{
       gender={gender}
       />
       <ProductDesc
+      gender={gender}
       productID={productID}
       price={price}
       description1={description1}

@@ -6,6 +6,10 @@ import {computed} from "mobx";
 export default class Store{
   @observable login = false;
   @observable showPaymentModal = 'none';
+  @observable showSelectGenderDialog={
+    show:false,
+    productID:"BR"
+  };
   @observable generalDialog = {
     show:false,
     message:'hello',

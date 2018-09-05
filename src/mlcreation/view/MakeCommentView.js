@@ -4,7 +4,7 @@ import {CommentBox} from "../components/comments/CommentBox";
 import {CommentHeader} from "../components/comments/CommentBox";
 import data from "../asset/ProductList.json"; 
 import {apis} from '../common/config.js';
-import Dialog from "../components/Dialog";
+import Dialog from "../components/dialog/Dialog";
 import {observer,inject} from "mobx-react";
 
 

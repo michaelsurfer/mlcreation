@@ -25,6 +25,7 @@ pickColorCallback=(e)=>{
 
 render(){
     var result=[];
+    var productID=this.props.productID;
     var colorArray = this.props.colorArray;
      colorArray.map((item,i)=>{
          if(this.props.selectedColor == item){
@@ -33,6 +34,7 @@ render(){
             result.push(
                 <ColorBox 
                 selected={true}
+                productID={productID}
                 colorCode={item}
                 callbackF={this.props.pickColorCallbackF}    
                 />
@@ -40,6 +42,7 @@ render(){
         }else{
             result.push(
                 <ColorBox 
+                productID={productID}
                 selected={false}
                 colorCode={item}
                 callbackF={this.props.pickColorCallbackF}    

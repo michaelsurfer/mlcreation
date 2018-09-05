@@ -7,6 +7,9 @@ import * as c from '../common/Css2.js';
  import {observer,inject} from "mobx-react";
 import ProductColorCode from "../asset/ColorCode.json";
 import {ItemImage} from "./ItemImage";
+import SelectGenderDialog from "./dialog/SelectGenderDialog";
+import {Redirect} from "react-router";
+
 
 const titlePink=c.ColorSchema.titlePink.color;
 const titleBlue=c.ColorSchema.titleBlue.color;
@@ -156,7 +159,9 @@ const StyledTd=styled.td`
   constructor(props){
     super(props);
     this.state={
-      orderNo:0
+      orderNo:0,
+      redirect:false,
+      toLink:""
     };
    }
 
@@ -164,8 +169,20 @@ const StyledTd=styled.td`
   componentDidMount(){
     this.props.store.refreshOrderNo();
      }
+  redirect(productID){
+    var gender = data[productID].gender;
+    var toLink="";
+    if(gender=='both'){
+    this.props.store.showSelectGenderDialog.productID=productID;
+    this.props.store.showSelectGenderDialog.show=true;
+    }else{
+      toLink="/product/"+gender+"/"+productID;
+      this.setState({toLink:toLink,redirect:true});
 
-   confirmOrder(){
+    }
+  }   
+
+  confirmOrder(){
      /*
      var data = JSON.stringify(this.state.cart);
      sessionStorage.setItem("retailerOrder", data);
@@ -176,42 +193,13 @@ const StyledTd=styled.td`
 
 
   getTotalQty(){
-    /*
-    var total=0;
 
-    var cartData=this.state.cart;
-    for(var item in cartData){
-      var qty = cartData[item];
-      if(qty==""){qty=0;}
-      total=total+parseInt(qty);
-    };
-    return total;
-    */
     return this.props.store.totalRetailerQty;
   }
 
 
   getTotalCost(){
-    /*
-    var total=0;
-    var cartData=this.state.cart;
-    for(var item in cartData){
-      var qty = cartData[item];
-      if(qty==""){qty=0;}
-      total=total+parseInt(qty)*parseInt(data[item].retailPrice);
-      console.log("log");
-      console.log(item);
-      console.log(qty);
-      console.log(data[item]);
-      console.log(data[item].retailPrice);
 
-
-
-
-
-    };
-     return total;
-     */
      return this.props.store.totalRetailerCost;
   }
 
@@ -461,13 +449,16 @@ const StyledTd=styled.td`
            break;
            case 'img':
             output=
+                  <div onClick={()=>this.redirect(code)}>
                   <ItemImage 
                   width='100px'
                   height='100px'
                   productID={code}
                   color={color}
                   index={1}
-                   />           
+                  size='contain'
+                    />           
+                  </div> 
            break;
            case 'button':
               output =
@@ -522,86 +513,17 @@ const StyledTd=styled.td`
     return result;
   }
 
-
-/*
-      var dataJson = data[item];
-
-
-
-
-
-      var rowData=[];
-
-      for(var field in TableField){
-        var json = TableField[field];
-         if(json[device]){
-          var output;
-          switch(json.type){
-            case 'text':
-              output = dataJson[field];
-            break;
-            case 'input':
-
-               output =
-                  <input type='number'
-                  id={item}
-                  min={0}
-                  value={this.state.cart[item]}
-                  onChange={(e)=>this.updateCart(e)}
-                  style={{
-                    'width':'30px'
-                  }}
-                  />
-
-
-             break;
-             case 'img':
-              output=
-                <SmallImageBox image={itemSmall}/>
-             break;
-             case 'button':
-                output =
-                  <button
-                  id={dataJson.uid}
-                  value={0}
-                  onClick={(e)=>this.updateCart(e)}
-                  >Delete</button>
-             break;
-            case 'state':
-            //state mean real time form data, state.
-              var qty = this.state.cart[item];
-              if(qty==""){qty=0;}
-              output = parseInt(qty)*dataJson.retailPrice;
-             break;
-            default:
-            break;
-          }
-
-
-          rowData.push(
-            <StyledTd color='white'>
-            {output}
-            </StyledTd>
-          );
-        }
-       }
-       result.push(<tr>{rowData}</tr>);
-
-
-    };
-
-    return(
-      <tbody>{result}</tbody>
-    );
-
-  }
-
-*/
+ 
 
   render(){
      var device = this.props.device;
+     if(this.state.redirect){
+       this.setState({redirect:false});
+       return <Redirect to={this.state.toLink}/>
+     }
      return(
     <Wrapper>
+    <SelectGenderDialog/>  
     <c.ColPureDiv>
     <Table>
     {this.renderTop(device)}

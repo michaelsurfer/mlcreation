@@ -19,6 +19,7 @@ import AccountActivation from './mlcreation/view/AccountActivation';
 import MakeCommentView from './mlcreation/view/MakeCommentView';
 import CommentView from './mlcreation/view/CommentView';
 import AllCommentView from './mlcreation/view/AllCommentView';
+import SelectGenderDialog from './mlcreation/components/dialog/SelectGenderDialog';
 
 
 
@@ -86,8 +87,20 @@ const Transaction = inject('store')(observer((props)=>{
 );
 }));
 
+
+const ProductRedirect = ({match}) =>{
+var productID=match.params.productID;
+
+return(
+<div>
+<NavBar/>
+<SelectGenderDialog/>
+</div>);
+};
+
 const ProductView = ({match}) =>{
-var gender = data[match.params.productID].gender;
+//var gender = data[match.params.productID].gender;
+var gender = match.params.gender;
 return(
 <div>
 <NavBar gender={gender}/>
@@ -234,7 +247,8 @@ class App extends Component {
 
 
        <Route exact path="/" component={HomeView}/>
-       <Route exact path="/product/:productID" component={ProductView}/>
+       <Route exact path="/redirect2product/:productID" component={ProductRedirect}/>
+       <Route exact path="/product/:gender/:productID" component={ProductView}/>
        <Route exact path="/productList/:gender" component={ProductListView}/>
        <Route exact path="/retailerLogin" component={RetailerView}/>
        <Route exact path="/takeOrder" component={TakeOrder}/>

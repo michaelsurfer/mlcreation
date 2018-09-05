@@ -3,7 +3,7 @@ import styled from "styled-components";
 import * as c from '../common/Css2.js';
 import {apis} from '../common/config.js';
 import img from '../image/contactusimg.jpg';
-import Dialog from '../components/Dialog';
+import Dialog from '../components/dialog/Dialog';
 import {observer,inject} from "mobx-react";
 import {validateEmail} from '../common/Utility.js';
 
