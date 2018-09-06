@@ -15,7 +15,7 @@ flex-direction:column;
 `;
 
 const Wrapper=c.RowPureDiv.extend`
-background-color:rgb(239,238,242);
+background-color:${(props)=>props.color};
 justify-content:space-between;
 height:600px;
 padding:1px;
@@ -102,8 +102,9 @@ margin-right:5px;
 text-align: center;
 font-size:15pt;
 font-family: "Arial Unicode MS";
-
 `;
+
+const HowBigIsIt=styled.extend()
 
 const SmallImageBox=styled.div`
 width:50px;
@@ -200,7 +201,9 @@ render(){
 
 return(
 <OutterWrapper>
-<Wrapper>
+<Wrapper
+color={c.ThemeColor[gender].product}
+>
 
 <LeftBox>
 <c.AutoFullCol>
@@ -268,7 +271,7 @@ return(
  
 <How2UseBox
 gender={gender}
->HOW BIG IT IS?</How2UseBox>
+ >HOW BIG IT IS?</How2UseBox>
 <How2UseBox
 gender={gender}
 >HOW TO USE IT?</How2UseBox>
@@ -329,6 +332,7 @@ gender={gender}
 </RightBox>
 </Wrapper>
 <HowToUseView
+    gender={gender}
     productID={productID}
     color={this.state.selectedColor}
     LLayout={data[productID].LLayout}

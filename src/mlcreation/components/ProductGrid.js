@@ -4,38 +4,48 @@ import styled from "styled-components";
 import * as c from '../common/Css2.js';
 import { device } from "../common/device";
 import itemImg from '../image/batman/main.png';
-import {imagePath} from '../common/config.js';
+import {imagePath,productImagePath} from '../common/config.js';
 
 
 let ProductIDArray={
   m:{
     row1:[
-          {name:'ITS',color:'S'},
-          {name:'ITS',color:'S'},
-          {name:'BR',color:'DO'},
-          {name:'PR',color:'B'},
+          {name:'VA',color:'TMO'},
+          {name:'SR',color:'GBK'},
+          {name:'BR',color:'GBK'},
+          {name:'MR',color:'GBK'},
           ],
     row2:[
-          {name:'MR',color:'RG'},
-          {name:'HT',color:'B'},
-          {name:'DB',color:'LPI'},
-          {name:'CBR',color:'B'},
+          {name:'ITS',color:'G'},
+          {name:'PR',color:'BK'},
+          {name:'CBR',color:'GGY'},
+          {name:'RHT',color:'GBK'},
         ]
 
       },
   g:{
     row1:[
+          {name:'CB',color:'GO'},
           {name:'ITS',color:'S'},
-          {name:'ITS',color:'S'},
-          {name:'ITS',color:'S'},
-          {name:'ITS',color:'S'}
+          {name:'GF',color:'GSPO'},
+          {name:'RVKB',color:'GBK'},
+          {name:'GB',color:'GBK'}
           ],
     row2:[
-          {name:'DB',color:'SR'},
-          {name:'DB',color:'SB'},
-          {name:'DB',color:'LPI'},
-          {name:'DB',color:'LPI'}
-        ]
+          {name:'RC',color:'SGRBL'},
+          {name:'LB',color:'GO'},
+          {name:'RHT',color:'GSHPI'},
+          {name:'PF',color:'R'},
+          {name:'DB',color:'GO'}
+        ],
+    row3:[
+          {name:'EVVA',color:'PP'},
+          {name:'EMPTY'},
+          {name:'EMPTY'},
+          {name:'EMPTY'},
+          {name:'EMPTY'},
+
+        ],  
 
   },
 };
@@ -55,13 +65,14 @@ border-top:9px solid black;
 `;
 const StyledProductBox=styled.a`
   width:100%;
-  height:300px;
+  height:270px;
   background-color:rgb(239,238,242);
   margin:2px 0px 0px 2px;
   background-image:url(${(props)=>props.img});
   background-repeat:no-repeat;
-  background-size: 100%;
+  background-size:contain;
   background-position: center;
+  border:2px solid white;
   @media ${device.tablet}{
     flex-direction:row;
     margin:2px 0px 0px 0px;
@@ -93,10 +104,10 @@ export const ProductGrid=(({gender})=>{
         var data = productData[item][i];
         var productCode = data.name;
         var productColor = data.color;
-        var imgUrl=imagePath+"/products/"+productCode+"/"+productColor+"/1.jpg";
+        var imgUrl=productImagePath+productCode+"/"+productColor+"/1.png";
 
         //var imgUrl = "/image/"+productCode+"/main/"+productColor+".png";
-        var link = "/product/"+productCode;
+        var link = "/product/"+gender+"/"+productCode;
         result2.push(
            <StyledProductBox href={link} img={imgUrl}/>
          );

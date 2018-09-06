@@ -9,7 +9,7 @@ display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
-background-color:${(props)=>props.colors[props.gender].color};
+background-color:${(props)=>props.color};
 height:257px;
 
 `;
@@ -30,12 +30,13 @@ font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
  `;
 
 export const SloganBanner = ({
-  gender='general',
-  colors=c.ColorSchema
-
+  gender
 }) => {
+
+var color = c.ThemeColor[gender].header;
+
 return(
-<StyledBanner gender={gender} colors={colors}>
+<StyledBanner color={color}>
 <StyledTitle big>ML CREATION</StyledTitle>
 <StyledDesc>COOL.....THAT'S WHY HOT</StyledDesc>
 

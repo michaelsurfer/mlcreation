@@ -35,9 +35,11 @@ export const ColorBox=({
 })=>{
     var json = colorJson[colorCode];
     var border='0px solid grey';
+    
     if(selected){
         console.log("sected");
         border='1px solid grey'}
+        console.log(colorCode);
      return(
         <OutterBox border={border}>
 
@@ -53,7 +55,6 @@ export const ColorBox=({
             rgbValue={json.rgbValue}
             />
         )}
-     
-        </OutterBox>
+         </OutterBox>
     );
 }

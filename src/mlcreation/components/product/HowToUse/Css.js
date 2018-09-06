@@ -10,7 +10,7 @@ export const topPosition = '50px';
 export const OutterWrapper=styled.div`
 display:flex;
 position:relative;
-background-color:rgb(253,169,141);
+//background-color:${(props)=>props.color};
 width:100%;
 height:100%;
 border:1px solid blue;

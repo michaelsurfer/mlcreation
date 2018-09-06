@@ -22,6 +22,23 @@ margin-top:1px;
 border-top:0px solid;
 border-bottom:1px solid;
 `;
+export const ThemeColor={
+g:{
+  top:'rgb(0,0,0)',
+  header:'rgb(222,200,200)',
+  product:'rgb(255,255,255)',
+  how2Use:'rgb(235,222,221)',
+  how2UseImg:'rgb(222,200,200)'
+
+},
+m:{
+  top:'rgb(5,100,137)',
+  header:'rgb(5,100,137)',
+  product:'rgb(235,239,241)',
+  how2Use:'rgb(214,215,217)',
+  how2UseImg:'rgb(201,202,204)'
+}
+};
 export const ColorSchema={
   m:{color:'rgb(42,99,135)'},
   g:{color:'rgb(251,160,132)'},

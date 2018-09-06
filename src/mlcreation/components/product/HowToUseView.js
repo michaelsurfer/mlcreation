@@ -5,13 +5,13 @@ import {LeftLayoutA} from "./HowToUse/LeftLayoutA";
 import {ShareLowerLayout} from "./HowToUse/ShareLowerLayout";
 import {RightLayoutB} from "./HowToUse/RightLayoutB";
 import {RightLayoutC} from "./HowToUse/RightLayoutC";
-
+import {ThemeColor} from "../../common/Css2.js";
 
 const OutterWrapper=styled.div`
 display:flex;
 width:100%;
 flex-direction:column;
-
+background-color:${(props)=>props.color};
 `;
 
 const Row=styled.div`
@@ -37,13 +37,16 @@ font-weight:bold;
 `;
 
 export const HowToUseView=({
-    productID,color,RLayout,LLayout
+    productID,color,RLayout,LLayout,
+    gender='g'
 })=>{
     var LeftLayoutType='A';
-
+    var backgroundcolor =ThemeColor[gender].how2Use; 
 
     return(
-        <OutterWrapper>
+        <OutterWrapper
+            color={backgroundcolor}
+        >
             
              <Row>
                 
@@ -62,6 +65,7 @@ export const HowToUseView=({
                 </Cell>
                 <Cell>    
                 <TitleDiv>
+
                     <Title>
                      </Title>
                 </TitleDiv>    

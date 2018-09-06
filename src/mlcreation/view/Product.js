@@ -44,6 +44,7 @@ class Product extends Component{
       description2={title2}
       image="image url"
       gender={gender}
+      productID={productID}
       />
       <ProductDesc
       gender={gender}

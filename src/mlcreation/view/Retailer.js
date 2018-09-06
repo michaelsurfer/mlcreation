@@ -139,7 +139,7 @@ render(){
    </Wrapper>
   </Outter>
 
-  <SloganBanner gender='skyBlue'/>
+  <SloganBanner gender='g'/>
 
   </div>
   );

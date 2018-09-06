@@ -46,7 +46,7 @@ display:none;
 `;
 
 const TopBar=c.AutoFullRow.extend`
-background-color:rgb(13,34,33);
+background-color:${(props)=>props.color};
 justify-content:flex-end;
 align-items:center;
 display:none;
@@ -105,8 +105,10 @@ class NavBar extends Component{
   }
 
   renderTopBar(){
+     var color=c.ThemeColor[this.props.gender].top;
+     console.log("top bar"+this.props.gender);
      return(
-      <TopBar>
+      <TopBar color={color}>
       
       <c.Link to="/YourAccount">RETAILER ACCOUNT</c.Link>
       <c.Link to="/cart">SHOPPING LIST ({this.props.store.cartSize})</c.Link>

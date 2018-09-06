@@ -45,7 +45,7 @@ transform: translate(-50%,-50%);
 
 const MakeComment=({match})=>(
   <div>
-        <NavBar/>
+        <NavBar gender='g'/>
 
   <MakeCommentView 
   productID={match.params.productID} 
@@ -55,7 +55,7 @@ const MakeComment=({match})=>(
 
 const Comment=({match})=>(
 <div>
-  <NavBar/>
+  <NavBar gender='g'/>
   <CommentView
     productID={match.params.productID}
   />
@@ -65,14 +65,14 @@ const Comment=({match})=>(
 
 const AllComment=()=>(
   <div>
-    <NavBar/>
+    <NavBar gender='g'/>
     <AllCommentView/>
   </div>
   );
 
 const HomeView = () =>(
   <div>
-  <NavBar/>
+  <NavBar gender='g'/>
   <Home/>
   </div>
 );
@@ -80,14 +80,14 @@ const HomeView = () =>(
 const Transaction = inject('store')(observer((props)=>{
   return(
   <div>
-      <NavBar/>
+      <NavBar gender='g'/>
 
     <TransactionView/>
   </div>
 );
 }));
 
-
+/*
 const ProductRedirect = ({match}) =>{
 var productID=match.params.productID;
 
@@ -97,6 +97,7 @@ return(
 <SelectGenderDialog/>
 </div>);
 };
+*/
 
 const ProductView = ({match}) =>{
 //var gender = data[match.params.productID].gender;
@@ -117,7 +118,7 @@ const ProductListView = ({match}) =>(
 
 const ContactUs = () =>(
   <div>
-    <NavBar/>
+    <NavBar gender='g'/>
     <ContactUsView/>
   </div>
 );
@@ -126,7 +127,7 @@ const YourAccount=inject('store')(observer((props)=>{
   console.log(props.store.login);
   return(
   <div>
-  <NavBar/>
+  <NavBar gender='g'/>
 
   {props.store.login?(
     <YourAccountView/>
@@ -141,7 +142,7 @@ const YourAccount=inject('store')(observer((props)=>{
 const RetailerView=inject('store')(observer((props)=>{
   return(
   <div>
-  <NavBar/>
+  <NavBar gender='g'/>
 
   {props.store.login?(
 
@@ -157,7 +158,7 @@ const RetailerView=inject('store')(observer((props)=>{
 const PriceList=inject('store')(observer((props)=>{
   return(
   <div>
-  <NavBar/>
+  <NavBar gender='g'/>
 
   {props.store.login?(
 
@@ -172,7 +173,7 @@ const PriceList=inject('store')(observer((props)=>{
 const TakeOrder=inject('store')(observer((props)=>{
   return(
   <div>
-  <NavBar/>
+  <NavBar gender='g'/>
 
   {props.store.login?(
 
@@ -192,7 +193,7 @@ const Payment=()=>(
 
 const ShoppingCart=()=>(
   <div>
-  <NavBar/>
+  <NavBar gender='g'/>
 
   <ShoppingCartView/>
   </div>
@@ -200,7 +201,7 @@ const ShoppingCart=()=>(
 
 const Activation =({match}) =>(
   <div>
-    <NavBar/>
+    <NavBar gender='g'/>
     <AccountActivation 
     email={match.params.email}
     code={match.params.code}/>
@@ -247,8 +248,7 @@ class App extends Component {
 
 
        <Route exact path="/" component={HomeView}/>
-       <Route exact path="/redirect2product/:productID" component={ProductRedirect}/>
-       <Route exact path="/product/:gender/:productID" component={ProductView}/>
+        <Route exact path="/product/:gender/:productID" component={ProductView}/>
        <Route exact path="/productList/:gender" component={ProductListView}/>
        <Route exact path="/retailerLogin" component={RetailerView}/>
        <Route exact path="/takeOrder" component={TakeOrder}/>
