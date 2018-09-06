@@ -9,16 +9,21 @@ export const RightLayoutC=({
     color,
     textData={}
 })=>{
-    var url=c.path+productID+"/"+color+"/2.png";
+    var url1=c.path+productID+"/"+color+"/1.png";
+    var url2=c.path+productID+"/"+color+"/2.png";
 
     return( 
         <c.OutterWrapper right>
             <c.Image_A
-                top='50px'
-                right='0px'
-                img={url}
+                top={c.topPosition}
+                right='-10px'
+                img={url2}
               />
-            
+              <c.Image_A
+                top={c.topPosition}
+                right='80px'
+                img={url1}
+              />
             <c.TextDiv
                 right='10%'
                 left='5%'

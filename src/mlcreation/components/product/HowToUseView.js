@@ -4,6 +4,7 @@ import {RightLayoutA} from "./HowToUse/RightLayoutA";
 import {LeftLayoutA} from "./HowToUse/LeftLayoutA";
 import {ShareLowerLayout} from "./HowToUse/ShareLowerLayout";
 import {RightLayoutB} from "./HowToUse/RightLayoutB";
+import {RightLayoutC} from "./HowToUse/RightLayoutC";
 
 
 const OutterWrapper=styled.div`
@@ -49,8 +50,7 @@ export const HowToUseView=({
                 <Cell>
                 <TitleDiv>
                     <Title>
-                        Button Functions
-                    </Title>
+                     </Title>
                 </TitleDiv>    
 
                 {LLayout == 'A' &&
@@ -63,8 +63,7 @@ export const HowToUseView=({
                 <Cell>    
                 <TitleDiv>
                     <Title>
-                    How to Charge it
-                    </Title>
+                     </Title>
                 </TitleDiv>    
 
                 {RLayout == 'A' &&
@@ -80,7 +79,12 @@ export const HowToUseView=({
                 color={color}
                 />
                  }
-
+                {RLayout == 'C' &&
+                <RightLayoutC
+                productID={productID}
+                color={color}
+                />
+                 }
 
                 </Cell>
                 

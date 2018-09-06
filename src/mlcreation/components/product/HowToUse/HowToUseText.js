@@ -97,45 +97,7 @@ export const HowToUseText=({
     center,
     title,desc
 })=>{
-    /*
-    var result=[];
- 
-    for (var item in json){
-        var tempResult=[];
 
-        if(json[item].title){
-            tempResult.push(
-             <Title>{json[item].title}</Title>
-             )
-        }
- 
-        var descArray=json[item].desc;
-         descArray.map((text,i)=>{
-            tempResult.push(
-            <DescLI type='upper-alpha'>      
-            <Desc>{text}</Desc>
-            </DescLI>
-            )
-        });
-        result.push(<DescUL>{tempResult}</DescUL>);
-
-    */
-/*
-    var title_result=[]; 
-    if(type=='button'){
-        title_result.push(
-            <Title>
-            Button Functions
-            </Title>
-            );
-    }else if(type=='charge'){
-        title_result.push(
-            <Title>
-             How To Charge It?   
-            </Title>
-        );
-    }
- */   
     return(
         <Wrapper>
          <TitleDiv>   

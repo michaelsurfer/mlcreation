@@ -14,7 +14,7 @@ export const RightLayoutA=({
     return( 
         <c.OutterWrapper right>
             <c.Image_A
-                top='100px'
+            top={c.topPosition}
                 right='0px'
                 img={url}
               />

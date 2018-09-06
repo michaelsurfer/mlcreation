@@ -14,7 +14,7 @@ export const LeftLayoutA=({
     return( 
         <c.OutterWrapper left>
             <c.Image_A
-                top='100px'
+            top={c.topPosition}
                 left='-30px'
                 img={url}
               />
