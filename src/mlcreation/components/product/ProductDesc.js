@@ -92,8 +92,8 @@ border:1px solid blue;
 const How2UseBox=styled.div`
 width:95px;
 height:110px;
-background-color:${(props)=>(props.gender=='g')?'black':'rgb(251,159,130)'};
-color:${(props)=>(props.gender=='g')?'white':'black'};
+background-color:black;
+color:white;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -104,7 +104,10 @@ font-size:15pt;
 font-family: "Arial Unicode MS";
 `;
 
-const HowBigIsIt=styled.extend()
+const HowBigIsIt=styled(How2UseBox)`
+background-color:${(props)=>c.ThemeColor[props.gender].how2Use};
+color:${(props)=>(props.gender=='g')?'white':'black'};
+`;
 
 const SmallImageBox=styled.div`
 width:50px;
@@ -269,9 +272,11 @@ color={c.ThemeColor[gender].product}
 
 }
  
-<How2UseBox
+<HowBigIsIt
 gender={gender}
- >HOW BIG IT IS?</How2UseBox>
+onClick={()=>this.setState({selectedImage:'m'})}
+
+ >HOW BIG IT IS?</HowBigIsIt>
 <How2UseBox
 gender={gender}
 >HOW TO USE IT?</How2UseBox>

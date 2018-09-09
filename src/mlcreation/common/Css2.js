@@ -37,6 +37,9 @@ m:{
   product:'rgb(235,239,241)',
   how2Use:'rgb(214,215,217)',
   how2UseImg:'rgb(201,202,204)'
+},
+general:{
+  policyBG : 'rgb(238,238,242)',
 }
 };
 export const ColorSchema={

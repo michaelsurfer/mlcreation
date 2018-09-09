@@ -19,8 +19,7 @@ import AccountActivation from './mlcreation/view/AccountActivation';
 import MakeCommentView from './mlcreation/view/MakeCommentView';
 import CommentView from './mlcreation/view/CommentView';
 import AllCommentView from './mlcreation/view/AllCommentView';
-import SelectGenderDialog from './mlcreation/components/dialog/SelectGenderDialog';
-
+import {PolicyView} from './mlcreation/view/PolicyView';
 
 
 const ModalWrapper=styled.div`
@@ -51,6 +50,13 @@ const MakeComment=({match})=>(
   productID={match.params.productID} 
    />
   </div>  
+);
+
+const Policy=({match})=>(
+<div>
+  <NavBar gender='g'/>
+  <PolicyView type={match.params.type}/>
+</div>
 );
 
 const Comment=({match})=>(
@@ -261,7 +267,7 @@ class App extends Component {
        <Route exact path="/makeComment/:productID" component={MakeComment}/> 
        <Route exact path="/comment/:productID" component={Comment}/> 
        <Route exact path="/allComment/" component={AllComment}/> 
-
+       <Route exact path="/policy/:type" component={Policy}/>
 
       {<Footer/>}
       </div>
