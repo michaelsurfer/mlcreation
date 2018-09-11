@@ -15,9 +15,19 @@ const Wrapper=styled.div`
 white-space:pre-wrap;
 width:70%;
 border:1px solid red;
-
 `;
  
+const PatentFooter=styled.div`
+width:100%;
+height:59px;
+background-color:rgb(252,203,191);
+align-items:center; 
+justify-content:center;
+display:flex;
+margin-top:50px;
+margin-bottom:50px;
+border-bottom:1px solid black;
+`;
 const TableWrapper=styled.div`
 display:flex;
 width:100%;
@@ -208,7 +218,9 @@ return(
         <Desc>If we determine that the product is defective, we will cover the cost of shipping a new product.</Desc>
         <Title>Return Address:</Title> 
         <Desc>Unit H, 8/F，BLK31, 8 Park Road, Ma Wan NT. Hong Kong</Desc>
-            
+        <PatentFooter>
+            All our products' design are patented. All our products have CE(EMC),RoHS,& FCC international standards certification.
+        </PatentFooter>
         </Wrapper>
         </OutterWrapper>
         );

@@ -11,8 +11,8 @@ import SelectGenderDialog from "./dialog/SelectGenderDialog";
 import {Redirect} from "react-router";
 
 
-const titlePink=c.ColorSchema.titlePink.color;
-const titleBlue=c.ColorSchema.titleBlue.color;
+const titlePink='rgb(254,203,191)';
+const titleBlue='rgb(236,221,220)';
 const tdBlue=c.ColorSchema.tdBlue.color;
 const headerBlue=c.ColorSchema.headerBlue.color;
 
@@ -30,19 +30,6 @@ var totalRowSpan={
 };
 
 
-const SmallImageBox=styled.div`
-width:50px;
-height:60px;
-display:flex;
-flex:1;
-border:0px solid black;
-background:url(${(props)=>props.image});
-background-repeat:no-repeat;
-background-size: contain;
-background-position: center;
-margin:5px;
-`;
-
 const Table=styled.table`
 border-collapse: collapse;
 border:1px solid grey;
@@ -55,16 +42,16 @@ margin:10px;
 
 
 const Wrapper=styled.div`
-width:80%`;
+width:100%;
+`;
 
 
 const TableField={
-  refNo:{
-    title:"W-S Ref. No.",
+  selectionBox:{
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'refNo'
+    type:'selectionBox'
   },
   itemName:{
     title:"Item Name",
@@ -83,12 +70,19 @@ const TableField={
 
   },
   itemPic:{
-    title:"Item Picture",
+    title:"Picture",
     color:titlePink,
     desktop:true,
     mobile:true,
     type:'img'
 
+  },
+  description:{
+    title:"Item Description",
+    color:titlePink,
+    desktop:true,
+    mobile:true,
+    type:'text'
   },
   UPC:{
     title:"UPC",
@@ -141,7 +135,20 @@ const TableField={
     mobile:false,
     type:'text'
   },
-
+  weight:{
+    title:"Item with Packaging Weight (Kg)",
+    color:titleBlue,
+    desktop:true,
+    mobile:false,
+    type:'text'
+  },
+  qtyInCarton:{
+    title:"Qty in Carton",
+    color:titleBlue,
+    desktop:true,
+    mobile:false,
+    type:'text'
+  }
 }
 
 const StyledTd=styled.td`
@@ -149,7 +156,18 @@ const StyledTd=styled.td`
   border:1px solid grey;
   font-size:15px;
   margin:0px;
-  `
+  text-align: center; 
+  `;
+
+  const StyledTh=styled.th`
+  background-color:${(props)=>props.color};
+  border:1px solid grey;
+  font-size:15px;
+  margin:0px;
+  text-align: center;
+  min-width:${(props)=>props.minWidth}; 
+  padding:5px;
+ `
 
 
   @inject('store')
@@ -386,11 +404,18 @@ const StyledTd=styled.td`
     var result=[];
     for(var field in TableField){
       var json = TableField[field];
+      var minWidth='70px';
+      if(field=="selectionBox"){
+        minWidth='10px';
+      }
       if(json[device]){
       result.push(
-      <StyledTd color={json.color}>
+      <StyledTh 
+      color={json.color}
+      minWidth={minWidth}
+      >
         {json.title}
-      </StyledTd>
+      </StyledTh>
       )
       }
     }
@@ -428,8 +453,8 @@ const StyledTd=styled.td`
           case 'color':
              output = ProductColorCode[color].name;
           break;
-          case 'refNo':
-            output = "W-"+code+"-"+color;
+          case 'selectionBox':
+            output = "";
           break;
           case 'text':
             output = dataJson[field];
@@ -526,8 +551,30 @@ const StyledTd=styled.td`
     <SelectGenderDialog/>  
     <c.ColPureDiv>
     <Table>
-    {this.renderTop(device)}
-    {this.renderHeader(device)}
+    <tr>
+    <td colspan={6} 
+          style={{
+            "width":"50%",
+            "background-color":"rgb(237,220,220)",
+            "border-top":"1px solid grey",
+            "vertical-align":"top"
+    
+          }}
+    >
+    Your Order No.:      
+    </td>
+    <td colspan={8} 
+          style={{
+            "width":"50%",
+            "background-color":"rgb(237,220,220)",
+            "border-top":"1px solid grey",
+            "vertical-align":"top"
+    
+          }}
+    >
+    Order Date:      
+    </td>
+    </tr>  
     {this.renderTitle(device)}
     {this.renderTableData(device,data)}
     <tr>

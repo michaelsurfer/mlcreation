@@ -70,13 +70,13 @@ displaySignIn(){
   var color='rgb(239,238,242)';
 
   if(this.state.forgetPassword){
-    color=c.ColorSchema.skyBlue.color;
+    color=c.ThemeColor.g.header;
       result.push(<BackButton callback={this.backToLoginPage}/>);
       result.push(<ForgetPasswordForm/>);
   }else{
 
     if(this.state.signIn){
-      color=c.ColorSchema.skyBlue.color;
+      color=c.ThemeColor.g.header;
       result.push(<LoginForm callBackf={this.loginCallBack}/>);
     }else{
       result.push(<BackButton callback={this.backToLoginPage}/>);

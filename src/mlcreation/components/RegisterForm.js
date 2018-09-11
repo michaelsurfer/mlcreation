@@ -32,6 +32,15 @@ flex-direction:column;
 padding:20px;
 `;
 
+const RegistrationFormTitle=styled.label`
+color:grey;
+font-size:large;
+background-color:rgb(222,200,200);
+`;
+const RegistrationFormText=styled.label`
+color:grey;
+font-size:small;
+`;
 
 const WarningText=styled.label`
 color:red;
@@ -293,21 +302,32 @@ flex:${(props)=>props.doubleSize?'2':'1'}
 const FormRow=s.BasicDiv.extend`
 flex-direction:column;
 flex:${(props)=>props.doubleSize?'2':'1'}
-border-bottom:${(props)=>props.border?'0.5px solid grey':'0px'}
+height:auto;
+border-bottom:${(props)=>props.border?'0px solid grey':'0px'}
 border-left:${(props)=>props.border?'1px solid grey':'0px'}
 border-right:${(props)=>props.border?'1px solid grey':'0px'}
-border-top:${(props)=>props.border?'0.5px solid grey':'0px'}
-margin:0px;
+border-top:${(props)=>props.border?'1px solid grey':'0px'}
+margin:-1px 0 0 -1px;
 @media ${device.tablet}{
   flex-direction:row;
  }
 `;
 
+
+const TitleCell=s.BasicDiv.extend`
+flex:${(props)=>props.flex};
+justify-content:${(props)=>props.align};
+align-items:${(props)=>props.align};
+background-color:${(props)=>props.color};
+margin-right:0px;
+padding:2px;
+`;
 const Cell=s.BasicDiv.extend`
-flex:${(props)=>props.flex}
-justify-content:${(props)=>props.align}
-align-items:${(props)=>props.align}
-margin:1px;
+flex:${(props)=>props.flex};
+justify-content:${(props)=>props.align};
+align-items:${(props)=>props.align};
+background-color:${(props)=>props.color};
+margin-right:0px;
 padding:2px;
 `;
 
@@ -316,9 +336,9 @@ const TextInputDiv=styled.div`
 width:100%;
 `;
 const TextInput=styled.input`
-width:100%;
+width:70%;
 color:${(props)=>props.color};
-border: 1px solid grey;
+border: 0px solid grey;
 border-radius:4px;
 `;
 
@@ -411,9 +431,12 @@ class RegisterForm extends Component{
   renderFormHeader(title){
     return(
     <FormRow border>
-    <Cell center flex='1' align='center'>
-    <s.RegistrationFormTitle>{title}</s.RegistrationFormTitle>
-    </Cell>
+    <TitleCell 
+    center flex='1' align='center' 
+    color='rgb(222,200,200)'
+    >
+    <RegistrationFormTitle>{title}</RegistrationFormTitle>
+    </TitleCell>
     </FormRow>
   );
   }
@@ -537,11 +560,11 @@ class RegisterForm extends Component{
     }
 
     return(
-    <FormRow >
-    <Cell flex='1' align={align}>
+    <FormRow border>
+    <Cell flex='1' align={align} >
       <s.RegistrationFormText>{title}</s.RegistrationFormText>
     </Cell>
-    <Cell flex='2' align={align}>
+    <Cell flex='2' align={align} >
 
     {(this.props.store.login && key=='email')?
 
@@ -738,12 +761,21 @@ handleModal(){
       {this.renderFormElement('buyer')}
       {this.renderFormElement('phone')}
       </FormRow>
+
+      {(this.props.store.login) ? (
+      <FormRow border>
+      {this.renderFormElement('email')}
+      </FormRow>
+      ):(
       <FormRow border>
       {this.renderFormElement('email')}
       {this.renderFormElement('password')}
-
       </FormRow>
-        <FormRow border>
+      )}
+    
+      
+      
+      <FormRow border>
       {this.renderFormElement('address')}
       </FormRow>
       <FormRow border>
@@ -769,10 +801,8 @@ handleModal(){
       {this.renderFormElement('retailer','center')}
       {this.renderFormElement('retailerNo','center')}
       <FormCol doubleSize>
-      {this.renderEmptyElementSpace()}
-      {this.renderFormElement('mine','center')}
-      {this.renderEmptyElementSpace()}
-      </FormCol>
+       {this.renderFormElement('mine','center')}
+       </FormCol>
       </FormRow>
 
       <FormRow border>

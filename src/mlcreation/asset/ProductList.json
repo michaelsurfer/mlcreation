@@ -14,7 +14,9 @@
       "retailPrice":100,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
 
     },
     "CB":{
@@ -32,7 +34,9 @@
       "retailPrice":100,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
     },
     "CBR":{
       "numOfImage":2,
@@ -49,7 +53,9 @@
       "retailPrice":100,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
 
     },
     "GB":{
@@ -67,7 +73,9 @@
       "retailPrice":100,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
 
     },
     "GF":{
@@ -85,7 +93,9 @@
       "retailPrice":100,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
 
     },
     "PF":{      
@@ -103,7 +113,9 @@
       "retailPrice":100,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
 
     },
     "PR":{
@@ -121,7 +133,9 @@
       "retailPrice":100,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
 
     },
     "RC":{
@@ -140,7 +154,9 @@
       "retailPrice":100,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
 
     },
     "RHT":{
@@ -158,7 +174,9 @@
       "retailPrice":100,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
 
     },
     "SR":{
@@ -176,7 +194,9 @@
       "retailPrice":100,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
 
       },
     "VA":{
@@ -194,7 +214,9 @@
       "retailPrice":100,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
 
     },
     "ITS":{
@@ -213,7 +235,9 @@
       "retailPrice":100,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
     },
     "DB":{
       "RLayout":"C",
@@ -232,7 +256,9 @@
       "retailPrice":200,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
     },
     "LB":{
       "RLayout":"A",
@@ -251,7 +277,9 @@
       "retailPrice":300,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
     },
     "RVKB":{
       "RLayout":"B",
@@ -269,7 +297,9 @@
       "retailPrice":400,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
     },
     "EVVA":{
       "RLayout":"D",
@@ -287,7 +317,9 @@
       "retailPrice":500,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
     },
     "MR":{
       "RLayout":"A",
@@ -305,6 +337,8 @@
       "retailPrice":100,
       "UPC":"46898976580",
       "MSRP":"73.99",
-      "MAP":"69.99"
+      "MAP":"69.99",
+      "weight":"0.385",
+      "qtyInCarton":"24"
     }
 }

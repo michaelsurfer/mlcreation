@@ -21,7 +21,7 @@ flex-direction:column;
 `;
 
 const SignInButton=styled.button`
-background-color:rgb(92,194,219);
+background-color:rgb(253,159,159);
 width:250px;
 padding:10px;
 `;

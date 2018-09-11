@@ -40,6 +40,7 @@ m:{
 },
 general:{
   policyBG : 'rgb(238,238,242)',
+  orange: 'rgb(253,159,159)'
 }
 };
 export const ColorSchema={
@@ -63,7 +64,6 @@ font-size:large;
 export const RegistrationFormText=styled.label`
 color:grey;
 font-size:small;
-
 `;
 
 export const ButtonDiv=styled.div`

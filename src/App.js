@@ -52,10 +52,27 @@ const MakeComment=({match})=>(
   </div>  
 );
 
-const Policy=({match})=>(
+
+
+const RetailerPolicy=inject('store')(observer((props)=>{
+return (
+<div>
+<NavBar gender='g'/>
+
+{props.store.login?(
+  <PolicyView type='retailer'/>
+):(
+  <LoginView/>
+)}
+</div>
+);
+
+}));
+
+const Policy=()=>(
 <div>
   <NavBar gender='g'/>
-  <PolicyView type={match.params.type}/>
+  <PolicyView type='customer'/>
 </div>
 );
 
@@ -267,7 +284,8 @@ class App extends Component {
        <Route exact path="/makeComment/:productID" component={MakeComment}/> 
        <Route exact path="/comment/:productID" component={Comment}/> 
        <Route exact path="/allComment/" component={AllComment}/> 
-       <Route exact path="/policy/:type" component={Policy}/>
+       <Route exact path="/policy/" component={Policy}/>
+       <Route exact path="/retailerPolicy/" component={RetailerPolicy}/>
 
       {<Footer/>}
       </div>

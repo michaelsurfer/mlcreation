@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import styled from "styled-components";
 import * as c from '../common/Css2.js';
 import { device } from "../common/device";
-
-
+ 
 const Wrapper=styled.div`
-background-color:rgb(92,190,214);
+background-color:rgb(222,200,200);
 width:100%;
 display:flex;
 justify-content:space-between;
