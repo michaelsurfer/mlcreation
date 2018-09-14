@@ -1,10 +1,11 @@
 import React,{Component} from 'react';
 import styled from "styled-components";
-import * as c from '../common/Css2.js';
-import {StripePayment} from '../stripe/StripePayment';
-import {apis} from '../common/config.js';
+import {StripePayment} from '../../stripe/StripePayment';
 import {observer,inject} from "mobx-react";
-
+import OrderHeaderContainer from "../retailer/OrderHeaderContainer";
+import * as c2 from '../retailer/Css.js';
+import * as c from '../../common/Css2.js';
+import PaymentSummary from "./PaymentSummary";
 
 const ModalWrapper=styled.div`
 position:fixed;
@@ -60,30 +61,41 @@ constructor(props){
      total:0
   }
 }
+back(){
+  this.props.callbackf('confirm');
+}
+componentDidMount(){}
 
-componentDidMount(){
-  /*
-  //fetch('http://localhost:3001/checkOrder/'+this.props.orderNo)
-  fetch(apis.checkOrder.endpoint+this.props.store.orderNo.uuid)
-
-    .then(response=>response.json())
-    .then(data=>{
-      console.log("server response on total cost"+data.total);
-      console.log("server response on order No"+data.orderNo);
-      this.props.store.showPaymentModal = 'none';
-      this.setState({
-        orderNo:data.orderNo,
-        total:data.total
-      });
-    });
-*/
+render(){
+  var device = this.props.device;
+  return(
+    <c2.Wrapper>
+        <c.ColPureDiv>
+          <c2.Table>
+          <OrderHeaderContainer
+            type='invoice'
+          />
+          <PaymentSummary/>
+          <tr>
+            <td colspan={2}>
+              <c2.Button black onClick={()=>this.back()}>Back</c2.Button>
+            </td>
+            
+            <td colspan={2}>
+              <c2.Button >Pay Now</c2.Button>
+            </td>
+          </tr>
+          </c2.Table>
+        </c.ColPureDiv>
+    </c2.Wrapper>
+  );
 }
 
 
-
+/*
 render(){
 return(
-  <Wrapper>
+
   <Table>
     <tr>
     <td
@@ -200,7 +212,9 @@ return(
 
 
   </Wrapper>
-)}
+      )
+}
+*/
 }
 
 export default PaymentForm;

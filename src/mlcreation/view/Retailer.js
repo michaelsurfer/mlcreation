@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
- import {SloganBanner} from '../components/SloganBanner';
-import {ProductGrid} from '../components/ProductGrid';
-import RegisterForm from '../components/RegisterForm';
-import ProductTable from '../components/ProductTable';
-import ProductTableConfirm from '../components/ProductTableConfirm';
-import PaymentForm from '../components/PaymentForm';
-import LoginForm from '../components/LoginForm';
-import {observer,inject} from "mobx-react";
+import {SloganBanner} from '../components/SloganBanner';
+import ProductTable from '../components/retailer/ProductTable';
+import ProductTableConfirm from '../components/retailer/ProductTableConfirm';
+import PaymentForm from '../components/payment/PaymentForm';
+ import {observer,inject} from "mobx-react";
 import RetailerBar from '../navigation/RetailerBar';
-import ProductPriceList from '../components/ProductPriceList';
+import ProductPriceList from '../components/retailer/ProductPriceList';
 
-
-import * as c from '../common/Css2.js';
 
 
 const BGColorSchema={
@@ -54,7 +49,7 @@ constructor(props){
     page='takeOrder';
   }
 
-  this.state={
+   this.state={
     page:page,
     totalCost:0,
     orderNo:0

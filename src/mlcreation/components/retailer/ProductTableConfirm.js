@@ -1,46 +1,37 @@
 import React,{Component} from 'react';
 import styled from "styled-components";
-import data from "../asset/ProductList.json";
-import * as c from '../common/Css2.js';
- import {apis} from '../common/config.js';
+import data from "../../asset/ProductList.json";
+import * as c from '../../common/Css2.js';
+import * as c2 from './Css.js';
 import {observer,inject} from "mobx-react";
-import StaticData from "../asset/StaticData.json";
-import {ItemImage} from "./ItemImage";
-import ProductColorCode from "../asset/ColorCode.json";
+import StaticData from "../../asset/StaticData.json";
+import {ItemImage} from "../ItemImage";
+import ProductColorCode from "../../asset/ColorCode.json";
+import OrderHeaderContainer from "./OrderHeaderContainer";
+import {TotalCostRow} from "./TotalCostRow";
+import {RemarkRow} from "./RemarkRow";
 
 
-const titlePink=c.ColorSchema.titlePink.color;
-const titleBlue=c.ColorSchema.titleBlue.color;
+const titlePink='rgb(254,203,191)';
+const titleBlue='rgb(236,221,220)';
 const tdBlue=c.ColorSchema.tdBlue.color;
 const headerBlue=c.ColorSchema.headerBlue.color;
 
 
 var qtyRowSpan={
-  desktop:5,
+  desktop:7,
   mobile:3
 };
 var headerRowSpan={
   desktop:4,
 };
 var totalRowSpan={
-  desktop:8,
+  desktop:9,
   mobile:5
 };
 
 
-const SmallImageBox=styled.div`
-width:50px;
-height:60px;
-display:flex;
-flex:1;
-border:0px solid black;
-background:url(${(props)=>props.image});
-background-repeat:no-repeat;
-background-size: contain;
-background-position: center;
-margin:5px;
-`;
-
+ 
 const Table=styled.table`
 border-collapse: collapse;
 border:1px solid grey;
@@ -60,12 +51,12 @@ border-color:${(props)=>props.black? 'black':'rgb(240,160,143)'};
  `;
 
 const TableField={
-  refNo:{
-    title:"W-S Ref. No.",
+  No:{
+    title:"No",
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'refNo'
+    type:'No'
   },
   itemName:{
     title:"Item Name",
@@ -84,7 +75,7 @@ const TableField={
 
   },
   itemPic:{
-    title:"Item Picture",
+    title:"Picture",
     color:titlePink,
     desktop:true,
     mobile:true,
@@ -116,6 +107,13 @@ const TableField={
   },
   total:{
     title:"Total",
+    color:titlePink,
+    desktop:true,
+    mobile:true,
+    type:'state'
+  },
+  weight:{
+    title:"Weight (KG)",
     color:titlePink,
     desktop:true,
     mobile:true,
@@ -326,11 +324,19 @@ class ProductTableConfirm extends Component{
     var result=[];
     for(var field in TableField){
       var json = TableField[field];
+      var minWidth='50px';
+      if(field=="No"){
+        minWidth='10px';
+      }
       if(json[device]){
       result.push(
-      <StyledTd color={json.color}>
+      <c2.StyledTh 
+      color={json.color}
+      minWidth={minWidth}
+      
+      >
         {json.title}
-      </StyledTd>
+      </c2.StyledTh>
       )
       }
     }
@@ -401,6 +407,8 @@ class ProductTableConfirm extends Component{
               productID={code}
               color={color}
               index={1}
+              size='contain'
+
                /> 
             break;
 
@@ -454,74 +462,50 @@ class ProductTableConfirm extends Component{
   render(){
      var device = this.props.device;
      return(
-    <Wrapper>
+    <c2.Wrapper>
     <c.ColPureDiv>
-    <Table>
-    {this.renderTop(device)}
-    {this.renderHeader(device)}
+    <c2.Table>
+    <OrderHeaderContainer
+      type='confirm'
+    />
     {this.renderTitle(device)}
     {this.renderTableData(device,data)}
-    <tr>
-    <td  colspan={qtyRowSpan[device]-1}
-    style={{
-      'background-color':headerBlue
-    }}
-    ></td>
-    <StyledTd color={headerBlue}>Total</StyledTd>
-    <StyledTd color={headerBlue}>{this.props.store.totalRetailerQty}</StyledTd>
-    <StyledTd color={headerBlue}>{this.props.store.totalRetailerCost}</StyledTd>
-
-    {device=='desktop' &&
-
-      <td  colspan={totalRowSpan[device]-qtyRowSpan[device]-1}
-      style={{
-        'background-color':headerBlue,
-        'border':'1px solid grey'
-      }}
-      ></td>
-    }
-
-
-
-
-    </tr>
+    <TotalCostRow 
+      totalSpan = {totalRowSpan[device]-1}
+      qtySpan = {qtyRowSpan[device]-1}
+      qty = {this.props.store.totalRetailerQty}
+      cost = {this.props.store.totalRetailerCost}
+    />
+     
+     <RemarkRow
+      totalSpan = {totalRowSpan[device]}
+    />
 
     <tr>
-
-    </tr>
-    <td  colspan={totalRowSpan[device]}
-    style={{
-      'background-color':headerBlue,'margin':0,
-      'border':'0px solid grey'
-
-    }}
-    >Remark:</td>
-
-    <tr>
-    <td  colspan={qtyRowSpan[device]-1}
+    <td  colspan={4}
     style={{
       'background-color':headerBlue,'margin':0,'padding':0
     }}
     >
-    <Button black onClick={()=>this.back()}>Back to Order Draft</Button>
+    <c2.Button black onClick={()=>this.back()}>Back to Order Draft</c2.Button>
 
     </td>
 
-    <td colspan={totalRowSpan[device]-qtyRowSpan[device]+1}
+    <td colspan={5}
     style={{
       'background-color':headerBlue,'margin':0,'padding':0
     }}
     >
 
-    <Button onClick={()=>this.confirmOrder()}>Pay this order</Button>
+    <c2.Button onClick={()=>this.confirmOrder()}>Pay this order</c2.Button>
 
     </td>
 
     </tr>
-    </Table>
+    </c2.Table>
 
     </c.ColPureDiv>
-    </Wrapper>
+    </c2.Wrapper>
   )
   }
 

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import CheckoutForm from './CheckoutForm';
-import * as c from '../common/Css2.js';
-
+ 
 
 
 class Payment extends Component{

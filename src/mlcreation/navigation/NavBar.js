@@ -36,7 +36,7 @@ justify-content:space-between;
 align-items:flex-end;
 text-align:center;
 padding:5px;
-height:118px;
+height:120px;
 display:none;
 @media ${device.tablet}
  {

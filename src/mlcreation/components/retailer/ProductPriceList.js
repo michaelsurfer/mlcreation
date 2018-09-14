@@ -1,12 +1,12 @@
 import React,{Component} from 'react';
 import styled from "styled-components";
-import data from "../asset/ProductList.json";
-import * as c from '../common/Css2.js';
+import data from "../../asset/ProductList.json";
+import * as c from '../../common/Css2.js';
 import {observer,inject} from "mobx-react";
-import {ItemImage} from "./ItemImage";
-import ProductColorCode from "../asset/ColorCode.json";
+import {ItemImage} from "../ItemImage";
+import ProductColorCode from "../../asset/ColorCode.json";
 import {Redirect} from "react-router";
-import SelectGenderDialog from "./dialog/SelectGenderDialog";
+import SelectGenderDialog from "../dialog/SelectGenderDialog";
 
 
 const titlePink='rgb(254,203,191)';
@@ -41,7 +41,7 @@ white-space:pre-wrap;
  
 
 const Wrapper=styled.div`
-width:90%`;
+width:100%`;
 
 
 const TableField={
