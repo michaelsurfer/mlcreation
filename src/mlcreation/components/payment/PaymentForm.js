@@ -62,7 +62,7 @@ constructor(props){
   }
 }
 back(){
-  this.props.callbackf('confirm');
+  this.props.callbackf('confirmOrder');
 }
 componentDidMount(){}
 
@@ -76,7 +76,12 @@ render(){
             type='invoice'
           />
           <PaymentSummary/>
-          <tr>
+          <tr
+            style={{
+              'background-color':'rgb(240,160,143)','margin':0,'padding':0
+            }}
+          
+          >
             <td colspan={2}>
               <c2.Button black onClick={()=>this.back()}>Back</c2.Button>
             </td>

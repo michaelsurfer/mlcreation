@@ -11,38 +11,7 @@ class OrderHeaders extends Component{
         super(props);
     }
     
-    render3(){
-        var type=this.props.type;
-         return(
-            <tbody>
-                 <tr>
-            {
-            <OrderHeaderCell
-            color='white'
-            colspan='firstHalf'
-            fontFamily='Times New Roman'
-            fontSize='21pt'
-            type={type}
-             >
-            <b>Buyer</b>
-            </OrderHeaderCell>
-            }
-            {
-            <OrderHeaderCell
-            color={((type=='confirm') || (type=='invoice'))?'rgb(251,157,139)':'rgb(252,203,191)'}
-            colspan='secondHalf'
-            fontFamily='Times New Roman'
-            fontSize='24pt'
-            textAlign='right'
-            type={type}
-             >
-            <b>Purchase Order Draft</b>
-            </OrderHeaderCell>
-            }
-            </tr>
-            </tbody>
-        );
-    }
+ 
     render(){
         var type=this.props.type;   
         //type=takeOrder or confirm 
@@ -75,7 +44,7 @@ class OrderHeaders extends Component{
             firstCell={true}
 
              >
-            <b>Purchase Order Draft</b>
+            <b>{type=='invoice'?'Purchase Order Invoice':'Purchase Order Draft'}</b>
             </OrderHeaderCell>
             }
             </tr>

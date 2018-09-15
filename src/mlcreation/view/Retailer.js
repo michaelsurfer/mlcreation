@@ -79,8 +79,8 @@ confirmCallBack(nextStep){
 
 }
 
-back(){
-  this.setState({page:'takeOrder'});
+back(goto){
+  this.setState({page:goto});
 }
 
 render(){

@@ -369,7 +369,12 @@ const TableField={
     <RemarkRow
       totalSpan = {totalRowSpan[device]}
     />
-    <tr>
+    <tr
+      style={{
+        'background-color':'rgb(240,160,143)','margin':0,'padding':0
+      }}
+    
+    >
       <td colSpan={totalRowSpan.desktop}>
       <c2.Button onClick={()=>this.props.callbackf('confirmOrder')}>Submit order draft</c2.Button>
       </td>

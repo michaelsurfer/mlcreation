@@ -10,13 +10,14 @@ export const StyledTd=styled.td`
   `;
   
 export const Button=styled.button`
-  background-color:${(props)=>props.black?'black':'rgb(240,160,143)'};
-  color:${(props)=>props.black?'white':'black'}
+  background-color:rgb(240,160,143);
+  color:black;
   height:50px;
   width:100%;
-  border-top:1px solid grey;
-  border-bottom:1px solid grey;
-  margin:0px;
+  border:1px solid rgb(240,160,143);
+  border-top:0px solid grey;
+  border-bottom:0px solid grey;
+  margin-top:0px;
   padding:0px;
   font-size:20pt;
   `;

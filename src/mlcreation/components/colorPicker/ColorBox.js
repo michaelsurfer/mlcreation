@@ -16,14 +16,14 @@ border-bottom:${(props)=>props.border}
 `;
 
 const Box=styled.div`
-width:27px;
-height:27px;
+width:${(props)=>props.size};
+height:${(props)=>props.size};
 background-color:${(props)=>props.rgbValue};
 `;
 
 const ImgBox=styled.img`
-width:27px;
-height:27px;
+width:${(props)=>props.size};
+height:${(props)=>props.size};
 `;
 
 
@@ -31,7 +31,8 @@ export const ColorBox=({
     productID,
     colorCode,
     callbackF,
-    selected
+    selected,
+    size='27px'
 })=>{
     var json = colorJson[colorCode];
     var border='0px solid grey';
@@ -47,11 +48,13 @@ export const ColorBox=({
             <ImgBox src={imagePath+"colorbox/"+productID+"/"+colorCode+".png"}
             id={colorCode}
             onClick={callbackF}
+            size={size}
             />
         ):(
             <Box
             id={colorCode}
             onClick={callbackF}
+            size={size}
             rgbValue={json.rgbValue}
             />
         )}

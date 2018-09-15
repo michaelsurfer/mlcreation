@@ -39,7 +39,8 @@ m:{
 },
 general:{
   policyBG : 'rgb(238,238,242)',
-  orange: 'rgb(253,159,159)'
+  orange: 'rgb(253,159,159)',
+  lightPink : 'rgb(223,200,200)'
 }
 };
 export const ColorSchema={

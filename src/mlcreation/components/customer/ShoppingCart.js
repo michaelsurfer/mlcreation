@@ -7,9 +7,9 @@ import {observer,inject} from "mobx-react";
 import {computed} from "mobx";
 import styled from "styled-components";
 import React,{Component} from 'react';
-import data from "../asset/ProductList.json";
-import * as c from '../common/Css2.js';
-import ShoppingCartTable from './ShoppingCartTable';
+import data from "../../asset/ProductList.json";
+import * as c from '../../common/Css2.js';
+import {ShoppingCartTable} from './ShoppingCartTable';
 
 
 const RemoveText=styled.label`

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import React,{Component} from 'react';
-import ShoppingCart from '../components/ShoppingCart';
+import ShoppingCartTableContainer from '../components/customer/ShoppingCartTableContainer';
 import {observer,inject} from "mobx-react";
-import {StripePayment} from '../stripe/StripePayment';
+//import {StripePayment} from '../stripe/StripePayment';
 import {NavLink} from "react-router-dom";
 
 
@@ -32,37 +32,27 @@ justify-content:center;
 align-items:center;
 display:flex;
 width:100%;
-background-color:rgb(240,163,135);
-`;
-
-const BackLink=styled(NavLink)`
-background-color:black;
-color:white;
-margin-left:70px;
-margin-right:70px;
-padding:5px;
-font-size:small;
 `;
 
 
 const ButtonBarWrapper=styled.div`
-width:90%;
+width:100%;
 padding:5px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 `;
 
-const Button=styled.button`
-background-color:${(props)=>props.black? 'black':'rgb(240,160,143)'};
-color: ${(props)=>props.black? 'white':'black'};
-border:1px solid ;
-border-color:${(props)=>props.black? 'black':'rgb(240,160,143)'};
-margin-left:70px;
-margin-right:70px;
-
- `;
-
+export const Button=styled.button`
+  background-color:rgb(225,200,200);
+  color:black;
+  height:50px;
+  width:100%;
+  border:1px solid rgb(225,200,200);
+  margin-top:20px;
+  padding:0px;
+  font-size:20pt;
+  `;
 const Header=styled.div`
 background-color:rgb(240,163,135);
 width:100%;
@@ -74,7 +64,7 @@ padding:20px;
 `;
 const Wrapper=styled.div`
 width:100%;
-background-color:white;
+background-color:rgb(239,238,242);
 display:flex;
 justify-content:center;
 align-items:center;
@@ -94,32 +84,33 @@ return(
   <Wrapper>
   <Header>SHOPPING LIST</Header>
   <InnerWrapper>
-    <ShoppingCart/>
-    </InnerWrapper>
+    <ShoppingCartTableContainer/>
 
+
+ 
 <ButtonBar>
-<ButtonBarWrapper>
-
-  <BackLink to="/">Back to Shopping</BackLink>
-  <Button black
+ 
+   <Button 
+  >BACK TO SHOPPING</Button>
+  <Button 
   onClick={()=>this.props.store.showPaymentModal=true}
-  >Pay</Button>
-  </ButtonBarWrapper>
-
+  >PAY NOW</Button>
+ 
 </ButtonBar>
+</InnerWrapper>
 
 
 
 <ModalWrapper display={this.props.store.showPaymentModal}>
 
   <Modal>
-
+{/*
    <StripePayment
     total={this.props.store.total}
     shipmentCost={100}
     orderNo=""
   />
-
+*/}
   </Modal>
 </ModalWrapper>
 

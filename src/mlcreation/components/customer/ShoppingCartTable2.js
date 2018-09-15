@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React,{Component} from 'react';
-import * as c from '../common/Css2.js';
-import data from "../asset/ProductList.json";
+import * as c from '../../common/Css2.js';
+import data from "../../asset/ProductList.json";
 import {observer,inject} from "mobx-react";
 
 

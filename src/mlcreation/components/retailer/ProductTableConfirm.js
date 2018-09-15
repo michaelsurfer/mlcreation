@@ -484,7 +484,7 @@ class ProductTableConfirm extends Component{
     <tr>
     <td  colspan={4}
     style={{
-      'background-color':headerBlue,'margin':0,'padding':0
+      'background-color':'rgb(240,160,143)','margin':0,'padding':0
     }}
     >
     <c2.Button black onClick={()=>this.back()}>Back to Order Draft</c2.Button>
@@ -493,7 +493,7 @@ class ProductTableConfirm extends Component{
 
     <td colspan={5}
     style={{
-      'background-color':headerBlue,'margin':0,'padding':0
+      'background-color':'rgb(240,160,143)','margin':0,'padding':0
     }}
     >
 
