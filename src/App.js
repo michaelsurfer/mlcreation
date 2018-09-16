@@ -20,7 +20,7 @@ import MakeCommentView from './mlcreation/view/MakeCommentView';
 import CommentView from './mlcreation/view/CommentView';
 import AllCommentView from './mlcreation/view/AllCommentView';
 import {PolicyView} from './mlcreation/view/PolicyView';
-
+import {AboutUsView} from './mlcreation/view/AboutUsView';
 
 const ModalWrapper=styled.div`
 position:fixed;
@@ -44,7 +44,7 @@ transform: translate(-50%,-50%);
 
 const MakeComment=({match})=>(
   <div>
-        <NavBar gender='g'/>
+        <NavBar gender='general'/>
 
   <MakeCommentView 
   productID={match.params.productID} 
@@ -57,7 +57,7 @@ const MakeComment=({match})=>(
 const RetailerPolicy=inject('store')(observer((props)=>{
 return (
 <div>
-<NavBar gender='g'/>
+<NavBar gender='general'/>
 
 {props.store.login?(
   <PolicyView type='retailer'/>
@@ -71,14 +71,22 @@ return (
 
 const Policy=()=>(
 <div>
-  <NavBar gender='g'/>
+  <NavBar gender='general'/>
   <PolicyView type='customer'/>
 </div>
 );
 
+const AboutUs=()=>(
+<div>
+  <NavBar gender='general'/>
+  <AboutUsView/>
+</div>
+
+);
+
 const Comment=({match})=>(
 <div>
-  <NavBar gender='g'/>
+  <NavBar gender='general'/>
   <CommentView
     productID={match.params.productID}
   />
@@ -88,14 +96,14 @@ const Comment=({match})=>(
 
 const AllComment=()=>(
   <div>
-    <NavBar gender='g'/>
+    <NavBar gender='general'/>
     <AllCommentView/>
   </div>
   );
 
 const HomeView = () =>(
   <div>
-  <NavBar gender='g'/>
+  <NavBar gender='general'/>
   <Home/>
   </div>
 );
@@ -103,7 +111,7 @@ const HomeView = () =>(
 const Transaction = inject('store')(observer((props)=>{
   return(
   <div>
-      <NavBar gender='g'/>
+      <NavBar gender='general'/>
 
     <TransactionView/>
   </div>
@@ -286,6 +294,7 @@ class App extends Component {
        <Route exact path="/allComment/" component={AllComment}/> 
        <Route exact path="/policy/" component={Policy}/>
        <Route exact path="/retailerPolicy/" component={RetailerPolicy}/>
+       <Route exact path="/aboutUs/" component={AboutUs}/>
 
       {<Footer/>}
       </div>

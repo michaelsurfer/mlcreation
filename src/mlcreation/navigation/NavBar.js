@@ -105,18 +105,25 @@ class NavBar extends Component{
   }
 
   renderTopBar(){
-     var color=c.ThemeColor[this.props.gender].top;
-     console.log("top bar"+this.props.gender);
-     return(
-      <TopBar color={color}>
-      
-      <c.Link to="/YourAccount">RETAILER ACCOUNT</c.Link>
-      <c.Link to="/cart">SHOPPING LIST ({this.props.store.cartSize})</c.Link>
-      <TopBarLink>LANGUAGE</TopBarLink>
-      
+    var color=c.ThemeColor[this.props.gender].top;
+    if(this.props.gender=='general'){
+      return(
+      <TopBar color={color} gender={this.props.gender}>
+          <c.Link white to="/YourAccount">RETAILER ACCOUNT</c.Link>
+          <c.Link white to="/cart">SHOPPING LIST ({this.props.store.cartSize})</c.Link>
+          <c.Link white to="/">LANGUAGE</c.Link>
       </TopBar>
+      );
+    }else{
+      return(
+        <TopBar color={color} gender={this.props.gender}>
+            <c.Link  to="/YourAccount">RETAILER ACCOUNT</c.Link>
+            <c.Link  to="/cart">SHOPPING LIST ({this.props.store.cartSize})</c.Link>
+            <c.Link  to="/">LANGUAGE</c.Link>
+        </TopBar>
+        );
 
-    );
+    }
   }
   renderNavBar(){
   return(

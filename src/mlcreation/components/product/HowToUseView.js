@@ -6,6 +6,9 @@ import {ShareLowerLayout} from "./HowToUse/ShareLowerLayout";
 import {RightLayoutB} from "./HowToUse/RightLayoutB";
 import {RightLayoutC} from "./HowToUse/RightLayoutC";
 import {ThemeColor} from "../../common/Css2.js";
+import {EvvaLeft} from "./HowToUse/EvvaLeft";
+import {EvvaRight} from "./HowToUse/EvvaRight";
+import {EvvaLower} from "./HowToUse/EvvaLower";
 
 const OutterWrapper=styled.div`
 display:flex;
@@ -42,6 +45,35 @@ export const HowToUseView=({
 })=>{
     var LeftLayoutType='A';
     var backgroundcolor =ThemeColor[gender].how2Use; 
+
+    //special handling of EVVA
+    if(productID=='EVVA'){
+        return(
+            <OutterWrapper color={backgroundcolor}>
+            <Row>
+            <Cell>
+            <EvvaLeft
+                productID={productID}
+                color={color}
+                />   
+            </Cell>
+            <Cell>
+            <EvvaRight
+                productID={productID}
+                color={color}
+                />   
+            </Cell>
+            </Row>
+            <Row>
+            <EvvaLower
+                            productID={productID}
+                            color={color}
+            />
+            </Row>
+            </OutterWrapper>
+        );
+    }
+
 
     return(
         <OutterWrapper

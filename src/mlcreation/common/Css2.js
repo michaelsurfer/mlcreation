@@ -7,11 +7,12 @@ var border = '0px dashed';
 
 export const Link=styled(NavLink)`
 text-decoration:none;
-color:grey;
+color:${(props)=>props.white?'white':'black'};
 padding:5px;
-font-size:20px;
+font-size:27px;
 margin-left:10px;
 margin-right:10px;
+font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 `;
  
 export const Line=styled.div`
@@ -23,7 +24,7 @@ border-bottom:1px solid;
 `;
 export const ThemeColor={
 g:{
-  top:'rgb(0,0,0)',
+  top:'rgb(223,200,200)',
   header:'rgb(222,200,200)',
   product:'rgb(255,255,255)',
   how2Use:'rgb(235,222,221)',
@@ -38,6 +39,7 @@ m:{
   how2UseImg:'rgb(201,202,204)'
 },
 general:{
+  top:'black',
   policyBG : 'rgb(238,238,242)',
   orange: 'rgb(253,159,159)',
   lightPink : 'rgb(223,200,200)'

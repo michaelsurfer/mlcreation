@@ -36,28 +36,61 @@ export const ColorBox=({
 })=>{
     var json = colorJson[colorCode];
     var border='0px solid grey';
-    
+    var result=[];
     if(selected){
         console.log("sected");
-        border='1px solid grey'}
-        console.log(colorCode);
-     return(
-        <OutterBox border={border}>
+        border='1px solid grey'
+        }
+        console.log(json.rgbValue);
 
-        {(!json.rgbValue)?(
+    if(json.rgbValue=="image"){
+ 
+        result.push(
             <ImgBox src={imagePath+"colorbox/"+productID+"/"+colorCode+".png"}
             id={colorCode}
             onClick={callbackF}
             size={size}
             />
-        ):(
+        );
+    }else if(json.rgbValue=="various"){
+        var _json=json['variant'];
+         if(_json[productID].rgbValue=="image"){
+            //use Image
+            result.push(
+                <ImgBox src={imagePath+"colorbox/"+productID+"/"+colorCode+".png"}
+                id={colorCode}
+                onClick={callbackF}
+                size={size}
+                />
+            );
+        }else{
+            var rgbValue=_json[productID].rgbValue;
+            result.push(
+                <Box
+                id={colorCode}
+                onClick={callbackF}
+                size={size}
+                rgbValue={rgbValue}
+                />
+                );
+
+        }
+
+        
+    }else{
+        result.push(
             <Box
             id={colorCode}
             onClick={callbackF}
             size={size}
             rgbValue={json.rgbValue}
             />
-        )}
+        );
+    }    
+
+     return(
+        <OutterBox border={border}>
+        {result}
          </OutterBox>
     );
 }

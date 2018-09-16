@@ -6,6 +6,7 @@ import img from '../image/contactusimg.jpg';
 import Dialog from '../components/dialog/Dialog';
 import {observer,inject} from "mobx-react";
 import {validateEmail} from '../common/Utility.js';
+import '../../index.css'
 
 
 const Wrapper=styled.div`
@@ -16,26 +17,26 @@ const Wrapper=styled.div`
 
 const Table=styled.table`
 border-collapse: collapse;
-border:0px solid grey;
+border:0px solid green;
 `;
 
 const LeftBox=styled.div`
     display:flex;
     flex:1;
-    background-color:rgb(253,159,129);
+    background-color:rgb(224,199,200);
     justify-content:center;
     align-items:center;
-    
+    height:608px;
  `;
 const LeftBoxInnerWrapper=styled.div`
     width:70%;
-    padding:20px;
+    height:100%;
+    padding:0px;
     display:flex;
     flex-direction:column;
     border:0px solid;
-    justify-content:center;
-    align-items:center;
-`;
+    justify-content:space-around;
+  `;
 
 const RightBox=styled.div`
     display:flex;
@@ -43,34 +44,38 @@ const RightBox=styled.div`
     justify-content:center;
     align-items:center;
     background-image:url(${img});
-background-repeat:no-repeat;
-background-size: cover;
+    background-repeat:no-repeat;
+    background-size: cover;
 `;
 const RightBoxInnerWrapper=styled.div`
     width:70%;
     padding:20px;
     display:flex;
     flex-direction:column;
-    border:0px solid;
+    border:0px solid black;
     justify-content:center;
     align-items:center;
 `;
 
 
 const Title=styled.label`
-    font-size:x-large;
+    font-size:40pt;
     margin-top:20px;
     margin-bottom:15px;
+    font-family: 'Yellowtail', cursive;
+
 `;
 
 const Desc=styled.label`
-    font-size:small;
+    font-size:18pt;
     color:rgb(61,49,48);
-`;
+ `;
 
 const RightTable=styled.table`
 border-collapse: collapse;
-border:0px solid grey;
+border:1px solid grey;
+width:640px;
+height:327px;
 `;
 
 const FormText=styled.label`
@@ -84,25 +89,51 @@ display:block;
 margin:0;
 padding:0;
 background:transparent;
+border:none;
+font-size:20pt;
+&::-webkit-input-placeholder {
+    color: black;
+    font-size:18pt;
+    font-weight:bold;
+  }
+
  `;
 
 
 const TextArea=styled.textarea`
 width:100%;
-height:100px;;
+height:100px;
 border:none;
 background:transparent;
-
+font-size:20px;
 `;
 const StyledTd=styled.td`
 margin:0;
-padding:0;
+padding:5px;
 overflow:hidden;
 border:3px solid white;
 background:transparent;
 `;
 
+const StyledTr=styled.tr`
+height:50px;
+`;
 
+const LeftTd=styled.td`
+vertical-align: top;
+
+`;
+
+const Button=styled.button`
+width:100%;
+height:100%;
+background-color: Transparent;
+border: none;
+font-color:black;
+font-size:20pt;
+font-weight:bold;
+
+`;
 
 @inject('store')
 @observer
@@ -163,23 +194,30 @@ render(){
             <Dialog/>
             <LeftBox>
             <LeftBoxInnerWrapper>
-                <Title>ML Creation Co. Limited</Title>
-                <Table>
+                 <Table>
                     <tr>
-                        <td><Desc>Contact Person :</Desc></td>
-                        <td><Desc>Susanna Lee</Desc></td>
+                        <LeftTd colSpan={2}
+                            style={{
+                                "height":"150px"                            }}
+                        >
+                        <Title>ML Creation Co. Limited</Title>
+                        </LeftTd>
                     </tr>
-                    <tr>
-                        <td><Desc>Mobile Phone :</Desc></td>
-                        <td><Desc>+852 97 383 616</Desc></td>
-                    </tr>
-                    <tr>
-                        <td><Desc>E-Mail :</Desc></td>
-                        <td><Desc>susanna@mlcreationco.com</Desc></td>
-                    </tr>
-                    <tr>
-                        <td><Desc>Address :</Desc></td>
-                        <td>
+                    <StyledTr>
+                        <LeftTd><Desc>Contact Person :</Desc></LeftTd>
+                        <LeftTd><Desc>Susanna Lee</Desc></LeftTd>
+                    </StyledTr>
+                    <StyledTr>
+                        <LeftTd><Desc>Mobile Phone :</Desc></LeftTd>
+                        <LeftTd><Desc>+852 97 383 616</Desc></LeftTd>
+                    </StyledTr>
+                    <StyledTr>
+                        <LeftTd><Desc>E-Mail :</Desc></LeftTd>
+                        <LeftTd><Desc>susanna@mlcreationco.com</Desc></LeftTd>
+                    </StyledTr>
+                    <StyledTr>
+                        <LeftTd><Desc>Address :</Desc></LeftTd>
+                        <LeftTd>
                             <Desc>
                             Room 527, 5/F., Kwai on industry estate,
                             <br/>
@@ -187,13 +225,13 @@ render(){
                             <br/>
                             N.T. Hong Kong    
                             </Desc>
-                        </td>
-                    </tr>
+                        </LeftTd>
+                    </StyledTr>
                     
-                    <tr>
+                    <StyledTr>
                         <td><Desc>Website :</Desc></td>
                         <td><Desc>www.mlcreationco.com</Desc></td>
-                    </tr>
+                    </StyledTr>
                 </Table>
             </LeftBoxInnerWrapper>    
             </LeftBox>
@@ -227,7 +265,7 @@ render(){
                         }}
                         
                         
-                        colspan="2" align="center"><button>Submit</button></td>
+                        colspan="2" align="center"><Button>Submit</Button></td>
                     </tr>
                     
                 </RightTable>

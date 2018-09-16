@@ -1,14 +1,23 @@
 {
-    "S":{"name":"Silver","code":"Silver"},
-    "G":{"name":"Gold","code":"Gold"},
-    "GO":{"name":"G-Orange"},
+    "S":{"name":"Silver","code":"Silver","rgbValue":"image"},
+    "G":{"name":"Gold","code":"Gold","rgbValue":"image"},
+    "GO":{"name":"G-Orange","rgbValue":"image"},
     "GGO":{"name":"G-Orange","rgbValue":"rgb(228,132,106)"},    
     "GMGR":{"name":"G-Magic Green","rgbValue":"rgb(0,93,102)"},
-    "GPI":{"name":"G-Pink"},
+    "GPI":{"name":"G-Pink","rgbValue":"image"},
     "MGR":{"name":"Magic Green","rgbValue":"rgb(3,77,89)"},
     "GY":{"name":"Gray","rgbValue":"rgb(81,97,109)"},
-    "GGY":{"name":"G-Gray"},
-    "SBK":{"name":"S-Black"},
+    "GGY":{"name":"G-Gray","rgbValue":"image"},
+
+    "SBK":{"name":"S-Black","rgbValue":"various",
+      "variant":{
+        "RC":{"name":"S-Black","rgbValue":"rgb(45,45,45)"},
+        "DB":{"name":"S-Black","rgbValue":"rgb(45,45,45)"},
+        "GF":{"name":"S-Black","rgbValue":"rgb(45,45,45)"}
+      }
+    },
+
+
     "SR":{"name":"S-Rose","rgbValue":"rgb(187,27,150)"},
     "SPP":{"name":"S-Purple","rgbValue":"rgb(100,30,144)"},
     "SLPI":{"name":"S-Light Pink","rgbValue":"rgb(251,199,235)"},
@@ -17,8 +26,18 @@
     "PP":{"name":"Purple","rgbValue":"rgb(82,31,143)"},
     "BLGR":{"name":"Blue Green","rgbValue":"rgb(13,170,184)"},
     "R":{"name":"Rose","rgbValue":"rgb(160,16,144)"},
-    "GBK":{"name":"G-Black"},
-    "SB":{"name":"B-Silver"},
+    "GBK":{"name":"G-Black","rgbValue":"various",
+      "variant":{
+        "RHT":{"name":"G-Black","rgbValue":"rgb(24,24,24)"},
+        "MR":{"name":"G-Black","rgbValue":"rgb(24,24,24)"},
+        "SR":{"name":"G-Black","rgbValue":"image"},
+        "BR":{"name":"G-Black","rgbValue":"image"}
+
+      }
+    },
+
+
+    "SB":{"name":"B-Silver","rgbValue":"image"},
     "GPIPP":{"name":"G-Pink Purple","rgbValue":"rgb(180,119,167)"},
     "LPIPP":{"name":"Light Pink Purple","rgbValue":"rgb(221,86,170)"},
     "PI":{"name":"Pink","rgbValue":"rgb(235,145,220)"},
@@ -27,10 +46,21 @@
     "LBL":{"name":"Water Blue","rgbValue":"rgb(17,142,227)"},
     "GRBL":{"name":"Green Blue","rgbValue":"rgb(33,169,176)"},
     "SGRBL":{"name":"S-Green Blue","rgbValue":"rgb(44,150,168)"},
-    "BL":{"name":"Blue","code":"Blue","rgbValue":"rgb(39,103,205)"},
-    "SBK":{"name":"S-Black"},
-    "SBL":{"name":"Sapphire Blue"},
-    "SGY":{"name":"S-Gary"},
+
+
+    "BL":{"name":"Blue","rgbValue":"various",
+      "variant":{
+        "BR":{"name":"Blue","rgbValue":"rgb(58,50,168)"},
+        "MR":{"name":"Blue","rgbValue":"rgb(29,1,149)"},
+        "PR":{"name":"Blue","rgbValue":"rgb(38,102,203)"}
+
+      } 
+    
+    },
+
+
+    "SBL":{"name":"Sapphire Blue","rgbValue":"image"},
+    "SGY":{"name":"S-Gary","rgbValue":"image"},
     "GGBL":{"name":"S-Gray Blue","rgbValue":"rgb(78,70,118)"},
     "GSHBL":{"name":"S-Sapphire Blue","rgbValue":"rgb(90,194,248)"},
     "SHBL":{"name":"Sapphire Blue","rgbValue":"rgb(29,1,149)"},

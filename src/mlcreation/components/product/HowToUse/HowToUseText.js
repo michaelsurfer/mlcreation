@@ -88,7 +88,8 @@ button:"Button Functions:",
 charge:"How To Charge It?",
 clean:"How To Clean It?",
 tips:"Important Tips",
-disclaimer:"Disclaimer"
+disclaimer:"Disclaimer",
+functions:"Functions"
 
 };
 

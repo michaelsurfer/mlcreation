@@ -51,6 +51,20 @@ border:1px solid grey;
 
 
 export const text={
+EVVA:{
+clean:`
+•    It’s splashproof.
+•    Clean it with antibacterial soap after each use.
+•    Do not use alcohol, acetone-based or gasoline-based cleaning products.
+`,
+functions:`
+Placing in the vagina during the day
+strong and tightening abdominal muscles and genitals.
+The built-in metal balls cause an obvious sense of collision when walking.
+Use not more than 30 minutes per day
+`
+
+},    
 BR:{
 charge:`
 A.  Take out the vibrator from the silicone sleeve.
