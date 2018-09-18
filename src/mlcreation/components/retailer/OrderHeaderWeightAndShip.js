@@ -20,7 +20,7 @@ class OrderHeaderWeightAndShip extends Component{
                 fontSize='18pt'
                 type='invoice'
                 >    
-                Order Weight: xxx kg
+                Order Weight: {this.props.store.totalRetailerWeight} kg
                 </OrderHeaderCell>        
                 
                 

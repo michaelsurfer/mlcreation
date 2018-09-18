@@ -7,6 +7,7 @@ import {ItemImage} from "../ItemImage";
 import ProductColorCode from "../../asset/ColorCode.json";
 import {Redirect} from "react-router";
 import SelectGenderDialog from "../dialog/SelectGenderDialog";
+import {ShowUPC} from "./ShowUPC";
 
 
 const titlePink='rgb(254,203,191)';
@@ -89,7 +90,7 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'text'
+    type:'upc'
 
   },
   retailPrice:{
@@ -236,6 +237,9 @@ const StyledTh=styled.th`
             break;
             case 'text':
               output = dataJson[field];
+            break;
+            case 'upc':
+              output = <ShowUPC productID={code} color={color}/>
             break;
             case 'input':
               output =

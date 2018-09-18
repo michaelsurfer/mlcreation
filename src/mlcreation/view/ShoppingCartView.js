@@ -4,29 +4,9 @@ import ShoppingCartTableContainer from '../components/customer/ShoppingCartTable
 import {observer,inject} from "mobx-react";
 //import {StripePayment} from '../stripe/StripePayment';
 import {NavLink} from "react-router-dom";
+import PaymentModal from "../components/payment/PaymentModal";
 
-
-
-const ModalWrapper=styled.div`
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.6);
-display:${(props)=>props.display};
-`;
-
-const Modal=styled.div`
-position:fixed;
-background:white;
-width:auto;
-height:auto;
-top:50%;
-left:50%;
-transform: translate(-50%,-50%);
-`;
-
+ 
 const ButtonBar=styled.div`
 justify-content:center;
 align-items:center;
@@ -100,19 +80,7 @@ return(
 </InnerWrapper>
 
 
-
-<ModalWrapper display={this.props.store.showPaymentModal}>
-
-  <Modal>
-{/*
-   <StripePayment
-    total={this.props.store.total}
-    shipmentCost={100}
-    orderNo=""
-  />
-*/}
-  </Modal>
-</ModalWrapper>
+<PaymentModal/>
 
 
 

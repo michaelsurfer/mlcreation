@@ -35,7 +35,7 @@ background-image:url(${(props)=>props.img});
 background-repeat:no-repeat;
 background-size:contain;
 background-position: center;
-border:1px solid red;
+border:0px solid red;
 `;
 
 

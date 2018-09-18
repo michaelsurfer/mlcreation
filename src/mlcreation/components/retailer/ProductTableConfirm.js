@@ -10,6 +10,7 @@ import ProductColorCode from "../../asset/ColorCode.json";
 import OrderHeaderContainer from "./OrderHeaderContainer";
 import {TotalCostRow} from "./TotalCostRow";
 import {RemarkRow} from "./RemarkRow";
+import {ShowUPC} from "./ShowUPC";
 
 
 const titlePink='rgb(254,203,191)';
@@ -87,7 +88,7 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'text'
+    type:'upc'
 
   },
   retailPrice:{
@@ -384,6 +385,9 @@ class ProductTableConfirm extends Component{
             case 'text':
               output = dataJson[field];
             break;
+            case 'upc':
+            output = <ShowUPC productID={code} color={color}/>
+            break;
             case 'input':
               output = this.props.store.retailerCart[productID].qty;
             /*
@@ -461,6 +465,9 @@ class ProductTableConfirm extends Component{
 
   render(){
      var device = this.props.device;
+    
+
+
      return(
     <c2.Wrapper>
     <c.ColPureDiv>

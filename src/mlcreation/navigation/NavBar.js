@@ -139,7 +139,7 @@ class NavBar extends Component{
   <Logo><img src={LogoImg}/></Logo>
 
   <MenuGroup reverse>
-  <c.Link to="/product/about">ABOUT US</c.Link>
+  <c.Link to="/aboutUs">ABOUT US</c.Link>
   <c.Link to="/contact">CONTACT US</c.Link>
 
   </MenuGroup>

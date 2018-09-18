@@ -27,6 +27,9 @@ render(){
         <c.Link to='/yourAccount'>
           Your Account
         </c.Link>
+        <c.Link to='/retailerPolicy'>
+          Our Policy
+        </c.Link>
         <c.Link to='/priceList'>
           Retailer Price List
         </c.Link>

@@ -30,7 +30,7 @@ const Row=styled.div`
 display:flex;
 flex-direction:row;
 width:100%;
-height:280px;
+height:260px;
 `;
 var clean =
     `

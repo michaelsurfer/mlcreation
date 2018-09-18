@@ -2,10 +2,12 @@ import {observable,action} from 'mobx';
 import {apis} from '../common/config.js';
 import data from "../asset/ProductList.json";
 import {computed} from "mobx";
+import ShipmentData from "../asset/ShipmentCost.json";
  
 export default class Store{
   @observable login = false;
-  @observable showPaymentModal = 'none';
+  //@observable showPaymentModal = 'none';
+  @observable showPaymentModal = 'true';
   @observable showSelectGenderDialog={
     show:false,
     productID:"BR"
@@ -45,10 +47,8 @@ export default class Store{
     eTailerNo:{value:'test'},
     amazon:{value:'test'},
     eBay:{value:'test'},
-    other:{value:'test'}
-
-
-
+    other:{value:'test'},
+    homeParties:{value:'test'}
   };
   @observable loginError = false;
   @observable shoppingCart = {};
@@ -56,14 +56,7 @@ export default class Store{
   @observable subTotalCost = 0;
   @observable orderNo = {orderNo:0,uuid:0};
   @observable loading = false;
-  /* shopping cart example
-    {
-    id as string:{qty:qty as number},
-    "ITS-B":{name:"ITS,color:B,qty:10},
-    "2":{qty:2}
-    }
-  */
-
+ 
 
   @computed
   get total(){
@@ -73,13 +66,55 @@ export default class Store{
      for(var item in cart){
       var qty = cart[item].qty;
       var code = cart[item].name;
-      var price = data[code].retailPrice;
+      var price = data[code].MAP;
       if(qty==''){qty=0}
       total = total + parseInt(qty)*parseInt(price);
     }
-    console.log(total);
-    return total;
+     return total;
   }
+
+  get retailerCostBreakDown(){
+    var cart;
+    cart = this.retailerCart;
+    var totalWeight=0;
+    var totalProductCost=0;
+    var totalShipmentCost=0;
+    var finalCost=0;
+
+    for(var item in cart){
+      var qty = cart[item].qty;
+      var code = cart[item].name;
+      var price = data[code].retailPrice;
+      var weight = data[code].weight;
+      if(qty==''){qty=0}
+      totalProductCost = totalProductCost + parseInt(qty)*parseInt(price);
+      totalWeight = totalWeight +parseInt(qty)*parseFloat(weight);
+    } 
+
+    for(var item in ShipmentData){
+      var weight = parseFloat(item);
+      if(totalWeight >= weight){
+        totalShipmentCost = parseFloat(ShipmentData[item]);
+        break;
+      }
+    }
+    if(totalWeight <2){
+      totalShipmentCost = parseFloat(ShipmentData['2']);
+    }
+
+    finalCost = totalProductCost + totalShipmentCost;
+    var json = {
+      totalWeight:totalWeight,
+      totalProductCost:totalProductCost,
+      totalShipmentCost:totalShipmentCost,
+      finalCost:finalCost            
+    }
+    
+    return json;
+    }
+
+  
+
   get totalRetailerCost(){
     var cart;
     cart=this.retailerCart;
@@ -91,9 +126,27 @@ export default class Store{
       if(qty==''){qty=0}
       total = total + parseInt(qty)*parseInt(price);
     }
-    console.log(total);
-    return total;
+     return total;
   }
+
+
+
+  get totalRetailerWeight(){
+    var cart;
+    cart = this.retailerCart;
+    var totalWeight = 0;
+    for(var item in cart){
+      var qty = cart[item].qty;
+      var code = cart[item].name;
+      var weight = data[code].weight;
+      if(qty==''){qty=0}
+      totalWeight = totalWeight + parseInt(qty)*parseFloat(weight);
+    }  
+    return totalWeight;
+  }
+
+
+
   get totalRetailerQty(){
       var cart;
       cart=this.retailerCart;
@@ -108,6 +161,10 @@ export default class Store{
       console.log(total);
       return total;
     }
+
+
+
+
   get cartSize(){
     /*
     var size = Object.keys(this.shoppingCart).length;

@@ -245,13 +245,12 @@ class App extends Component {
 
   constructor(props){
     super(props);
-    //console.log(JSON.parse(sessionStorage.getItem("retailerData")));
-  
+   
     var sessionData=JSON.parse(sessionStorage.getItem("retailerData"));
  
     if(sessionData){
     this.props.store.login=true;
-    this.props.store.retailerData=sessionData;
+    //this.props.store.retailerData=sessionData;
     console.log("session data");
     console.log(sessionData);
     }

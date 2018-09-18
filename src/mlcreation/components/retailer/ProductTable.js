@@ -1,8 +1,7 @@
 import React,{Component} from 'react';
 import styled from "styled-components";
 import data from "../../asset/ProductList.json";
-import StaticData from "../../asset/StaticData.json";
-import * as c from '../../common/Css2.js';
+ import * as c from '../../common/Css2.js';
 import * as c2 from './Css.js';
 import OrderHeaderContainer from "./OrderHeaderContainer";
 import {observer,inject} from "mobx-react";
@@ -12,12 +11,11 @@ import SelectGenderDialog from "../dialog/SelectGenderDialog";
 import {Redirect} from "react-router";
 import {TotalCostRow} from "./TotalCostRow";
 import {RemarkRow} from "./RemarkRow";
+import {ShowUPC} from "./ShowUPC";
 
 const titlePink='rgb(254,203,191)';
 const titleBlue='rgb(236,221,220)';
-const tdBlue=c.ColorSchema.tdBlue.color;
-const headerBlue=c.ColorSchema.headerBlue.color;
-
+ 
 
 var qtyRowSpan={
   desktop:8,
@@ -80,7 +78,7 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'text'
+    type:'upc'
 
   },
   retailPrice:{
@@ -142,7 +140,13 @@ const TableField={
   }
 }
 
- 
+ const SelectionBox=styled.div`
+ width:13px;
+ height:16px;
+ margin-left:0px;
+ background-color:${(props)=>props.selected?'rgb(75,215,244)':''};
+
+ `;
 
   @inject('store')
   @observer
@@ -208,7 +212,15 @@ const TableField={
       var minWidth='70px';
       if(field=="selectionBox"){
         minWidth='10px';
-      }
+        result.push(
+          <c2.StyledTh 
+          color={json.color}
+          minWidth={minWidth}
+          >
+          <SelectionBox selected/>
+          </c2.StyledTh>
+        );
+      }else
       if(json[device]){
       result.push(
       <c2.StyledTh 
@@ -254,10 +266,17 @@ const TableField={
              output = ProductColorCode[color].name;
           break;
           case 'selectionBox':
-            output = "";
-          break;
+            if(this.props.store.retailerCart[productID].qty>0){
+              output = <SelectionBox selected/>;
+            }else{
+              output = <SelectionBox />;
+            }
+           break;
           case 'text':
             output = dataJson[field];
+          break;
+          case 'upc':
+          output = <ShowUPC productID={code} color={color}/>
           break;
           case 'input':
             output =

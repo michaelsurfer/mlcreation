@@ -7,6 +7,8 @@ export const StyledTd=styled.td`
   font-size:15px;
   margin:0px;
   text-align: center; 
+  padding:5px;
+
   `;
   
 export const Button=styled.button`

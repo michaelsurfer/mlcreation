@@ -15,11 +15,16 @@ const RTextDiv=styled.div`
 width:100%;
 display:flex;
 align-items:center;
-border:1px solid red;
+border:0px solid white;
 z-index:2;
 flex-direction:column;
 `;
-
+const Cell=styled.div`
+display:flex;
+flex-direction:column;
+width:100%;
+border:0px solid red;
+`;
 const Desc=styled.label` 
 font-size:100%;
 font-family:Arial;
@@ -51,6 +56,7 @@ export const ShareLowerLayout=({
     var url=c.path+productID+"/"+color+"/s.png";
     return(
         <Row>
+            <Cell>
         <c.OutterWrapper left>
             <c.Image_A
                 top='50px'
@@ -68,6 +74,8 @@ export const ShareLowerLayout=({
             />
              </c.TextDiv>            
           </c.OutterWrapper>
+          </Cell>
+          <Cell>
           <c.OutterWrapper left>
   
             
@@ -86,6 +94,7 @@ export const ShareLowerLayout=({
             />
              </RTextDiv>            
           </c.OutterWrapper>
+          </Cell>
           </Row>
     );
 

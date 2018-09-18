@@ -6,8 +6,9 @@ import data from "../../asset/ProductList.json";
 import {ItemImage} from "../../components/ItemImage";
 import {NavLink} from "react-router-dom";
 import ColorPicker from "../colorPicker/ColorPicker";
-//import {ProductDetail} from "./ProductDetail";
 import {HowToUseView} from "./HowToUseView";
+import {text} from "./HowToUse/Css"; 
+
 
 const OutterWrapper=styled.div`
 display:flex;
@@ -55,6 +56,8 @@ margin-top:0px;
 border-bottom:${(props)=>props.bottom ?  '1px solid black':'0px'};
 text-decoration:${(props)=>props.underline ?  'underline':'none'};
 font-family: "Times New Roman", Times, serif;
+white-space:pre-wrap;
+line-height:20px;
 `;
 
 const SelectColorText=styled.label`
@@ -73,8 +76,7 @@ color:black;
 
 const LeftBox=c.ColCenterDiv.extend`
 
-border:0px solid black;
-width:517px;
+width:650px;
 margin-left:66px;
 border:0px solid red;
 
@@ -86,7 +88,7 @@ width:100%;
 margin:10px;
 justify-content:center;
 align-items:center;
-border:1px solid blue;
+border:0px solid blue;
  `;
 
 const How2UseBox=styled.div`
@@ -108,37 +110,15 @@ const HowBigIsIt=styled(How2UseBox)`
 background-color:${(props)=>c.ThemeColor[props.gender].how2Use};
 color:${(props)=>(props.gender=='g')?'white':'black'};
 `;
+ 
 
-const SmallImageBox=styled.div`
-width:50px;
-height:60px;
-display:flex;
-flex:1;
-border:0px solid black;
-background:url(${(props)=>props.image});
-background-repeat:no-repeat;
-background-size: contain;
-background-position: center;
-margin:5px;
-`;
-/*
-const ColorBox=styled.div`
-width:20px;
-height:20px;
-background-color:${(props)=> c.ProductColorCode[props.color].color};
-`;
-
-const OutterColorBox=styled.div`
-width:20px;
-height:30px;
-margin-bottom:10px;
-margin-left:10px;
-display:flex;
-justify-content:center;
-align-items:center;
-border-bottom:${(props)=>props.selected ? '1px solid grey':'0px'}
-`;
- */
+const Description=({productID})=>{
+  return(
+    <Desc>
+    {text[productID].desc}
+    </Desc>
+  ); 
+}
 
 class ProductDesc extends Component{
   constructor(props){
@@ -163,45 +143,14 @@ render(){
   var gender=this.props.gender; 
   var productID=this.props.productID;
   var price=this.props.price;
-  var description1=this.props.description1;
-  var description2=this.props.description2;
-  var description3=this.props.description3;
 
-  var length=this.props.length;
+
   var diameter=this.props.diameter;
   var weight=this.props.weight;
   var remark=this.props.remark;
   var colorArray=this.props.colorArray;
   var callback = this.props.callback;
-  var selectColor=[];
-/*
-  colorArray.map((item,i)=>{
-    //var color = c.ProductColorCode[item].color;
-    //console.log(color);
-    if(this.state.selectedColor == item)
-    {
-      selectColor.push (
-        <OutterColorBox selected
-        onClick={()=>this.setState({selectedColor:item})}
-        >
-        <ColorBox color={item}/>
-        </OutterColorBox>
-      );
-    }else{
-      selectColor.push (
-        <OutterColorBox
-        onClick={()=>this.setState({selectedColor:item})}
-
-        >
-        <ColorBox color={item}/>
-        </OutterColorBox>
-      );
-
-    }
-     }
-  );
-*/
-
+  
 return(
 <OutterWrapper>
 <Wrapper
@@ -214,12 +163,8 @@ color={c.ThemeColor[gender].product}
 <Desc bold>USD {price}</Desc>
 <c.EmptySpace height='32px'/>
 <Desc underline bold>DESCRIPTION</Desc>
-<c.EmptySpace height='32px'/>
-
-<Desc >{description1}</Desc>
-<Desc >{description2}</Desc>
-<c.EmptySpace height='32px'/>
-<Desc >{description3}</Desc>
+ 
+<Description productID={productID}/>
 
 <SplitDiv>
   <Desc>Length 333mm</Desc>
@@ -244,6 +189,7 @@ color={c.ThemeColor[gender].product}
   index={1}
   onClickCallBAckF={()=>this.setState({selectedImage:'1'})}
   size='contain'
+  backgroundcolor={gender=='m'?'white':'rgb(238,239,243)'}
 />
 
 
@@ -255,6 +201,8 @@ color={c.ThemeColor[gender].product}
   index={2}
   onClickCallBAckF={()=>this.setState({selectedImage:'2'})}
   size='contain'
+  backgroundcolor={gender=='m'?'white':'rgb(238,239,243)'}
+
 />
 
 {(data[productID].numOfImage==3) &&
@@ -267,6 +215,8 @@ color={c.ThemeColor[gender].product}
   index={3}
   onClickCallBAckF={()=>this.setState({selectedImage:'3'})}
   size='contain'
+  backgroundcolor={gender=='m'?'white':'rgb(238,239,243)'}
+
 />
 
 

@@ -56,7 +56,7 @@ const DescArea=styled.div`
   word-break:break-all;
   margin-left:${(props)=>props.left?'130px':''};
   margin-right:${(props)=>props.right?'150px':''};
-  border:1px solid red;
+  border:0px solid red;
   min-width: 10%;
   z-index:2;
 

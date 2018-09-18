@@ -14,7 +14,7 @@ background-color:${c.ThemeColor.general.policyBG};
 const Wrapper=styled.div`
 white-space:pre-wrap;
 width:70%;
-border:1px solid red;
+border:0px solid red;
 `;
  
 const PatentFooter=styled.div`
@@ -33,7 +33,7 @@ display:flex;
 width:100%;
 justify-content:center;
 align-items:center;
-border:1px solid blue;
+border:0px solid blue;
 
 `;
 const Title=styled.p`

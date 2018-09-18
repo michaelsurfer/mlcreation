@@ -5,6 +5,7 @@ import * as s from '../common/Css2.js';
 import { device } from "../common/device";
 import {apis} from '../common/config.js';
 import {observer,inject} from "mobx-react";
+import { runInThisContext } from 'vm';
 
 
 
@@ -289,6 +290,15 @@ var fieldData = {
       mandatory:false,
       warningText:'invalid'
     },
+  homeParties:{
+      key:'homeParties',
+      type:'checkbox',
+      needValidation:false,
+      validateType:'number',
+      title:'Home Parties',
+      mandatory:false,
+      warningText:'invalid'
+    }
 
 }
 
@@ -321,14 +331,18 @@ align-items:${(props)=>props.align};
 background-color:${(props)=>props.color};
 margin-right:0px;
 padding:2px;
+height:48px;
 `;
 const Cell=s.BasicDiv.extend`
+display:flex;
 flex:${(props)=>props.flex};
 justify-content:${(props)=>props.align};
-align-items:${(props)=>props.align};
+align-items:center;
 background-color:${(props)=>props.color};
 margin-right:0px;
 padding:2px;
+height:${(props)=>props.doubleHeight?'106px':'43px;'}
+
 `;
 
 
@@ -361,31 +375,7 @@ class RegisterForm extends Component{
       showRegisterModal:false,
       waiting:false
     }
-    /*
-    var state = {};
-    for(var item in fieldData){
-      //* for testing
-      var data = {
-        key:fieldData[item].key,
-        value:"TESTING",
-        validFormat:true
-      };
 
-      state[fieldData[item].key] = data;
-      this.state = {
-        formData:state,
-        formReady:false,
-        showModal:'none',
-        warning:[]
-      };
-
-
-    }
-    */
-    /*
-      you can access to state value like this :
-        {this.state.formData.email.key}
-    */
   }
   componentDidMount(){
     var state={};
@@ -814,6 +804,13 @@ handleModal(){
       {this.renderFormElement('other','center')}
       </FormCol>
       </FormRow>
+      <FormRow border>
+        {this.renderFormElement('homeParties','center')}
+        {this.renderEmptyElementSpace()}
+        <FormCol doubleSize>
+        {this.renderEmptyElementSpace()}
+       </FormCol>
+       </FormRow>
       <FormRow border>
       {this.renderButton()}
        </FormRow>

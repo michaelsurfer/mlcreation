@@ -11,16 +11,15 @@ export const EvvaRight=({
     var url=c.path+productID+"/"+color+"/s.png";
 
     return( 
-        <c.OutterWrapper right>
+        <c.OutterWrapper left>
             <c.Image_A
             top={c.topPosition}
-                right='0px'
+            left='0px'
                 img={url}
               />
             
             <c.TextDiv
-                right='10%'
-                left='5%'
+                left='15%'
                 >
             <HowToUseText
             type='clean'

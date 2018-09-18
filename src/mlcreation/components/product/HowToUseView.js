@@ -27,6 +27,7 @@ const Cell=styled.div`
 display:flex;
 flex-direction:column;
 width:100%;
+border:0px solid red;
 `;
 
 const TitleDiv=styled.div`
@@ -127,12 +128,12 @@ export const HowToUseView=({
             </Row>
             
             
-                
+            <Cell>    
             <ShareLowerLayout
                 productID={productID}
                 color={color}
             />
-            
+            </Cell>
         </OutterWrapper>
     );
 

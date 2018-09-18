@@ -1,7 +1,7 @@
 import {observer,inject} from "mobx-react";
 import React,{Component,Fragment} from 'react';
 import OrderHeaderCell from "../retailer/OrderHeaderCell";
-
+ 
 @inject('store')
 @observer
 class PaymentSummary extends Component{
@@ -10,6 +10,10 @@ class PaymentSummary extends Component{
     }
 
     render(){
+
+        var costJson = this.props.store.retailerCostBreakDown;
+
+
         return(
         <Fragment>
             <tr>
@@ -51,7 +55,8 @@ class PaymentSummary extends Component{
                 type='invoice'
                 textAlign='right'
                 >    
-            USD {this.props.shipmentCost} 
+                USD {costJson.totalShipmentCost}
+
             </OrderHeaderCell>  
             </tr>
             <tr>
@@ -73,8 +78,9 @@ class PaymentSummary extends Component{
                 type='invoice'
                 textAlign='right'
                 >    
-            USD {parseInt(this.props.shipmentCost)+parseInt(this.props.productCost)}
-            </OrderHeaderCell>  
+             USD {costJson.finalCost}
+
+             </OrderHeaderCell>  
             </tr>
             <tr>
             

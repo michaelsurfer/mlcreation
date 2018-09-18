@@ -6,9 +6,9 @@ import * as c from '../common/Css2.js';
 
 
 export const StripePayment=({
-  format,
-  total=0,
-  orderNo=0,
+  
+  total,
+  orderNo,
   shipmentCost=0,
   uuid=0
 })=>{
@@ -17,7 +17,7 @@ return(
   <StripeProvider apiKey="pk_test_yqi17IvtKCcZp2JUa3tnDwOe">
     <Elements>
       <InjectedCheckoutForm
-      format={format}
+      format='full'
       total={total}
       shipmentCost={shipmentCost}
       orderNo={orderNo}

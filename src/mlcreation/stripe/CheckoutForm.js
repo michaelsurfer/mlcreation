@@ -23,10 +23,20 @@ align-items:center;
 `;
 
 const FormWrapper=styled.div`
- background-color:rgb(239,238,242);
-   width:400px;
+
+  background-color:rgb(239,238,242); 
+  width:600px;
   padding:10px;
+  border-bottom :1px solid white;
+
  `;
+const InfoWrapper=styled.div`
+  display:flex;
+  flex-direction:column;
+  border:0px solid;
+  width:100%;
+`;
+
 
 const Label=styled.label`
 color:grey;
@@ -47,12 +57,13 @@ margin:10px;
 
 const Button=styled.button`
 display:block;
-width:100%;
+width:580px;
 padding:10px;
 margin:10px;
 margin-top:40px;
 background-color:black;
 color:white;
+font-size:18pt;
 `;
 
 
@@ -133,7 +144,7 @@ class CheckoutForm extends Component{
             uuid:this.props.uuid,
             email:this.props.store.retailerData.email.value
           }
-        //  fetch('http://localhost:3001/payment/',{
+       
         fetch(apis.payment.endpoint,{
             method:'POST',
             headers:{
@@ -198,12 +209,25 @@ renderPaymentForm(){
   return(
     <Wrapper>
     <FormWrapper>
-    <Total>Total :$ {this.props.total} (USD)</Total>
-    <Total>Shipment Cost :$ {this.props.shipmentCost} (USD)</Total>
-    <Total>Order No :$ {this.props.orderNo} (USD)</Total>
-    <Total>UUID :$ {this.props.uuid} (USD)</Total>
+      <InfoWrapper>
+      <Label>First Name:</Label>
+      <Label>Last Name:</Label>
+      <Label>Email:</Label>
+      <Label>Phone Number:</Label>
+      <Label>Deliver Address:</Label>
+
+      </InfoWrapper>
     </FormWrapper>
-    <form onSubmit={this.handleSubmit}>
+    <FormWrapper>  
+      <InfoWrapper>
+      <Label>Product Cost:</Label>
+      <Label>Shipment Cost:</Label>
+      <Label>Total Cost:</Label>
+
+      </InfoWrapper>
+    </FormWrapper>
+     
+     <form onSubmit={this.handleSubmit}>
     {this.props.format=='full'?(
       <FormWrapper>
       <Label>Card Number:</Label>
@@ -231,7 +255,7 @@ renderPaymentForm(){
       </ElementDiv>
 
 
-       <Button>Pay</Button>
+       <Button>Pay Now</Button>
        </FormWrapper>
      ):(
        <FormWrapper>
@@ -244,7 +268,7 @@ renderPaymentForm(){
        </ElementDiv>
        <c.ButtonDiv>
        <Button type='button' onClick={()=>this.props.store.showPaymentModal='none'}>Cancel</Button>
-       <Button>Pay</Button>
+       <Button>Pay Now</Button>
        </c.ButtonDiv>
        </FormWrapper>
       )}

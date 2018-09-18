@@ -30,8 +30,10 @@
       "variant":{
         "RHT":{"name":"G-Black","rgbValue":"rgb(24,24,24)"},
         "MR":{"name":"G-Black","rgbValue":"rgb(24,24,24)"},
+        "GF":{"name":"G-Black","rgbValue":"rgb(24,24,24)"},
         "SR":{"name":"G-Black","rgbValue":"image"},
-        "BR":{"name":"G-Black","rgbValue":"image"}
+        "BR":{"name":"G-Black","rgbValue":"image"},
+        "GB":{"name":"G-Black","rgbValue":"image"}
 
       }
     },

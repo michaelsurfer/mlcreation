@@ -19,7 +19,7 @@ const Title=styled.label`
 font-size:17px;
 font-family:Arial;
 font-weight:bold;
-margin-top:10px;
+margin-top:20px;
 margin-bottom:10px;
 align-text:center;
 `;
@@ -47,9 +47,10 @@ font-family:Arial;
 line-height: 30px;
 `;
 const DescDiv=styled.div`
-border:1px solid green;
+border:0px solid green;
 padding-left:0px;
 text-align:${(props)=>props.center?'center':''};
+padding-bottom:20px;
 `;
 var data={
 ITS:{
