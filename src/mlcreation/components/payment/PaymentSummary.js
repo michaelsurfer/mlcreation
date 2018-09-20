@@ -11,8 +11,11 @@ class PaymentSummary extends Component{
 
     render(){
 
-        var costJson = this.props.store.retailerCostBreakDown;
-
+        var costJson = this.props.store.retailerCostBreakDown
+        var totalWeight=costJson.totalWeight
+        var totalProductCost=costJson.totalProductCost
+        var totalShipmentCost=costJson.totalShipmentCost
+        var finalCost=costJson.finalCost    
 
         return(
         <Fragment>
@@ -34,7 +37,7 @@ class PaymentSummary extends Component{
                 type='invoice'
                 textAlign='right'
                 >    
-            USD {this.props.store.totalRetailerCost}
+            USD {totalProductCost}
             </OrderHeaderCell>  
             </tr>
             <tr>
@@ -55,7 +58,7 @@ class PaymentSummary extends Component{
                 type='invoice'
                 textAlign='right'
                 >    
-                USD {costJson.totalShipmentCost}
+                USD {totalShipmentCost}
 
             </OrderHeaderCell>  
             </tr>
@@ -78,7 +81,7 @@ class PaymentSummary extends Component{
                 type='invoice'
                 textAlign='right'
                 >    
-             USD {costJson.finalCost}
+             USD {finalCost}
 
              </OrderHeaderCell>  
             </tr>

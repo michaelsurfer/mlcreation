@@ -84,7 +84,12 @@ back(goto){
 }
 
 render(){
-
+  var costJson = this.props.store.retailerCostBreakDown
+  var totalWeight=costJson.totalWeight
+  var totalProductCost=costJson.totalProductCost
+  var totalShipmentCost=costJson.totalShipmentCost
+  var finalCost=costJson.finalCost   
+  var totalQty=costJson.totalQty
 
   var device='desktop';
   if(window.innerWidth <= 768){device='mobile'}
@@ -108,8 +113,8 @@ render(){
          <PaymentForm
          orderNo={this.state.orderNo}
          orderDate="order date"
-         productCost={this.props.store.totalRetailerCost}
-         shipmentCost='50'
+         productCost={totalProductCost}
+         shipmentCost={totalShipmentCost}
          callbackf={this.back}
          />
       )

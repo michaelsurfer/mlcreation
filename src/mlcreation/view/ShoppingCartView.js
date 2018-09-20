@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import React,{Component} from 'react';
+import React,{Component,Fragment} from 'react';
 import ShoppingCartTableContainer from '../components/customer/ShoppingCartTableContainer';
 import {observer,inject} from "mobx-react";
 //import {StripePayment} from '../stripe/StripePayment';
 import {NavLink} from "react-router-dom";
 import PaymentModal from "../components/payment/PaymentModal";
-
+import PaymentDone from "../components/payment/PaymentDone";
+ 
  
 const ButtonBar=styled.div`
 justify-content:center;
@@ -52,36 +53,52 @@ flex-direction:column;
 `;
 
 @inject('store')
-@observer
+ @observer
 class ShoppingCartView extends Component{
 constructor(props){
   super(props);
   this.props.store.loadShoppingCart();
+  this.PaymentDoneCallBackF=this.PaymentDoneCallBackF.bind(this);
+  this.state={donePayment:false}
+}
+
+PaymentDoneCallBackF(){
+  console.log("done call back")
+  this.setState({donePayment:true});
 }
 
 render(){
+  var json = this.props.store.customCostBreakDown
+  var totalProductCost = json.totalProductCost
+  var totalShipmentCost = json.totalShipmentCost
+  var finalCost = json.finalCost
+  var totalQty = json.totalQty
+
+ 
 return(
   <Wrapper>
-  <Header>SHOPPING LIST</Header>
-  <InnerWrapper>
+
+   {this.state.donePayment ? (
+     <PaymentDone/>
+   ):(
+    <Fragment> 
+    <Header>SHOPPING LIST</Header>
+    <InnerWrapper>
     <ShoppingCartTableContainer/>
 
-
+    </InnerWrapper>
+    <PaymentModal 
+    PaymentDoneCallBackF={this.PaymentDoneCallBackF}
+    type='custom'
+    totalProductCost = {totalProductCost}
+    totalQty = {totalQty}
+    totalShipmentCost = {totalShipmentCost}
+    finalCost={finalCost}
+    />
+    
+    </Fragment>
+   )} 
  
-<ButtonBar>
- 
-   <Button 
-  >BACK TO SHOPPING</Button>
-  <Button 
-  onClick={()=>this.props.store.showPaymentModal=true}
-  >PAY NOW</Button>
- 
-</ButtonBar>
-</InnerWrapper>
-
-
-<PaymentModal/>
-
 
 
    </Wrapper>

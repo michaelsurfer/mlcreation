@@ -16,22 +16,24 @@ width:100%;
 `;
 
 export const FormTitle=styled.label`
-font-size:24pt;
-color:grey;
+font-size:18px;
+color:${(props)=>props.active?'black':'grey'};
+margin:10px;
   `;
 export const FormRow=styled.div`
 display:flex;
 width:100%;
 height:40px;
 align-items:center;
-border-bottom:${(props)=>props.border?'1px solid grey':''}; 
+border-bottom:${(props)=>props.border?'1px solid white':''}; 
+background-color:${(props)=>props.colored?'rgb(223,200,200)':'white'}
 `;
 
 export const FieldTitle=styled.label`
 display:flex;
 flex:1;
-color:grey;
-margin:20px;
+color:grey; 
+margin:30px;
 `;
 
 export const WarningText=styled.div`
@@ -51,6 +53,7 @@ export const Input=styled.input`
 display:flex;
 flex:2;
 width:100%;
+margin-right:20px;
 `
 
 export const Textarea=styled.textarea`

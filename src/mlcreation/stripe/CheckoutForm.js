@@ -112,7 +112,6 @@ class CheckoutForm extends Component{
       console.log('Received Stripe token: ', token);
       console.log('Received customer information: ', data);
       complete('success');
-
     });
 
     paymentRequest.canMakePayment().then((result) => {

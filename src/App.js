@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router,Route} from "react-router-dom";
+ 
 import styled from "styled-components";
 import data from "./mlcreation/asset/ProductList.json";
 import {Footer} from './mlcreation/components/Footer';
@@ -294,6 +295,7 @@ class App extends Component {
        <Route exact path="/policy/" component={Policy}/>
        <Route exact path="/retailerPolicy/" component={RetailerPolicy}/>
        <Route exact path="/aboutUs/" component={AboutUs}/>
+       
 
       {<Footer/>}
       </div>

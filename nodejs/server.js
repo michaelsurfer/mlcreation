@@ -13,16 +13,38 @@ var db = new loki('example.db',{
   autosaveInterval: 4000
 });
 
+
+var customerOrder;
 var order;
 var users;
 var transactionHistory;
 var comments;
-
+/*
 var mailTransport = nodemailer.createTransport({
 	service:'Gmail',
 	auth:{
 		user:'bitentsio@gmail.com',
 		pass:'*#780910'
+	}
+});
+*/
+
+var mailTransport = nodemailer.createTransport({
+	host:'mail.mlcreationco.com',
+	secureConnection:false,
+	rejectUnauthorized:false,
+
+
+	secure: false, //disable SSL    
+	requireTLS: true, //Force TLS
+    tls: {
+        rejectUnauthorized: false
+    },
+
+	port:925,
+	auth:{
+		user:'michael@mlcreationco.com',
+		pass:'20180816'
 	}
 });
 
@@ -64,6 +86,14 @@ function databaseInitialize(){
   }
 
 
+  if(!db.getCollection("customerOrder")){
+  	customerOrder = db.addCollection("customerOrder");
+  		console.log("customerOrder db created");
+  }else{
+  		customerOrder = db.getCollection("customerOrder");
+  		console.log("customerOrder loaded");
+  }
+
 }
 
 
@@ -80,7 +110,7 @@ var stripe = require("stripe")("sk_test_hxtTsvBObFWw4yWvEEummLZw");
 
 function sendEmail(to,subject,message){
 	mailTransport.sendMail({
-		from:'Admin <michael@sparrowchain.com>',
+		from:'Admin <michael@mlcreationco.com>',
 		to:to,
 		subject:subject,
 		html:message
@@ -108,6 +138,12 @@ function sendContactUsEmail(email,name,text){
 function getNextOrderNumber(){
 	var id = order.maxId+100001;
 	id = "ML"+id+"-R";
+	return id;
+}
+
+function getNextCustomerOrderNumber(){
+	var id = customerOrder.maxId+100001;
+	id = "ML"+id;
 	return id;
 }
 
@@ -253,45 +289,85 @@ app.post('/contactus',function(req,res){
 	res.send({state:200});
 });
 
-app.post('/createOrder',function(req,res){
-	//var orderList=req.params.orderList;
-  var _data = req.body;
-	var orderList=_data.data;
-  var email = _data.email;
-	var uuid = uuidv4();
+app.post('/createCustomOrder',function(req,res){
+	console.log("/createCustomOrder");
+	var data = req.body;
+	var finalCost = data.finalCost;
+	var orderList = data.data;
 	console.log("received orderList");
 	console.log(orderList);
-	var nextID = getNextOrderNumber();
- 	console.log("Next ID:"+nextID);
-	//save orderList with uuid and return to user
+	var nextID = getNextCustomerOrderNumber();
+	var uuid = uuidv4();
+	console.log("Next ID:"+nextID);
 
 	var json = {
 		uuid:uuid,
 		orderNo:nextID,
 		orderList:orderList,
+		finalCost:finalCost,
 		pay:false,
-    total:checkTotal(orderList)
 	};
 
 	console.log("insert order to db");
-  console.log(json);
+  	console.log(json);
+	customerOrder.insert(json);
+	res.send(
+		{
+			state:200,
+			uuid:uuid,
+			orderNo:nextID
+		}
+		);
+
+}); 
+
+
+app.post('/createOrder',function(req,res){
+	//var orderList=req.params.orderList;
+  	var _data = req.body;
+	var orderList=_data.data;
+	var finalCost = data.finalCost;
+
+  	var email = _data.email;
+	var uuid = uuidv4();
+	console.log("received orderList");
+	console.log(orderList);
+	var nextID = getNextOrderNumber();
+ 	console.log("Next ID:"+nextID);
+
+	var json = {
+		uuid:uuid,
+		orderNo:nextID,
+		orderList:orderList,
+		finalCost:finalCost,
+		pay:false,
+	};
+
+	console.log("insert order to db");
+  	console.log(json);
 	order.insert(json);
 	res.send(
 		{
 			state:200,
-			uuid:uuid
+			uuid:uuid,
+			orderNo:nextID
+
 		}
 		);
-
 });
 
 
+
+
+
+
 app.get('/checkOrder/:uuid',function(req,res){
-		var uuid = req.params.uuid;
+	var uuid = req.params.uuid;
     console.log(uuid);
-		var result = order.findOne({uuid:uuid});
+	var result = order.findOne({uuid:uuid});
     console.log(result);
-		var total = checkTotal(uuid);
+	
+	var total = checkTotal(uuid);
 
 		if(result){
 			res.send(
@@ -299,7 +375,7 @@ app.get('/checkOrder/:uuid',function(req,res){
 				state:200,
 				total:total,
 				orderNo:result.orderNo,
-        orderList:result.orderList
+        		orderList:result.orderList
 				});
 		}else{
 			res.send(
@@ -594,16 +670,38 @@ app.get('/showAll/',function(req,res){
 	var retailerData = users.find({});
 	res.send(retailerData);
 });
+
+
+
+app.post('pay',async function(req,res){
+	var data = req.body;
+	var token = data.token;
+	var uuid = data.uuid;
+	var type = data.type;
+	console.log("executing payment with following data ");
+	console.log("token :"+token);
+	console.log("uuid :"+uuid);
+
+	//complete payment here..
+
+ 	res.send(
+ 			{
+			 state:200,
+			 result :'success'
+ 			}
+ 			);
+});
+
 app.post('/payment/',async function(req,res){
 	var data=req.body;
 	var token = data.token;
 	var orderNo = data.orderNo;
-  var uuid = data.uuid;
-  var email = data.email;
+  	var uuid = data.uuid;
+  	var email = data.email;
 	console.log("token :"+token);
 	console.log("Order No :"+orderNo);
-  console.log("UUID :"+uuid);
-  console.log("email :"+email);
+  	console.log("UUID :"+uuid);
+  	console.log("email :"+email);
 
 
 /*
@@ -629,6 +727,7 @@ add2Transactions(email,uuid);
 
 
 //sendEmailActivation();
+//sendEmail('michael@sparrowchain.com','ths is subject','this is a message from ML');
 
 
 app.listen(3001,function(){

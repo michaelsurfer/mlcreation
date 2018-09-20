@@ -183,7 +183,7 @@ const TableField={
     }
 
 
-
+/*
   getTotalQty(){
 
     return this.props.store.totalRetailerQty;
@@ -194,7 +194,7 @@ const TableField={
 
      return this.props.store.totalRetailerCost;
   }
-
+*/
 
 
   updateCart(e){
@@ -360,7 +360,16 @@ const TableField={
  
 
   render(){
+
+
      var device = this.props.device;
+     var costJson = this.props.store.retailerCostBreakDown
+     var totalWeight=costJson.totalWeight
+     var totalProductCost=costJson.totalProductCost
+     var totalShipmentCost=costJson.totalShipmentCost
+     var finalCost=costJson.finalCost   
+     var totalQty=costJson.totalQty
+     
      if(this.state.redirect){
        this.setState({redirect:false});
        return <Redirect to={this.state.toLink}/>
@@ -382,8 +391,8 @@ const TableField={
     <TotalCostRow
       totalSpan = {totalRowSpan[device]-1}
       qtySpan = {qtyRowSpan[device]-1}
-      qty = {this.props.store.totalRetailerQty}
-      cost = {this.props.store.totalRetailerCost}
+      qty = {totalQty}
+      cost = {totalProductCost}
     />
     <RemarkRow
       totalSpan = {totalRowSpan[device]}
@@ -395,7 +404,15 @@ const TableField={
     
     >
       <td colSpan={totalRowSpan.desktop}>
+      
+      {totalQty>0 ? (
       <c2.Button onClick={()=>this.props.callbackf('confirmOrder')}>Submit order draft</c2.Button>
+      ):(
+      <c2.Button disabled>Submit order draft</c2.Button>
+      )
+      
+      }
+       
       </td>
     </tr>
     </c2.Table>

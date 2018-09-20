@@ -9,7 +9,7 @@ export const Link=styled(NavLink)`
 text-decoration:none;
 color:${(props)=>props.white?'white':'black'};
 padding:5px;
-font-size:27px;
+font-size:20px;
 margin-left:10px;
 margin-right:10px;
 font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;

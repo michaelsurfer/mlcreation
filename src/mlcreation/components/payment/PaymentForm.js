@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React,{Component,Fragment} from 'react';
 import styled from "styled-components";
 import {StripePayment} from '../../stripe/StripePayment';
 import {observer,inject} from "mobx-react";
@@ -6,7 +6,10 @@ import OrderHeaderContainer from "../retailer/OrderHeaderContainer";
 import * as c2 from '../retailer/Css.js';
 import * as c from '../../common/Css2.js';
 import PaymentSummary from "./PaymentSummary";
-
+import PaymentModal from "./PaymentModal";
+import PaymentDone from "./PaymentDone";
+import { json } from 'body-parser';
+ 
 const ModalWrapper=styled.div`
 position:fixed;
 top:0;
@@ -61,11 +64,22 @@ back(){
   this.props.callbackf('confirmOrder');
 }
 componentDidMount(){}
-
+PaymentDoneCallBackF(){
+  console.log("done call back")
+  this.setState({donePayment:true});
+}
 render(){
   var device = this.props.device;
+  var costJson = this.props.store.retailerCostBreakDown;
+
   return(
     <c2.Wrapper>
+
+        {this.state.donePayment ? (
+          <PaymentDone/>
+        ):(
+
+        <Fragment>
         <c.ColPureDiv>
           <c2.Table>
           <OrderHeaderContainer
@@ -83,11 +97,23 @@ render(){
             </td>
             
             <td colspan={2}>
-              <c2.Button >Pay Now</c2.Button>
+              <c2.Button 
+                  onClick={()=>this.props.store.showPaymentModal=true}
+
+              >Pay Now</c2.Button>
             </td>
           </tr>
           </c2.Table>
         </c.ColPureDiv>
+        <PaymentModal 
+        PaymentDoneCallBackF={this.PaymentDoneCallBackF}
+        type='retailer'
+        totalProductCost={costJson.totalProductCost}
+        totalShipmentCost={costJson.totalShipmentCost}
+        />
+        </Fragment>    
+        )}
+
     </c2.Wrapper>
   );
 }

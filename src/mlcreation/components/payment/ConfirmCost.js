@@ -18,17 +18,18 @@ class ConfirmCost extends Component{
         var productCost=parseFloat(this.props.productCost)
         var shipmentCost=parseFloat(this.props.shipmentCost)
         var totalCost=productCost+shipmentCost
+        var active = (this.props.step == this.props.currentStep)
 
         return(
             <c.Form onSubmit={this.handleSubmit}>
-                <c.FormRow border
+                <c.FormRow border colored
                     onClick={()=>this.props.ReOpenCallBackF(this.props.step)}
                 >
-                    <c.FormTitle>
+                    <c.FormTitle active={active}>
                         3. Payment Detail
                     </c.FormTitle>
                 </c.FormRow>    
-                    {this.props.step == this.props.currentStep &&
+                    {active &&
                         <div>
                         <c.FormField
                         title='Please conform payment detail'

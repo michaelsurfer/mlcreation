@@ -125,7 +125,7 @@ class OrderHeaders extends Component{
             fontSize=''
             type={type}
             >
-            Your Order No.: {this.props.store.orderNo.orderNo}
+            Your Order No.: {this.props.store.orderDetail.retailer.orderNo}
             </OrderHeaderCell>
             }
             {

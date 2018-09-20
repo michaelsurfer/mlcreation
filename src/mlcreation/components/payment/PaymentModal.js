@@ -14,11 +14,11 @@ background:rgba(0,0,0,0.6);
 display:${(props)=>props.display};
 `;
 
+
 const Modal=styled.div`
 position:fixed;
 background:white;
 width:500px;
-height:600px;;
 top:50%;
 left:50%;
 transform: translate(-50%,-50%);
@@ -34,34 +34,18 @@ class PaymentModal extends Component{
         return(
         <ModalWrapper display={this.props.store.showPaymentModal}>
         <Modal>
-        <PaymentModalView/>
+        <PaymentModalView
+            PaymentDoneCallBackF={this.props.PaymentDoneCallBackF}
+            type={this.props.type}
+            totalProductCost={this.props.totalProductCost}
+            totalShipmentCost={this.props.totalShipmentCost}
+     
+        />
         </Modal>
-        </ModalWrapper>
+         </ModalWrapper>
         )
     }
-    render2(){
-        return(
-
-            <ModalWrapper display={this.props.store.showPaymentModal}>
-
-            <Modal>
-            
-            <StripePayment
-                total={100}
-                shipmentCost={30}
-                orderNo="order no"
-                firstName="Michael"
-                lastName="Wong"
-                address="This is an address"
-                phone="+852 12345678"
-                email="test@test.com"
-            />
-            
-            </Modal>
-            </ModalWrapper>
-
-        );
-    }
+    
 
 }
 

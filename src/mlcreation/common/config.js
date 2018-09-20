@@ -7,7 +7,10 @@ export const imagePath = domain+"image/";
 export const productImagePath=domain+"image/products/"
 
 export const apis = {
-
+  createCustomOrder:{
+    endpoint:apiEndPoint+"createCustomOrder",
+    method:'POST'
+  },
   getAllComments:{
     endpoint:apiEndPoint+"getAllComments",
     method:'GET'

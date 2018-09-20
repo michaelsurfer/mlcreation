@@ -5,9 +5,9 @@ import {computed} from "mobx";
 import ShipmentData from "../asset/ShipmentCost.json";
  
 export default class Store{
-  @observable login = false;
+  @observable login = true;
   //@observable showPaymentModal = 'none';
-  @observable showPaymentModal = 'true';
+  @observable showPaymentModal = 'none';
   @observable showSelectGenderDialog={
     show:false,
     productID:"BR"
@@ -54,10 +54,20 @@ export default class Store{
   @observable shoppingCart = {};
   @observable retailerCart = {};
   @observable subTotalCost = 0;
-  @observable orderNo = {orderNo:0,uuid:0};
+  //@observable orderNo = {orderNo:0,uuid:0};
   @observable loading = false;
- 
+  @observable orderDetail = {
+      custom:{
+        orderNo:'',
+        uuid:''
+      },
+      retailer:{
+        orderNo:'',
+        uuid:''
+      }
+  };
 
+/*
   @computed
   get total(){
     var cart;
@@ -68,9 +78,40 @@ export default class Store{
       var code = cart[item].name;
       var price = data[code].MAP;
       if(qty==''){qty=0}
-      total = total + parseInt(qty)*parseInt(price);
+      total = total + parseInt(qty)*parseFloat(price);
     }
      return total;
+  }
+*/
+  @computed
+  get customCostBreakDown(){
+    var cart;
+    cart = this.shoppingCart;
+    var totalProductCost=0;
+    var totalQty=0;
+    var totalShipmentCost=0;
+    var finalCost=0;
+
+    for(var item in cart){
+      var qty = cart[item].qty;
+      var code = cart[item].name;
+      var price = data[code].MAP;
+      if(qty==''){qty=0}
+      totalProductCost = totalProductCost + parseInt(qty)*parseFloat(price);
+      totalQty = totalQty + parseInt(qty);
+    }
+    totalShipmentCost = totalQty * 8;
+    finalCost = totalProductCost + totalShipmentCost;
+    var json = {
+      totalProductCost:totalProductCost,
+      totalShipmentCost:totalShipmentCost,
+      totalQty:totalQty,
+      finalCost:finalCost     
+    }
+    
+    return json;
+
+
   }
 
   get retailerCostBreakDown(){
@@ -80,13 +121,14 @@ export default class Store{
     var totalProductCost=0;
     var totalShipmentCost=0;
     var finalCost=0;
-
+    var totalQty=0;
     for(var item in cart){
       var qty = cart[item].qty;
       var code = cart[item].name;
       var price = data[code].retailPrice;
       var weight = data[code].weight;
       if(qty==''){qty=0}
+      totalQty=totalQty+parseInt(qty);
       totalProductCost = totalProductCost + parseInt(qty)*parseInt(price);
       totalWeight = totalWeight +parseInt(qty)*parseFloat(weight);
     } 
@@ -104,6 +146,7 @@ export default class Store{
 
     finalCost = totalProductCost + totalShipmentCost;
     var json = {
+      totalQty:totalQty,
       totalWeight:totalWeight,
       totalProductCost:totalProductCost,
       totalShipmentCost:totalShipmentCost,
@@ -114,7 +157,7 @@ export default class Store{
     }
 
   
-
+/*
   get totalRetailerCost(){
     var cart;
     cart=this.retailerCart;
@@ -162,7 +205,7 @@ export default class Store{
       return total;
     }
 
-
+*/
 
 
   get cartSize(){
@@ -197,10 +240,36 @@ closeDialog(){
   this.generalDialog.show=false;
 }
 
+createCustomOrder(finalCost){
+  this.loading = true;
+  var json2Upload = {
+    data:this.shoppingCart,
+    finalCost:finalCost
+  };
+  fetch(apis.createCustomOrder.endpoint,{
 
+     method:'POST',
+     headers:{
+       'Accept':'application/json',
+       'Content-Type':'application/json',
+     },
+     body:JSON.stringify(json2Upload),
+   }).then(response=>response.json())
+   .then(data=>{
+     //this.orderNo.uuid=data.uuid;
+     this.orderDetail.custom.uuid=data.uuid;
+     console.log("order created on the server with uuid "+data.uuid);
+     this.loading = false;
+     this.showPaymentModal='true';
+   });
+}
 
-  createOrder(){
+  createOrder(finalCost){
     this.loading = true;
+    var json2Upload = {
+      data:this.shoppingCart,
+      finalCost:finalCost
+    };
     fetch(apis.createOrder.endpoint,{
 
        method:'POST',
@@ -208,10 +277,11 @@ closeDialog(){
          'Accept':'application/json',
          'Content-Type':'application/json',
        },
-       body:JSON.stringify({data:this.retailerCart}),
+       body:JSON.stringify(json2Upload),
      }).then(response=>response.json())
      .then(data=>{
-       this.orderNo.uuid=data.uuid;
+       //this.orderNo.uuid=data.uuid;
+       this.orderDetail.retailer.uuid=data.uuid;
        console.log("order created on the server with uuid "+data.uuid);
        this.loading = false;
      });
@@ -221,7 +291,8 @@ closeDialog(){
     fetch(apis.getNextOrderNo.endpoint)
    .then(response=>response.json())
    .then(data=>{
-      this.orderNo.orderNo=data.id
+      //this.orderNo.orderNo=data.id
+      this.orderDetail.retailer.orderNo=data.id
    });
 
   }

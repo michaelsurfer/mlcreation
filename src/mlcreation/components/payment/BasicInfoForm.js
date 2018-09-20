@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
- import * as c from "./Css";
+import * as c from "./Css";
  
 class BasicInfoForm extends Component{
     constructor(props){
@@ -11,28 +11,37 @@ class BasicInfoForm extends Component{
 
     handleSubmit = (ev) => {
         ev.preventDefault()
-        var first=ev.target.first.value
-        var last=ev.target.last.value
-        //if(first!="" && last!=""){
-        if(true){
+
+        var data={
+           
+            first:ev.target.first.value,
+            last:ev.target.last.value,
+            phone:ev.target.phone.value,
+            email:ev.target.email.value
+            
+        }
+
+
+        if(data.first!="" && data.last!="" && data.email!=""){
         this.setState({showWarning:false})    
-        this.props.NextCallBackF(this.props.step)
+        this.props.NextCallBackF(this.props.step,data)
         }else{
         this.setState({showWarning:true})    
         }
     }    
 
     render(){
-        return(
+        var active = (this.props.step == this.props.currentStep)
+         return(
             <c.Form onSubmit={this.handleSubmit}>
-                <c.FormRow border
+                <c.FormRow border colored
                     onClick={()=>this.props.ReOpenCallBackF(this.props.step)}
                 >
-                    <c.FormTitle>
+                    <c.FormTitle active={active}>
                         1. Basic Info
                     </c.FormTitle>
                 </c.FormRow>    
-                    {this.props.step == this.props.currentStep &&
+                    {active &&
                         <div>
                         <c.FormField
                         title='Please enter following information so we can contact you '
@@ -53,7 +62,7 @@ class BasicInfoForm extends Component{
                         />  
                         <c.FormField
                         title='Phone No'
-                        placeHolder='Enter your phone number'
+                        placeHolder='Enter your phone number (optional)'
                         id="phone"
                         type='number'
 

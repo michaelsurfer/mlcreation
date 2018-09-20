@@ -2,7 +2,7 @@ import {injectStripe} from 'react-stripe-elements';
 import React, {Component} from 'react';
 import styled from "styled-components";
 import * as c from "./Css";
-
+import LoadingDots from "../LoadingDots";
 import {
     CardElement,
     CardCVCElement,
@@ -34,10 +34,9 @@ import {
 
   const FormWrapper=styled.div`
 
-  background-color:rgb(239,238,242); 
   width:100%;
   padding:0px;
-  border-bottom :1px solid white;
+  border :1px solid grey;
 
  `;
 
@@ -54,52 +53,95 @@ padding:10px;
  `
 class CheckoutForm extends Component{
     constructor(props) {
-      super(props);
+      super(props)
+      const paymentRequest = props.stripe.paymentRequest({
+        country: 'US',
+        currency: 'usd',
+        total: {
+          label: 'Demo total',
+          amount: this.props.total,
+        },
+      })
+      paymentRequest.on('token', ({complete, token, ...data}) => {
+        console.log('Received Stripe token: ', token);
+        console.log('Received customer information: ', data);
+        complete('success');
+
+      })
+      paymentRequest.canMakePayment().then((result) => {
+        this.setState({canMakePayment: !!result});
+        console.log("can pay!");
+      })
+  
+      this.state={
+          submitting:false,
+          canMakePayment: false,
+          success:false,
+          paymentRequest
+        }
+     }
+
+
+    success(){
+      console.log("scuccess")
+      this.props.NextCallBackF()
     }
+
+
+    handleSubmit=(ev)=>{
+        ev.preventDefault();
+
+         if(this.props.stripe){
+            this.props.stripe   
+                .createToken()
+                .then((payload)=>{
+                    console.log('[token]',payload);
+                    //console.log(payload.token.id);
+                    this.setState({success:true})                
+                    this.success();
+
+                })
+        }else{
+            console.log("Stripe.js hasn't loaded yet.");
+
+        }
+        this.setState({submitting:true})
+
+     }
+
     render(){
         return(
             
-            <FormWrapper>    
-            <c.FormField
-                title='Please enter payment detail, your payment type will be detected automatically'
-                type='remark'
-            />      
-            <InfoWrapper>
-            {/*    
-            <Label>
-                Card Number:
-            </Label>
-            <c.StripeElement>
-            <CardNumberElement
-                {...createOptions(this.props.fontSize)}
-            />
-            </c.StripeElement>
-        
-            <Label>
-                Expiry Date:
-            </Label>
-            <c.StripeElement>
-            <CardExpiryElement
-                {...createOptions(this.props.fontSize)}
-            />
-            </c.StripeElement>
-            <Label>
-                CVC code:
-            </Label>
-            <c.StripeElement>
-            <CardCVCElement
-      {...createOptions(this.props.fontSize)}
+            <FormWrapper>
 
-      />
-            </c.StripeElement>
-            */}
-            <c.StripeElement>
-            <CardElement
-            {...createOptions(this.props.fontSize)}
-            />
-            </c.StripeElement>
+            {this.state.success ?(
+                <div>
+                 </div>
+            ):(
+                <div>
+                {this.state.submitting &&
+                    <LoadingDots title='LOADING'/>
+                }
+                    <form onSubmit={this.handleSubmit}>    
+                    <InfoWrapper>
+                  
+                    <c.StripeElement>
+                    <CardElement
+                    {...createOptions(this.props.fontSize)}
+                    />
+                    </c.StripeElement>
+                    
+                     <c.FormRow>
+                     <c.Button>PAY</c.Button> 
+                     </c.FormRow>
+                     </InfoWrapper>
+                    </form>
+                </div>
+            )}
 
-            </InfoWrapper>
+     
+                    
+ 
             </FormWrapper>
         )
 

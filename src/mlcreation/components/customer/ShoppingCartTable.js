@@ -4,6 +4,10 @@ import data from "../../asset/ProductList.json";
 import * as c from "../../common/Css2";
 import {ItemImage} from "../../components/ItemImage";
 import {ColorBox} from "../colorPicker/ColorBox";
+import {observer,inject} from "mobx-react";
+
+
+
 const Wrapper=styled.div`
 display:flex;
 width:100%;
@@ -42,6 +46,9 @@ width:20px;
 border:0px solid black;
 
 `;
+
+
+ 
 const Titles=()=>{
     return(
     <StyledRow
@@ -71,7 +78,7 @@ const Titles=()=>{
 const Item=({productCode,color,qty,totalCost})=>{
     console.log(productCode);
     console.log(color);
-    var cost = qty * data[productCode].retailPrice;
+    var cost = qty * data[productCode].MAP;
     return(
         <StyledRow color='white' edge>
             <MarginCell/>
@@ -101,17 +108,21 @@ const Item=({productCode,color,qty,totalCost})=>{
             {qty}
             </StyledCell>
             <StyledCell bottom>
-            {cost}
+            USD {cost}
             </StyledCell>
             <MarginCell/>
         </StyledRow>
     );
 }   
 
-const TotalCost=({totalCost,totalQty})=>{
+const TotalCost=({totalProductCost,totalQty,totalShipmentCost,finalCost})=>{
+
+
    return(
         <Fragment>
+        
         <StyledRow color='white' shorter edge>
+        
         <StyledCell/><StyledCell/>
         <StyledCell>
             SUBTOTAL:
@@ -120,7 +131,7 @@ const TotalCost=({totalCost,totalQty})=>{
             {totalQty}
         </StyledCell>
         <StyledCell>
-            {totalCost}
+            USD {totalProductCost}
         </StyledCell>
         </StyledRow>
         <StyledRow color='white' shorter edge bottom>
@@ -129,10 +140,10 @@ const TotalCost=({totalCost,totalQty})=>{
             SHIPPING:
         </StyledCell>
         <StyledCell>
-            3
+            {totalQty} x 8
         </StyledCell>
         <StyledCell>
-            USD 4567
+            USD {totalShipmentCost}
         </StyledCell>
         </StyledRow>
         <StyledRow color='rgb(239,238,242)' bottom>
@@ -142,7 +153,7 @@ const TotalCost=({totalCost,totalQty})=>{
         </StyledCell>
         <StyledCell/>
         <StyledCell>
-            USD 4567
+            USD {finalCost}
         </StyledCell>
         </StyledRow>
         </Fragment>
@@ -164,18 +175,35 @@ const ItemList=({itemList})=>{
     }
     return result;
 }
-export const ShoppingCartTable=({cartData,totalCost,totalQty})=>{
+export const ShoppingCartTable=({cartData,totalProductCost,totalQty,totalShipmentCost,finalCost})=>{
 
     return(
         <Wrapper>
-            <Titles/>
+            
+            {(totalQty==0)?(
+            <Fragment>    
+                <c.ColCenterDiv>
+                    Your cart is empty
+                </c.ColCenterDiv>
+            </Fragment>    
+            ):(
+            <Fragment>  
+            <Titles/>  
             <ItemList
                 itemList={cartData}
             />
+            
             <TotalCost
-                totalCost={totalCost}
+                totalProductCost={totalProductCost}
                 totalQty={totalQty}
+                totalShipmentCost={totalShipmentCost}
+                finalCost={finalCost}
             />
+ 
+
+            </Fragment>
+            )}
+   
         </Wrapper>
     );
 

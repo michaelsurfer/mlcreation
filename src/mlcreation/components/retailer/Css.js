@@ -13,7 +13,7 @@ export const StyledTd=styled.td`
   
 export const Button=styled.button`
   background-color:rgb(240,160,143);
-  color:black;
+  color:${(props)=>props.disabled?'grey':'black'};
   height:50px;
   width:100%;
   border:1px solid rgb(240,160,143);
