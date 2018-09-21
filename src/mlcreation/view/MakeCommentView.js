@@ -18,7 +18,7 @@ align-items:center;
 
 const Table=styled.table`
 border-collapse: collapse;
-width:60%;
+width:70%;
 background-color:rgb(242,242,242);
 border:1px solid grey;
 `;
@@ -117,7 +117,6 @@ render(){
         <Wrapper>
         <Dialog/>    
         {itemJson?(
-        <div>
         <Table>   
         <CommentHeader/>     
         <CommentBox
@@ -131,9 +130,12 @@ render(){
             selectedColor={this.state.selectedColor}
             colorArray={data[this.props.productID].color}
         />
-        </Table>
+        <tr>
         <SubmitButton onClick={()=>this.submit()}>Submit</SubmitButton>
-        </div>
+
+        </tr>
+        </Table>
+     
         ):(
         <div>
             Item not found

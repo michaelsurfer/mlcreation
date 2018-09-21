@@ -53,6 +53,13 @@ export default class Store{
   @observable loginError = false;
   @observable shoppingCart = {};
   @observable retailerCart = {};
+  @observable paymentProcessJson = {
+    //use to manage payment process
+    type:'',
+    uuid:'',
+    orderNo:'',
+    done:false
+  };
   @observable subTotalCost = 0;
   //@observable orderNo = {orderNo:0,uuid:0};
   @observable loading = false;
@@ -67,23 +74,15 @@ export default class Store{
       }
   };
 
-/*
+  // COMPUTED FUNCTIONS
+  
   @computed
-  get total(){
-    var cart;
-    cart=this.shoppingCart;
-    var total = 0;
-     for(var item in cart){
-      var qty = cart[item].qty;
-      var code = cart[item].name;
-      var price = data[code].MAP;
-      if(qty==''){qty=0}
-      total = total + parseInt(qty)*parseFloat(price);
-    }
-     return total;
+  get isPaymentDone(){
+    return this.paymentProcessJson.done
   }
-*/
-  @computed
+  get currentPaymentType(){
+    return this.paymentProcessJson.type
+  }
   get customCostBreakDown(){
     var cart;
     cart = this.shoppingCart;
@@ -95,7 +94,7 @@ export default class Store{
     for(var item in cart){
       var qty = cart[item].qty;
       var code = cart[item].name;
-      var price = data[code].MAP;
+      var price = data[code].MSRP;
       if(qty==''){qty=0}
       totalProductCost = totalProductCost + parseInt(qty)*parseFloat(price);
       totalQty = totalQty + parseInt(qty);
@@ -156,57 +155,6 @@ export default class Store{
     return json;
     }
 
-  
-/*
-  get totalRetailerCost(){
-    var cart;
-    cart=this.retailerCart;
-    var total = 0;
-     for(var item in cart){
-      var qty = cart[item].qty;
-      var code = cart[item].name;
-      var price = data[code].retailPrice;
-      if(qty==''){qty=0}
-      total = total + parseInt(qty)*parseInt(price);
-    }
-     return total;
-  }
-
-
-
-  get totalRetailerWeight(){
-    var cart;
-    cart = this.retailerCart;
-    var totalWeight = 0;
-    for(var item in cart){
-      var qty = cart[item].qty;
-      var code = cart[item].name;
-      var weight = data[code].weight;
-      if(qty==''){qty=0}
-      totalWeight = totalWeight + parseInt(qty)*parseFloat(weight);
-    }  
-    return totalWeight;
-  }
-
-
-
-  get totalRetailerQty(){
-      var cart;
-      cart=this.retailerCart;
-      var total = 0;
-       for(var item in cart){
-        var qty = cart[item].qty;
-        var code = cart[item].name;
-        var price = data[code].retailPrice;
-        if(qty==''){qty=0}
-        total = total + parseInt(qty);
-      }
-      console.log(total);
-      return total;
-    }
-
-*/
-
 
   get cartSize(){
     /*
@@ -220,24 +168,72 @@ export default class Store{
     return size;
   }
 
+// FETCH FUNCTIONS
 
-  showDialog(message,closeButton,actionButton){
-    console.log("showDialog");
-    if(!closeButton){
-      this.generalDialog.closeButton.show=false;
+
+payment(token){
+//type = custom or retailer
+var json = {
+  token:token,
+  uuid:this.paymentProcessJson.uuid,
+  type:this.paymentProcessJson.type
+}
+
+fetch(apis.payment.endpoint,{
+  method:'POST',
+  headers:{
+    'Accept':'application/json',
+    'Content-Type':'application/json',
+  },
+  body:JSON.stringify(json),
+  })
+  .then((response)=>{
+    if(!response.ok){
+      response.text().then(function(text){
+        throw Error(text);
+      }).catch(error=>{
+        console.log(error.message);
+        this.showDialog(error.message,true,false);});  
     }else{
-      this.generalDialog.closeButton.show=true;
+      response.json().then(json=>{
+        console.log(json)
+        var data = JSON.stringify(json)
+        console.log('FINAL PAYMENT SUCCESSED')
+        this.paymentProcessJson.done=true
+        this.deleteCart(this.paymentProcessJson.type)
+      });
     }
-    if(!actionButton){
-      this.generalDialog.actionButton.show=false;
+  })
+
+}
+
+retailerLogin(data){
+  fetch(apis.login.endpoint,{
+    method:'POST',
+    headers:{
+      'Accept':'application/json',
+      'Content-Type':'application/json',
+    },
+    body:JSON.stringify(data),
+  })
+  .then((response)=>{
+    if(!response.ok){
+      response.text().then(function(text){
+        throw Error(text);
+      }).catch(error=>{
+        console.log(error.message);
+        this.showDialog(error.message,true,false);});  
     }else{
-      this.generalDialog.actionButton.show=true;
+      response.json().then(json=>{
+        console.log(json);
+        var data = JSON.stringify(json);
+        sessionStorage.setItem("retailerData", data);
+        this.retailerData=json;
+        this.login=true;
+      });
     }
-    this.generalDialog.message=message;
-    this.generalDialog.show=true;
-  }
-closeDialog(){
-  this.generalDialog.show=false;
+  })
+
 }
 
 createCustomOrder(finalCost){
@@ -260,14 +256,24 @@ createCustomOrder(finalCost){
      this.orderDetail.custom.uuid=data.uuid;
      console.log("order created on the server with uuid "+data.uuid);
      this.loading = false;
-     this.showPaymentModal='true';
+     this.showPaymentModalF('custom');
    });
 }
 
   createOrder(finalCost){
     this.loading = true;
-    var json2Upload = {
-      data:this.shoppingCart,
+    console.log(finalCost)
+    //remove unneccssary data
+
+    var newCartData={}
+    for(var item in this.retailerCart){
+      if(this.retailerCart[item].qty>0){
+        newCartData[item] = this.retailerCart[item]
+      }
+    }
+
+     var json2Upload = {
+      data:newCartData,
       finalCost:finalCost
     };
     fetch(apis.createOrder.endpoint,{
@@ -298,6 +304,50 @@ createCustomOrder(finalCost){
   }
 
 
+
+// COMMON FUNCTIONS
+
+  startPaymentProcess(type){
+    var uuid=this.orderDetail[type].uuid
+    var orderNo=this.orderDetail[type].orderNo
+    console.log('payment process start'), 
+ 
+    this.paymentProcessJson = {
+      type:type,
+      uuid:uuid,
+      orderNo:orderNo,
+      done:false
+    }
+    console.log(this.paymentProcessJson)
+
+  }
+
+  showPaymentModalF(type){
+    this.showPaymentModal=true
+    this.startPaymentProcess(type)
+  }
+
+  showDialog(message,closeButton,actionButton){
+    console.log("showDialog");
+    if(!closeButton){
+      this.generalDialog.closeButton.show=false;
+    }else{
+      this.generalDialog.closeButton.show=true;
+    }
+    if(!actionButton){
+      this.generalDialog.actionButton.show=false;
+    }else{
+      this.generalDialog.actionButton.show=true;
+    }
+    this.generalDialog.message=message;
+    this.generalDialog.show=true;
+  }
+closeDialog(){
+  this.generalDialog.show=false;
+}
+ 
+
+
   loadShoppingCart(){
     var existingCart=JSON.parse(sessionStorage.getItem("cart"));
     if(existingCart){
@@ -312,7 +362,7 @@ createCustomOrder(finalCost){
      */
     }
 
-    this.setSubTotal();
+    //this.setSubTotal();
 
   }
 
@@ -322,7 +372,7 @@ createCustomOrder(finalCost){
 
   }
   addOne2Cart(id,color){
-
+    console.log("add to cart")
     var cart = this.shoppingCart;
     var qty=1;
     var json={};
@@ -347,13 +397,7 @@ createCustomOrder(finalCost){
   }
 
   setCart(id,qty,type){
-    /*
-    var newQty=qty;
-    var existingJson=this.shoppingCart[id];
-    if(existingJson){
-      newQty=newQty+this.shoppingCart[id].qty;
-    };
-    */
+ 
     console.log(id);
     //id : ITS-B
     var cart;
@@ -369,25 +413,19 @@ createCustomOrder(finalCost){
       this.retailerCart=cart;
     }else{
       this.shoppingCart=cart;
-      this.setSubTotal();
+      //this.setSubTotal();
     }
 
 
   }
 
-  setSubTotal(){
-    var total=0;
-    var cartData=this.shoppingCart;
-    console.log(cartData);
-        for(var item in cartData){
-          var qty = cartData[item].qty;
-          var code = cartData[item].name;
-          console.log(qty);
-          if(qty==""){qty=0;}
-          total=total+parseInt(qty)*parseInt(data[code].retailPrice);
-        };
-    this.subTotalCost = total;
-  }
+  deleteCart(type){
+    if(type=='custom'){
+      this.shoppingCart={}
+    }else if(type=='retailer'){
+      this.retailerCart={}
+    }
+   }
 
   removeFromCart(id){
     var cart = this.shoppingCart;
@@ -396,42 +434,13 @@ createCustomOrder(finalCost){
   }
 
 
-
-
   retailerLogOut(){
     this.retailerData={};
     this.login=false;
   }
 
 
-  retailerLogin(data){
-    fetch(apis.login.endpoint,{
-      method:'POST',
-      headers:{
-        'Accept':'application/json',
-        'Content-Type':'application/json',
-      },
-      body:JSON.stringify(data),
-    })
-    .then((response)=>{
-      if(!response.ok){
-        response.text().then(function(text){
-          throw Error(text);
-        }).catch(error=>{
-          console.log(error.message);
-          this.showDialog(error.message,true,false);});  
-      }else{
-        response.json().then(json=>{
-          console.log(json);
-          var data = JSON.stringify(json);
-          sessionStorage.setItem("retailerData", data);
-          this.retailerData=json;
-          this.login=true;
-        });
-      }
-    })
-
-  }
+ 
 
 
 }

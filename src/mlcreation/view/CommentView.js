@@ -3,7 +3,7 @@ import styled from "styled-components";
 //import {CommentBox} from "../components/comments/CommentBox";
 //import {CommentHeader} from "../components/comments/CommentBox";
 import {CommentList} from "../components/comments/CommentList";
-
+import * as c from '../common/Css2';
 import {apis} from '../common/config.js';
 import {observer,inject} from "mobx-react";
  
@@ -14,7 +14,8 @@ flex-direction:column;
 width:100%;
 justify-content:center;
 align-items:center;
-border:1px solid;
+border:0px solid;
+min-height:600px;
 `;
 
 
@@ -24,7 +25,10 @@ border:1px solid;
 class CommentView extends Component{
 constructor(props){
     super(props);
-    this.state={json:{}};
+    this.state={
+      json:{},
+      noComment:false
+    };
 }
 
 componentDidMount(){
@@ -38,7 +42,12 @@ componentDidMount(){
           throw Error(text);
         }).catch(error=>{
           console.log(error.message);
-          this.props.store.showDialog(error.message,true,false);});  
+          if(error.message='noComment'){
+            this.setState({noComment:true})
+          }
+          //this.props.store.showDialog(error.message,true,false);
+        }); 
+
       }else{
         response.json().then(json=>{
             console.log(json)
@@ -53,11 +62,23 @@ componentDidMount(){
 render(){
      return(
         <Wrapper>
-         <CommentList 
-      type="individual"
-      productID="ITS" 
-      json={this.state.json}
-      />
+          {this.state.noComment ?(
+            <c.ColCenterDiv> 
+            <p>There are no comment for this product yet</p>
+            <c.Link to={"/makeComment/"+this.props.productID}>
+            Add your comment now
+            </c.Link>
+            </c.ColCenterDiv>
+
+          ):(
+            <CommentList 
+            type="individual"
+            productID="ITS" 
+            json={this.state.json}
+            />
+          )}
+ 
+
          </Wrapper>
     );
 }

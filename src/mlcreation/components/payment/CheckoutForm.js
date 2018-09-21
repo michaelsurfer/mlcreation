@@ -59,7 +59,7 @@ class CheckoutForm extends Component{
         currency: 'usd',
         total: {
           label: 'Demo total',
-          amount: this.props.total,
+          amount: Math.round(this.props.total),
         },
       })
       paymentRequest.on('token', ({complete, token, ...data}) => {
@@ -82,10 +82,11 @@ class CheckoutForm extends Component{
      }
 
 
-    success(){
-      console.log("scuccess")
-      this.props.NextCallBackF()
+    success(payload){
+      console.log("redirecting payload toward final payment")
+      this.props.NextCallBackF(payload)
     }
+
 
 
     handleSubmit=(ev)=>{
@@ -98,7 +99,7 @@ class CheckoutForm extends Component{
                     console.log('[token]',payload);
                     //console.log(payload.token.id);
                     this.setState({success:true})                
-                    this.success();
+                    this.success(payload);
 
                 })
         }else{

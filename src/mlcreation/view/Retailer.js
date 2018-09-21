@@ -93,8 +93,7 @@ render(){
 
   var device='desktop';
   if(window.innerWidth <= 768){device='mobile'}
-  console.log(window.innerWidth);
-  var resultView=[];
+   var resultView=[];
 
   switch (this.state.page){
 

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import styled from "styled-components";
+import Rater from 'react-rater';
+import 'react-rater/lib/react-rater.css';
 
 const Star=styled.div`
 width:20px;
@@ -19,6 +21,7 @@ height:20px;
 
 
 export const RatingStar = ({noOfStar,callbackF}) =>{
+    /*
     var result=[];
          for(var i=1;i<6;i++){
              
@@ -28,10 +31,14 @@ export const RatingStar = ({noOfStar,callbackF}) =>{
                 result.push(<Star id={i} on onClick={callbackF}/>);
             }
         }
-
+        */
     return(
         <Wrapper>
-            {result}
+            <Rater total={6} rating={noOfStar} 
+            onRating={callbackF}
+            onCancelRate={()=>{}}
+            onRating={()=>{}}
+            />
         </Wrapper>
      );    
 };

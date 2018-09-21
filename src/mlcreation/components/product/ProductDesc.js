@@ -147,6 +147,7 @@ render(){
 
   var diameter=this.props.diameter;
   var weight=this.props.weight;
+  var length=this.props.length;
   var remark=this.props.remark;
   var colorArray=this.props.colorArray;
   var callback = this.props.callback;
@@ -167,7 +168,7 @@ color={c.ThemeColor[gender].product}
 <Description productID={productID}/>
 
 <SplitDiv>
-  <Desc>Length 333mm</Desc>
+  <Desc>Length {length} mm</Desc>
   <Desc>Diameter {diameter}</Desc>
   <Desc>Weight {weight}</Desc>
 </SplitDiv>
@@ -204,9 +205,6 @@ color={c.ThemeColor[gender].product}
   backgroundcolor={gender=='m'?'white':'rgb(238,239,243)'}
 
 />
-
-{(data[productID].numOfImage==3) &&
-
 <ItemImage 
   width='95px'
   height='110px'
@@ -214,6 +212,20 @@ color={c.ThemeColor[gender].product}
   color={this.state.selectedColor}
   index={3}
   onClickCallBAckF={()=>this.setState({selectedImage:'3'})}
+  size='contain'
+  backgroundcolor={gender=='m'?'white':'rgb(238,239,243)'}
+
+/>
+
+{(data[productID].numOfImage==4) &&
+
+<ItemImage 
+  width='95px'
+  height='110px'
+  productID={productID}
+  color={this.state.selectedColor}
+  index={4}
+  onClickCallBAckF={()=>this.setState({selectedImage:'4'})}
   size='contain'
   backgroundcolor={gender=='m'?'white':'rgb(238,239,243)'}
 

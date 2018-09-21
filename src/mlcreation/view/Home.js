@@ -6,9 +6,24 @@ import himSubImg from '../image/himSubImg.png';
 import herSubImg from '../image/herSubImg.png';
 import littleRedLogo from '../image/littleRedLogo.png';
 import littleBlackLogo from '../image/littleBlackLogo.png';
+import allPackagesImg from '../image/allPackages.png';
+
 
 import {SloganBanner} from '../components/SloganBanner';
 
+const AllPackageImage=styled.img`
+display: block;
+width: 100%;
+height: auto;
+`;
+const AllPackageBanner=styled.div`
+width:100%;
+height:500px;
+background-image:url(${allPackagesImg});
+background-repeat:no-repeat;
+background-size: cover;
+background-position:bottom;
+`;
 const StyledLink = styled.a`
 text-decoration: none;
 color:grey;
@@ -96,7 +111,7 @@ const StyledCard=styled(Card)`
 display:flex;
 flex:1;
 flex-direction:column;
-background-color:${props=>props.him ? 'rgb(20,24,23)':'rgb(251,160,132)'};
+background-color:${props=>props.him ? 'rgb(20,24,23)':'rgb(216,183,171)'};
 height:390px;
 justify-content:center;
 align-items:center;
@@ -145,6 +160,9 @@ render(){
 
 
       <SloganBanner gender='g'/>
+      <AllPackageImage
+        src={allPackagesImg}
+      />
     </Page>
   )
 }

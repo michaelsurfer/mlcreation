@@ -78,7 +78,7 @@ render(){
 return(
   <Wrapper>
 
-   {this.state.donePayment ? (
+   {this.props.store.paymentProcessJson.done ? (
      <PaymentDone/>
    ):(
     <Fragment> 

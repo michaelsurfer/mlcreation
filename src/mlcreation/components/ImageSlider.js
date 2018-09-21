@@ -6,8 +6,11 @@ import { device } from "../common/device";
 
 
 
-let imageArray=[require('../image/main01.png'), require('../image/herMain01.jpg'),require('../image/himMain01.jpg')];
-
+let imageJson={
+  main:[require('../image//mainImages/main01.png'),require('../image//mainImages/her01.png'),require('../image//mainImages/him01.png')],
+  m:[require('../image//mainImages/him01.png'),require('../image//mainImages/him02.png'),require('../image//mainImages/main01.png')],
+  g:[require('../image//mainImages/her01.png'),require('../image//mainImages/her02.png'),require('../image//mainImages/main01.png')]
+}
 
 const Images=styled.div`
 display:flex;
@@ -33,14 +36,17 @@ class ImageSlider extends Component{
 
     var index = 0 ;
 
-    if(this.props.gender == 'g'){index=1}
-    if(this.props.gender == 'm'){index=2}
-
     this.state = {imageIndex:index};
     this.nextSlide = this.nextSlide.bind(this);
     this.previousSlide = this.previousSlide.bind(this);
   }
 
+
+componentWillReceiveProps(){
+  console.log('componentWillReceiveProps')
+  this.setState({imageIndex:0});
+
+}
 nextSlide=()=>{
     if (this.state.imageIndex >= 2){this.setState({imageIndex:0})}else{
       this.setState({imageIndex:this.state.imageIndex+1})
@@ -53,21 +59,9 @@ previousSlide=()=>{
   }
 
   render(){
-    let img = imageArray[this.state.imageIndex];
-    /*
-    if(this.props.gender == 'main'){
-    img=imageArray[0];
-    }
+    var gender = this.props.gender
+    let img = imageJson[gender][this.state.imageIndex];
 
-    if(this.props.gender == 'her'){
-    img=imageArray[1];
-    }
-
-
-    if(this.props.gender == 'him'){
-    img=imageArray[2];
-    }
-*/
 
     return(
       <div>

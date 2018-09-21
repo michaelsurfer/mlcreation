@@ -1,7 +1,7 @@
 {
     "BR":{
       "itemName":"Batboy",
-      "numOfImage":2,
+      "numOfImage":3,
       "RLayout":"A",
       "LLayout":"A",
       "color":["GBK","BK","BL"],
@@ -19,7 +19,7 @@
 
     },
     "CB":{
-      "numOfImage":2,
+      "numOfImage":3,
       "RLayout":"A",
       "LLayout":"A",
       "itemName":"Cute Bullet",
@@ -31,13 +31,13 @@
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
       "retailPrice":"15.8",
-       "MSRP":"34.8",
+      "MSRP":"34.8",
       "MAP":"31.8",
       "weight":"0.106",
       "qtyInCarton":"60"
     },
     "CBR":{
-      "numOfImage":2,
+      "numOfImage":3,
       "RLayout":"A",
       "LLayout":"A",
       "itemName":"Cool Boy",
@@ -56,7 +56,7 @@
 
     },
     "GB":{
-      "numOfImage":2,
+      "numOfImage":3,
       "RLayout":"A",
       "LLayout":"A",
       "itemName":"Glittering Bullet",
@@ -75,7 +75,7 @@
 
     },
     "GF":{
-      "numOfImage":2,
+      "numOfImage":3,
       "RLayout":"A",
       "LLayout":"A",
       "itemName":"Gold Finger",
@@ -94,7 +94,7 @@
 
     },
     "PF":{      
-      "numOfImage":2,
+      "numOfImage":3,
       "RLayout":"A",
       "LLayout":"A",
       "itemName":"Power Finger",
@@ -113,7 +113,7 @@
 
     },
     "PR":{
-      "numOfImage":2,
+      "numOfImage":3,
       "RLayout":"A",
       "LLayout":"A",
       "itemName":"Power Ring",
@@ -132,10 +132,9 @@
 
     },
     "RC":{
-      "numOfImage":2,
       "RLayout":"B",
       "LLayout":"A",
-      "numOfImage":3,
+      "numOfImage":4,
       "itemName":"Remote Cherry",
       "color":["SGRBL","SR","SPP","SBK"],
       "gender":"g",
@@ -152,7 +151,7 @@
 
     },
     "RHT":{
-      "numOfImage":2,
+      "numOfImage":4,
       "RLayout":"B",
       "LLayout":"A",
       "itemName":"Remote Hunter",
@@ -171,7 +170,7 @@
 
     },
     "SR":{
-      "numOfImage":2,
+      "numOfImage":3,
       "RLayout":"A",
       "LLayout":"A",
       "itemName":"Super Ring",
@@ -190,7 +189,7 @@
 
       },
     "VA":{
-      "numOfImage":2,
+      "numOfImage":3,
       "RLayout":"A",
       "LLayout":"A",
       "itemName":"Vertical Attack",
@@ -214,7 +213,7 @@
       "itemName":"Intense",
       "refNo":"W-ITS-S",
       "color":["S","G"],
-      "numOfImage":2,
+      "numOfImage":3,
       "gender":"both",
       "description":"Zine alloy super powerful USB..........................",
       "title1":"Super Powerful USB Rechargeable Anus Vibrator",
@@ -233,7 +232,7 @@
       "itemName":"Double",
       "refNo":"W-DB-S",
       "color":["SR","SPP","SPIPP","SLPI","SBK"],
-      "numOfImage":2,
+      "numOfImage":3,
       "gender":"both",
       "title1":"Super Powerful USB Rechargeable Testicles, Prostate & Anus Double Motors Vibrator",
       "title2":"Food Degree Silicone Sleeve & Environment Friendly (Electroplating) Plastic Ring",      
@@ -253,7 +252,7 @@
       "itemName":"Love Bullet",
       "refNo":"W-LB-S",
       "color":["S","BLGR","R","PP","BK"],
-      "numOfImage":2,
+      "numOfImage":3,
       "gender":"g",
       "title1":"Powerful USB Rechargeable Clitoris Bullet Vibrator",
       "title2":"Environment Friendly (Electroplating) Plastic Body & Food Degree Silicone Button",      
@@ -272,7 +271,7 @@
       "itemName":"Remote Vibration K-Balls",
       "refNo":"W-RVKB-S",
       "color":["BK","PP","R","PI","GO","LPIPP"],
-      "numOfImage":2,
+      "numOfImage":4,
       "gender":"g",
       "title1":"Powerful USB Rechargeable Remote Vibration Kegel Ball & Clitoris Vibrator",
       "title2":"Food Degree Silicone Sleeve & Environment Friendly (Electroplating) Plastic Vibrator and Remote",      
@@ -280,7 +279,7 @@
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
       "retailPrice":"24.2",
-       "MSRP":"50.8",
+      "MSRP":"50.8",
       "MAP":"45.8",
       "weight":"0.305",
       "qtyInCarton":"30"
@@ -291,7 +290,7 @@
       "itemName":"EVVA K-Balls",
       "refNo":"W-ITS-S",
       "color":["PI","RE","DBL","PP","LBL"],
-     "numOfImage":2,
+     "numOfImage":3,
       "gender":"g",
       "title1":"Strong And Tightening Abdominal Muscles And Genitals",
       "title2":"Environment Friendly Hard Plastic Plastic",      
@@ -310,7 +309,7 @@
       "itemName":"Magic Ring",
       "refNo":"W-ITS-S",
       "color":["GBK","GSHBL","GGBL"],
-      "numOfImage":2,
+      "numOfImage":3,
       "gender":"m",
       "description":"Zine alloy super powerful USB..........................",
       "title1":"Super Powerful USB Rechargeable Prolonging Sex Time Big Bullet Cock Ring With Removable Inner Ring",

@@ -198,7 +198,8 @@ const TableField={
 
 
   updateCart(e){
-    var key = e.target.id;
+    console.log("update cart")
+     var key = e.target.id;
     var qty = e.target.value;
     if(qty==""){qty=0;}
     qty=parseInt(qty).toFixed(0);
@@ -247,9 +248,7 @@ const TableField={
     var productID = code+"-"+color;
     var output="";
     var rowData=[];
-    console.log("render Row");
-    console.log(productID);
-    console.log(dataJson);
+
     if(!this.props.store.retailerCart[productID]){
       this.props.store.retailerCart[productID]={
         name:code,
@@ -266,11 +265,19 @@ const TableField={
              output = ProductColorCode[color].name;
           break;
           case 'selectionBox':
-            if(this.props.store.retailerCart[productID].qty>0){
-              output = <SelectionBox selected/>;
+            if(this.props.store.retailerCart[productID]!=null){
+              if(this.props.store.retailerCart[productID].qty>0){
+                output = <SelectionBox selected/>;
+              }else{
+                output = <SelectionBox />;
+              }
+
             }else{
               output = <SelectionBox />;
+
             }
+
+        
            break;
           case 'text':
             output = dataJson[field];
@@ -279,11 +286,16 @@ const TableField={
           output = <ShowUPC productID={code} color={color}/>
           break;
           case 'input':
+            var qty=0;
+            if(this.props.store.retailerCart[productID]!=null){
+              qty = this.props.store.retailerCart[productID].qty
+            }
+
             output =
                 <input type='number'
                 id={productID}
                 min={0}
-                value={this.props.store.retailerCart[productID].qty}
+                value={qty}
                 onChange={(e)=>this.updateCart(e)}
                 style={{
                   'width':'30px'
@@ -314,7 +326,11 @@ const TableField={
            break;
           case 'state':
           //state mean real time form data, state.
-            var qty = this.props.store.retailerCart[productID].qty;
+          var qty=0;
+          if(this.props.store.retailerCart[productID]!=null){
+            qty = this.props.store.retailerCart[productID].qty
+          }
+            //var qty = this.props.store.retailerCart[productID].qty;
             if(qty==""){qty=0;}
             output = parseInt(qty)*dataJson.retailPrice;
            break;
@@ -339,8 +355,7 @@ const TableField={
 
   renderTableData(device,data){
     var result=[];
-    console.log(data);
-    for(var item in data){
+     for(var item in data){
       //item = CODE only
       var colorArray = data[item].color;
       var rowData = data[item];
@@ -361,7 +376,7 @@ const TableField={
 
   render(){
 
-
+ 
      var device = this.props.device;
      var costJson = this.props.store.retailerCostBreakDown
      var totalWeight=costJson.totalWeight

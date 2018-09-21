@@ -6,6 +6,7 @@ import ConfirmCost from "./ConfirmCost";
 import StripeForm from "./StripeForm";
 import PaymentDone from "./PaymentDone";
 import {observer,inject} from "mobx-react";
+import {GeneralErrorView} from "../../view/GeneralErrorView";
 
 const Wrapper=styled.div`
 display:flex;
@@ -45,15 +46,17 @@ class PaymentModalView extends Component{
         }
         this.NextCallBackF=this.NextCallBackF.bind(this);
         this.ReOpenCallBackF=this.ReOpenCallBackF.bind(this);
-        //this.PaymentDoneCallBackF=this.PaymentDoneCallBackF.bind(this);
+        this.PaymentDoneCallBackF=this.PaymentDoneCallBackF.bind(this);
+        this.props.store.startPaymentProcess(this.props.type)
 
     }
-/*
-    PaymentDoneCallBackF(){
-        console.log("PAYMENT IS DONE");
-        this.setState({paymentDone:true});
-    }
-*/
+
+    PaymentDoneCallBackF(payload){
+        console.log("token uploaded, now process to final payment");
+        console.log("payload : "+payload)
+        this.props.store.payment(payload)
+     }
+
     NextCallBackF(step,_data){
         var data = this.state.data
         if(_data){
@@ -72,14 +75,25 @@ class PaymentModalView extends Component{
         if(this.state.currentStep>step){this.setState({currentStep:step})}
     }
 
-
     render(){
         var productCost=this.props.totalProductCost
         var shipmentCost=this.props.totalShipmentCost
         var total = productCost + shipmentCost
+        var type = this.props.type;
+        var uuid = this.props.store.orderDetail[this.props.type].uuid
+        console.log("PAYMENT LOGIC START , type : "+type)
+        console.log("transactionUUID :"+uuid)
 
-        console.log(this.state.data)
-        console.log("transactionUUID :"+this.props.store.orderDetail[this.props.type].uuid)
+        if(uuid==null){
+            return(
+            <Wrapper>
+                <InnerWrapper>
+                <GeneralErrorView message='There is an issue when communicating with the backend server'/>
+                </InnerWrapper>
+
+            </Wrapper>);
+        }        
+
         return(
             <Wrapper>
                 
@@ -112,8 +126,9 @@ class PaymentModalView extends Component{
                  <StripeForm
                   step={4}
                   currentStep={this.state.currentStep}
-                  NextCallBackF={this.props.PaymentDoneCallBackF}
+                  NextCallBackF={this.PaymentDoneCallBackF}
                   total = {total}  
+                  type={type}
                  />
            
                  </InnerWrapper>

@@ -90,6 +90,9 @@ export const CommentBox = ({
                 height='100px'
                 productID={productID}
                 color={color}
+                index={1}
+                size='contain'
+
                 />
                 <ColorPicker
                     productID={productID}
@@ -106,6 +109,8 @@ export const CommentBox = ({
                     productID={productID}
                     color={color}
                     index={1}
+                    size='contain'
+
                 />
                 </a>
             )}
@@ -127,7 +132,8 @@ export const CommentBox = ({
              </StyledTd>
             {(type=="makeComment")?(
                 <StyledTd>
-                <RatingStar noOfStar={noOfStar} callbackF={callbackF}/>
+                <RatingStar 
+                noOfStar={noOfStar} callbackF={callbackF}/>
                 </StyledTd>
             ):(
                 <StyledTd>

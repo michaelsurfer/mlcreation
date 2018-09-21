@@ -39,7 +39,7 @@ export const apis = {
     endpoint:apiEndPoint+"getTransactions/",
     method:'GET'
     },
-  payment:{
+    payment:{
     endpoint:apiEndPoint+"payment/",
     method:'POST'
   },

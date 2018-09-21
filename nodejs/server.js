@@ -291,9 +291,9 @@ app.post('/contactus',function(req,res){
 
 app.post('/createCustomOrder',function(req,res){
 	console.log("/createCustomOrder");
-	var data = req.body;
-	var finalCost = data.finalCost;
-	var orderList = data.data;
+	var _data = req.body;
+	var finalCost = _data.finalCost;
+	var orderList = _data.data;
 	console.log("received orderList");
 	console.log(orderList);
 	var nextID = getNextCustomerOrderNumber();
@@ -326,7 +326,7 @@ app.post('/createOrder',function(req,res){
 	//var orderList=req.params.orderList;
   	var _data = req.body;
 	var orderList=_data.data;
-	var finalCost = data.finalCost;
+	var finalCost = _data.finalCost;
 
   	var email = _data.email;
 	var uuid = uuidv4();
@@ -351,7 +351,6 @@ app.post('/createOrder',function(req,res){
 			state:200,
 			uuid:uuid,
 			orderNo:nextID
-
 		}
 		);
 });
@@ -493,13 +492,6 @@ app.get('/activation/:email/:code',function(req,res){
 });
 
 
-app.post('/test2/',function(req,res){
-  var data = req.body;
-  console.log("test");
-  console.log(data);
-  res.send(200);
-});
-
 app.post('/login/',function(req,res){
 	var data=req.body;
 	console.log(data);
@@ -573,7 +565,7 @@ app.get('/getComments/:productID',function(req,res){
 
 	}else{
 		console.log("comment record not find");
-		res.status(404).send("Not comment yet");
+		res.status(404).send("noComment");
 
 	}
 
@@ -673,7 +665,7 @@ app.get('/showAll/',function(req,res){
 
 
 
-app.post('pay',async function(req,res){
+app.post('/payment',async function(req,res){
 	var data = req.body;
 	var token = data.token;
 	var uuid = data.uuid;
@@ -692,7 +684,7 @@ app.post('pay',async function(req,res){
  			);
 });
 
-app.post('/payment/',async function(req,res){
+app.post('/payment2/',async function(req,res){
 	var data=req.body;
 	var token = data.token;
 	var orderNo = data.orderNo;

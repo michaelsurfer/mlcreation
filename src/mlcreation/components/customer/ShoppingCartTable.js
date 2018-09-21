@@ -78,7 +78,7 @@ const Titles=()=>{
 const Item=({productCode,color,qty,totalCost})=>{
     console.log(productCode);
     console.log(color);
-    var cost = qty * data[productCode].MAP;
+    var cost = qty * data[productCode].MSRP;
     return(
         <StyledRow color='white' edge>
             <MarginCell/>

@@ -57,15 +57,19 @@ class PaymentForm extends Component{
 constructor(props){
   super(props);
   this.state={
-     total:0
+     total:0,
+     donePayment:false
   }
+
+  this.PaymentDoneCallBackF=this.PaymentDoneCallBackF.bind(this);
+
 }
 back(){
   this.props.callbackf('confirmOrder');
 }
 componentDidMount(){}
 PaymentDoneCallBackF(){
-  console.log("done call back")
+  console.log("done call back");
   this.setState({donePayment:true});
 }
 render(){
@@ -75,7 +79,7 @@ render(){
   return(
     <c2.Wrapper>
 
-        {this.state.donePayment ? (
+        {this.props.store.paymentProcessJson.done ? (
           <PaymentDone/>
         ):(
 
@@ -98,7 +102,7 @@ render(){
             
             <td colspan={2}>
               <c2.Button 
-                  onClick={()=>this.props.store.showPaymentModal=true}
+                  onClick={()=>this.props.store.showPaymentModalF('retailer')}
 
               >Pay Now</c2.Button>
             </td>

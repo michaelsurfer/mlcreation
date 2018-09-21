@@ -356,10 +356,8 @@ class ProductTableConfirm extends Component{
       var productID = code+"-"+color;
       var output="";
       var rowData=[];
-      console.log("render Row");
-      console.log(productID);
-      console.log(dataJson);
-      /*
+     
+      
       if(!this.props.store.retailerCart[productID]){
         this.props.store.retailerCart[productID]={
           name:code,
@@ -367,7 +365,7 @@ class ProductTableConfirm extends Component{
           color:color
         }
       }
-      */
+      
       var id = this.props.store.retailerCart[productID];
       if(id && id.qty!=0){
 
@@ -444,8 +442,7 @@ class ProductTableConfirm extends Component{
 
       renderTableData(device,data){
         var result=[];
-        console.log(data);
-        for(var item in data){
+         for(var item in data){
           //item = CODE only
           var colorArray = data[item].color;
           var rowData = data[item];
@@ -473,8 +470,7 @@ class ProductTableConfirm extends Component{
      var finalCost=costJson.finalCost   
      var totalQty=costJson.totalQty
 
-
-     return(
+      return(
     <c2.Wrapper>
     <c.ColPureDiv>
     <c2.Table>

@@ -12,6 +12,7 @@ class StripeForm extends Component{
   render(){
     var active = (this.props.step == this.props.currentStep)
     var total = this.props.total
+    console.log(total)
 
 return(
 

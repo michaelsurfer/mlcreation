@@ -213,9 +213,7 @@ const StyledTh=styled.th`
       var productID = code+"-"+color;
       var output="";
       var rowData=[];
-      console.log("render Row");
-      console.log(productID);
-      console.log(dataJson);
+     /*
       if(!this.props.store.retailerCart[productID]){
         this.props.store.retailerCart[productID]={
           name:code,
@@ -223,7 +221,7 @@ const StyledTh=styled.th`
           color:color
         }
       }
-      
+      */
       for(var field in TableField){
         var json = TableField[field];
          if(json[device]){

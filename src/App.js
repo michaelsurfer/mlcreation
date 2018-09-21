@@ -260,14 +260,15 @@ class App extends Component {
    }
 
   render() {
+    console.log(this.props.store.retailerCart)
+
     var loading = 'none';
     if(this.props.store.loading){loading = 'block'}
-
-    return (
+     return (
       <Router>
+        
       <div>
- 
-      <ModalWrapper display={loading}>
+       <ModalWrapper display={loading}>
 
         <Modal>
 
