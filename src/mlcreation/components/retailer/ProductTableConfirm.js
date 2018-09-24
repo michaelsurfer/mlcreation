@@ -39,7 +39,7 @@ border:1px solid grey;
 `;
  
 const Wrapper=styled.div`
-width:80%`;
+width:100%`;
 
 
 const Button=styled.button`
@@ -124,10 +124,12 @@ const TableField={
 }
 
 const StyledTd=styled.td`
+
   background-color:${(props)=>props.color};
   border:1px solid grey;
   font-size:15px;
   margin:0px;
+
   `
 
 
@@ -151,8 +153,7 @@ class ProductTableConfirm extends Component{
    }
 
    confirmOrder(){
-     this.props.store.createOrder();
-     this.props.callbackf('payment');
+      this.props.callbackf('payment');
    }
 
 
@@ -350,7 +351,7 @@ class ProductTableConfirm extends Component{
 
 
 
-    renderRow(device,rowData,code,color){
+    renderRow(device,rowData,code,color,index){
 
       var dataJson=rowData;
       var productID = code+"-"+color;
@@ -376,8 +377,8 @@ class ProductTableConfirm extends Component{
              case 'color':
                output = ProductColorCode[color].name;
              break;
-             case 'refNo':
-               output = "W-"+code+"-"+color;
+             case 'No':
+               output = index;
              break;
             case 'text':
               output = dataJson[field];
@@ -402,6 +403,7 @@ class ProductTableConfirm extends Component{
              break;
              case 'img':
               output=
+              
               <ItemImage 
               width='100px'
               height='100px'
@@ -409,8 +411,8 @@ class ProductTableConfirm extends Component{
               color={color}
               index={1}
               size='contain'
-
                /> 
+               
             break;
 
             case 'state':
@@ -425,9 +427,9 @@ class ProductTableConfirm extends Component{
         }
 
         rowData.push(
-          <StyledTd color='white'>
+          <c2.StyledTd color='white' align='center'>
           {output}
-          </StyledTd>
+          </c2.StyledTd>
         );
 
 
@@ -442,15 +444,21 @@ class ProductTableConfirm extends Component{
 
       renderTableData(device,data){
         var result=[];
+        var index=0;
          for(var item in data){
           //item = CODE only
           var colorArray = data[item].color;
           var rowData = data[item];
           var code = item;
           colorArray.map((color,i)=>{
+            console.log(index);
+            var productID = code+"-"+color;
+            var id = this.props.store.retailerCart[productID];
+            if(id && id.qty!=0){index++}
+          
             result.push(
               <tr>
-               {this.renderRow(device,rowData,code,color)}
+               {this.renderRow(device,rowData,code,color,index)}
                </tr>
             );
           });

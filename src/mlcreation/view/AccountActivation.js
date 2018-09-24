@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {apis} from '../common/config.js';
 import * as c from '../common/Css2.js';
-
+import {GeneralMessageView} from "./GeneralMessageView";
 
 const Wrapper=c.ColCenterDiv.extend`
 background-color:${c.ColorSchema.skyBlue.color};
@@ -49,17 +49,20 @@ class AccountActivation extends Component{
         if(this.state.loaded){
             if(this.state.verified){
                 return(
-                <Wrapper>
-                <label>Account Verified</label>
-                <c.Link to="/YourAccount">Login Now</c.Link>
-                </Wrapper>
+            
+                <GeneralMessageView
+                    link="/yourAccount"
+                    linkTitle="Go to your account now"
+                    message="Thank you for joining us, your account has been activated !"
+                />
                 );
             }else{
                 return(
-                <Wrapper>
-                <label>Cannot activate your account</label>
-                <label>Reason : {this.state.error}</label>
-                </Wrapper>
+                <GeneralMessageView
+                    link="/"
+                    linkTitle="Go Back"
+                    message="Sorry, we are unable to activate your account"
+                />
                 );
             }
         }else{

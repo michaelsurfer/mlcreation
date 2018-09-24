@@ -8,17 +8,18 @@ const OutterBox=styled.div`
 display:flex;
 justify-content:center;
 align-items:center;
-width:30px;
-height:30px;
+width:26px;
+height:40px;
 margin:2px;
 border-bottom:${(props)=>props.border}
- 
+border-color:black; 
 `;
 
 const Box=styled.div`
 width:${(props)=>props.size};
 height:${(props)=>props.size};
 background-color:${(props)=>props.rgbValue};
+ 
 `;
 
 const ImgBox=styled.img`
@@ -39,7 +40,7 @@ export const ColorBox=({
     var result=[];
     if(selected){
         console.log("sected");
-        border='1px solid grey'
+        border='2px solid black'
         }
         console.log(json.rgbValue);
 

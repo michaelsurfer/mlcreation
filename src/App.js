@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component,Fragment} from 'react';
 import {BrowserRouter as Router,Route} from "react-router-dom";
- 
+import {Redirect} from "react-router";
+
 import styled from "styled-components";
 import data from "./mlcreation/asset/ProductList.json";
 import {Footer} from './mlcreation/components/Footer';
@@ -22,6 +23,9 @@ import CommentView from './mlcreation/view/CommentView';
 import AllCommentView from './mlcreation/view/AllCommentView';
 import {PolicyView} from './mlcreation/view/PolicyView';
 import {AboutUsView} from './mlcreation/view/AboutUsView';
+import RetailerBar from './mlcreation/navigation/RetailerBar';
+import PaymentContainer from './mlcreation/components/payment/PaymentContainer';
+import OneStepPaymentForm from './mlcreation/components/payment/OneStepPaymentForm';
 
 const ModalWrapper=styled.div`
 position:fixed;
@@ -53,7 +57,62 @@ const MakeComment=({match})=>(
   </div>  
 );
 
+const Payment=inject('store')(observer((props)=>{
+  //var type=props.store.currentPaymentType//retailer or custom
+  var type=props.store.paymentProcessJson.type
+  var needLogin = false;
+  console.log("Payment Route, type :"+type);
 
+  if(!type || type==''){
+
+    return(<Redirect to='/'/>)
+
+  }else{
+    if(type == 'retailer'){
+      if(props.store.login){
+        needLogin = false
+      }else{
+        needLogin = true
+      }
+    }
+    if(needLogin){
+      return(<LoginView/>)
+    }else{
+        return(
+        <div>
+          <NavBar gender='general'/>
+          {type=='retailer' &&
+          <RetailerBar/>
+          }
+          <PaymentContainer/>
+        </div>
+        ) 
+      
+    }
+
+  }
+
+  
+
+ 
+
+}))
+const OrderDraft=inject('store')(observer((props)=>{
+  return(
+    <div>
+      <NavBar gender='general'/>
+      {props.store.login?(
+        <Fragment>
+        <RetailerBar/>
+         </Fragment>
+      ):(
+        <LoginView/>
+      )
+    }
+    </div>
+  )
+  }
+))
 
 const RetailerPolicy=inject('store')(observer((props)=>{
 return (
@@ -61,7 +120,10 @@ return (
 <NavBar gender='general'/>
 
 {props.store.login?(
+  <Fragment>
+  <RetailerBar/>
   <PolicyView type='retailer'/>
+  </Fragment>
 ):(
   <LoginView/>
 )}
@@ -217,11 +279,6 @@ const TakeOrder=inject('store')(observer((props)=>{
 );
 }));
 
-const Payment=()=>(
-<div>
-<StripePayment/>
-</div>
-);
 
 const ShoppingCart=()=>(
   <div>
@@ -248,7 +305,7 @@ class App extends Component {
     super(props);
    
     var sessionData=JSON.parse(sessionStorage.getItem("retailerData"));
- 
+    this.props.store.loadShoppingCart()
     if(sessionData){
     this.props.store.login=true;
     //this.props.store.retailerData=sessionData;
@@ -280,7 +337,7 @@ class App extends Component {
 
 
        <Route exact path="/" component={HomeView}/>
-        <Route exact path="/product/:gender/:productID" component={ProductView}/>
+       <Route exact path="/product/:gender/:productID" component={ProductView}/>
        <Route exact path="/productList/:gender" component={ProductListView}/>
        <Route exact path="/retailerLogin" component={RetailerView}/>
        <Route exact path="/takeOrder" component={TakeOrder}/>
@@ -296,7 +353,8 @@ class App extends Component {
        <Route exact path="/policy/" component={Policy}/>
        <Route exact path="/retailerPolicy/" component={RetailerPolicy}/>
        <Route exact path="/aboutUs/" component={AboutUs}/>
-       
+       <Route exact path="/payment" component={Payment}/>
+
 
       {<Footer/>}
       </div>

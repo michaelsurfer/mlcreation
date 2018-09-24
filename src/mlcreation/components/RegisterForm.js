@@ -5,8 +5,7 @@ import * as s from '../common/Css2.js';
 import { device } from "../common/device";
 import {apis} from '../common/config.js';
 import {observer,inject} from "mobx-react";
-import { runInThisContext } from 'vm';
-
+ 
 
 
 const ModalWrapper=styled.div`
@@ -34,12 +33,12 @@ padding:20px;
 `;
 
 const RegistrationFormTitle=styled.label`
-color:grey;
+color:black;
 font-size:large;
 background-color:rgb(222,200,200);
-`;
+ `;
 const RegistrationFormText=styled.label`
-color:grey;
+color:black;
 font-size:small;
 `;
 
@@ -58,11 +57,14 @@ padding:5px;
 const Button=styled.button`
 background-color:${(props)=>props.black? 'black':'rgb(240,160,143)'};
 color: ${(props)=>props.black? 'white':'black'};
-margin:0;
 border:1px solid ;
 border-color:${(props)=>props.black? 'black':'rgb(240,160,143)'};
 width:100%;
 margin-top:20px;
+padding:10px;
+text-align: center;
+vertical-align: middle;
+font-size:20px;
  `;
 
 
@@ -318,6 +320,7 @@ border-left:${(props)=>props.border?'1px solid grey':'0px'}
 border-right:${(props)=>props.border?'1px solid grey':'0px'}
 border-top:${(props)=>props.border?'1px solid grey':'0px'}
 margin:-1px 0 0 -1px;
+background-color: white;
 @media ${device.tablet}{
   flex-direction:row;
  }
@@ -330,8 +333,8 @@ justify-content:${(props)=>props.align};
 align-items:${(props)=>props.align};
 background-color:${(props)=>props.color};
 margin-right:0px;
-padding:2px;
-height:48px;
+padding:0px;
+height:40px;
 `;
 const Cell=s.BasicDiv.extend`
 display:flex;
@@ -350,7 +353,7 @@ const TextInputDiv=styled.div`
 width:100%;
 `;
 const TextInput=styled.input`
-width:70%;
+width:50%;
 color:${(props)=>props.color};
 border: 0px solid grey;
 border-radius:4px;
@@ -432,7 +435,7 @@ class RegisterForm extends Component{
   }
   renderEmptyElementSpace(){
     return(
-      <FormRow >
+      <FormRow border>
       <Cell flex='1'>
         <InvisibleFormText>asdfs</InvisibleFormText>
        </Cell>
@@ -516,7 +519,7 @@ class RegisterForm extends Component{
 
   renderFormElement(key,_align){
     var align;
-    var color='grey';
+    var color='black';
     var type = fieldData[key].type;
     if(_align){align = _align}else{align='left'}
     var title = fieldData[key].title;
@@ -561,7 +564,7 @@ class RegisterForm extends Component{
     (
       <label
       style={{
-        'color':'grey','font-size':'small'
+        'color':'black','font-size':'small'
 
       }}
       >{currentValue}</label>
@@ -578,14 +581,14 @@ class RegisterForm extends Component{
 
 renderButton(){
   if(this.props.store.login){
-    /*
+    
     return(
       <s.ButtonDiv>
         <Button type='button' black>Update</Button>
       </s.ButtonDiv>
 
     );
-    */
+    
   }else{
     return(
       <s.ButtonDiv>
@@ -755,6 +758,7 @@ handleModal(){
       {(this.props.store.login) ? (
       <FormRow border>
       {this.renderFormElement('email')}
+      
       </FormRow>
       ):(
       <FormRow border>
@@ -798,7 +802,7 @@ handleModal(){
       <FormRow border>
       {this.renderFormElement('eTailer','center')}
       {this.renderFormElement('eTailerNo','center')}
-      <FormCol doubleSize>
+      <FormCol doubleSize border>
       {this.renderFormElement('amazon','center')}
       {this.renderFormElement('eBay','center')}
       {this.renderFormElement('other','center')}

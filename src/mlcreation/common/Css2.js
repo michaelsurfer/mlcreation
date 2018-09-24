@@ -57,6 +57,35 @@ export const ColorSchema={
   grey:{color:'rgb(239,238,242)'}
 };
 
+export const Form=styled.form`
+width:100%;
+`;
+export const Table=styled.table`
+border-collapse: collapse;
+border:0px solid grey;
+width:100%;
+`;
+export const Tr=styled.tr`
+border-bottom:${(props)=>props.bottom?'1px solid grey':'0px'};
+border-top:${(props)=>props.top?'1px solid grey':'0px'};
+
+ `;
+export const Th=styled.th`
+text-align: center;
+vertical-align:middle;
+padding:15px;
+
+`;
+export const Td=styled.td`
+text-align: center;
+vertical-align:middle;
+height:${(props)=>props.height};
+padding:15px;
+ 
+`;
+export const Input=styled.input`
+width:90%;
+`;
 
 export const RegistrationFormTitle=styled.label`
 color:grey;
@@ -64,8 +93,11 @@ font-size:large;
 `;
 
 export const RegistrationFormText=styled.label`
-color:grey;
-font-size:small;
+color:black;
+font-size:16px;
+white-space:nowrap;
+margin-left:20px;
+
 `;
 
 export const ButtonDiv=styled.div`

@@ -15,7 +15,7 @@ const RTextDiv=styled.div`
 width:100%;
 display:flex;
 align-items:center;
-border:1px solid red;
+border:0px solid red;
 z-index:2;
 flex-direction:column;
 `;

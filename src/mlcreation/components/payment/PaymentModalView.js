@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
-import BasicInfoForm from "./BasicInfoForm";
-import DeliveryAddressForm from "./DeliveryAddressForm";
-import ConfirmCost from "./ConfirmCost";
-import StripeForm from "./StripeForm";
+import OneStepPaymentForm from './OneStepPaymentForm'
 import PaymentDone from "./PaymentDone";
 import {observer,inject} from "mobx-react";
-import {GeneralErrorView} from "../../view/GeneralErrorView";
+import {GeneralMessageView} from "../../view/GeneralMessageView";
 
 const Wrapper=styled.div`
 display:flex;
@@ -88,7 +85,7 @@ class PaymentModalView extends Component{
             return(
             <Wrapper>
                 <InnerWrapper>
-                <GeneralErrorView message='There is an issue when communicating with the backend server'/>
+                <GeneralMessageView message='There is an issue when communicating with the backend server'/>
                 </InnerWrapper>
 
             </Wrapper>);
@@ -96,42 +93,7 @@ class PaymentModalView extends Component{
 
         return(
             <Wrapper>
-                
-                <InnerWrapper>
-                    <CloseButton>
-                        <CloseText
-                        onClick={()=>this.props.store.showPaymentModal='none'}
-
-                    >[X]</CloseText></CloseButton>
-                 <BasicInfoForm
-                    step={1}
-                    currentStep={this.state.currentStep}
-                    NextCallBackF={this.NextCallBackF}
-                    ReOpenCallBackF={this.ReOpenCallBackF}
-                 />
-                <DeliveryAddressForm
-                    step={2}
-                    currentStep={this.state.currentStep}
-                    NextCallBackF={this.NextCallBackF}
-                    ReOpenCallBackF={this.ReOpenCallBackF}
-                 />
-                 <ConfirmCost
-                    step={3}
-                    currentStep={this.state.currentStep}
-                    productCost={this.props.totalProductCost}
-                    shipmentCost={this.props.totalShipmentCost}
-                    NextCallBackF={this.NextCallBackF}
-                    ReOpenCallBackF={this.ReOpenCallBackF}
-                 />
-                 <StripeForm
-                  step={4}
-                  currentStep={this.state.currentStep}
-                  NextCallBackF={this.PaymentDoneCallBackF}
-                  total = {total}  
-                  type={type}
-                 />
-           
-                 </InnerWrapper>
+                <OneStepPaymentForm/>
             </Wrapper>
         )
     }

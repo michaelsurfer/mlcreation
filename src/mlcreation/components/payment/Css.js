@@ -7,6 +7,8 @@ color:white;
 width:100%;
 height:30px;
 font-size:100%;
+color:${(props)=>props.disabled?'grey':'white'};
+
 `;
 
 export const Form=styled.form`

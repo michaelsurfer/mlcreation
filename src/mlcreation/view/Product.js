@@ -14,6 +14,8 @@ class Product extends Component{
   constructor(props){
     super(props);
     this.callbackF=this.callbackF.bind(this);
+    this.props.store.loadShoppingCart()
+
   }
 
   callbackF(selectedColor){
@@ -35,7 +37,7 @@ class Product extends Component{
 
     var remark = data[productID].remark;
 
-
+    
     return(
       <c.ColPureDiv>
       <Header

@@ -20,7 +20,7 @@ height:20px;
 `;
 
 
-export const RatingStar = ({noOfStar,callbackF}) =>{
+export const RatingStar = ({noOfStar,callbackF,interactive}) =>{
     /*
     var result=[];
          for(var i=1;i<6;i++){
@@ -35,9 +35,9 @@ export const RatingStar = ({noOfStar,callbackF}) =>{
     return(
         <Wrapper>
             <Rater total={6} rating={noOfStar} 
-            onRating={callbackF}
+            onRate={callbackF}
             onCancelRate={()=>{}}
-            onRating={()=>{}}
+            interactive={interactive}
             />
         </Wrapper>
      );    

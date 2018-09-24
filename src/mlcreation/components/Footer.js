@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import styled from "styled-components";
 import * as c from '../common/Css2.js';
 import { device } from "../common/device";
+import {NavLink} from "react-router-dom";
 
 const Wrapper=c.RowPureDiv.extend`
 background-color:rgb(29,30,32);
@@ -16,7 +17,7 @@ flex-direction:column;
 
 const Cell=c.ColPureDiv.extend`
 justify-content:center;
-align-items:center;
+align-items:left;
 padding:10px;
 
 @media ${device.tablet}{
@@ -45,11 +46,19 @@ color:rgb(138,140,141);
 font-size:large;
 `;
 
-const Link=styled.label`
-color:rgb(138,140,141);
-font-size:small;
-padding:5px;
+const QuickLinks=styled.label`
+font-size:18px;
+
 `;
+const Link=styled(NavLink)`
+text-decoration:none;
+color:rgb(138,140,141);
+padding:5px;
+font-size:18px;
+font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+`;
+
+
 
 const Icon=styled.div`
 padding:5px;
@@ -97,11 +106,11 @@ export const Footer=({})=>{
     <Wrapper>
 
       <Cell>
-      <Link>For Her</Link>
-      <Link>For Him</Link>
-      <Link>Comments</Link>
-      <Link>My Account</Link>
-      <Link>Shopping List</Link>
+      <Link to="/productList/g">For Her</Link>
+      <Link to="/productList/m">For Him</Link>
+      <Link to="/allComment">Comments</Link>
+      <Link to="/yourAccount">My Account</Link>
+      <Link to="/cart">Shopping List</Link>
 
       </Cell>
 
@@ -112,10 +121,10 @@ export const Footer=({})=>{
 
 
       <Cell>
-      <Link>About Us</Link>
-      <Link>Our Policy</Link>
-      <Link>Language</Link>
-      <Link>Contact Us</Link>
+      <Link to="aboutUs">About Us</Link>
+      <Link to="policy">Shipping & Return</Link>
+      <Link to="/">Language</Link>
+      <Link to="/contact">Contact Us</Link>
 
       </Cell>
 

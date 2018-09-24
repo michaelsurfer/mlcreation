@@ -19,6 +19,15 @@ min-height:600px;
 `;
 
 
+const LeaveComment=styled(c.Link)`
+display:flex;
+height:35px;
+justify-content:center;
+align-items:center;
+margin-top:50px;
+background-color:rgb(255,200,200);
+width:70%;
+`;
 
 @inject('store')
 @observer
@@ -65,20 +74,18 @@ render(){
           {this.state.noComment ?(
             <c.ColCenterDiv> 
             <p>There are no comment for this product yet</p>
-            <c.Link to={"/makeComment/"+this.props.productID}>
-            Add your comment now
-            </c.Link>
+         
             </c.ColCenterDiv>
 
           ):(
             <CommentList 
             type="individual"
-            productID="ITS" 
+            productID={this.props.productID} 
             json={this.state.json}
             />
           )}
  
-
+          <LeaveComment to={"/makeComment/"+this.props.productID}>Leave comment</LeaveComment>
          </Wrapper>
     );
 }

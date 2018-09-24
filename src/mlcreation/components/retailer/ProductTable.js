@@ -33,8 +33,6 @@ var totalRowSpan={
 
 
 
-
-
 const TableField={
   selectionBox:{
     color:titlePink,
@@ -144,7 +142,7 @@ const TableField={
  width:13px;
  height:16px;
  margin-left:0px;
- background-color:${(props)=>props.selected?'rgb(75,215,244)':''};
+ background-color:${(props)=>props.selected?'rgb(254,203,191)':''};
 
  `;
 
@@ -210,12 +208,12 @@ const TableField={
     var result=[];
     for(var field in TableField){
       var json = TableField[field];
-      var minWidth='70px';
+      var minWidth='60px';
       if(field=="selectionBox"){
         minWidth='10px';
         result.push(
           <c2.StyledTh 
-          color={json.color}
+          color='rgb(236,221,220)'
           minWidth={minWidth}
           >
           <SelectionBox selected/>
@@ -420,10 +418,10 @@ const TableField={
     >
       <td colSpan={totalRowSpan.desktop}>
       
-      {totalQty>0 ? (
+      {totalQty>=20 ? (
       <c2.Button onClick={()=>this.props.callbackf('confirmOrder')}>Submit order draft</c2.Button>
       ):(
-      <c2.Button disabled>Submit order draft</c2.Button>
+      <c2.Button disabled>Submit</c2.Button>
       )
       
       }

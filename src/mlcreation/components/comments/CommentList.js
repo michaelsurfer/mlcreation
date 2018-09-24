@@ -9,13 +9,12 @@ width:100%;
 background-color:white;
 justify-content:center;
 align-items:center;
-height:300px;
-border:1px solid red;
+border:0px solid red;
 
 `;
 
 const Table=styled.table`
-width:500px;
+width:70%;
 border-collapse: collapse;
  `;
 
@@ -46,6 +45,7 @@ if(type=='all'){
           <CommentBox
             type='all'
             productID={item}
+            color={json[item].color}
             totalComment={json[item].totalComments}
             noOfStar={json[item].avgRating}
         />

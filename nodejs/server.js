@@ -119,7 +119,9 @@ function sendEmail(to,subject,message){
 }
 
 function sendEmailActivation(email,code){
+	console.log("Activation email send to "+email);
 	var link="http://localhost:3001/activation/"+email+"/"+code;
+	console.log(link); 
 	var htmlMessage="<h1>Thanks for registration</h1><a href="+link+" />Here</a>";
 	sendEmail(email,"Activate your account",htmlMessage);
 }
@@ -670,11 +672,15 @@ app.post('/payment',async function(req,res){
 	var token = data.token;
 	var uuid = data.uuid;
 	var type = data.type;
+	var info = data.info;
 	console.log("executing payment with following data ");
-	console.log("token :"+token);
-	console.log("uuid :"+uuid);
+	console.log("token : %j",token);
+	console.log("uuid : %j",uuid);
+	console.log("info : %j",info);
 
-	//complete payment here..
+	var result = order.findOne({uuid:uuid});
+	var finalCost = result.finalCost;
+	console.log("paying finalCost "+finalCost);
 
  	res.send(
  			{

@@ -35,18 +35,24 @@ class ImageSlider extends Component{
     super(props);
 
     var index = 0 ;
-
-    this.state = {imageIndex:index};
+     this.state = {imageIndex:index};
     this.nextSlide = this.nextSlide.bind(this);
     this.previousSlide = this.previousSlide.bind(this);
+ 
   }
 
-
+componentDidMount(){
+this.interval = setInterval(()=>{
+  console.log('interval')
+  this.nextSlide();
+},3000)
+}
 componentWillReceiveProps(){
   console.log('componentWillReceiveProps')
   this.setState({imageIndex:0});
 
 }
+
 nextSlide=()=>{
     if (this.state.imageIndex >= 2){this.setState({imageIndex:0})}else{
       this.setState({imageIndex:this.state.imageIndex+1})

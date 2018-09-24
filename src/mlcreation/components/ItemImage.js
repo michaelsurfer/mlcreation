@@ -10,9 +10,8 @@ background-image:url(${(props)=>props.img});
 background-repeat:no-repeat;
 background-size: ${(props)=>props.size};
 background-position: center center;
-margin-left:5px;
-margin-right:5px;
-
+margin-left:auto;
+margin-right:auto;
 overflow-x:hidden;
 overflow-y:hidden;
 border:0px solid;

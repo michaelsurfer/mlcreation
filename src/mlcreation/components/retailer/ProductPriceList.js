@@ -39,7 +39,12 @@ white-space:pre-wrap;
 
 `;
 
- 
+ const HeaderText=styled.label`
+ word-wrap:break-word;
+ overflow:hidden;
+ font-size:1vw;
+
+ `;
 
 const Wrapper=styled.div`
 width:100%`;
@@ -52,22 +57,24 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'No'
+    type:'No',
+    width:'10px'
   },
   itemName:{
     title:"Item Name",
     color:titlePink,
     desktop:true,
     mobile:true,
-    type:'text'
-
+    type:'text',
+    width:'50px'
   },
   color:{
     title:"Colour",
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'color'
+    type:'color',
+    width:'50px'
 
   },
   itemPic:{
@@ -75,7 +82,8 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:true,
-    type:'img'
+    type:'img',
+    width:'50px'
 
   },
   description:{
@@ -83,14 +91,17 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:true,
-    type:'text'
+    type:'text',
+    width:'50px'
+
   },
   UPC:{
     title:"UPC",
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'upc'
+    type:'upc',
+    width:'50px'
 
   },
   retailPrice:{
@@ -98,7 +109,9 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:true,
-    type:'text'
+    type:'text',
+    width:'50px'
+
 
   },
   MSRP:{
@@ -106,28 +119,36 @@ const TableField={
     color:titleBlue,
     desktop:true,
     mobile:false,
-    type:'text'
+    type:'text',
+    width:'50px'
+
   },
   MAP:{
     title:"MAP",
     color:titleBlue,
     desktop:true,
     mobile:false,
-    type:'text'
+    type:'text',
+    width:'50px'
+
   },
   weight:{
     title:"Item with Packaging Weight (Kg)",
     color:titleBlue,
     desktop:true,
     mobile:false,
-    type:'text'
+    type:'text',
+    width:'50px'
+
   },
   qtyInCarton:{
     title:"Qty in Carton",
     color:titleBlue,
     desktop:true,
     mobile:false,
-    type:'text'
+    type:'text',
+    width:'50px'
+
   }
 
 }
@@ -181,7 +202,7 @@ const StyledTh=styled.th`
     var result=[];
     for(var field in TableField){
       var json = TableField[field];
-      var minWidth='100px';
+      var minWidth=TableField.width;
       if(field=="No"){
         minWidth='10px';
       }
@@ -379,16 +400,19 @@ Email: susanna@mlcreationco.com
       }}
       >
 <b>Order MOQ.:</b>
+<HeaderText>
 {`
 The quanitiy of each product is not less than 2 pieces.
 The total Qty. of each order is not less than 20 pieces. Each product can be mixed with color.      
 `}
+</HeaderText>
 <b>Delivery Time:</b>
+<HeaderText>
 {`
 After your payment, we will deliver your order to your designed delivery address within 5 business days,
 For remote areas is 7 working days.
-
 `}
+</HeaderText>
 
       </td>  
     </tr> 

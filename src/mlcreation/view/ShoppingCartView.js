@@ -4,9 +4,10 @@ import ShoppingCartTableContainer from '../components/customer/ShoppingCartTable
 import {observer,inject} from "mobx-react";
 //import {StripePayment} from '../stripe/StripePayment';
 import {NavLink} from "react-router-dom";
-import PaymentModal from "../components/payment/PaymentModal";
+import PaymentContainer from "../components/payment/PaymentContainer";
 import PaymentDone from "../components/payment/PaymentDone";
- 
+import {Redirect} from "react-router";
+
  
 const ButtonBar=styled.div`
 justify-content:center;
@@ -37,8 +38,12 @@ export const Button=styled.button`
 const Header=styled.div`
 background-color:rgb(240,163,135);
 width:100%;
-padding:2px;
 `;
+const HeaderText=styled.label`
+font-size:20px;
+margin:20px;
+`
+
 const InnerWrapper=styled.div`
 width:80%;
 padding:20px;
@@ -66,15 +71,22 @@ PaymentDoneCallBackF(){
   console.log("done call back")
   this.setState({donePayment:true});
 }
+componentWillUnmount(){
+  this.props.store.resetRedirection()   
 
+ }
 render(){
   var json = this.props.store.customCostBreakDown
   var totalProductCost = json.totalProductCost
   var totalShipmentCost = json.totalShipmentCost
   var finalCost = json.finalCost
   var totalQty = json.totalQty
-
  
+  var json=this.props.store.redirectionInfo
+   if(json.redirect && json.to!=''){
+   return(<Redirect to={json.to}/>)
+  }
+
 return(
   <Wrapper>
 
@@ -82,19 +94,11 @@ return(
      <PaymentDone/>
    ):(
     <Fragment> 
-    <Header>SHOPPING LIST</Header>
+    <Header><HeaderText>SHOPPING LIST</HeaderText></Header>
     <InnerWrapper>
     <ShoppingCartTableContainer/>
 
     </InnerWrapper>
-    <PaymentModal 
-    PaymentDoneCallBackF={this.PaymentDoneCallBackF}
-    type='custom'
-    totalProductCost = {totalProductCost}
-    totalQty = {totalQty}
-    totalShipmentCost = {totalShipmentCost}
-    finalCost={finalCost}
-    />
     
     </Fragment>
    )} 

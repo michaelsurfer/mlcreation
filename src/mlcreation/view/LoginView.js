@@ -9,17 +9,26 @@ import {observer,inject} from "mobx-react";
 import Retailer from './Retailer';
 import NavBar from '../navigation/NavBar';
 import ForgetPasswordForm from '../components/ForgetPasswordForm';
+import {SloganBanner} from '../components/SloganBanner';
 
 
 const Wrapper=c.ColCenterDiv.extend`
 background-color:${(props)=>props.color};
 padding:20px;
+
+height:690px;
+`;
+
+const BlackLine=styled.div`
+height:36px;
+width:100%;
+background-color:rgb(30,30,30);
 `;
 
 const BackDiv=styled.label`
 width:100%;
 left:0px;
-font-size:small;
+font-size:20px;
 `
 const BackButton = ({callback})=>(
   <BackDiv onClick={()=>callback()}>
@@ -104,6 +113,9 @@ render(){
 return(
   <div>
       {this.displaySignIn()}
+      <BlackLine/>
+      <SloganBanner gender='g'/>
+
   </div>
   );
 }

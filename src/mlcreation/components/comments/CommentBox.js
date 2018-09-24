@@ -6,8 +6,15 @@ import productData from "../../asset/ProductList.json";
 import ColorPicker from "../colorPicker/ColorPicker";
 import {NavLink} from "react-router-dom";
 import {ItemImage} from "../../components/ItemImage";
+import * as c from "../../common/Css2";
 
+const StyledDiv=styled.div`
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 
+`;
 const TitleText=styled.label`
 font-size:20px;
 `;
@@ -23,7 +30,12 @@ text-align:center;
 vertical-align:middle;
 border:1px solid grey;
 overflow:hidden;
+background-color:${(props)=>props.colored?'rgb(225,200,201)':'white'}
 `;
+const CommentTextarea=styled.textarea`
+width:90%;
+height:100px;
+`
 
 const CommentInput=styled.input`
 width:100%;
@@ -44,20 +56,20 @@ export const CommentHeader =({type})=>{
     return(
         <tbody>
             <tr>
-            <StyledTd><TitleText>Item</TitleText></StyledTd>
+            <StyledTd colored><TitleText>Product</TitleText></StyledTd>
 
-            <StyledTd><TitleText>Name</TitleText></StyledTd>
-            <StyledTd><TitleText>Rating</TitleText></StyledTd>
+            <StyledTd colored><TitleText>Product Name</TitleText></StyledTd>
+            <StyledTd colored><TitleText>Rating</TitleText></StyledTd>
 
             {type=='all'?(
             <Fragment>    
-            <StyledTd><TitleText>No of Comments</TitleText></StyledTd>
-            <StyledTd></StyledTd>
+            <StyledTd colored><TitleText>No of Comments</TitleText></StyledTd>
+            <StyledTd colored></StyledTd>
             </Fragment>
             ):(
             <Fragment>    
-            <StyledTd><TitleText>Comments</TitleText></StyledTd>
-            <StyledTd><TitleText>Date</TitleText></StyledTd>
+            <StyledTd colored><TitleText>Comments</TitleText></StyledTd>
+            <StyledTd colored><TitleText>Date</TitleText></StyledTd>
             </Fragment>
             )}   
             
@@ -73,7 +85,14 @@ export const CommentBox = ({
     colorArray,pickColorCallbackF,selectedColor
 }) => {
 
-     var color = selectedColor;
+     
+
+     if(type=='individual'){
+
+     }else{
+        color= selectedColor;
+     }
+
      if(!color || color == ""){
         //use the first color in product json as default
         color = productData[productID].color[0];
@@ -84,7 +103,7 @@ export const CommentBox = ({
             <tr>
             <StyledTd>
             {(type=="makeComment")?(
-                <div>
+                <StyledDiv>
                 <ItemImage 
                 width='100px'
                 height='100px'
@@ -100,7 +119,7 @@ export const CommentBox = ({
                     colorArray={colorArray}
                     pickColorCallbackF={pickColorCallbackF}
                 />
-                </div>
+                </StyledDiv>
             ):(
                 <a href={"/product/"+productID}>
                 <ItemImage 
@@ -133,11 +152,18 @@ export const CommentBox = ({
             {(type=="makeComment")?(
                 <StyledTd>
                 <RatingStar 
-                noOfStar={noOfStar} callbackF={callbackF}/>
+                noOfStar={noOfStar} callbackF={callbackF}
+                interactive={true}
+
+                />
                 </StyledTd>
             ):(
                 <StyledTd>
-                <RatingStar noOfStar={noOfStar} callbackF={callbackF}/>
+                <RatingStar noOfStar={noOfStar} 
+                callbackF={callbackF}
+                interactive={false}
+                />
+                
                 </StyledTd>
             )}
      
@@ -146,14 +172,14 @@ export const CommentBox = ({
             {(type=='all') &&  
                 <Fragment>
                 <StyledTd>              
-                <CommentText>
+                <c.Link to={"/comment/"+productID}>
                     {totalComment}
-                </CommentText>
+                </c.Link>
                 </StyledTd>
                 <StyledTd>
-                    <NavLink
+                    <c.Link
                     to={"/makeComment/"+productID}>
-                    leave comment</NavLink>
+                    leave comment</c.Link>
                 </StyledTd>
                 </Fragment>
             }
@@ -174,7 +200,7 @@ export const CommentBox = ({
             {(type=="makeComment") &&
                 <Fragment>
                     <StyledTd>
-                        <CommentInput 
+                        <CommentTextarea 
                         placeholder='enter your comments here'
                         value={comment}
                         onChange={updateCommentCallbackF}    

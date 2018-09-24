@@ -43,10 +43,8 @@ return(
     <StripeProvider apiKey="pk_test_yqi17IvtKCcZp2JUa3tnDwOe">
     <Elements>
       <InjectedCheckoutForm
-      total={total}
-      orderNo='test'
-      uuid='test'
-      NextCallBackF={this.props.NextCallBackF}
+        total={total}
+        PaymentDoneCallBackF={this.props.PaymentDoneCallBackF}
       />
     </Elements>
   </StripeProvider>

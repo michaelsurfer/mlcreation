@@ -8,6 +8,7 @@ export const StyledTd=styled.td`
   margin:0px;
   text-align: center; 
   padding:5px;
+  vertical-align:middle;
 
   `;
   

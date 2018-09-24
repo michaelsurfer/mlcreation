@@ -3,19 +3,13 @@ import React, {Component} from 'react';
 import styled from "styled-components";
 import * as c from "./Css";
 import LoadingDots from "../LoadingDots";
-import {
-    CardElement,
-    CardCVCElement,
-    CardNumberElement,
-    CardExpiryElement,
-    PaymentRequestButtonElement
-  } from 'react-stripe-elements';
+ import {CardElement} from 'react-stripe-elements';
 
   const createOptions = (fontSize: string, padding: ?string) => {
     return {
       style: {
         base: {
-          fontSize,
+          fontSize : '20px',
           color: '#424770',
           letterSpacing: '0.025em',
           fontFamily: 'Source Code Pro, monospace',
@@ -33,11 +27,9 @@ import {
 
 
   const FormWrapper=styled.div`
-
   width:100%;
   padding:0px;
-  border :1px solid grey;
-
+  border :0px solid grey;
  `;
 
  const InfoWrapper=styled.div`
@@ -46,11 +38,11 @@ import {
  border:0px solid;
  width:100%;
 `
+const Error=styled.label`
+color:red;
+font-size:20px;
+`
 
-const Label=styled.label`
-color:grey;
-padding:10px;
- `
 class CheckoutForm extends Component{
     constructor(props) {
       super(props)
@@ -77,40 +69,56 @@ class CheckoutForm extends Component{
           submitting:false,
           canMakePayment: false,
           success:false,
+          error:false,
+          errorMessage:'',
           paymentRequest
         }
      }
-
-
     success(payload){
       console.log("redirecting payload toward final payment")
-      this.props.NextCallBackF(payload)
+      this.props.PaymentDoneCallBackF(payload)
     }
-
-
 
     handleSubmit=(ev)=>{
         ev.preventDefault();
-
+ 
          if(this.props.stripe){
+          this.setState({
+            submitting:true,
+            error:false,
+            errorMessage:''
+          })
+
             this.props.stripe   
                 .createToken()
-                .then((payload)=>{
+                .then(payload=>{
                     console.log('[token]',payload);
                     //console.log(payload.token.id);
+                    //check error from Stripe payload
+                    if(payload.error){
+                      console.log("error!!")
+                      this.setState({
+                        error:true,
+                        errorMessage:payload.error.message
+                      })
+                      this.setState({submitting:false})
+
+                    }else{
                     this.setState({success:true})                
                     this.success(payload);
-
+                    }
+                }).catch(error=>{
+                  console.log("error!!")
                 })
         }else{
             console.log("Stripe.js hasn't loaded yet.");
 
         }
-        this.setState({submitting:true})
-
+ 
      }
 
     render(){
+        var canPay = this.props.canPay
         return(
             
             <FormWrapper>
@@ -123,6 +131,12 @@ class CheckoutForm extends Component{
                 {this.state.submitting &&
                     <LoadingDots title='LOADING'/>
                 }
+
+                {this.state.error &&
+                    <Error>{this.state.errorMessage}</Error>
+                }
+
+
                     <form onSubmit={this.handleSubmit}>    
                     <InfoWrapper>
                   
@@ -133,7 +147,12 @@ class CheckoutForm extends Component{
                     </c.StripeElement>
                     
                      <c.FormRow>
-                     <c.Button>PAY</c.Button> 
+                    {canPay ? (
+                      <c.Button>PAY</c.Button> 
+                    ):(
+                      <c.Button disabled>PAY</c.Button> 
+                    )}
+ 
                      </c.FormRow>
                      </InfoWrapper>
                     </form>

@@ -8,6 +8,7 @@ import {NavLink} from "react-router-dom";
 import ColorPicker from "../colorPicker/ColorPicker";
 import {HowToUseView} from "./HowToUseView";
 import {text} from "./HowToUse/Css"; 
+import imageScale from "../../asset/ProductImgScale.json";
 
 
 const OutterWrapper=styled.div`
@@ -94,8 +95,6 @@ border:0px solid blue;
 const How2UseBox=styled.div`
 width:95px;
 height:110px;
-background-color:black;
-color:white;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -104,11 +103,13 @@ margin-right:5px;
 text-align: center;
 font-size:15pt;
 font-family: "Arial Unicode MS";
+background-color:${(props)=>c.ThemeColor[props.gender].how2Use};
+color:${(props)=>(props.gender=='g')?'white':'black'};
 `;
 
 const HowBigIsIt=styled(How2UseBox)`
-background-color:${(props)=>c.ThemeColor[props.gender].how2Use};
-color:${(props)=>(props.gender=='g')?'white':'black'};
+background-color:black;
+color:white;
 `;
  
 
@@ -288,8 +289,8 @@ gender={gender}
 </LeftBox>
 <RightBox>
 <ItemImage 
-  width='100%'
-  height='100%'
+  width={imageScale[productID]}
+  height={imageScale[productID]}
   productID={productID}
   color={this.state.selectedColor}
   index={this.state.selectedImage}

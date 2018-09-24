@@ -16,7 +16,6 @@
       "MAP":"34.8",
       "weight":"0.147",
       "qtyInCarton":"60"
-
     },
     "CB":{
       "numOfImage":3,
@@ -35,6 +34,7 @@
       "MAP":"31.8",
       "weight":"0.106",
       "qtyInCarton":"60"
+
     },
     "CBR":{
       "numOfImage":3,

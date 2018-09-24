@@ -3,7 +3,7 @@ import React,{Component,Fragment} from 'react';
 import * as c from '../../common/Css2.js';
 import data from "../../asset/ProductList.json";
 import {observer,inject} from "mobx-react";
-import {ShoppingCartTable} from "./ShoppingCartTable";
+import ShoppingCartTable from "./ShoppingCartTable";
 
 export const Button=styled.button`
   background-color:rgb(225,200,200);
@@ -27,12 +27,10 @@ width:100%;
 class ShoppingCartTableContainer extends Component{
   constructor(props){
     super(props);
-
+ 
   }
 
-  removeFromCart(id){
-    this.props.store.removeFromCart(id);
-  }
+
 
   payNow(finalCost){
     this.props.store.createCustomOrder(finalCost);
@@ -55,7 +53,7 @@ class ShoppingCartTableContainer extends Component{
           totalQty = {totalQty}
           totalShipmentCost = {totalShipmentCost}
           finalCost={finalCost}
-          />
+           />
 
           {(this.props.store.cartSize>0) &&
           <ButtonBar>

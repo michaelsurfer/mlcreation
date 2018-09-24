@@ -46,7 +46,9 @@ width:20px;
 border:0px solid black;
 
 `;
+const DeleteButton=styled.button`
 
+`
 
  
 const Titles=()=>{
@@ -69,13 +71,16 @@ const Titles=()=>{
             Qty
         </StyledCell>
         <StyledCell >
+            Delete
+        </StyledCell>
+        <StyledCell >
             Price
         </StyledCell>
         <MarginCell/>
     </StyledRow>
     );
 }
-const Item=({productCode,color,qty,totalCost})=>{
+const Item=({id,productCode,color,qty,totalCost,removeFromCart})=>{
     console.log(productCode);
     console.log(color);
     var cost = qty * data[productCode].MSRP;
@@ -108,6 +113,11 @@ const Item=({productCode,color,qty,totalCost})=>{
             {qty}
             </StyledCell>
             <StyledCell bottom>
+            <DeleteButton
+                onClick={()=>removeFromCart(id)}
+            >Delete</DeleteButton>
+            </StyledCell>
+            <StyledCell bottom>
             USD {cost}
             </StyledCell>
             <MarginCell/>
@@ -123,34 +133,44 @@ const TotalCost=({totalProductCost,totalQty,totalShipmentCost,finalCost})=>{
         
         <StyledRow color='white' shorter edge>
         
-        <StyledCell/><StyledCell/>
+        <StyledCell/>
+        <StyledCell/>
         <StyledCell>
             SUBTOTAL:
         </StyledCell>
         <StyledCell>
             {totalQty}
         </StyledCell>
+        <StyledCell/>
+
         <StyledCell>
             USD {totalProductCost}
         </StyledCell>
+ 
         </StyledRow>
         <StyledRow color='white' shorter edge bottom>
-        <StyledCell/><StyledCell/>
+        <StyledCell/>
+        <StyledCell/>
         <StyledCell>
             SHIPPING:
         </StyledCell>
         <StyledCell>
             {totalQty} x 8
         </StyledCell>
+        <StyledCell/>
+
         <StyledCell>
             USD {totalShipmentCost}
         </StyledCell>
         </StyledRow>
         <StyledRow color='rgb(239,238,242)' bottom>
-        <StyledCell/><StyledCell/>
+        <StyledCell/>        <StyledCell/>
+
         <StyledCell>
             TOTAL:
         </StyledCell>
+        <StyledCell/>
+
         <StyledCell/>
         <StyledCell>
             USD {finalCost}
@@ -160,52 +180,81 @@ const TotalCost=({totalProductCost,totalQty,totalShipmentCost,finalCost})=>{
    ); 
 }
 
-const ItemList=({itemList})=>{
+const ItemList=({itemList,removeFromCart})=>{
     var result=[];
     for(var id in itemList){
         console.log(id);
         console.log(itemList[id].name);
         result.push (
             <Item
+                id={id}
                 productCode={itemList[id].name}
                 qty={itemList[id].qty}
                 color={itemList[id].color}
+                removeFromCart={removeFromCart}
             />
         )
     }
     return result;
 }
-export const ShoppingCartTable=({cartData,totalProductCost,totalQty,totalShipmentCost,finalCost})=>{
 
-    return(
-        <Wrapper>
-            
-            {(totalQty==0)?(
-            <Fragment>    
-                <c.ColCenterDiv>
-                    Your cart is empty
-                </c.ColCenterDiv>
-            </Fragment>    
-            ):(
-            <Fragment>  
-            <Titles/>  
-            <ItemList
-                itemList={cartData}
-            />
-            
-            <TotalCost
-                totalProductCost={totalProductCost}
-                totalQty={totalQty}
-                totalShipmentCost={totalShipmentCost}
-                finalCost={finalCost}
-            />
+
+@inject('store')
+@observer
+class ShoppingCartTable extends Component{
+    constructor(props){
+        super(props)        
+        this.removeFromCart=this.removeFromCart.bind(this);
+
+    }
+
+    removeFromCart(id){
+        console.log("remove from cart "+id)
+        this.props.store.removeFromCart(id)
+    }
+
+    render(){
+        var cartData = this.props.cartData
+        var totalProductCost = this.props.totalProductCost
+        var totalQty = this.props.totalQty
+        var totalShipmentCost = this.props.totalShipmentCost
+        var finalCost = this.props.finalCost
  
-
-            </Fragment>
-            )}
-   
-        </Wrapper>
-    );
-
+        return(
+            <Wrapper>
+                
+                {(totalQty==0)?(
+                <Fragment>    
+                    <c.ColCenterDiv>
+                        Your cart is empty
+                    </c.ColCenterDiv>
+                </Fragment>    
+                ):(
+                <Fragment>  
+                <Titles/>  
+                <ItemList
+                    itemList={cartData}
+                    removeFromCart={this.removeFromCart}
+                />
+                
+                <TotalCost
+                    totalProductCost={totalProductCost}
+                    totalQty={totalQty}
+                    totalShipmentCost={totalShipmentCost}
+                    finalCost={finalCost}
+                />
+     
+    
+                </Fragment>
+                )}
+       
+            </Wrapper>
+        );
+    
+    }
 }
 
+ 
+
+
+export default ShoppingCartTable;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from "styled-components";
 import * as c from '../common/Css2.js';
 import {apis} from '../common/config.js';
-import {ShoppingCartTable} from './customer/ShoppingCartTable';
+import ShoppingCartTable from './customer/ShoppingCartTable';
 
 const InnerWrapper=styled.div`
 width:80%;

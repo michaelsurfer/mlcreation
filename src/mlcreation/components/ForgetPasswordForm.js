@@ -11,7 +11,7 @@ import {validateEmail} from '../common/Utility.js';
 
 const Wrapper=c.ColCenterDiv.extend`
 background-color:rgb(239,238,242);
-width:400px;
+width:469px;
 height:200px;
 `;
 const Form=styled.form`
@@ -20,8 +20,8 @@ height:100%;
 border:0px solid;
 `;
 const Button=styled.button`
-background-color:rgb(92,194,219);
-width:250px;
+background-color:rgb(253,159,129);
+width:270px;
 padding:10px;
 `;
 const Input=styled.input`

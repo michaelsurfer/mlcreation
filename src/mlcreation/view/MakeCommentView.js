@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React,{Component,Fragment} from 'react';
 import styled from "styled-components";
 import {CommentBox} from "../components/comments/CommentBox";
 import {CommentHeader} from "../components/comments/CommentBox";
@@ -6,12 +6,13 @@ import data from "../asset/ProductList.json";
 import {apis} from '../common/config.js';
 import Dialog from "../components/dialog/Dialog";
 import {observer,inject} from "mobx-react";
-
-
+import {GeneralMessageView} from "./GeneralMessageView";
+ 
 const Wrapper=styled.div`
 display:flex;
 flex-direction:column;
 width:100%;
+height:500px;
 justify-content:center;
 align-items:center;
 `;
@@ -24,10 +25,14 @@ border:1px solid grey;
 `;
 
 const SubmitButton = styled.button`
-display:flex;
+
 background-color:black;
-color:white;
-width:300px;
+color:${(props)=>props.disabled?'grey':'white'}
+width:70%;
+font-size:20px;
+text-align: center;
+vertical-align: middle;
+margin-top:30px;
 `;
 
 
@@ -42,7 +47,8 @@ constructor(props){
     this.state={
         rating:1,
         comment:"",
-        selectedColor:data[this.props.productID].color[0]
+        selectedColor:data[this.props.productID].color[0],
+        showThanksMessage:false
     };
     this.callbackF=this.callbackF.bind(this);
     this.updateCommentCallbackF=this.updateCommentCallbackF.bind(this);
@@ -50,10 +56,15 @@ constructor(props){
 
 }
 callbackF=(e)=>{
-    var rating = e.target.id;
+    console.log("callbackF");
+    console.log(e.rating)
+    //var rating = e.target.id;
+    var rating = e.rating
     this.setState({rating:rating});
 }
 updateCommentCallbackF=(e)=>{
+    console.log("updateCommentCallbackF");
+
     var comment = e.target.value;
     this.setState({comment:comment});
 }
@@ -102,6 +113,7 @@ submit=()=>{
           }else{
             response.text().then(json=>{
                 console.log(json)
+                this.setState({showThanksMessage:true})
                });
           }
       });
@@ -111,12 +123,23 @@ submit=()=>{
 render(){
     var itemJson = data[this.props.productID];
 
-
+    if(this.state.showThanksMessage){
+        return (
+            <Wrapper>
+                <GeneralMessageView
+                    message='Thanks for your comment !'
+                    link='/'
+                    linkTitle='Back to Home'
+                />
+            </Wrapper>
+        )
+    }
 
     return(
         <Wrapper>
         <Dialog/>    
         {itemJson?(
+        <Fragment>   
         <Table>   
         <CommentHeader/>     
         <CommentBox
@@ -131,11 +154,17 @@ render(){
             colorArray={data[this.props.productID].color}
         />
         <tr>
-        <SubmitButton onClick={()=>this.submit()}>Submit</SubmitButton>
-
+    
         </tr>
+ 
         </Table>
-     
+        {this.state.comment == '' ?(
+            <SubmitButton disabled>Submit</SubmitButton>
+        ):(
+            <SubmitButton onClick={()=>this.submit()}>Submit</SubmitButton>
+
+        )}
+         </Fragment>    
         ):(
         <div>
             Item not found

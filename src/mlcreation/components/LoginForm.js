@@ -8,8 +8,8 @@ import Dialog from '../components/dialog/Dialog';
 
 const Wrapper=c.ColCenterDiv.extend`
 background-color:rgb(239,238,242);
-width:400px;
-height:300px;
+width:469px;
+height:456px;
 justify-content:space-around;
 `;
 
@@ -21,13 +21,13 @@ flex-direction:column;
 `;
 
 const SignInButton=styled.button`
-background-color:rgb(253,159,159);
-width:250px;
+background-color:rgb(253,159,129);
+width:390px;
 padding:10px;
 `;
 
 const Input=styled.input`
-width:250px;
+width:370px;
 padding:10px;
 `;
 
@@ -116,7 +116,7 @@ class LoginForm extends Component{
         <ForgetPass
         onClick={()=>this.props.callBackf('forgetPassword',{})}
         >Forget password ?</ForgetPass>
-        <CreateNew onClick={()=>this.props.callBackf('register',{})}>Create account now</CreateNew>
+        <CreateNew onClick={()=>this.props.callBackf('register',{})}>Create the account now</CreateNew>
         </ColDiv>
         <ColDiv>
         <EmptyText>empty</EmptyText>

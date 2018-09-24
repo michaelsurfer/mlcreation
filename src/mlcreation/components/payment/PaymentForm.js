@@ -6,10 +6,10 @@ import OrderHeaderContainer from "../retailer/OrderHeaderContainer";
 import * as c2 from '../retailer/Css.js';
 import * as c from '../../common/Css2.js';
 import PaymentSummary from "./PaymentSummary";
-import PaymentModal from "./PaymentModal";
+import PaymentContainer from "./PaymentContainer";
 import PaymentDone from "./PaymentDone";
-import { json } from 'body-parser';
- 
+import {Redirect} from "react-router";
+
 const ModalWrapper=styled.div`
 position:fixed;
 top:0;
@@ -56,6 +56,7 @@ width:90%;
 class PaymentForm extends Component{
 constructor(props){
   super(props);
+  this.props.store.paymentProcessJson.type = 'retailer'
   this.state={
      total:0,
      donePayment:false
@@ -75,6 +76,14 @@ PaymentDoneCallBackF(){
 render(){
   var device = this.props.device;
   var costJson = this.props.store.retailerCostBreakDown;
+
+  var finalCost=costJson.finalCost  
+
+  var json=this.props.store.redirectionInfo
+   if(json.redirect && json.to!=''){
+   return(<Redirect to={json.to}/>)
+  }
+
 
   return(
     <c2.Wrapper>
@@ -102,19 +111,14 @@ render(){
             
             <td colspan={2}>
               <c2.Button 
-                  onClick={()=>this.props.store.showPaymentModalF('retailer')}
+                  onClick={()=>this.props.store.createOrder(finalCost)}
 
               >Pay Now</c2.Button>
             </td>
           </tr>
           </c2.Table>
         </c.ColPureDiv>
-        <PaymentModal 
-        PaymentDoneCallBackF={this.PaymentDoneCallBackF}
-        type='retailer'
-        totalProductCost={costJson.totalProductCost}
-        totalShipmentCost={costJson.totalShipmentCost}
-        />
+
         </Fragment>    
         )}
 

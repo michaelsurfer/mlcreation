@@ -180,17 +180,17 @@ D.  Once fully recharged, the light indication will stay on.
     `,
     button:`
 A.  Just quickly press the button once to turn it on.
-    Once switched on, it starts on the first mode and weakest intensity.
+     Once switched on, it starts on the first mode and weakest intensity.
 B.  After turned on, you can choose 8 different modes,
-    each quickly press changes one mode, after the 8th mode, 
-    the vibration will go back to the 1st mode.
+     each quickly press changes one mode, after the 8th mode, 
+     the vibration will go back to the 1st mode.
 C.  After turned on, you can choose 3 kinds of vibration intensity for any vibration mode.
-    The first time quickly press the button twice, the vibration intensity will be upgraded to the
-    second strength. 
-    The second time quickly press the button twice, the vibration intensity will be upgraded  
-    to the third strength. 
-    The third time quickly press the button twice, the vibration intensity will go back to the 
-    weakest strength.
+     The first time quickly press the button twice, the vibration intensity will be upgraded to the
+     second strength. 
+     The second time quickly press the button twice, the vibration intensity will be upgraded  
+     to the third strength. 
+     The third time quickly press the button twice, the vibration intensity will go back to the 
+     weakest strength.
 D.  Switch it off, just press the button for one second.    
 `
 },
@@ -215,11 +215,11 @@ D.  Once fully recharged, the light indication will stay on.
     button:`
 A.  Just quickly press the button once to turn it on.
 B.  After turned on, you can choose 10 different modes,
-    each quickly press changes one mode,after the 10th mode,  
-    the vibration will go back to the 1st mode.
+     each quickly press changes one mode,after the 10th mode,  
+     the vibration will go back to the 1st mode.
 C.  For choose the 10-auto cycle mode, just quickly press the button twice, 
-    the vibration mode will changes to the 10-auto cycle mode.
-    To get out the 10-auto cycle mode, just quickly press the button once.
+     the vibration mode will changes to the 10-auto cycle mode.
+     To get out the 10-auto cycle mode, just quickly press the button once.
 D.  Switch it off, just press the button for one second.    
 `
 },
@@ -245,11 +245,11 @@ D.  Once fully recharged, the light indication will stay on.
     button:`
 A.  Just quickly press the button once to turn it on.
 B.  After turned on, you can choose 10 different modes,
-    each quickly press changes one mode,after the 10th mode,  
-    the vibration will go back to the 1st mode.
+     each quickly press changes one mode,after the 10th mode,  
+     the vibration will go back to the 1st mode.
 C.  For choose the 10-auto cycle mode, just quickly press the button twice, 
-    the vibration mode will changes to the 10-auto cycle mode.
-    To get out the 10-auto cycle mode, just quickly press the button once.
+     the vibration mode will changes to the 10-auto cycle mode.
+     To get out the 10-auto cycle mode, just quickly press the button once.
 D.  Switch it off, just press the button for one second.
     `
 },
@@ -274,11 +274,11 @@ D.  Once fully recharged, the light indication will stay on.
     button:`
 A.  Just quickly press the button once to turn it on.
 B.  After turned on, you can choose 10 different modes,
-    each quickly press changes one mode,after the 10th mode,  
-    the vibration will go back to the 1st mode.
+     each quickly press changes one mode,after the 10th mode,  
+     the vibration will go back to the 1st mode.
 C.  For choose the 10-auto cycle mode, just quickly press the button twice, 
-    the vibration mode will changes to the 10-auto cycle mode.
-    To get out the 10-auto cycle mode, just quickly press the button once.
+     the vibration mode will changes to the 10-auto cycle mode.
+     To get out the 10-auto cycle mode, just quickly press the button once.
 D.  Switch it off, just press the button for one second.    
     `
 },
@@ -359,13 +359,13 @@ C.  Once fully recharged, the light indicator (Big “M” Bullet) will stay on.
     `,
     button:`
 •   The function of the big “M” button is exactly same as the small “M” button.
-    Small “M” button for the small motor.
-    Big “M” button for the big motor 
-    Big “H” button for the heating function
+     Small “M” button for the small motor.
+     Big “M” button for the big motor 
+     Big “H” button for the heating function
 •   First you need to press the big “M” button on the vibrator for 1.5 seconds till 
-    you feel one time 
-    shortly vibration to turn on the remote reception function and same time the big “M” button 
-    will Lights up.
+     you feel one time 
+     shortly vibration to turn on the remote reception function and same time the big “M” button 
+     will Lights up.
 •   After turn on the remote reception function, you can use the remote to control the vibrator function.
 •   After turn on the remote reception function, the operation of the vibrator button is same as the 
     remote button.

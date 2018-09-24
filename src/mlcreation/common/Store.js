@@ -5,8 +5,9 @@ import {computed} from "mobx";
 import ShipmentData from "../asset/ShipmentCost.json";
  
 export default class Store{
-  @observable login = true;
+  @observable login = false;
   //@observable showPaymentModal = 'none';
+  @observable currentPaymentType = '';
   @observable showPaymentModal = 'none';
   @observable showSelectGenderDialog={
     show:false,
@@ -50,9 +51,14 @@ export default class Store{
     other:{value:'test'},
     homeParties:{value:'test'}
   };
+  @observable redirectionInfo={
+    redirect:false,
+    to:''
+  };
   @observable loginError = false;
   @observable shoppingCart = {};
   @observable retailerCart = {};
+  @observable canDoPayment = true;
   @observable paymentProcessJson = {
     //use to manage payment process
     type:'',
@@ -77,12 +83,11 @@ export default class Store{
   // COMPUTED FUNCTIONS
   
   @computed
+ 
   get isPaymentDone(){
     return this.paymentProcessJson.done
   }
-  get currentPaymentType(){
-    return this.paymentProcessJson.type
-  }
+ 
   get customCostBreakDown(){
     var cart;
     cart = this.shoppingCart;
@@ -171,10 +176,11 @@ export default class Store{
 // FETCH FUNCTIONS
 
 
-payment(token){
+payment(json){
 //type = custom or retailer
 var json = {
-  token:token,
+  token:json.token,
+  info:json.info,
   uuid:this.paymentProcessJson.uuid,
   type:this.paymentProcessJson.type
 }
@@ -200,7 +206,7 @@ fetch(apis.payment.endpoint,{
         var data = JSON.stringify(json)
         console.log('FINAL PAYMENT SUCCESSED')
         this.paymentProcessJson.done=true
-        this.deleteCart(this.paymentProcessJson.type)
+        this.resetStore()
       });
     }
   })
@@ -238,6 +244,9 @@ retailerLogin(data){
 
 createCustomOrder(finalCost){
   this.loading = true;
+  console.log("final Cost"+finalCost)
+
+  this.currentPaymentType = 'custom';
   var json2Upload = {
     data:this.shoppingCart,
     finalCost:finalCost
@@ -253,16 +262,18 @@ createCustomOrder(finalCost){
    }).then(response=>response.json())
    .then(data=>{
      //this.orderNo.uuid=data.uuid;
+     this.paymentProcessJson.type = 'custom'
      this.orderDetail.custom.uuid=data.uuid;
      console.log("order created on the server with uuid "+data.uuid);
+     this.setRedirect('/payment')
      this.loading = false;
-     this.showPaymentModalF('custom');
-   });
+     });
 }
 
   createOrder(finalCost){
     this.loading = true;
-    console.log(finalCost)
+    this.currentPaymentType = 'retailer';
+    console.log("final Cost"+finalCost)
     //remove unneccssary data
 
     var newCartData={}
@@ -288,8 +299,12 @@ createCustomOrder(finalCost){
      .then(data=>{
        //this.orderNo.uuid=data.uuid;
        this.orderDetail.retailer.uuid=data.uuid;
+       this.paymentProcessJson.type = 'retailer'
        console.log("order created on the server with uuid "+data.uuid);
        this.loading = false;
+       this.setRedirect('/payment')
+
+
      });
   }
 
@@ -306,12 +321,14 @@ createCustomOrder(finalCost){
 
 
 // COMMON FUNCTIONS
-
+  resetRedirection(){
+    this.redirectionInfo.redirect=false
+  }
   startPaymentProcess(type){
     var uuid=this.orderDetail[type].uuid
     var orderNo=this.orderDetail[type].orderNo
-    console.log('payment process start'), 
- 
+    console.log('payment process start')
+    this.paymentProcessJson.done=false
     this.paymentProcessJson = {
       type:type,
       uuid:uuid,
@@ -346,9 +363,14 @@ closeDialog(){
   this.generalDialog.show=false;
 }
  
-
+  setRedirect(to){
+    this.redirectionInfo.redirect=true
+    this.redirectionInfo.to=to
+    console.log('setup redirection to :'+to)
+  }
 
   loadShoppingCart(){
+
     var existingCart=JSON.parse(sessionStorage.getItem("cart"));
     if(existingCart){
       this.shoppingCart=existingCart;
@@ -368,7 +390,11 @@ closeDialog(){
 
   saveCart(){
     //store cart to local sessionStorage
-    sessionStorage.setItem("cart",this.shoppingCart);
+    console.log("saving cart")
+    console.log(this.shoppingCart)
+    var data = JSON.stringify(this.shoppingCart);
+
+    sessionStorage.setItem("cart",data);
 
   }
   addOne2Cart(id,color){
@@ -393,11 +419,11 @@ closeDialog(){
 
       this.shoppingCart = cart ;
 
-
+      this.saveCart()
   }
 
   setCart(id,qty,type){
- 
+    console.log("setCart")
     console.log(id);
     //id : ITS-B
     var cart;
@@ -420,17 +446,22 @@ closeDialog(){
   }
 
   deleteCart(type){
+    console.log("deleteCart")
     if(type=='custom'){
       this.shoppingCart={}
     }else if(type=='retailer'){
       this.retailerCart={}
     }
+    this.saveCart()
+
    }
 
   removeFromCart(id){
+    console.log("removeFromCart")
     var cart = this.shoppingCart;
     delete cart[id];
     this.shoppingCart=cart;
+    this.saveCart()
   }
 
 
@@ -439,7 +470,25 @@ closeDialog(){
     this.login=false;
   }
 
+  resetStore(){
+    this.redirectionInfo.redirect=false
+    this.redirectionInfo.to=''
+    this.shoppingCart = {}
+    this.retailerCart = {}
+  
+    this.orderDetail = {
+      custom:{
+        orderNo:'',
+        uuid:''
+      },
+      retailer:{
+        orderNo:'',
+        uuid:''
+      }
+    }
 
+  
+  }
  
 
 
