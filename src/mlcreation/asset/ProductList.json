@@ -11,11 +11,14 @@
       "title2":"Food Degree Silicone Sleeve & Environment Friendly (Electroplating) Plastic Bullet",      
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
-      "retailPrice":"18.2",
+      "retailPrice":"18.0",
        "MSRP":"38.8",
-      "MAP":"34.8",
-      "weight":"0.147",
-      "qtyInCarton":"60"
+      "MAP":"35.8",
+      "weight":"134",
+      "qtyInCarton":"60",
+      "dimension":{
+        "length":"85mm","weight":"47","size":"26-43mm"
+      }
     },
     "CB":{
       "numOfImage":3,
@@ -32,8 +35,11 @@
       "retailPrice":"15.8",
       "MSRP":"34.8",
       "MAP":"31.8",
-      "weight":"0.106",
-      "qtyInCarton":"60"
+      "weight":"92",
+      "qtyInCarton":"60",
+      "dimension":{
+        "high":"46mm","diameter":"30mm","weight":"26g"
+      }
 
     },
     "CBR":{
@@ -48,11 +54,14 @@
       "title2":"Food Degree Silicone Sleeve & Environment Friendly (Electroplating) Plastic Bullet",      
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
-      "retailPrice":"11.62",
-       "MSRP":"24.8",
-      "MAP":"22.3",
-      "weight":"0.089",
-      "qtyInCarton":"96"
+      "retailPrice":"12.18",
+       "MSRP":"246.8",
+      "MAP":"24.6",
+      "weight":"79",
+      "qtyInCarton":"96",
+      "dimension":{
+        "length":"63mm","weight":"21","Size":"24-36mm"
+      }
 
     },
     "GB":{
@@ -69,9 +78,12 @@
       "description2":"Zine alloy super powerful USB..........................",
       "retailPrice":"18.36",
        "MSRP":"39.8",
-      "MAP":"35.8",
-      "weight":"0.098",
-      "qtyInCarton":"96"
+      "MAP":"36.8",
+      "weight":"85",
+      "qtyInCarton":"96",
+      "dimension":{
+        "length":"90mm","diameter":"18mm","weight":"31g"
+      }
 
     },
     "GF":{
@@ -87,10 +99,13 @@
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
       "retailPrice":"23.8",
-       "MSRP":"49.98",
-      "MAP":"44.98",
-      "weight":"0.133",
-      "qtyInCarton":"60"
+       "MSRP":"50.8",
+      "MAP":"47.8",
+      "weight":"119",
+      "qtyInCarton":"60",
+      "dimension":{
+        "length":"53mm","diameter":"22mm","weight":"53g"
+      }
 
     },
     "PF":{      
@@ -105,11 +120,14 @@
       "title2":"Food Degree Silicone Sleeve & Environment Friendly Hard Plastic Bullet",      
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
-      "retailPrice":"11.2",
-       "MSRP":"23.6",
-      "MAP":"21",
-      "weight":"0.083",
-      "qtyInCarton":"84"
+      "retailPrice":"11.9",
+      "MSRP":"25.8",
+      "MAP":"23.8",
+      "weight":"67",
+      "qtyInCarton":"84",
+      "dimension":{
+        "high":"44mm","length":"30mm","diameter":"18mm","weight":"15g"
+      }
 
     },
     "PR":{
@@ -124,11 +142,14 @@
       "title2":"Food Degree Silicone Sleeve & Environment Friendly (Electroplating) Plastic Bullet",      
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
-      "retailPrice":"19.3",
-       "MSRP":"41.8",
-      "MAP":"37.8",
-      "weight":"0.094",
-      "qtyInCarton":"96"
+      "retailPrice":"17.9",
+       "MSRP":"41.839.8",
+      "MAP":"36.8",
+      "weight":"84",
+      "qtyInCarton":"96",
+      "dimension":{
+        "high":"63mm","diameter":"28-42mm","weight":"26g"
+      }
 
     },
     "RC":{
@@ -146,8 +167,11 @@
       "retailPrice":"22.8",
        "MSRP":"49.8",
       "MAP":"45.8",
-      "weight":"0.207",
-      "qtyInCarton":"30"
+      "weight":"196",
+      "qtyInCarton":"30",
+      "dimension":{
+        "length":"119mm","diameter":"36mm","Bweight":"33g"
+      }
 
     },
     "RHT":{
@@ -157,16 +181,23 @@
       "itemName":"Remote Hunter",
       "color":["GSHPI","GIDG","GBK"],
       "gender":"both",
+      "genderColor":{
+        "m":["GBK"],
+        "g":["GSHPI","GIDG"]
+      },
       "description":"Zine alloy super powerful USB..........................",
       "title1":"Super Powerful USB Rechargeable Prostate & Anus Dobule Motors Remote Vibrator With Heating Function",
       "title2":"Food Degree Silicone Sleeve & Environment Friendly (Electroplating) Plastic Handle and Remote",      
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
-      "retailPrice":"31.9",
-      "MSRP":"68.8",
-      "MAP":"62.8",
-      "weight":"0.449",
-      "qtyInCarton":"20"
+      "retailPrice":"33.3",
+      "MSRP":"69.9",
+      "MAP":"66.9",
+      "weight":"466",
+      "qtyInCarton":"20",
+      "dimension":{
+        "length":"164mm","diameter":"32mm","weight":"188g"
+      }
 
     },
     "SR":{
@@ -181,11 +212,14 @@
       "title2":"Food Degree Silicone Sleeve & Environment Friendly (Electroplating) Plastic Bullet",      
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
-      "retailPrice":"17.92",
+      "retailPrice":"17.8",
        "MSRP":"38.3",
-      "MAP":"34.5",
-      "weight":"0.136",
-      "qtyInCarton":"60"
+      "MAP":"35.3",
+      "weight":"126",
+      "qtyInCarton":"60",
+      "dimension":{
+        "length":"73mm","weight":"36g","size":"24-41mm"
+      }
 
       },
     "VA":{
@@ -202,9 +236,12 @@
       "description2":"Zine alloy super powerful USB..........................",
       "retailPrice":"18.2",
       "MSRP":"38.8",
-      "MAP":"34.8",
-      "weight":"0.380",
-      "qtyInCarton":"20"
+      "MAP":"36.0",
+      "weight":"363",
+      "qtyInCarton":"20",
+      "dimension":{
+        "high":"153mm","diameter":"56mm","weight":"216g"
+      }
 
     },
     "ITS":{
@@ -215,16 +252,23 @@
       "color":["S","G"],
       "numOfImage":3,
       "gender":"both",
+      "genderColor":{
+        "m":["S","G"],
+        "g":["S","G"]
+      },
       "description":"Zine alloy super powerful USB..........................",
       "title1":"Super Powerful USB Rechargeable Anus Vibrator",
       "title2":"Environment Friendly Electroplating Zinc Alloy Body & Food Degree Silicone Ring",      
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
       "retailPrice":"38.9",
-      "MSRP":"86.8",
+      "MSRP":"83.8",
       "MAP":"77.8",
-      "weight":"0.455",
-      "qtyInCarton":"24"
+      "weight":"439",
+      "qtyInCarton":"24",
+      "dimension":{
+        "length":"139mm","diameter":"39mm","weight":"288g"
+      }
     },
     "DB":{
       "RLayout":"C",
@@ -234,6 +278,10 @@
       "color":["SR","SPP","SPIPP","SLPI","SBK"],
       "numOfImage":3,
       "gender":"both",
+      "genderColor":{
+        "m":["SBK"],
+        "g":["SR","SPP","SPIPP","SLPI","SBK"]
+      },
       "title1":"Super Powerful USB Rechargeable Testicles, Prostate & Anus Double Motors Vibrator",
       "title2":"Food Degree Silicone Sleeve & Environment Friendly (Electroplating) Plastic Ring",      
       "description":"Zine alloy super powerful USB..........................",
@@ -241,10 +289,13 @@
       "description2":"Can choose the 10-auto cycle mode",
       "description3":"1 hour of charging = 1 hour usage",
       "retailPrice":"23.6",
-       "MSRP":"51.8",
+       "MSRP":"50.8",
       "MAP":"47.8",
-      "weight":"0.385",
-      "qtyInCarton":"24"
+      "weight":"355",
+      "qtyInCarton":"24",
+      "dimension":{
+        "length":"180mm","diameter":"28mm/24mm","weight":"184g"
+      }
     },
     "LB":{
       "RLayout":"A",
@@ -260,17 +311,20 @@
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
       "retailPrice":"17",
-       "MSRP":"38.8",
+       "MSRP":"37.8",
       "MAP":"34.8",
-      "weight":"0.091",
-      "qtyInCarton":"96"
+      "weight":"78",
+      "qtyInCarton":"96",
+      "dimension":{
+        "high":"84mm","diameter":"17mm","weight":"21g"
+      }
     },
     "RVKB":{
       "RLayout":"B",
       "LLayout":"A",
       "itemName":"Remote Vibration K-Balls",
       "refNo":"W-RVKB-S",
-      "color":["BK","PP","R","PI","GO","LPIPP"],
+      "color":["BK","PP","R","PI","LPIPP"],
       "numOfImage":4,
       "gender":"g",
       "title1":"Powerful USB Rechargeable Remote Vibration Kegel Ball & Clitoris Vibrator",
@@ -279,10 +333,13 @@
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
       "retailPrice":"24.2",
-      "MSRP":"50.8",
-      "MAP":"45.8",
-      "weight":"0.305",
-      "qtyInCarton":"30"
+      "MSRP":"51.8",
+      "MAP":"48.8",
+      "weight":"296",
+      "qtyInCarton":"30",
+      "dimension":{
+        "length":"175mm","diameter":"37mm","Bweight":"86g"
+      }
     },
     "EVVA":{
       "RLayout":"D",
@@ -297,11 +354,14 @@
       "description":"Zine alloy super powerful USB..........................",
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
-      "retailPrice":"6.44",
-       "MSRP":"13.8",
-      "MAP":"11.8",
-      "weight":"0.11",
-      "qtyInCarton":"60"
+      "retailPrice":"6",
+       "MSRP":"13.2",
+      "MAP":"12",
+      "weight":"101",
+      "qtyInCarton":"60",
+      "dimension":{
+        "length":"93mm","diameter":"36mm","weight":"66g"
+      }
     },
     "MR":{
       "RLayout":"A",
@@ -317,9 +377,12 @@
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
       "retailPrice":"24.2",
-       "MSRP":"50.8",
-      "MAP":"45.8",
-      "weight":"0.155",
-      "qtyInCarton":"60"
+       "MSRP":"51.8",
+      "MAP":"48.8",
+      "weight":"145",
+      "qtyInCarton":"60",
+      "dimension":{
+        "length":"72mm","weight":"63","size":"28-45mm"
+      }
     }
 }

@@ -8,37 +8,27 @@ import {NavLink} from "react-router-dom";
 const Wrapper=c.RowPureDiv.extend`
 background-color:rgb(29,30,32);
 justify-content:space-between;
-flex-direction:column;
+flex-direction:row;
 
-@media ${device.tablet}{
-  flex-direction:row;
- }
+
 `;
 
 const Cell=c.ColPureDiv.extend`
 justify-content:center;
 align-items:left;
-padding:10px;
-
-@media ${device.tablet}{
 padding:30px;
- }
+
 
 
 `;
 
 const SocialCell=Cell.extend`
-display:none;
-@media ${device.tablet}{
 display:flex;
- }
 `;
 
 const SocialCellMobile=Cell.extend`
-display:flex;
-@media ${device.tablet}{
 display:none;
- }
+
 `;
 
 const Followus=styled.label`

@@ -69,16 +69,17 @@ const RightBoxInnerWrapper=styled.div`
 
 
 const Title=styled.label`
-    font-size:40pt;
-    margin-top:20px;
-    margin-bottom:15px;
-    font-family: 'Yellowtail', cursive;
+    font-size:25pt;
+    margin-top:50px;
+    font-family:'Times New Roman';
 
 `;
 
 const Desc=styled.label`
-    font-size:18pt;
+    font-size:16pt;
     color:rgb(61,49,48);
+    font-family:'Times New Roman';
+
  `;
 
 const RightTable=styled.table`
@@ -127,6 +128,7 @@ background:transparent;
 
 const StyledTr=styled.tr`
 height:50px;
+border:0px solid;
 `;
 
 const LeftTd=styled.td`
@@ -207,9 +209,11 @@ render(){
             <LeftBoxInnerWrapper>
                  <Table>
                     <tr>
-                        <LeftTd colSpan={2}
+                        <LeftTd colSpan={2} 
                             style={{
-                                "height":"150px"                            }}
+                                "height":"100px",  
+                                "text-align":"center"                      
+                            }}
                         >
                         <Title>ML Creation Co. Limited</Title>
                         </LeftTd>
@@ -251,8 +255,8 @@ render(){
             <form onSubmit={this.handleSubmit}>
                 <RightTable>
                     <tr>
-                        <StyledTd><TextInput placeholder="Your name" id='name'/></StyledTd>
-                        <StyledTd><TextInput placeholder="email" id='email'/></StyledTd>
+                        <StyledTd><TextInput placeholder="YOUR NAME" id='name'/></StyledTd>
+                        <StyledTd><TextInput placeholder="YOUR EMAIL" id='email'/></StyledTd>
                     </tr>    
                     <tr>
                         <td style={{
@@ -276,7 +280,7 @@ render(){
                         }}
                         
                         
-                        colspan="2" align="center"><Button>Submit</Button></td>
+                        colspan="2" align="center"><Button>SUBMIT</Button></td>
                     </tr>
                     
                 </RightTable>

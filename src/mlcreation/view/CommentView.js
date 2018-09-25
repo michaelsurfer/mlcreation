@@ -16,6 +16,7 @@ justify-content:center;
 align-items:center;
 border:0px solid;
 min-height:600px;
+padding-top:100px;
 `;
 
 
@@ -27,6 +28,7 @@ align-items:center;
 margin-top:50px;
 background-color:rgb(255,200,200);
 width:70%;
+margin-bottom:100px;
 `;
 
 @inject('store')
@@ -74,7 +76,6 @@ render(){
           {this.state.noComment ?(
             <c.ColCenterDiv> 
             <p>There are no comment for this product yet</p>
-         
             </c.ColCenterDiv>
 
           ):(

@@ -312,7 +312,7 @@ flex:${(props)=>props.doubleSize?'2':'1'}
 `;
 
 const FormRow=s.BasicDiv.extend`
-flex-direction:column;
+flex-direction:row;
 flex:${(props)=>props.doubleSize?'2':'1'}
 height:auto;
 border-bottom:${(props)=>props.border?'0px solid grey':'0px'}
@@ -321,9 +321,7 @@ border-right:${(props)=>props.border?'1px solid grey':'0px'}
 border-top:${(props)=>props.border?'1px solid grey':'0px'}
 margin:-1px 0 0 -1px;
 background-color: white;
-@media ${device.tablet}{
-  flex-direction:row;
- }
+
 `;
 
 
@@ -361,10 +359,8 @@ border-radius:4px;
 
 const InvisibleFormText=s.RegistrationFormText.extend`
 opacity:0;
-display:none;
-@media ${device.tablet}{
-  display:block;
- }
+display:block;
+
 `;
 
 

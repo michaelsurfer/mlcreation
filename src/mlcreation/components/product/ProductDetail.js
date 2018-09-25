@@ -22,9 +22,7 @@ const Image=styled.div`
   background-position: center 0;
   z-index:1;
   display:block;
-  @media ${device.tablet}{
-  display:block;
-   }
+  
 `;   
 
 /*
@@ -95,15 +93,10 @@ height:auto;
  const Row=styled.div`
  display:flex;
  flex:1;
- flex-direction:column;
+ flex-direction:row;
  width:100%;
  background-color:rgb(241,181,158);
-
- @media ${device.tablet}{
-   flex-direction:row;
-   width:100%;
-
-  }
+ 
   `
 
 const ReturnInnerDescCell=(({direction,productID,color,center})=>{

@@ -39,13 +39,6 @@ text-align: center;
 border:1px solid grey;
 border-radius:0px;
 
-  @media ${device.tablet}{
-   }
-
-  @media ${device.laptop}{
-   }
-  @media ${device.desktop}{
-   }
 `;
 
 
@@ -64,6 +57,7 @@ display:flex;
 flex:1;
 flex-direction:${(props)=>props.reverse ? 'column-reverse' : 'column'};
 width:100%;
+flex-direction:row;
 
 @media ${device.tablet}{
   flex-direction:row;
@@ -94,10 +88,6 @@ background-repeat:no-repeat;
 background-size: contain;
 background-position:${props=>props.him ? 'left bottom':'right bottom'};
 
-@media ${device.tablet}{
-  height:390px;
-
- }
 
 `;
 

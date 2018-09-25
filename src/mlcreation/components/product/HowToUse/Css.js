@@ -5,7 +5,7 @@ import {productImagePath} from '../../../common/config.js';
 export const path=productImagePath;
 
 
-export const topPosition = '50px';
+export const topPosition = '150px';
 
 export const OutterWrapper=styled.div`
 display:flex;
@@ -28,7 +28,7 @@ z-index:2;
  export const LTextDiv=styled.div`
  width:100%;
  margin-right:${(props)=>props.right};
- margin-left:100px;
+ margin-left:140px;
  border:0px solid red;
  z-index:2;
  `;
@@ -42,8 +42,8 @@ background-image:url(${(props)=>props.img});
 background-repeat:no-repeat;
 background-size:contain;
 background-position:center center;
-width:150px;
-height:150px;
+width:200px;
+height:200px;
 
 z-index:1;
 border:0px solid grey;

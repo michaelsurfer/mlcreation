@@ -16,11 +16,8 @@ padding:5px;
 `;
 
 const DropDownMenu=c.AutoFullCol.extend`
-display:flex;
-@media ${device.tablet}
- {
-   display:none;
- };
+display:none;
+
 
 `;
 
@@ -37,26 +34,18 @@ align-items:flex-end;
 text-align:center;
 padding:5px;
 height:120px;
-display:none;
-@media ${device.tablet}
- {
-   display:flex
- };
-
+display:flex;
 `;
 
 const TopBar=c.AutoFullRow.extend`
 background-color:${(props)=>props.color};
 justify-content:flex-end;
 align-items:center;
-display:none;
+display:flex;
 height:50px;
 padding-right:10px;
 border:0px solid white;
-@media ${device.tablet}
- {
-   display:flex
- };
+
 `;
 
 const MenuGroup=c.RowPureDiv.extend`

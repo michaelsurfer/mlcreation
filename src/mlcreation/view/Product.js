@@ -27,8 +27,14 @@ class Product extends Component{
     var productID = this.props.productID;
     var gender = this.props.gender;
     var itemName = data[productID].itemName;
-    var colorArray = data[productID].color;
-    var price = data[productID].retailPrice;
+    var colorArray;
+    if(data[productID].gender=='both'){
+      colorArray = data[productID].genderColor[gender];
+    }else{
+      colorArray = data[productID].color
+    }
+
+     var price = data[productID].retailPrice;
     var title1 = data[productID].title1;
     var title2 = data[productID].title2;
     var description1 = data[productID].description1;
@@ -63,8 +69,7 @@ class Product extends Component{
       colorArray={colorArray}
       callback={this.callbackF}
       />
-       <SloganBanner gender={gender}/>
-
+ 
       </c.ColPureDiv>
     );
   }

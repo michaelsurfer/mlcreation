@@ -26,7 +26,15 @@ import {AboutUsView} from './mlcreation/view/AboutUsView';
 import RetailerBar from './mlcreation/navigation/RetailerBar';
 import PaymentContainer from './mlcreation/components/payment/PaymentContainer';
 import OneStepPaymentForm from './mlcreation/components/payment/OneStepPaymentForm';
+import {YouMayAlsoLike} from './mlcreation/components/YouMayAlsoLike';
+import {SloganBanner} from './mlcreation/components/SloganBanner';
+import  GenderSelection from './mlcreation/components/GenderSelection';
 
+const FixSizeRootWrapper=styled.div`
+width: 100%;
+min-width: 1200px;
+max-width: 3000px;
+`
 const ModalWrapper=styled.div`
 position:fixed;
 top:0;
@@ -47,6 +55,22 @@ left:50%;
 transform: translate(-50%,-50%);
 `;
 
+
+const ProductRedirect=({match})=>{
+
+  var productID=match.params.productID
+  var gender=data[productID].gender
+  if(gender=='both'){
+    return(<div>
+              <NavBar gender='general'/>
+
+      <GenderSelection productID={productID}/>
+      )
+      }
+    </div>)
+  }
+
+}
 const MakeComment=({match})=>(
   <div>
         <NavBar gender='general'/>
@@ -200,6 +224,9 @@ return(
 <div>
 <NavBar gender={gender}/>
   <Product gender={gender} productID={match.params.productID}/>
+  <YouMayAlsoLike gender={gender}/>
+  <SloganBanner gender={gender}/>
+
 </div>
 );
 };
@@ -207,6 +234,7 @@ const ProductListView = ({match}) =>(
 <div>
 <NavBar gender={match.params.gender}/>
   <ProductList gender={match.params.gender}/>
+
 </div>
 );
 
@@ -323,18 +351,11 @@ class App extends Component {
     if(this.props.store.loading){loading = 'block'}
      return (
       <Router>
-        
-      <div>
+
+      <FixSizeRootWrapper>
        <ModalWrapper display={loading}>
-
-        <Modal>
-
-        LOADING....
-
-        </Modal>
+        <Modal>LOADING....</Modal>
       </ModalWrapper>
-
-
 
        <Route exact path="/" component={HomeView}/>
        <Route exact path="/product/:gender/:productID" component={ProductView}/>
@@ -354,10 +375,11 @@ class App extends Component {
        <Route exact path="/retailerPolicy/" component={RetailerPolicy}/>
        <Route exact path="/aboutUs/" component={AboutUs}/>
        <Route exact path="/payment" component={Payment}/>
-
-
+       <Route exact path="/productRedirect/:productID" component={ProductRedirect}/>
+       }
+ 
       {<Footer/>}
-      </div>
+      </FixSizeRootWrapper>
       </Router>
     );
   }

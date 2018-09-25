@@ -10,7 +10,10 @@ import {observer,inject} from "mobx-react";
 
 const Wrapper=styled.div`
 display:flex;
+justify-content:center;
+align-items:center;
 width:100%;
+height:70vh;
 flex-direction:column;
 `;
 const StyledRow=styled.div`

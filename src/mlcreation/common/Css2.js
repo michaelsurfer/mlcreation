@@ -16,11 +16,11 @@ font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 `;
  
 export const Line=styled.div`
-height:1px;
+height:18px;
 width:100%;
-margin-top:1px;
+margin-top:0px;
 border-top:0px solid;
-border-bottom:1px solid;
+border-bottom:2px solid;
 `;
 export const ThemeColor={
 g:{

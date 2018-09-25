@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import styled from "styled-components";
 import * as c from '../common/Css2.js';
-import { device } from "../common/device";
-import itemImg from '../image/batman/main.png';
 import {imagePath,productImagePath} from '../common/config.js';
 
 
@@ -73,23 +71,17 @@ const StyledProductBox=styled.a`
   background-size:contain;
   background-position: center;
   border:2px solid white;
-  @media ${device.tablet}{
-    flex-direction:row;
-    margin:2px 0px 0px 0px;
-  }
+  flex-direction:row;
+ 
 `;
 
 const StyledRow=styled.div`
 display:flex;
-flex-direction:column;
+flex-direction:rwo;
 flex-wrap:no-wrap;
 background-color:black;
-margin:0px 0px 0px 0px;
+margin:10px 0px 10px 0px;
 justify-content:space-between;
-@media ${device.tablet}{
-  flex-direction:row;
-  margin:10px 0px 10px 0px;
-}
  `;
 
 

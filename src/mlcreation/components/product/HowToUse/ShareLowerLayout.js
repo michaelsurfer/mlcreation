@@ -66,7 +66,7 @@ export const ShareLowerLayout=({
             />
             
             <c.TextDiv
-                left='100px'
+                left='140px'
             >
             <HowToUseText
                 title="How to Clean It?"

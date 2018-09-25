@@ -16,7 +16,7 @@ const Images=styled.div`
 display:flex;
 justify-content:space-between;
 width:100%;
-height:680px;
+height:75vh;
 align-items:center;
 border:0px solid blue;
 border-radius:1px;
@@ -25,9 +25,7 @@ background-repeat:no-repeat;
 background-size: cover;
 background-position: center;
 
-@media ${device.tablet}{
-  height:80vh;
- }
+
 `;
 
 class ImageSlider extends Component{
