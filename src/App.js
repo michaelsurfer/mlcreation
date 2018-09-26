@@ -15,7 +15,6 @@ import LoginView from './mlcreation/view/LoginView';
 import {observer,inject} from "mobx-react";
 import {YourAccountView} from './mlcreation/view/YourAccountView';
 import ShoppingCartView from './mlcreation/view/ShoppingCartView';
-import TransactionView from './mlcreation/view/TransactionView';
 import ContactUsView from './mlcreation/view/ContactUsView';
 import AccountActivation from './mlcreation/view/AccountActivation';
 import MakeCommentView from './mlcreation/view/MakeCommentView';
@@ -29,6 +28,8 @@ import OneStepPaymentForm from './mlcreation/components/payment/OneStepPaymentFo
 import {YouMayAlsoLike} from './mlcreation/components/YouMayAlsoLike';
 import {SloganBanner} from './mlcreation/components/SloganBanner';
 import  GenderSelection from './mlcreation/components/GenderSelection';
+import TransactionView from './mlcreation/components/transactions/TransactionView';
+import RetailerTransactionHistory from './mlcreation/components/transactions/RetailerTransactionHistory';
 
 const FixSizeRootWrapper=styled.div`
 width: 100%;
@@ -55,7 +56,26 @@ left:50%;
 transform: translate(-50%,-50%);
 `;
 
+const ViewAllTransactions=({match})=>{
+  var email=match.params.email
+  return(
+  <RetailerTransactionHistory
+    email='abc@gmail.com'
+  />
+  )
 
+}
+const ViewTransaction=({match})=>{
+  var uuid=match.params.uuid
+  var type=match.params.type
+  return(
+  <TransactionView
+    uuid={uuid}
+    type={type}
+  />
+  )
+
+}
 const ProductRedirect=({match})=>{
 
   var productID=match.params.productID
@@ -200,7 +220,6 @@ const Transaction = inject('store')(observer((props)=>{
   <div>
       <NavBar gender='general'/>
 
-    <TransactionView/>
   </div>
 );
 }));
@@ -376,7 +395,9 @@ class App extends Component {
        <Route exact path="/aboutUs/" component={AboutUs}/>
        <Route exact path="/payment" component={Payment}/>
        <Route exact path="/productRedirect/:productID" component={ProductRedirect}/>
-       
+       <Route exact path="/viewTransaction/:type/:uuid" component={ViewTransaction}/>
+       <Route exact path="/viewAllTransactions/:email" component={ViewAllTransactions}/>
+
  
       <Footer/>
       </FixSizeRootWrapper>

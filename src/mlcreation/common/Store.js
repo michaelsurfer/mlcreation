@@ -100,10 +100,11 @@ export default class Store{
       var qty = cart[item].qty;
       var code = cart[item].name;
       var price = data[code].MSRP;
-      if(qty==''){qty=0}
+      if(qty==''){qty=0}else{
       totalProductCost = totalProductCost + parseInt(qty)*parseFloat(price);
       totalProductCost = totalProductCost.toFixed(2)
       totalQty = totalQty + parseInt(qty);
+      }
     }
     totalShipmentCost = totalQty * 8;
     finalCost = parseFloat(totalProductCost) + parseFloat(totalShipmentCost);
@@ -288,6 +289,7 @@ createCustomOrder(finalCost){
     }
 
      var json2Upload = {
+      email:this.retailerData.email, 
       data:newCartData,
       finalCost:finalCost
     };
@@ -479,7 +481,8 @@ closeDialog(){
     this.redirectionInfo.to=''
     this.shoppingCart = {}
     this.retailerCart = {}
-  
+    sessionStorage.removeItem("cart")
+
     this.orderDetail = {
       custom:{
         orderNo:'',

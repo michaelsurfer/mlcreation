@@ -180,7 +180,7 @@ const TableField={
   confirmOrder(){
      /*
      var data = JSON.stringify(this.state.cart);
-     sessionStorage.setItem("retailerOrder", data);
+     Storasessionge.setItem("retailerOrder", data);
      this.props.callbackf(data,'confirmOrder');
      */
     }

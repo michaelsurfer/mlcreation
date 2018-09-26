@@ -66,5 +66,13 @@ export const apis = {
   register:{
     endpoint:apiEndPoint+"register",
     method:'POST'
+  },
+  getTransaction:{
+    endpoint:apiEndPoint+"getTransaction/",
+    method:'GET'
+  },
+  getAllTransactions:{
+    endpoint:apiEndPoint+"getAllTransactions/",
+    method:'GET'
   }
 }
