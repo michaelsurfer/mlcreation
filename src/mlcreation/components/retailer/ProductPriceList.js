@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import styled from "styled-components";
 import data from "../../asset/ProductList.json";
+import {pricelisttext} from "../../asset/PricelistDesc";
 import * as c from '../../common/Css2.js';
 import {observer,inject} from "mobx-react";
 import {ItemImage} from "../ItemImage";
@@ -255,7 +256,11 @@ const StyledTh=styled.th`
               output = index;
             break;
             case 'text':
+              if(field=='description'){
+                output=pricelisttext[code]
+              }else{
               output = dataJson[field];
+              }
             break;
             case 'upc':
               output = <ShowUPC productID={code} color={color}/>

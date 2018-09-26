@@ -145,6 +145,7 @@ class ProductTableConfirm extends Component{
 
   componentDidMount(){
     this.props.store.refreshOrderNo();
+    window.scrollTo(0, 0);
    }
 
 

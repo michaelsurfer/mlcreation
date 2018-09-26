@@ -8,7 +8,13 @@ import menuIcon from '../image/menuIcon.png';
 import {observer,inject} from "mobx-react";
 
 
+const Wrapper=styled.div`
 
+top:0;
+left:0;
+width:100%;
+background-color:white;
+`
 const DropDownLink=styled.label`
 
 padding:5px;
@@ -139,11 +145,10 @@ class NavBar extends Component{
 
   render(){
     return(
-      <c.AutoFullCol>
-      {this.renderDropMenu()}
+      <Wrapper>
       {this.renderTopBar()}
       {this.renderNavBar()}
-      </c.AutoFullCol>
+      </Wrapper>
     );
   }
 

@@ -90,7 +90,7 @@ class CheckoutForm extends Component{
           })
 
             this.props.stripe   
-                .createToken()
+                .createToken({name:"Name"})
                 .then(payload=>{
                     console.log('[token]',payload);
                     //console.log(payload.token.id);
@@ -104,8 +104,12 @@ class CheckoutForm extends Component{
                       this.setState({submitting:false})
 
                     }else{
-                    this.setState({success:true})                
-                    this.success(payload);
+                    
+                    this.setState({success:true})  
+                    console.log("payload ID") 
+                    console.log(payload.token.id)              
+             
+                    this.success(payload.token.id);
                     }
                 }).catch(error=>{
                   console.log("error!!")

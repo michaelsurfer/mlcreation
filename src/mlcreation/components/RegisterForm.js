@@ -21,7 +21,7 @@ display:${(props)=>props.display};
 const Modal=styled.div`
 position:fixed;
 background:white;
-width:auto;
+width:500px;
 height:auto;
 top:50%;
 left:50%;
@@ -50,7 +50,7 @@ padding:5px;
 
 const WarningTitle=styled.label`
 color:grey;
-font-size:small;
+font-size:16pt;
 padding:5px;
 `;
 
@@ -71,7 +71,7 @@ font-size:20px;
 const Wrapper=s.FullPureDiv.extend`
 background-color:white;
 flex-direction:column;
-width:70%;
+width:940px;
 `;
 
 var fieldData = {
@@ -166,42 +166,7 @@ var fieldData = {
     mandatory:true,
     warningText:'please enter area'
   },
-  street:{
-    key:'street',
-    type:'text',
-    needValidation:false,
-    validateType:'text',
-    title:'Street',
-    mandatory:true,
-    warningText:'please enter street'
-  },
-  no:{
-    key:'no',
-    type:'text',
-    needValidation:false,
-    validateType:'text',
-    title:'No',
-    mandatory:true,
-    warningText:'please enter street no'
-  },
-  floor:{
-    key:'floor',
-    type:'text',
-    needValidation:false,
-    validateType:'text',
-    title:'Floor',
-    mandatory:true,
-    warningText:'please enter floor'
-  },
-  room:{
-    key:'room',
-    type:'text',
-    needValidation:false,
-    validateType:'text',
-    title:'Room',
-    mandatory:true,
-    warningText:'please enter room'
-  },
+
   zip:{
     key:'zip',
     type:'text',
@@ -261,7 +226,7 @@ var fieldData = {
     type:'number',
     needValidation:false,
     validateType:'number',
-    title:'Number of E-tailer Stores',
+    title:'Number of E-tailer Stores ',
     mandatory:false,
     warningText:'invalid'
   },
@@ -341,9 +306,9 @@ justify-content:${(props)=>props.align};
 align-items:center;
 background-color:${(props)=>props.color};
 margin-right:0px;
-padding:2px;
+padding:0px;
 height:${(props)=>props.doubleHeight?'106px':'43px;'}
-
+border:0px solid red;
 `;
 
 
@@ -353,8 +318,9 @@ width:100%;
 const TextInput=styled.input`
 width:50%;
 color:${(props)=>props.color};
-border: 0px solid grey;
+border: 1px solid grey;
 border-radius:4px;
+margin-left:5px;
 `;
 
 const InvisibleFormText=s.RegistrationFormText.extend`
@@ -734,19 +700,19 @@ handleModal(){
     return(
       <Wrapper>
        {this.renderFormHeader('Company Details')}
-      <FormRow border>
+      <FormRow >
       {this.renderFormElement('company')}
       </FormRow>
-      <FormRow border>
+      <FormRow >
       {this.renderFormElement('ein')}
       </FormRow>
 
-      <FormRow border>
+      <FormRow >
 
       {this.renderFormElement('website')}
       </FormRow>
 
-      <FormRow border>
+      <FormRow >
       {this.renderFormElement('buyer')}
       {this.renderFormElement('phone')}
       </FormRow>
@@ -757,7 +723,7 @@ handleModal(){
       
       </FormRow>
       ):(
-      <FormRow border>
+      <FormRow >
       {this.renderFormElement('email')}
       {this.renderFormElement('password')}
       </FormRow>
@@ -765,18 +731,12 @@ handleModal(){
     
       
       
-      <FormRow border>
+      <FormRow >
       {this.renderFormElement('address')}
       </FormRow>
-      <FormRow border>
+      <FormRow >
       {this.renderFormElement('city')}
       {this.renderFormElement('area')}
-      {this.renderFormElement('street')}
-      {this.renderFormElement('no')}
-      </FormRow>
-      <FormRow border>
-      {this.renderFormElement('floor')}
-      {this.renderFormElement('room')}
       {this.renderFormElement('zip')}
       {this.renderFormElement('country')}
       </FormRow>
@@ -784,10 +744,13 @@ handleModal(){
 
 
 
+      <FormRow >
+
       {this.renderFormHeader('Type of Business')}
+      </FormRow>
 
 
-      <FormRow border>
+      <FormRow >
       {this.renderFormElement('retailer','center')}
       {this.renderFormElement('retailerNo','center')}
       <FormCol doubleSize>
@@ -795,7 +758,7 @@ handleModal(){
        </FormCol>
       </FormRow>
 
-      <FormRow border>
+      <FormRow >
       {this.renderFormElement('eTailer','center')}
       {this.renderFormElement('eTailerNo','center')}
       <FormCol doubleSize border>
@@ -804,7 +767,7 @@ handleModal(){
       {this.renderFormElement('other','center')}
       </FormCol>
       </FormRow>
-      <FormRow border>
+      <FormRow >
         {this.renderFormElement('homeParties','center')}
         {this.renderEmptyElementSpace()}
         <FormCol doubleSize>

@@ -69,14 +69,14 @@ const RightBoxInnerWrapper=styled.div`
 
 
 const Title=styled.label`
-    font-size:25pt;
+    font-size:2.5vw;
     margin-top:50px;
     font-family:'Times New Roman';
 
 `;
 
 const Desc=styled.label`
-    font-size:16pt;
+    font-size:1.5vw;
     color:rgb(61,49,48);
     font-family:'Times New Roman';
 
@@ -127,7 +127,7 @@ background:transparent;
 `;
 
 const StyledTr=styled.tr`
-height:50px;
+height:40px;
 border:0px solid;
 `;
 
@@ -155,7 +155,9 @@ class ContactUsView extends Component{
         this.handleSubmit=this.handleSubmit.bind(this);
 
     }
-
+componentDidMount() {
+        window.scrollTo(0, 0);
+}
     handleSubmit(event){
         event.preventDefault();
         var email=event.target.email.value;
@@ -211,7 +213,7 @@ render(){
                     <tr>
                         <LeftTd colSpan={2} 
                             style={{
-                                "height":"100px",  
+                                "height":"90px",  
                                 "text-align":"center"                      
                             }}
                         >

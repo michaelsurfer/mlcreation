@@ -31,7 +31,7 @@ padding:10px;
 
 const Title=styled.label`
 color:grey;
-font-size:small;
+font-size:18pt;
 padding:10px;
 `;
 

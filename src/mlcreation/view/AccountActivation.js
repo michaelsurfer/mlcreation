@@ -61,7 +61,7 @@ class AccountActivation extends Component{
                 <GeneralMessageView
                     link="/"
                     linkTitle="Go Back"
-                    message="Sorry, we are unable to activate your account"
+                    message="Sorry, we are unable to activate your account, please make sure you have clicked the right activation link in the email we sent you."
                 />
                 );
             }

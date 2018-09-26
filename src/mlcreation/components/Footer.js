@@ -111,8 +111,8 @@ export const Footer=({})=>{
 
 
       <Cell>
-      <Link to="aboutUs">About Us</Link>
-      <Link to="policy">Shipping & Return</Link>
+      <Link to="/aboutUs">About Us</Link>
+      <Link to="/policy">Shipping & Return</Link>
       <Link to="/">Language</Link>
       <Link to="/contact">Contact Us</Link>
 

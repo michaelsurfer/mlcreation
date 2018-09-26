@@ -183,6 +183,7 @@ class ProductDesc extends Component{
 
 }
 
+
 render(){
   var gender=this.props.gender; 
   var productID=this.props.productID;
@@ -294,10 +295,13 @@ gender={gender}
 
 </c.RowPureDiv>
 <Button
-  onClick={()=>callback(this.state.selectedColor)}
->ADD TO SHOPPING LIST</Button>
+  onClick={()=>callback(this.state.selectedColor)}>
+  ADD TO SHOPPING LIST
+  </Button>
 <SplitDiv width='100%'>
-<ShippingReturnText>Shipping & Return</ShippingReturnText>
+<Link to='/policy'>
+  Shipping & Return
+  </Link>
 <Link to={"/comment/"+productID} >See Comments</Link>
 </SplitDiv>
 

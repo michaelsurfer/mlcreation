@@ -22,7 +22,7 @@ import MakeCommentView from './mlcreation/view/MakeCommentView';
 import CommentView from './mlcreation/view/CommentView';
 import AllCommentView from './mlcreation/view/AllCommentView';
 import {PolicyView} from './mlcreation/view/PolicyView';
-import {AboutUsView} from './mlcreation/view/AboutUsView';
+import AboutUsView from './mlcreation/view/AboutUsView';
 import RetailerBar from './mlcreation/navigation/RetailerBar';
 import PaymentContainer from './mlcreation/components/payment/PaymentContainer';
 import OneStepPaymentForm from './mlcreation/components/payment/OneStepPaymentForm';
@@ -346,12 +346,12 @@ class App extends Component {
 
   render() {
     console.log(this.props.store.retailerCart)
-
-    var loading = 'none';
+     var loading = 'none';
     if(this.props.store.loading){loading = 'block'}
      return (
+       
       <Router>
-
+        
       <FixSizeRootWrapper>
        <ModalWrapper display={loading}>
         <Modal>LOADING....</Modal>
@@ -376,9 +376,9 @@ class App extends Component {
        <Route exact path="/aboutUs/" component={AboutUs}/>
        <Route exact path="/payment" component={Payment}/>
        <Route exact path="/productRedirect/:productID" component={ProductRedirect}/>
-       }
+       
  
-      {<Footer/>}
+      <Footer/>
       </FixSizeRootWrapper>
       </Router>
     );

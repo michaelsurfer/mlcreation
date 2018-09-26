@@ -13,7 +13,9 @@
       "variant":{
         "RC":{"name":"S-Black","rgbValue":"rgb(45,45,45)"},
         "DB":{"name":"S-Black","rgbValue":"rgb(45,45,45)"},
-        "GF":{"name":"S-Black","rgbValue":"rgb(45,45,45)"}
+        "GF":{"name":"S-Black","rgbValue":"rgb(45,45,45)"},
+        "CBR":{"name":"S-Black","rgbValue":"image"}
+
       }
     },
 
@@ -54,7 +56,8 @@
       "variant":{
         "BR":{"name":"Blue","rgbValue":"rgb(58,50,168)"},
         "MR":{"name":"Blue","rgbValue":"rgb(29,1,149)"},
-        "PR":{"name":"Blue","rgbValue":"rgb(38,102,203)"}
+        "PR":{"name":"Blue","rgbValue":"rgb(38,102,203)"},
+        "CBR":{"name":"Blue","rgbValue":"rgb(38,102,203)"}
 
       } 
     

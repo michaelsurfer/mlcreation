@@ -94,9 +94,10 @@ font-size:large;
 
 export const RegistrationFormText=styled.label`
 color:black;
-font-size:16px;
+font-size:15px;
 white-space:nowrap;
-margin-left:20px;
+margin-left:5px;
+font-family:'Helvetica';
 
 `;
 

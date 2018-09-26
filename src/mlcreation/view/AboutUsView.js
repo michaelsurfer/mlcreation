@@ -150,25 +150,37 @@ const RightArea=()=>(
         <SignatureText>Susanna</SignatureText>
     </RightBox>
 );
-export const AboutUsView=()=>{
-return(
-    <Wrapper>
-        <HeaderBanner>
-            <HeaderTextBox> 
-            <HeaderTitle>
-                Susanna
-            </HeaderTitle>
-            <HeaderDesc>
-                {FounderText}
-            </HeaderDesc>
-             </HeaderTextBox>
-             <Susanna/>
+class AboutUsView extends Component{
+    constructor(props){
+        super(props)
+    }
 
-        </HeaderBanner>    
-        <BodyArea>
-            <LeftArea/>
-            <RightArea/>
-        </BodyArea>
-    </Wrapper>
-);
+    componentDidMount() {
+        window.scrollTo(0, 0);
 }
+    render(){
+        return(
+            <Wrapper>
+                <HeaderBanner>
+                    <HeaderTextBox> 
+                    <HeaderTitle>
+                        Susanna
+                    </HeaderTitle>
+                    <HeaderDesc>
+                        {FounderText}
+                    </HeaderDesc>
+                     </HeaderTextBox>
+                     <Susanna/>
+        
+                </HeaderBanner>    
+                <BodyArea>
+                    <LeftArea/>
+                    <RightArea/>
+                </BodyArea>
+            </Wrapper>
+        );
+    }
+ 
+}
+
+export default AboutUsView;

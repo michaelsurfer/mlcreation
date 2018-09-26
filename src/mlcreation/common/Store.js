@@ -5,7 +5,7 @@ import {computed} from "mobx";
 import ShipmentData from "../asset/ShipmentCost.json";
  
 export default class Store{
-  @observable login = false;
+  @observable login = true;
   //@observable showPaymentModal = 'none';
   @observable currentPaymentType = '';
   @observable showPaymentModal = 'none';
@@ -102,10 +102,14 @@ export default class Store{
       var price = data[code].MSRP;
       if(qty==''){qty=0}
       totalProductCost = totalProductCost + parseInt(qty)*parseFloat(price);
+      totalProductCost = totalProductCost.toFixed(2)
       totalQty = totalQty + parseInt(qty);
     }
     totalShipmentCost = totalQty * 8;
-    finalCost = totalProductCost + totalShipmentCost;
+    finalCost = parseFloat(totalProductCost) + parseFloat(totalShipmentCost);
+    //finalCost = totalProductCost + totalShipmentCost
+    finalCost=finalCost.toFixed(2)
+    console.log('customer final cost:'+finalCost)
     var json = {
       totalProductCost:totalProductCost,
       totalShipmentCost:totalShipmentCost,

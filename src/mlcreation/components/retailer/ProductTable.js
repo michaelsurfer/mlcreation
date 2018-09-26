@@ -12,6 +12,7 @@ import {Redirect} from "react-router";
 import {TotalCostRow} from "./TotalCostRow";
 import {RemarkRow} from "./RemarkRow";
 import {ShowUPC} from "./ShowUPC";
+import {pricelisttext} from "../../asset/PricelistDesc";
 
 const titlePink='rgb(254,203,191)';
 const titleBlue='rgb(236,221,220)';
@@ -159,6 +160,10 @@ const TableField={
     };
    }
 
+  
+   componentDidMount(){
+    window.scrollTo(0, 0);
+   }
   redirect(productID){
     var gender = data[productID].gender;
     var toLink="";
@@ -278,7 +283,11 @@ const TableField={
         
            break;
           case 'text':
-            output = dataJson[field];
+          if(field=='description'){
+            output=pricelisttext[code]
+          }else{
+          output = dataJson[field];
+          }
           break;
           case 'upc':
           output = <ShowUPC productID={code} color={color}/>

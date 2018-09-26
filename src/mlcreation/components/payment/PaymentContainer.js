@@ -74,8 +74,8 @@ class PaymentContainer extends Component{
         }
         var totalProductCost=costJson.totalProductCost
         var totalShipmentCost=costJson.totalShipmentCost
-        var total = totalProductCost + totalShipmentCost
-
+        //var total = totalProductCost + totalShipmentCost
+        var total = costJson.finalCost
         console.log("PAYMENT LOGIC START , type : "+type)
         console.log("transactionUUID :"+uuid)
 

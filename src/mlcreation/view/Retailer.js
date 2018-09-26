@@ -59,6 +59,11 @@ constructor(props){
   this.back=this.back.bind(this);
 }
 
+componentDidMount() {
+  window.scrollTo(0, 0);
+}
+
+
 confirmCallBack(nextStep){
   /*
   nextStep :

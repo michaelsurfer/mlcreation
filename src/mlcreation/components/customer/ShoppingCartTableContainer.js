@@ -33,6 +33,7 @@ class ShoppingCartTableContainer extends Component{
 
 
   payNow(finalCost){
+    console.log("paying total "+finalCost)
     this.props.store.createCustomOrder(finalCost);
   }
 

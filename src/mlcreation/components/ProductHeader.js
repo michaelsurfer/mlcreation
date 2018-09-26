@@ -21,7 +21,7 @@ font-size:16pt;
 font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 border-bottom:${(props)=>props.underline ?  '1px solid black':'0px'};
 border-top:${(props)=>props.top ?  '1px solid black':'0px'};
-
+border-color:${(props)=>(props.gender=='g')?'black':'white'};
 `;
 const MainDiv=styled(c.RowPureDiv)`
 background-color:${(props)=>props.color};

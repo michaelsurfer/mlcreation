@@ -20,6 +20,8 @@ class Product extends Component{
 
   callbackF(selectedColor){
     //var productID = this.props.productID +"-"+ selectedColor;
+    window.scrollTo(0, 0);
+
      this.props.store.addOne2Cart(this.props.productID,selectedColor);
   }
 

@@ -19,15 +19,7 @@ var order;
 var users;
 var transactionHistory;
 var comments;
-/*
-var mailTransport = nodemailer.createTransport({
-	service:'Gmail',
-	auth:{
-		user:'bitentsio@gmail.com',
-		pass:'*#780910'
-	}
-});
-*/
+
 
 var mailTransport = nodemailer.createTransport({
 	host:'mail.mlcreationco.com',
@@ -110,7 +102,7 @@ var stripe = require("stripe")("sk_test_hxtTsvBObFWw4yWvEEummLZw");
 
 function sendEmail(to,subject,message){
 	mailTransport.sendMail({
-		from:'Admin <michael@mlcreationco.com>',
+		from:'ML CREATION <michael@mlcreationco.com>',
 		to:to,
 		subject:subject,
 		html:message
@@ -120,9 +112,12 @@ function sendEmail(to,subject,message){
 
 function sendEmailActivation(email,code){
 	console.log("Activation email send to "+email);
-	var link="http://localhost:3001/activation/"+email+"/"+code;
+	var link="http://localhost:3000/activation/"+email+"/"+code;
 	console.log(link); 
-	var htmlMessage="<h1>Thanks for registration</h1><a href="+link+" />Here</a>";
+
+	var htmlMessage="<html><body><h2>Thanks for your registration on MLCreation, please click below link to activate your account</h2><h3><a href="+link+"/>Activate my account now</a></h3></body></html>";
+
+
 	sendEmail(email,"Activate your account",htmlMessage);
 }
 
@@ -332,7 +327,7 @@ app.post('/createOrder',function(req,res){
 
   	var email = _data.email;
 	var uuid = uuidv4();
-	console.log("received orderList");
+	console.log("received orderList...");
 	console.log(orderList);
 	var nextID = getNextOrderNumber();
  	console.log("Next ID:"+nextID);
@@ -368,13 +363,11 @@ app.get('/checkOrder/:uuid',function(req,res){
 	var result = order.findOne({uuid:uuid});
     console.log(result);
 	
-	var total = checkTotal(uuid);
 
 		if(result){
 			res.send(
 				{
 				state:200,
-				total:total,
 				orderNo:result.orderNo,
         		orderList:result.orderList
 				});
@@ -664,7 +657,10 @@ app.get('/showAll/',function(req,res){
 	var retailerData = users.find({});
 	res.send(retailerData);
 });
-
+app.get('/showAllOrder/',function(req,res){
+	var data = customerOrder.find({});
+	res.send(data);
+});
 
 
 app.post('/payment',async function(req,res){
@@ -677,10 +673,30 @@ app.post('/payment',async function(req,res){
 	console.log("token : %j",token);
 	console.log("uuid : %j",uuid);
 	console.log("info : %j",info);
+	console.log("type : %j",type);
 
-	var result = order.findOne({uuid:uuid});
+	var result={}
+	if(type=='retailer'){
+	result = order.findOne({uuid:uuid});
+	}else{
+	result = customerOrder.findOne({uuid:uuid});
+	}
+	console.log(result);
+
 	var finalCost = result.finalCost;
 	console.log("paying finalCost "+finalCost);
+	finalCost=parseFloat(finalCost);
+
+	const charge = await stripe.charges.create({
+		amount: Math.round(finalCost*100),
+		currency: 'usd',
+		description: 'Example charge',
+		source: token,
+	  });
+  
+  
+	  console.log(charge);
+
 
  	res.send(
  			{
@@ -724,8 +740,8 @@ add2Transactions(email,uuid);
 });
 
 
-//sendEmailActivation();
-//sendEmail('michael@sparrowchain.com','ths is subject','this is a message from ML');
+//sendEmailActivation('personal.michael@gmail.com','code');
+	//sendEmail('michael@sparrowchain.com','ths is subject','this is a message from ML');
 
 
 app.listen(3001,function(){

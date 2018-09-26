@@ -6,12 +6,16 @@ import {observer,inject} from "mobx-react";
 import Dialog from '../components/dialog/Dialog';
 
 
-const Wrapper=c.ColCenterDiv.extend`
+const Wrapper=styled.div`
 background-color:rgb(239,238,242);
+display:flex;
+flex-direction:column;
 width:469px;
 height:456px;
-justify-content:space-around;
+align-items:center;
 `;
+
+
 
 const Form=styled.form`
 justify-content:space-around;
@@ -24,22 +28,29 @@ const SignInButton=styled.button`
 background-color:rgb(253,159,129);
 width:390px;
 padding:10px;
+margin-top:45px;
+font-size:14pt;
+
+
 `;
 
 const Input=styled.input`
 width:370px;
 padding:10px;
+margin-top:45px;
 `;
 
 const CreateNew=styled.label`
 color:grey;
-font-size:small;
-padding:10px;
+font-size:14pt;
+margin-top:10px;
 `;
 const ForgetPass=styled.label`
 color:grey;
-font-size:small;
-padding:10px;
+font-size:13pt;
+padding:0px;
+margin-top:45px;
+
 `;
 
 const ColDiv=styled.div`
