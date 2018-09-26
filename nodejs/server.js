@@ -130,7 +130,11 @@ function sendContactUsEmail(email,name,text){
 }
 
 
-
+function getToday(){
+	var d = new Date();
+	var datestring = d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear();
+	return datestring;
+}
 
 function getNextOrderNumber(){
 	var id = order.maxId+100001;
@@ -175,37 +179,45 @@ function checkTotal(orderList){
   return total;
 }
 
-function add2Transactions(email,uuid){
+function add2Transactions(email,uuid,totalCost){
   /*
   email:email,transactions:[uuid,uuid....]
   */
   var json;
+  var date=getToday();
   var record = transactionHistory.findOne({email:email});
   if(record){
     //json=record.transactions;
-    var existingUuid = record.uuid;
+    var existingUuid = record.transactions;
+	console.log(existingUuid);
+	var json={uuid:uuid,totalCost:totalCost,date:date}
+    existingUuid.push(json);
     console.log(existingUuid);
-    existingUuid.push(uuid);
-    console.log(existingUuid);
-    record.uuid=existingUuid;
+    record.transactions=existingUuid;
     transactionHistory.update(record);
 
   }else{
-    json={email:email,uuid:[uuid]};
-    transactionHistory.insert(json);
+	
+    json={email:email,transactions:[{uuid:uuid,totalCost:totalCost,date:date}]};
+	transactionHistory.insert(json);
+	console.log("new transaction added");
+	console.log(json);
   }
 };
 
 
-function getTransactions(email){
+
+function getAllTransactions(email){
   console.log("getTransactions "+email);
   var uuidArray = transactionHistory.findOne({email:email});
   var record="";
   if(uuidArray){
     console.log("transaction found");
-    console.log(typeof uuidArray.uuid);
+    console.log(uuidArray);
     //loop the uuid array and get order list
-     var resultArray=[];
+	 var resultArray=[];
+	 record=uuidArray.transactions;
+/*	 
     //_uuidArray= uuidArray;
     Object.values(uuidArray.uuid).map(function(obj){
     //uuidArray.map((item,i)=>{
@@ -222,7 +234,7 @@ function getTransactions(email){
       }
       console.log("get transaction result"+resultArray);
     });
-
+*/
   var result={};
 
   if(!uuidArray){
@@ -236,7 +248,7 @@ function getTransactions(email){
     }else{
       result = {
         state:200,
-        data:resultArray
+        data:uuidArray
       }
     }
 
@@ -260,13 +272,31 @@ app.get('/add2Transactions/:email/:uuid',function(req,res){
   res.send('ok');
 });
 
-app.get('/getTransactions/:email',function(req,res){
+app.get('/getAllTransactions/:email',function(req,res){
   var email =req.params.email;
   console.log("getTransactions "+email);
-  var result = getTransactions(email);
+  var result = getAllTransactions(email);
   res.send(result);
 });
 
+app.get('/getTransaction/:type/:uuid',function(req,res){
+	var type = req.params.type
+	var uuid = req.params.uuid
+	var record ={}
+	if(type=='retailer'){
+		record = order.findOne({uuid:uuid});
+		}else{
+		record = customerOrder.findOne({uuid:uuid});
+		}
+	console.log(record);	
+ 	if(record){
+		res.status(200).json(record)
+
+	}else{
+		res.status(404).send("not found");
+	}	
+
+});
 
 app.get('/getNextOrderNo',function(req,res){
 	var id = getNextOrderNumber();
@@ -291,6 +321,7 @@ app.post('/createCustomOrder',function(req,res){
 	var _data = req.body;
 	var finalCost = _data.finalCost;
 	var orderList = _data.data;
+	var email = _data.email;
 	console.log("received orderList");
 	console.log(orderList);
 	var nextID = getNextCustomerOrderNumber();
@@ -669,7 +700,9 @@ app.post('/payment',async function(req,res){
 	var uuid = data.uuid;
 	var type = data.type;
 	var info = data.info;
-	console.log("executing payment with following data ");
+	var today=getToday();
+	var email = data.info.email;
+ 	console.log("executing payment with following data ");
 	console.log("token : %j",token);
 	console.log("uuid : %j",uuid);
 	console.log("info : %j",info);
@@ -683,6 +716,16 @@ app.post('/payment',async function(req,res){
 	}
 	console.log(result);
 
+	var newJson=result;
+	result.info=info;
+	result.date=today;
+
+	if(type=='retailer'){
+		order.update(result);
+	}else{
+		customerOrder.update(result);
+	}
+
 	var finalCost = result.finalCost;
 	console.log("paying finalCost "+finalCost);
 	finalCost=parseFloat(finalCost);
@@ -690,12 +733,13 @@ app.post('/payment',async function(req,res){
 	const charge = await stripe.charges.create({
 		amount: Math.round(finalCost*100),
 		currency: 'usd',
-		description: 'Example charge',
+		description: result.orderNo,
 		source: token,
 	  });
   
   
 	  console.log(charge);
+	  add2Transactions(email,uuid,finalCost);
 
 
  	res.send(
@@ -706,38 +750,8 @@ app.post('/payment',async function(req,res){
  			);
 });
 
-app.post('/payment2/',async function(req,res){
-	var data=req.body;
-	var token = data.token;
-	var orderNo = data.orderNo;
-  	var uuid = data.uuid;
-  	var email = data.email;
-	console.log("token :"+token);
-	console.log("Order No :"+orderNo);
-  	console.log("UUID :"+uuid);
-  	console.log("email :"+email);
 
-
-/*
-	const charge = await stripe.charges.create({
-  	amount: 999,
-  	currency: 'usd',
-  	description: 'Example charge',
-  	source: token,
-	});
-
-
-	console.log(charge);
-*/
-add2Transactions(email,uuid);
-
- 	res.send(
- 			{
-			 state:200,
-			 result :'success'
- 			}
- 			);
-});
+ 
 
 
 //sendEmailActivation('personal.michael@gmail.com','code');
