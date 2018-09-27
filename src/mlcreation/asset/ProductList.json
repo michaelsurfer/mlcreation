@@ -1,0 +1,388 @@
+{
+    "BR":{
+      "itemName":"Batboy",
+      "numOfImage":3,
+      "RLayout":"A",
+      "LLayout":"A",
+      "color":["GBK","BK","BL"],
+      "gender":"m",
+      "description":"Zine allrful USB..........................",
+      "title1":"Super Powerful USB Rechargeable Prolonging Sex Time Big Bullet Cock Ring",
+      "title2":"Food Degree Silicone Sleeve & Environment Friendly (Electroplating) Plastic Bullet",      
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":"18.0",
+       "MSRP":"38.8",
+      "MAP":"35.8",
+      "weight":"134",
+      "qtyInCarton":"60",
+      "dimension":{
+        "length":"85mm","weight":"47","size":"26-43mm"
+      }
+    },
+    "CB":{
+      "numOfImage":3,
+      "RLayout":"A",
+      "LLayout":"A",
+      "itemName":"Cute Bullet",
+      "color":["S","GRBL","R","PP","BK"],
+      "gender":"g",
+      "description":"Zine alloy super powerful USB..........................",
+      "title1":"Powerful USB Rechargeable Clitoris Bullet Vibrator",
+      "title2":"Environment Friendly (Electroplating) Plastic Vibrator & Food Degree Silicone Ring",      
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":"15.8",
+      "MSRP":"34.8",
+      "MAP":"31.8",
+      "weight":"92",
+      "qtyInCarton":"60",
+      "dimension":{
+        "high":"46mm","diameter":"30mm","weight":"26g"
+      }
+
+    },
+    "CBR":{
+      "numOfImage":3,
+      "RLayout":"A",
+      "LLayout":"A",
+      "itemName":"Cool Boy",
+      "color":["SBK","BK","SBL","BL","SGY","GY"],
+      "gender":"m",
+      "description":"Zine alloy super powerful USB..........................",
+      "title1":"USB Rechargeable Powerful Bullet Cock Ring",
+      "title2":"Food Degree Silicone Sleeve & Environment Friendly (Electroplating) Plastic Bullet",      
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":"12.18",
+       "MSRP":"246.8",
+      "MAP":"24.6",
+      "weight":"79",
+      "qtyInCarton":"96",
+      "dimension":{
+        "length":"63mm","weight":"21","Size":"24-36mm"
+      }
+
+    },
+    "GB":{
+      "numOfImage":3,
+      "RLayout":"A",
+      "LLayout":"A",
+      "itemName":"Glittering Bullet",
+      "color":["GPI","GBK","SB"],
+      "gender":"g",
+      "description":"Zine alloy super powerful USB..........................",
+      "title1":"Super Powerful USB Rechargeable Clitoris & Vaginal Bullet Vibrator",
+      "title2":"Environment Friendly Electroplating Plastic Body & Food Degree Silicone Rings",      
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":"18.36",
+       "MSRP":"39.8",
+      "MAP":"36.8",
+      "weight":"85",
+      "qtyInCarton":"96",
+      "dimension":{
+        "length":"90mm","diameter":"18mm","weight":"31g"
+      }
+
+    },
+    "GF":{
+      "numOfImage":3,
+      "RLayout":"A",
+      "LLayout":"A",
+      "itemName":"Gold Finger",
+      "color":["GSPO","GMGR","GBK"],
+      "gender":"g",
+      "description":"Zine alloy super powerful USB..........................",
+      "title1":"Super Powerful USB Rechargeable Zinc Alloy Big Bullet Finger Vibrator",
+      "title2":"Environment Friendly Zinc Alloy Outer Sleeve & Hard Plastic Bullet with Food Degree Silicone Inner Sleeve",      
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":"23.8",
+       "MSRP":"50.8",
+      "MAP":"47.8",
+      "weight":"119",
+      "qtyInCarton":"60",
+      "dimension":{
+        "length":"53mm","diameter":"22mm","weight":"53g"
+      }
+
+    },
+    "PF":{      
+      "numOfImage":3,
+      "RLayout":"A",
+      "LLayout":"A",
+      "itemName":"Power Finger",
+      "color":["R","PP","BK"],
+      "gender":"g",
+      "description":"Zine alloy super powerful USB..........................",
+      "title1":"Powerful USB Rechargeable Finger Bullet Vibrator For Clitoris",
+      "title2":"Food Degree Silicone Sleeve & Environment Friendly Hard Plastic Bullet",      
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":"11.9",
+      "MSRP":"25.8",
+      "MAP":"23.8",
+      "weight":"67",
+      "qtyInCarton":"84",
+      "dimension":{
+        "high":"44mm","length":"30mm","diameter":"18mm","weight":"15g"
+      }
+
+    },
+    "PR":{
+      "numOfImage":3,
+      "RLayout":"A",
+      "LLayout":"A",
+      "itemName":"Power Ring",
+      "color":["BK","BL","PP"],
+      "gender":"m",
+      "description":"Zine alloy super powerful USB..........................",
+      "title1":"USB Rechargeable Powerful Double Bullets Cock Ring",
+      "title2":"Food Degree Silicone Sleeve & Environment Friendly (Electroplating) Plastic Bullet",      
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":"17.9",
+       "MSRP":"41.839.8",
+      "MAP":"36.8",
+      "weight":"84",
+      "qtyInCarton":"96",
+      "dimension":{
+        "high":"63mm","diameter":"28-42mm","weight":"26g"
+      }
+
+    },
+    "RC":{
+      "RLayout":"B",
+      "LLayout":"A",
+      "numOfImage":4,
+      "itemName":"Remote Cherry",
+      "color":["SGRBL","SR","SPP","SBK"],
+      "gender":"g",
+      "description":"Zine alloy super powerful USB..........................",
+      "title1":"Powerful USB Rechargeable Remote Vaginal & Clitoris Egg Vibrator",
+      "title2":"Food Degree Silicone Sleeve & Environment Friendly Electroplating Plastic Egg Vibrator",      
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":"22.8",
+       "MSRP":"49.8",
+      "MAP":"45.8",
+      "weight":"196",
+      "qtyInCarton":"30",
+      "dimension":{
+        "length":"119mm","diameter":"36mm","Bweight":"33g"
+      }
+
+    },
+    "RHT":{
+      "numOfImage":4,
+      "RLayout":"B",
+      "LLayout":"A",
+      "itemName":"Remote Hunter",
+      "color":["GSHPI","GIDG","GBK"],
+      "gender":"both",
+      "genderColor":{
+        "m":["GBK"],
+        "g":["GSHPI","GIDG"]
+      },
+      "description":"Zine alloy super powerful USB..........................",
+      "title1":"Super Powerful USB Rechargeable Prostate & Anus Dobule Motors Remote Vibrator With Heating Function",
+      "title2":"Food Degree Silicone Sleeve & Environment Friendly (Electroplating) Plastic Handle and Remote",      
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":"33.3",
+      "MSRP":"69.9",
+      "MAP":"66.9",
+      "weight":"466",
+      "qtyInCarton":"20",
+      "dimension":{
+        "length":"164mm","diameter":"32mm","weight":"188g"
+      }
+
+    },
+    "SR":{
+      "numOfImage":3,
+      "RLayout":"A",
+      "LLayout":"A",
+      "itemName":"Super Ring",
+      "color":["BK","GBK","SHBL"],
+      "gender":"m",
+      "description":"Zine alloy super powerful USB..........................",
+      "title1":"Super Powerful USB Rechargeable Prolonging Sex Time Double Rings Big Bullet Cock Ring",
+      "title2":"Food Degree Silicone Sleeve & Environment Friendly (Electroplating) Plastic Bullet",      
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":"17.8",
+       "MSRP":"38.3",
+      "MAP":"35.3",
+      "weight":"126",
+      "qtyInCarton":"60",
+      "dimension":{
+        "length":"73mm","weight":"36g","size":"24-41mm"
+      }
+
+      },
+    "VA":{
+      "numOfImage":3,
+      "RLayout":"A",
+      "LLayout":"A",
+      "itemName":"Vertical Attack",
+      "color":["TMO","TGYBL","TW","TBK"],
+      "gender":"m",      
+      "description":"Zine alloy super powerful USB..........................",
+      "title1":"Super Powerful USB Rechargeable Big Bullet Male Masturbator",
+      "title2":"Environment TPE Sleeve & Environment Friendly Plastic Bullet",      
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":"18.2",
+      "MSRP":"38.8",
+      "MAP":"36.0",
+      "weight":"363",
+      "qtyInCarton":"20",
+      "dimension":{
+        "high":"153mm","diameter":"56mm","weight":"216g"
+      }
+
+    },
+    "ITS":{
+      "RLayout":"C",
+      "LLayout":"A",
+      "itemName":"Intense",
+      "refNo":"W-ITS-S",
+      "color":["S","G"],
+      "numOfImage":3,
+      "gender":"both",
+      "genderColor":{
+        "m":["S","G"],
+        "g":["S","G"]
+      },
+      "description":"",
+      "title1":"Super Powerful USB Rechargeable Anus Vibrator",
+      "title2":"Environment Friendly Electroplating Zinc Alloy Body & Food Degree Silicone Ring",      
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":"38.9",
+      "MSRP":"83.8",
+      "MAP":"77.8",
+      "weight":"439",
+      "qtyInCarton":"24",
+      "dimension":{
+        "length":"139mm","diameter":"39mm","weight":"288g"
+      }
+    },
+    "DB":{
+      "RLayout":"C",
+      "LLayout":"A",
+      "itemName":"Double",
+      "refNo":"W-DB-S",
+      "color":["SR","SPP","SPIPP","SLPI","SBK"],
+      "numOfImage":3,
+      "gender":"both",
+      "genderColor":{
+        "m":["SBK"],
+        "g":["SR","SPP","SPIPP","SLPI","SBK"]
+      },
+      "title1":"Super Powerful USB Rechargeable Testicles, Prostate & Anus Double Motors Vibrator",
+      "title2":"Food Degree Silicone Sleeve & Environment Friendly (Electroplating) Plastic Ring",      
+      "description":"Zine alloy super powerful USB..........................",
+      "description1":"10 vibration modes, 1 vibration intensity.",
+      "description2":"Can choose the 10-auto cycle mode",
+      "description3":"1 hour of charging = 1 hour usage",
+      "retailPrice":"23.6",
+       "MSRP":"50.8",
+      "MAP":"47.8",
+      "weight":"355",
+      "qtyInCarton":"24",
+      "dimension":{
+        "length":"180mm","diameter":"28mm/24mm","weight":"184g"
+      }
+    },
+    "LB":{
+      "RLayout":"A",
+      "LLayout":"A",
+      "itemName":"Love Bullet",
+      "refNo":"W-LB-S",
+      "color":["S","BLGR","R","PP","BK"],
+      "numOfImage":3,
+      "gender":"g",
+      "title1":"Powerful USB Rechargeable Clitoris Bullet Vibrator",
+      "title2":"Environment Friendly (Electroplating) Plastic Body & Food Degree Silicone Button",      
+      "description":"Zine alloy super powerful USB..........................",
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":"17",
+       "MSRP":"37.8",
+      "MAP":"34.8",
+      "weight":"78",
+      "qtyInCarton":"96",
+      "dimension":{
+        "high":"84mm","diameter":"17mm","weight":"21g"
+      }
+    },
+    "RVKB":{
+      "RLayout":"B",
+      "LLayout":"A",
+      "itemName":"Remote Vibration K-Balls",
+      "refNo":"W-RVKB-S",
+      "color":["BK","PP","R","PI","LPIPP"],
+      "numOfImage":4,
+      "gender":"g",
+      "title1":"Powerful USB Rechargeable Remote Vibration Kegel Ball & Clitoris Vibrator",
+      "title2":"Food Degree Silicone Sleeve & Environment Friendly (Electroplating) Plastic Vibrator and Remote",      
+      "description":"Zine alloy super powerful USB..........................",
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":"24.2",
+      "MSRP":"51.8",
+      "MAP":"48.8",
+      "weight":"296",
+      "qtyInCarton":"30",
+      "dimension":{
+        "length":"175mm","diameter":"37mm","Bweight":"86g"
+      }
+    },
+    "EVVA":{
+      "RLayout":"D",
+      "LLayout":"A",
+      "itemName":"EVVA K-Balls",
+      "refNo":"W-ITS-S",
+      "color":["PI","RE","DBL","PP","LBL"],
+     "numOfImage":3,
+      "gender":"g",
+      "title1":"Strong And Tightening Abdominal Muscles And Genitals",
+      "title2":"Environment Friendly Hard Plastic Plastic",      
+      "description":"Zine alloy super powerful USB..........................",
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":"6",
+       "MSRP":"13.2",
+      "MAP":"12",
+      "weight":"101",
+      "qtyInCarton":"60",
+      "dimension":{
+        "length":"93mm","diameter":"36mm","weight":"66g"
+      }
+    },
+    "MR":{
+      "RLayout":"A",
+      "LLayout":"A",
+      "itemName":"Magic Ring",
+      "refNo":"W-ITS-S",
+      "color":["GBK","GSHBL","GGBL"],
+      "numOfImage":3,
+      "gender":"m",
+      "description":"Zine alloy super powerful USB..........................",
+      "title1":"Super Powerful USB Rechargeable Prolonging Sex Time Big Bullet Cock Ring With Removable Inner Ring",
+      "title2":"Food Degree Silicone Sleeve & Environment Friendly Electroplating Removable Zinc Alloy Inner Ring & Environment Friendly Plastic Bullet",      
+      "description1":"Zine alloy super powerful USB..........................",
+      "description2":"Zine alloy super powerful USB..........................",
+      "retailPrice":"24.2",
+       "MSRP":"51.8",
+      "MAP":"48.8",
+      "weight":"145",
+      "qtyInCarton":"60",
+      "dimension":{
+        "length":"72mm","weight":"63","size":"28-45mm"
+      }
+    }
+}
