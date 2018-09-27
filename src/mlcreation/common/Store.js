@@ -289,7 +289,7 @@ createCustomOrder(finalCost){
     }
 
      var json2Upload = {
-      email:this.retailerData.email, 
+      email:this.retailerData.email.value, 
       data:newCartData,
       finalCost:finalCost
     };

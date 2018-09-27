@@ -26,7 +26,10 @@ class OneStepPaymentForm extends Component{
     constructor(props){
         super(props)
         this.PaymentDoneCallBackF=this.PaymentDoneCallBackF.bind(this);
-
+        var email='';
+        if(this.props.email){
+           email = this.props.email
+        }
         this.state={
             loading:false,
             formValidated:false,
@@ -35,10 +38,12 @@ class OneStepPaymentForm extends Component{
                 last:'',
                 address:'',
                 country:'',
-                email:'',
+                email:email,
                 phone:''
             }
         }
+
+    
     }
     PaymentDoneCallBackF(token){
         var json ={
@@ -71,7 +76,8 @@ class OneStepPaymentForm extends Component{
 
     render(){
         var total = this.props.total
-        var TitleTDHeight= '40px';
+        var TitleTDHeight= '40px'
+        var email=this.props.email
         return(
             <Form>
                 <Table>
@@ -136,13 +142,21 @@ class OneStepPaymentForm extends Component{
                     <Tr>
                         <Th>Email:</Th>
                         <Td>
-                            <Input
+                            {email == ''?(
+                                 <Input
+                                 id='email'
+                                 placeholder='enter your email address'
+                                 onChange={(e)=>this.updateItem(e)}
+                                 onBlur={(e)=>this.validateItem(e)}
+                                 value={this.state.formData.email}
+                             />
+                            ):(
+                                <Input
                                 id='email'
-                                placeholder='enter your email address'
-                                onChange={(e)=>this.updateItem(e)}
-                                onBlur={(e)=>this.validateItem(e)}
                                 value={this.state.formData.email}
-                            />
+                                />
+                            ) }
+                            
                         </Td>
                     </Tr>                    
                     <Tr>

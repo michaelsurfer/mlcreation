@@ -5,3 +5,10 @@ var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9
 var result = re.test(String(email).toLowerCase());
 return  result;
 }
+
+export const today=()=>{
+var d = new Date();
+var datestring = d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear();
+console.log(datestring)
+return datestring
+}

@@ -82,7 +82,7 @@ class RetailerTransactionHistory extends Component{
         }else{
             var data=this.state.data.data
             console.log(data)
-
+            if(data){
             var transactionArray=data.transactions
             var result=[]
             transactionArray.forEach(element => {
@@ -97,17 +97,22 @@ class RetailerTransactionHistory extends Component{
                     />
                 )
             });                 
-         
+            }
+
+            if(!data){
+                return(
+                <Wrapper>
+                    No Transaction data yet
+                </Wrapper>
+                    )
+            }
             return(
              <Wrapper>
                  <p>Transactions</p>
-                 
                  <Table>
                  <Header/>
                  {result}
-
                  </Table>
-             
             </Wrapper>
             )
         }

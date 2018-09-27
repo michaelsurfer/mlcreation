@@ -11,7 +11,7 @@ import OrderHeaderContainer from "./OrderHeaderContainer";
 import {TotalCostRow} from "./TotalCostRow";
 import {RemarkRow} from "./RemarkRow";
 import {ShowUPC} from "./ShowUPC";
-
+ 
 
 const titlePink='rgb(254,203,191)';
 const titleBlue='rgb(236,221,220)';
@@ -314,7 +314,7 @@ class ProductTableConfirm extends Component{
       <td style={{
         'background-color':headerBlue,
         'border':'1px solid black'
-      }} colspan={totalRowSpan[device]-headerRowSpan[device]}>Order Date:</td>
+      }} colspan={totalRowSpan[device]-headerRowSpan[device]}>Order Date: </td>
       </tr>
       </tbody>
     );

@@ -70,9 +70,7 @@ class PaymentDone extends Component{
                       Thanks for your Payment!
                   </Header>
                   <Thanks/>
-                  <SaveInvoice>
-                  <a href="" target='blank'>Save your invoice</a>
-                   </SaveInvoice> 
+                 
                   <HaveANiceDay>
                       Wish you have a beautiful day!
                   </HaveANiceDay>

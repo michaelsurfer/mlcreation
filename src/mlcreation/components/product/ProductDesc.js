@@ -24,7 +24,7 @@ margin-bottom:10px;
 const Wrapper=c.RowPureDiv.extend`
 background-color:${(props)=>props.color};
 justify-content:space-between;
-height:700px;
+height:auto;
 padding:1px;
 `;
 const Button=styled.button`
@@ -96,7 +96,7 @@ const LeftBox=styled.div`
 display:flex;
 flex-direction:column;
 width:70%;
-height:870px;
+height:auto;
 margin-left:66px;
 border:0px solid red;
 `

@@ -49,8 +49,9 @@ justify-content:flex-end;
 align-items:center;
 display:flex;
 height:50px;
-padding-right:10px;
-border:0px solid white;
+
+
+border:0px solid red;
 
 `;
 
@@ -58,6 +59,7 @@ const MenuGroup=c.RowPureDiv.extend`
 width:40%;
 flex-direction:${(props)=>props.reverse?'row-reverse':'row'};
 border:0px solid;
+padding:5px;
 `;
 
 const TopBarLink=styled.label`

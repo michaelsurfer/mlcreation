@@ -340,6 +340,7 @@ const TableField={
             //var qty = this.props.store.retailerCart[productID].qty;
             if(qty==""){qty=0;}
             output = parseInt(qty)*dataJson.retailPrice;
+            output=parseFloat(output).toFixed(2)
            break;
           default:
           break;

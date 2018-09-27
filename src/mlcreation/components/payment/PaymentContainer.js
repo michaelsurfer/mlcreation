@@ -66,9 +66,10 @@ class PaymentContainer extends Component{
         var costJson={};
         var type = this.state.type;
         var uuid = this.props.store.orderDetail[this.state.type].uuid
-
+        var email ='';
         if(type=='retailer'){
             costJson = this.props.store.retailerCostBreakDown;
+            email = this.props.store.retailerData.email.value
         }else if(type=='custom'){
             costJson = this.props.store.customCostBreakDown;
         }
@@ -101,6 +102,7 @@ class PaymentContainer extends Component{
             <Wrapper>
                 <InnerWrapper>
                 <OneStepPaymentForm
+                email={email}
                 total = {total}
                 PaymentDoneCallBackF = {this.PaymentDoneCallBackF}
                 />

@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import * as c from './Css.js';
 import OrderHeaderCell from "./OrderHeaderCell";
 import OrderHeaderWeightAndShip from "./OrderHeaderWeightAndShip";
+import {today} from "../../common/Utility.js";
 
 @inject('store')
 @observer
@@ -136,7 +137,7 @@ class OrderHeaders extends Component{
             fontSize=''
             type={type}
             >
-            Order Date:  
+            Order Date:  {today()}
             </OrderHeaderCell>
             }
 

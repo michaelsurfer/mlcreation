@@ -56,23 +56,38 @@ left:50%;
 transform: translate(-50%,-50%);
 `;
 
-const ViewAllTransactions=({match})=>{
-  var email=match.params.email
-  return(
-  <RetailerTransactionHistory
-    email='abc@gmail.com'
-  />
+const ViewAllTransactions=inject('store')(observer((props)=>{
+   return(
+    <div>
+    <NavBar gender='general'/>
+    {props.store.login?(
+      <Fragment>
+      <RetailerBar/>
+      <RetailerTransactionHistory
+      email={props.store.retailerData.email.value}
+      />
+      </Fragment>
+    ):(
+      <LoginView/>
+
+    )}
+
+ 
+  </div>
   )
 
-}
+}))
 const ViewTransaction=({match})=>{
   var uuid=match.params.uuid
   var type=match.params.type
   return(
+    <div>
+    <NavBar gender='general'/>  
   <TransactionView
     uuid={uuid}
     type={type}
   />
+  </div>
   )
 
 }
@@ -396,7 +411,7 @@ class App extends Component {
        <Route exact path="/payment" component={Payment}/>
        <Route exact path="/productRedirect/:productID" component={ProductRedirect}/>
        <Route exact path="/viewTransaction/:type/:uuid" component={ViewTransaction}/>
-       <Route exact path="/viewAllTransactions/:email" component={ViewAllTransactions}/>
+       <Route exact path="/viewAllTransactions/" component={ViewAllTransactions}/>
 
  
       <Footer/>
