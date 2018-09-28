@@ -1,7 +1,6 @@
 var bodyParser = require('body-parser');
 var express = require('express');
 const uuidv4 = require('uuid/v4');
-var productData = require('../src/mlcreation/asset/ProductList.json');
 var loki = require('lokijs');
 var nodemailer = require('nodemailer');
 var cors = require('cors')
@@ -148,36 +147,8 @@ function getNextCustomerOrderNumber(){
 	return id;
 }
 
-function checkTotal2(uuid){
-
-	var result = order.findOne({uid:uuid});
-	if(!result){return 404}
-	var orderList = JSON.parse(result.orderList.data);
-
-	console.log(orderList);
-	var total=0;
 
 
-	for(var item in orderList){
-			console.log(orderList[item]);
-
-		total = total + (orderList[item]*productData[orderList[item].name].retailPrice);
-	}
-	console.log("Total price: "+total);
-	return total;
-
-
-};
-
-function checkTotal(orderList){
-  //var orderList=orderList.data;
-  var total=0;
-  for(var item in orderList){
-    total = total + orderList[item].qty * productData[orderList[item].name].retailPrice;
-   }
-  //console.log("Total price: "+total);
-  return total;
-}
 
 function add2Transactions(email,uuid,totalCost){
   /*
