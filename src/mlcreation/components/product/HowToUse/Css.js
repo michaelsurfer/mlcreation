@@ -13,7 +13,9 @@ position:relative;
 //background-color:${(props)=>props.color};
 width:100%;
 height:100%;
-border:1px solid white;
+border-left:1px solid white;
+border-right:1px solid white;
+
 justify-content:${(props)=>props.left?'flex-start':'flex-end'};
 `;
 
@@ -525,6 +527,13 @@ E.  The function of the small button is exactly same as the big button.
 `
 },
 LB:{
+desc:
+`
+8 vibration modes, 1 vibration intensity.
+Can choose the 8-auto cycle mode.
+
+1 hour of charging = 70 minutes usage
+`,     
     charge:`
 A.  Turn back the vibrator cover and pull it out.
 B.  Gently insert the USB charger into the recharging hole (see picture).

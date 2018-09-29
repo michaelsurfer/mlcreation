@@ -31,6 +31,25 @@ import  GenderSelection from './mlcreation/components/GenderSelection';
 import TransactionView from './mlcreation/components/transactions/TransactionView';
 import RetailerTransactionHistory from './mlcreation/components/transactions/RetailerTransactionHistory';
 
+
+const BlackLine=styled.div`
+width:100%;
+height:38px;
+background-color:black;
+`;
+
+const PinkLine=styled.div`
+display:flex;
+justify-content:center;
+align-items:center;
+width:100%;
+height:50px;
+background-color:rgb(225,200,200);
+text-align:center;
+`
+const WrarantyText=styled.label`
+font-size:20pt;
+`
 const FixSizeRootWrapper=styled.div`
 width: 100%;
 min-width: 1200px;
@@ -193,8 +212,13 @@ return (
 
 const Policy=()=>(
 <div>
-  <NavBar gender='general'/>
+  <NavBar gender='g'/>
+  <PinkLine>
+    <WrarantyText>WARRANTY</WrarantyText>
+  </PinkLine>
   <PolicyView type='customer'/>
+  <BlackLine/>
+  <SloganBanner gender='g'/>
 </div>
 );
 
@@ -202,6 +226,9 @@ const AboutUs=()=>(
 <div>
   <NavBar gender='general'/>
   <AboutUsView/>
+  <BlackLine/>
+  <SloganBanner gender='g'/>
+
 </div>
 
 );

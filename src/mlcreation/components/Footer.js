@@ -18,12 +18,13 @@ justify-content:center;
 align-items:left;
 padding:30px;
 
-
-
 `;
 
 const SocialCell=Cell.extend`
 display:flex;
+border:0px solid red;
+justify-content:center;
+align-items:center;
 `;
 
 const SocialCellMobile=Cell.extend`
@@ -34,11 +35,14 @@ display:none;
 const Followus=styled.label`
 color:rgb(138,140,141);
 font-size:large;
+margin-bottom:50px;
 `;
 
 const QuickLinks=styled.label`
 font-size:18px;
-
+color:rgb(138,140,141);
+padding:5px;
+margin-bottom:10px;
 `;
 const Link=styled(NavLink)`
 text-decoration:none;
@@ -50,9 +54,10 @@ font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 
 
 
-const Icon=styled.div`
-padding:5px;
-color:white;
+const Icon=styled.img`
+padding:20px;
+width:50%;
+height:50%;
 `;
 
 const FootLine=styled.div`
@@ -62,19 +67,19 @@ height:10px;
 `;
 const socialArray={
   twitter:{
-    image:'T',
+    image:require('../image/social/twitter.png'),
     url:''
   },
   facebook:{
-    image:'F',
+    image:require('../image/social/facebook.png'),
     url:''
   },
-  youtube:{
-      image:'U',
+  in:{
+      image:require('../image/social/in.png'),
       url:''
   },
-  ig:{
-    image:'I',
+  googleplus:{
+    image:require('../image/social/googleplus.png'),
     url:''
   }
 };
@@ -85,9 +90,10 @@ export const Footer=({})=>{
 
   for(var item in socialArray){
     social.push(
-        <Icon>
-          {socialArray[item].image}
-        </Icon>
+        <Icon
+          src={socialArray[item].image}
+          />
+      
     );
   }
 
@@ -96,16 +102,17 @@ export const Footer=({})=>{
     <Wrapper>
 
       <Cell>
+      <QuickLinks>QUICK LINKS</QuickLinks>  
       <Link to="/productList/g">For Her</Link>
       <Link to="/productList/m">For Him</Link>
       <Link to="/allComment">Comments</Link>
-      <Link to="/yourAccount">My Account</Link>
+      <Link to="/yourAccount">Retailer Account</Link>
       <Link to="/cart">Shopping List</Link>
 
       </Cell>
 
       <SocialCell>
-      <Followus>Follus us on</Followus>
+      <Followus>Follow us on</Followus>
       <c.RowPureDiv>{social}</c.RowPureDiv>
       </SocialCell>
 
@@ -120,7 +127,7 @@ export const Footer=({})=>{
 
 
       <SocialCellMobile>
-      <Followus>Follus us on</Followus>
+      <Followus>Follow us on</Followus>
       <c.RowPureDiv>{social}</c.RowPureDiv>
       </SocialCellMobile>
 

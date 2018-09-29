@@ -12,10 +12,18 @@ import {EvvaLower} from "./HowToUse/EvvaLower";
 
 const OutterWrapper=styled.div`
 display:flex;
+justify-content:center;
+align-items:center;
 width:100%;
 flex-direction:column;
 background-color:${(props)=>props.color};
 `;
+
+const Whiteline=styled.div`
+width:95%;
+height:2px;
+background-color:white;
+`
 
 const Row=styled.div`
 display:flex;
@@ -51,6 +59,8 @@ export const HowToUseView=({
     if(productID=='EVVA'){
         return(
             <OutterWrapper color={backgroundcolor}>
+            <div id="how2use"></div>
+
             <Row>
             <Cell>
             <EvvaLeft
@@ -80,7 +90,7 @@ export const HowToUseView=({
         <OutterWrapper
             color={backgroundcolor}
         >
-            
+             <div id="how2use"></div>
              <Row>
                 
                 <Cell>
@@ -126,8 +136,7 @@ export const HowToUseView=({
                 </Cell>
                 
             </Row>
-            
-            
+            <Whiteline/>
             <Cell>    
             <ShareLowerLayout
                 productID={productID}

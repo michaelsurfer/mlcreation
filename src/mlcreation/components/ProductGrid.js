@@ -65,12 +65,14 @@ const StyledProductBox=styled.a`
   width:100%;
   height:270px;
   background-color:rgb(239,238,242);
-  margin:2px 0px 0px 2px;
+  margin:0px 0px 0px 0px;
   background-image:url(${(props)=>props.img});
   background-repeat:no-repeat;
   background-size:contain;
   background-position: center;
-  border:2px solid white;
+  border-left:2px solid white;
+  border-right:2px solid white;
+
   flex-direction:row;
  
 `;
@@ -79,7 +81,7 @@ const StyledRow=styled.div`
 display:flex;
 flex-direction:rwo;
 flex-wrap:no-wrap;
-background-color:black;
+background-color:white;
 margin:10px 0px 10px 0px;
 justify-content:space-between;
  `;

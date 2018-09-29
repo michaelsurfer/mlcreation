@@ -5,7 +5,7 @@ import {computed} from "mobx";
 import ShipmentData from "../asset/ShipmentCost.json";
  
 export default class Store{
-  @observable login = true;
+  @observable login = false;
   //@observable showPaymentModal = 'none';
   @observable currentPaymentType = '';
   @observable showPaymentModal = 'none';

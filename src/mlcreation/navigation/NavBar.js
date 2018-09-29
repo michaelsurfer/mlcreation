@@ -92,7 +92,7 @@ class NavBar extends Component{
       <DropDownLink>COMMENTS</DropDownLink>
       <DropDownLink>RETAILER ACCOUNT</DropDownLink>
       <DropDownLink>SHOPPING LIST</DropDownLink>
-      <DropDownLink>LANGUAGE</DropDownLink>
+      <DropDownLink>ENGLISH</DropDownLink>
        </c.ColPureDiv>
     ):(<div></div>)
     }
@@ -108,7 +108,7 @@ class NavBar extends Component{
       <TopBar color={color} gender={this.props.gender}>
           <c.Link white to="/YourAccount">RETAILER ACCOUNT</c.Link>
           <c.Link white to="/cart">SHOPPING LIST ({this.props.store.cartSize})</c.Link>
-          <c.Link white to="/">LANGUAGE</c.Link>
+          <c.Link white to="/">ENGLISH</c.Link>
       </TopBar>
       );
     }else{
@@ -116,7 +116,7 @@ class NavBar extends Component{
         <TopBar color={color} gender={this.props.gender}>
             <c.Link  to="/YourAccount">RETAILER ACCOUNT</c.Link>
             <c.Link  to="/cart">SHOPPING LIST ({this.props.store.cartSize})</c.Link>
-            <c.Link  to="/">LANGUAGE</c.Link>
+            <c.Link  to="/">ENGLISH</c.Link>
         </TopBar>
         );
 

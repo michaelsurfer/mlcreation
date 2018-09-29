@@ -34,7 +34,8 @@ width:100%;
 height:40px;
 margin-top:20px;
 font-size:14pt;
-font-family: Verdana, Geneva, sans-serif;
+font-family: 'Bai Jamjuree', sans-serif;
+letter-spacing: 3px;
 
 `;
 const SplitDiv=styled.div`
@@ -126,7 +127,7 @@ text-align: center;
 font-size:15pt;
 font-family: "Arial Unicode MS";
 background-color:${(props)=>c.ThemeColor[props.gender].how2Use};
-color:${(props)=>(props.gender=='g')?'white':'black'};
+color:${(props)=>(props.gender=='g')?'black':'black'};
 `;
 
 const HowBigIsIt=styled(How2UseBox)`
@@ -273,11 +274,14 @@ onClick={()=>this.setState({selectedImage:'m'})}
 </SelectionCell>
 
 <SelectionCell>
-
+<a href='#how2use' style={{'text-decoration':'none'}}>
 <How2UseBox
 gender={gender}
->HOW TO USE IT?
+>
+ HOW TO USE IT?
+
 </How2UseBox>
+</a>
 </SelectionCell>
 </c.AutoFullRow>
 
