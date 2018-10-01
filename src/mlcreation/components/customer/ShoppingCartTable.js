@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React,{Component,Fragment} from 'react';
+import QuantitySelection from '../QuantitySelection';
 import data from "../../asset/ProductList.json";
 import * as c from "../../common/Css2";
 import {ItemImage} from "../../components/ItemImage";
@@ -83,7 +84,7 @@ const Titles=()=>{
     </StyledRow>
     );
 }
-const Item=({id,productCode,color,qty,totalCost,removeFromCart})=>{
+const Item=({id,productCode,color,qty,totalCost,removeFromCart,increaseQuantity,decreaseQuantity})=>{
     console.log(productCode);
     console.log(color);
     var cost = qty * data[productCode].MSRP;
@@ -113,7 +114,14 @@ const Item=({id,productCode,color,qty,totalCost,removeFromCart})=>{
             />
             </StyledCell>
             <StyledCell bottom>
-            {qty}
+            <QuantitySelection
+                width='100px'
+                qty={qty}
+                id={id}
+                increaseQuantity={increaseQuantity}
+                decreaseQuantity={decreaseQuantity}
+            />
+            
             </StyledCell>
             <StyledCell bottom>
             <DeleteButton
@@ -183,7 +191,7 @@ const TotalCost=({totalProductCost,totalQty,totalShipmentCost,finalCost})=>{
    ); 
 }
 
-const ItemList=({itemList,removeFromCart})=>{
+const ItemList=({itemList,removeFromCart,increaseQuantity,decreaseQuantity})=>{
     var result=[];
     for(var id in itemList){
         console.log(id);
@@ -195,6 +203,8 @@ const ItemList=({itemList,removeFromCart})=>{
                 qty={itemList[id].qty}
                 color={itemList[id].color}
                 removeFromCart={removeFromCart}
+                increaseQuantity={increaseQuantity}
+                decreaseQuantity={decreaseQuantity}
             />
         )
     }
@@ -208,12 +218,26 @@ class ShoppingCartTable extends Component{
     constructor(props){
         super(props)        
         this.removeFromCart=this.removeFromCart.bind(this);
+        this.increaseQuantity=this.increaseQuantity.bind(this);
+        this.decreaseQuantity=this.decreaseQuantity.bind(this);
+
 
     }
 
     removeFromCart(id){
         console.log("remove from cart "+id)
         this.props.store.removeFromCart(id)
+    }
+
+    increaseQuantity(id){
+        console.log("increaseQuantity :"+id)
+        this.props.store.increaseFromCart(id,'customer')
+
+    }
+    decreaseQuantity(id){
+        console.log("decreaseQuantity :"+id)
+        this.props.store.decreaseFromCart(id,'customer')
+
     }
 
     render(){
@@ -238,6 +262,9 @@ class ShoppingCartTable extends Component{
                 <ItemList
                     itemList={cartData}
                     removeFromCart={this.removeFromCart}
+                    increaseQuantity={this.increaseQuantity}
+                    decreaseQuantity={this.decreaseQuantity}
+
                 />
                 
                 <TotalCost

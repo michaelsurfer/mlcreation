@@ -36,7 +36,7 @@ class Product extends Component{
       colorArray = data[productID].color
     }
 
-     var price = data[productID].retailPrice;
+     var price = data[productID].MSRP;
     var title1 = data[productID].title1;
     var title2 = data[productID].title2;
     var description1 = data[productID].description1;

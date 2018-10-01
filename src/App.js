@@ -34,9 +34,13 @@ import RetailerTransactionHistory from './mlcreation/components/transactions/Ret
 
 const BlackLine=styled.div`
 width:100%;
-height:38px;
+height:${(props)=>props.height}
 background-color:black;
+margin-top:${(props)=>props.top}
 `;
+
+const RedText={'color':'red','padding':'300px'}
+
 
 const PinkLine=styled.div`
 display:flex;
@@ -75,6 +79,14 @@ left:50%;
 transform: translate(-50%,-50%);
 `;
 
+
+const Mike=()=>{
+  return(
+    <div>
+      <label style={RedText}>test </label>
+    </div>
+  )
+}
 const ViewAllTransactions=inject('store')(observer((props)=>{
    return(
     <div>
@@ -344,8 +356,11 @@ const PriceList=inject('store')(observer((props)=>{
   <NavBar gender='g'/>
 
   {props.store.login?(
-
+    <Fragment>
     <Retailer priceList/>
+    <BlackLine height='36px'/>
+    <SloganBanner gender='g'/>
+    </Fragment>
   ):(
     <LoginView/>
   )}
@@ -439,7 +454,7 @@ class App extends Component {
        <Route exact path="/productRedirect/:productID" component={ProductRedirect}/>
        <Route exact path="/viewTransaction/:type/:uuid" component={ViewTransaction}/>
        <Route exact path="/viewAllTransactions/" component={ViewAllTransactions}/>
-
+       <Route exact path="/mike" component={Mike}/>
  
       <Footer/>
       </FixSizeRootWrapper>

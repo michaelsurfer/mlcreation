@@ -38,7 +38,7 @@
       "weight":"92",
       "qtyInCarton":"60",
       "dimension":{
-        "high":"46mm","diameter":"30mm","weight":"26g"
+        "height":"46mm","diameter":"30mm","weight":"26g"
       }
 
     },
@@ -55,7 +55,7 @@
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
       "retailPrice":"12.18",
-       "MSRP":"246.8",
+       "MSRP":"26.8",
       "MAP":"24.6",
       "weight":"79",
       "qtyInCarton":"96",
@@ -126,7 +126,7 @@
       "weight":"67",
       "qtyInCarton":"84",
       "dimension":{
-        "high":"44mm","length":"30mm","diameter":"18mm","weight":"15g"
+        "height":"44mm","length":"30mm","diameter":"18mm","weight":"15g"
       }
 
     },
@@ -143,12 +143,12 @@
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
       "retailPrice":"17.9",
-       "MSRP":"41.839.8",
+       "MSRP":"39.8",
       "MAP":"36.8",
       "weight":"84",
       "qtyInCarton":"96",
       "dimension":{
-        "high":"63mm","diameter":"28-42mm","weight":"26g"
+        "height":"63mm","diameter":"28-42mm","weight":"26g"
       }
 
     },
@@ -165,7 +165,7 @@
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
       "retailPrice":"22.8",
-       "MSRP":"49.8",
+       "MSRP":"48.8",
       "MAP":"45.8",
       "weight":"196",
       "qtyInCarton":"30",
@@ -240,7 +240,7 @@
       "weight":"363",
       "qtyInCarton":"20",
       "dimension":{
-        "high":"153mm","diameter":"56mm","weight":"216g"
+        "height":"153mm","diameter":"56mm","weight":"216g"
       }
 
     },
@@ -316,7 +316,7 @@
       "weight":"78",
       "qtyInCarton":"96",
       "dimension":{
-        "high":"84mm","diameter":"17mm","weight":"21g"
+        "height":"84mm","diameter":"17mm","weight":"21g"
       }
     },
     "RVKB":{
@@ -332,9 +332,9 @@
       "description":"Zine alloy super powerful USB..........................",
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
-      "retailPrice":"24.2",
-      "MSRP":"51.8",
-      "MAP":"48.8",
+      "retailPrice":"22.8",
+      "MSRP":"48.8",
+      "MAP":"45.8",
       "weight":"296",
       "qtyInCarton":"30",
       "dimension":{
@@ -355,7 +355,7 @@
       "description1":"Zine alloy super powerful USB..........................",
       "description2":"Zine alloy super powerful USB..........................",
       "retailPrice":"6",
-       "MSRP":"13.2",
+      "MSRP":"13.2",
       "MAP":"12",
       "weight":"101",
       "qtyInCarton":"60",

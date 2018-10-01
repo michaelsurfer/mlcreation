@@ -5,7 +5,7 @@ import {computed} from "mobx";
 import ShipmentData from "../asset/ShipmentCost.json";
  
 export default class Store{
-  @observable login = false;
+  @observable login = true ;
   //@observable showPaymentModal = 'none';
   @observable currentPaymentType = '';
   @observable showPaymentModal = 'none';
@@ -100,8 +100,12 @@ export default class Store{
       var qty = cart[item].qty;
       var code = cart[item].name;
       var price = data[code].MSRP;
+      console.log(price)
+      console.log(qty)
+
       if(qty==''){qty=0}else{
-      totalProductCost = totalProductCost + parseInt(qty)*parseFloat(price);
+      totalProductCost = parseFloat(totalProductCost) + parseInt(qty)*parseFloat(price);
+      console.log(totalProductCost)
       totalProductCost = totalProductCost.toFixed(2)
       totalQty = totalQty + parseInt(qty);
       }
@@ -403,6 +407,73 @@ closeDialog(){
     sessionStorage.setItem("cart",data);
 
   }
+
+  increaseFromCart(id,type){
+    var cart;
+    if(type=='retailer'){
+      cart = this.retailerCart
+    }else if(type=='customer'){
+      cart = this.shoppingCart
+    }
+     var qty=0
+
+    if(!cart[id]){
+      cart[id].qty =0
+    }
+
+    if(cart[id]){
+      qty = cart[id].qty+1
+    }
+    cart[id].qty=qty
+
+    if(type=='retailer'){
+      this.retailerCart = cart
+    }else if(type=='customer'){
+      this.shoppingCart = cart
+    }
+
+    this.saveCart()
+  }
+
+  decreaseFromCart(id,type){
+    var cart;
+    if(type=='retailer'){
+      cart = this.retailerCart
+    }else if(type=='customer'){
+      cart = this.shoppingCart
+    }
+    var qty=0
+    if(cart[id]){
+      qty = parseInt(cart[id].qty)
+      console.log('qty:'+qty)
+      if(qty>1)
+      {
+      qty = qty-1
+      cart[id].qty=qty
+   
+
+    if(type=='retailer'){
+      this.retailerCart = cart
+    }else if(type=='customer'){
+      this.shoppingCart = cart
+    }
+   
+      }else{
+      console.log('delete')
+      delete cart[id]
+    if(type=='retailer'){
+      this.retailerCart = cart
+    }else if(type=='customer'){
+      this.shoppingCart = cart
+    }
+
+    }
+
+    }
+    this.saveCart()
+   }
+
+
   addOne2Cart(id,color){
     console.log("add to cart")
     var cart = this.shoppingCart;

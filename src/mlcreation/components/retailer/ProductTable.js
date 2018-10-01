@@ -13,6 +13,7 @@ import {TotalCostRow} from "./TotalCostRow";
 import {RemarkRow} from "./RemarkRow";
 import {ShowUPC} from "./ShowUPC";
 import {pricelisttext} from "../../asset/PricelistDesc";
+import QuantitySelection from '../QuantitySelection'; 
 
 const titlePink='rgb(254,203,191)';
 const titleBlue='rgb(236,221,220)';
@@ -39,14 +40,18 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'selectionBox'
+    type:'selectionBox',
+    width:'10px'
+
   },
   itemName:{
     title:"Item Name",
     color:titlePink,
     desktop:true,
     mobile:true,
-    type:'text'
+    type:'text',
+    width:'30px'
+
 
   },
   color:{
@@ -54,7 +59,9 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'color'
+    type:'color',
+    width:'30px'
+
 
   },
   itemPic:{
@@ -62,22 +69,25 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:true,
-    type:'img'
-
+    type:'img',
+    width:'50px'
   },
   description:{
     title:"Item Description",
     color:titlePink,
     desktop:true,
     mobile:true,
-    type:'text'
+    type:'text',
+    width:'60px'
+
   },
   UPC:{
     title:"UPC",
     color:titlePink,
     desktop:true,
     mobile:false,
-    type:'upc'
+    type:'upc',
+    width:'50px'
 
   },
   retailPrice:{
@@ -85,7 +95,8 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:true,
-    type:'text'
+    type:'text',
+    width:'50px'
 
   },
   qty:{
@@ -100,7 +111,9 @@ const TableField={
     color:titlePink,
     desktop:true,
     mobile:true,
-    type:'state'
+    type:'state',
+    width:'10px'
+
   },
   delete:{
     title:"Delete",
@@ -158,9 +171,25 @@ const TableField={
       redirect:false,
       toLink:""
     };
+
+    this.increaseQuantity=this.increaseQuantity.bind(this);
+    this.decreaseQuantity=this.decreaseQuantity.bind(this);
+
    }
 
   
+increaseQuantity(id){
+    console.log("increaseQuantity :"+id)
+    this.props.store.increaseFromCart(id,'retailer')
+
+}
+decreaseQuantity(id){
+    console.log("decreaseQuantity :"+id)
+    this.props.store.decreaseFromCart(id,'retailer')
+}
+
+
+
    componentDidMount(){
     window.scrollTo(0, 0);
    }
@@ -297,7 +326,7 @@ const TableField={
             if(this.props.store.retailerCart[productID]!=null){
               qty = this.props.store.retailerCart[productID].qty
             }
-
+            /*
             output =
                 <input type='number'
                 id={productID}
@@ -308,6 +337,15 @@ const TableField={
                   'width':'30px'
                 }}
                 />
+                */
+             output=  
+               <QuantitySelection
+                id={productID}
+                qty={qty}
+                width='60px'
+                increaseQuantity={this.increaseQuantity}
+                decreaseQuantity={this.decreaseQuantity}
+               /> 
 
            break;
            case 'img':

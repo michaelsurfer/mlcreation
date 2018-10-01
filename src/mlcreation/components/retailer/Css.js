@@ -2,13 +2,13 @@ import styled from "styled-components";
 import React,{Component} from 'react';
 
 export const StyledTd=styled.td`
-  background-color:${(props)=>props.color};
-  border:1px solid grey;
-  font-size:15px;
-  margin:0px;
-  text-align: center; 
-  padding:5px;
-  vertical-align:middle;
+background-color:${(props)=>props.color};
+border:1px solid grey;
+font-size:0.8vw;
+margin:0px;
+text-align: center; 
+padding:10px;
+vertical-align:middle;
 
   `;
   
@@ -26,13 +26,17 @@ export const Button=styled.button`
   `;
 
 export const StyledTh=styled.th`
-  background-color:${(props)=>props.color};
-  border:1px solid grey;
-  font-size:15px;
-  margin:0px;
-  text-align: center;
-  min-width:${(props)=>props.minWidth}; 
-  padding:5px;
+
+background-color:${(props)=>props.color};
+border:1px solid grey;
+height:70px;
+font-size:15px;
+margin:auto;
+text-align: center;
+min-width:${(props)=>props.minWidth}; 
+padding:10px;
+vertical-align:middle;
+align-items:center; 
 
  `;
 

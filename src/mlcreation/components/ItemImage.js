@@ -14,7 +14,7 @@ margin-left:auto;
 margin-right:auto;
 overflow-x:hidden;
 overflow-y:hidden;
-border:0px solid;
+border:1px solid red;
 background-color:${(props)=>props.backgroundcolor};
 `;
 

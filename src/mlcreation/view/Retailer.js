@@ -17,11 +17,13 @@ const BGColorSchema={
 }
 
 const Wrapper=styled.div`
-width:100%;
+width:85%;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:50px;
+padding-top:100px;
+padding-bottom:50px;
+
 `;
 
 const Outter=styled.div`
@@ -135,7 +137,7 @@ render(){
  return(
   <div>
   <RetailerBar/>
-   <Outter page={this.state.page}>
+  <Outter page={this.state.page}>
   <Wrapper>
 
     {resultView}
@@ -143,8 +145,7 @@ render(){
    </Wrapper>
   </Outter>
 
-  <SloganBanner gender='g'/>
-
+ 
   </div>
   );
 }

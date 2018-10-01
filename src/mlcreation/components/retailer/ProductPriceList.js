@@ -9,8 +9,9 @@ import ProductColorCode from "../../asset/ColorCode.json";
 import {Redirect} from "react-router";
 import SelectGenderDialog from "../dialog/SelectGenderDialog";
 import {ShowUPC} from "./ShowUPC";
+import * as c2 from './Css.js';
 
-
+ 
 const titlePink='rgb(254,203,191)';
 const titleBlue='rgb(236,221,220)';
  
@@ -31,6 +32,8 @@ display:flex;
 background-color:rgb(223,200,200);
 margin-top:0px;
 margin-bottom:10px;
+font-size:21pt;
+font-family:'Times New Roman';
 `;
 
 const Table=styled.table`
@@ -39,16 +42,23 @@ border:0px solid grey;
 white-space:pre-wrap;
 
 `;
-
- const HeaderText=styled.label`
+ 
+ const HeaderText=styled.p`
  word-wrap:break-word;
  overflow:hidden;
- font-size:1vw;
-
+ font-size:0.8vw;
+ line-height:20px;
+ margin-left:10px;
+ margin-top:0px;
+ font-weight:${(props)=>props.bold?'bold':''};
+ margin-bottom:0px;
  `;
 
 const Wrapper=styled.div`
-width:100%`;
+width:100%;
+border:0px solid red;
+
+`;
 
 
 const TableField={
@@ -67,7 +77,7 @@ const TableField={
     desktop:true,
     mobile:true,
     type:'text',
-    width:'50px'
+    width:'30px'
   },
   color:{
     title:"Colour",
@@ -75,11 +85,11 @@ const TableField={
     desktop:true,
     mobile:false,
     type:'color',
-    width:'50px'
+    width:'30px'
 
   },
   itemPic:{
-    title:"Picture",
+    title:"Item Picture",
     color:titlePink,
     desktop:true,
     mobile:true,
@@ -93,7 +103,7 @@ const TableField={
     desktop:true,
     mobile:true,
     type:'text',
-    width:'50px'
+    width:'60px'
 
   },
   UPC:{
@@ -106,7 +116,9 @@ const TableField={
 
   },
   retailPrice:{
-    title:"Unit Price (USD)",
+    title:
+`Retailer 
+Price (USD)`,
     color:titlePink,
     desktop:true,
     mobile:true,
@@ -134,7 +146,10 @@ const TableField={
 
   },
   weight:{
-    title:"Item with Packaging Weight (Kg)",
+    title:
+`Item with 
+Packaging
+Weight (Kg)`,
     color:titleBlue,
     desktop:true,
     mobile:false,
@@ -143,7 +158,10 @@ const TableField={
 
   },
   qtyInCarton:{
-    title:"Qty in Carton",
+    title:
+`Qty.
+in Carton
+(PC)`,
     color:titleBlue,
     desktop:true,
     mobile:false,
@@ -153,24 +171,6 @@ const TableField={
   }
 
 }
-
-const StyledTd=styled.td`
-  background-color:${(props)=>props.color};
-  border:1px solid grey;
-  font-size:15px;
-  margin:0px;
-  text-align: center; 
-  `
-
-const StyledTh=styled.th`
-  background-color:${(props)=>props.color};
-  border:1px solid grey;
-  font-size:15px;
-  margin:0px;
-  text-align: center;
-  min-width:${(props)=>props.minWidth}; 
-  padding:5px;
- `
 
   @inject('store')
   @observer
@@ -203,18 +203,18 @@ const StyledTh=styled.th`
     var result=[];
     for(var field in TableField){
       var json = TableField[field];
-      var minWidth=TableField.width;
+      var minWidth=TableField[field].width;
       if(field=="No"){
         minWidth='10px';
       }
       if(json[device]){
       result.push(
-      <StyledTh 
+      <c2.StyledTh 
       color={json.color}
       minWidth={minWidth}
       >
         {json.title}
-      </StyledTh>
+      </c2.StyledTh>
       )
       }
     }
@@ -312,9 +312,9 @@ const StyledTh=styled.th`
         }
 
         rowData.push(
-          <StyledTd color='white'>
+          <c2.StyledTd color='white'>
           {output}
-          </StyledTd>
+          </c2.StyledTd>
         );
 
 
@@ -372,10 +372,11 @@ const StyledTh=styled.th`
       
     }}
     >
-    <Header>ML Creation Retailer/E-Tailer Price List</Header>
+    <Header>ML Creation Retailer / E-Tailer Price List</Header>
     </td></tr>
     <tr>
       <td colspan={5}
+      valign='top'
       style={{
         "width":"50%",
         "background-color":"rgb(237,220,220)",
@@ -384,15 +385,15 @@ const StyledTh=styled.th`
 
       }}
       >
-      {
-`
-ML Creation Co.,Limited (Hong Kong)
+      
+<HeaderText>
+{`ML Creation Co.,Limited (Hong Kong)
 Company Registration Certification No,:61575741-000-06-17-9
 Contact Person:Susanna Lee
 Phone: 00852-97383616
 Email: susanna@mlcreationco.com
-`
-      }
+`}
+</HeaderText>
       </td>
       <td 
       colspan={6}
@@ -404,17 +405,14 @@ Email: susanna@mlcreationco.com
 
       }}
       >
-<b>Order MOQ.:</b>
+<HeaderText bold>Order MOQ.:</HeaderText>
 <HeaderText>
-{`
-The quanitiy of each product is not less than 2 pieces.
-The total Qty. of each order is not less than 20 pieces. Each product can be mixed with color.      
-`}
+{`The quanitiy of each product is not less than 2 pieces.
+The total Qty. of each order is not less than 20 pieces. Each product can be mixed with color.`}
 </HeaderText>
-<b>Delivery Time:</b>
+<HeaderText bold>Delivery Time:</HeaderText>
 <HeaderText>
-{`
-After your payment, we will deliver your order to your designed delivery address within 5 business days,
+{`After your payment, we will deliver your order to your designed delivery address within 5 business days,
 For remote areas is 7 working days.
 `}
 </HeaderText>
@@ -429,7 +427,7 @@ For remote areas is 7 working days.
       'background-color':titlePink,
       'text-align': 'center',
       'height':'50px',
-      'border-bottom':'1px solid grey'
+      'border-bottom':'2px solid black'
 
     }}
     >

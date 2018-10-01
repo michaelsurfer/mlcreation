@@ -39,7 +39,6 @@ return(
 <StyledBanner color={color}>
 <StyledTitle big>ML CREATION</StyledTitle>
 <StyledDesc>COOL.....THAT'S WHY HOT</StyledDesc>
-
 </StyledBanner>
 );
 }

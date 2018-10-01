@@ -41,6 +41,9 @@ render(){
         <c.Link to='/viewAllTransactions/'>
           Your Order History
         </c.Link>
+        <c.Link to='/'>
+          Sign Out
+        </c.Link>
       </SubWrapper>
     </Wrapper>
   );
