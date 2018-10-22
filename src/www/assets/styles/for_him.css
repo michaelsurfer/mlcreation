@@ -1,0 +1,26 @@
+/**
+* for_him.css
+*/
+
+/* Topbar and related elements */
+#Topbar {
+    background-color: #17588B; 
+}
+#CompanyLogoIMG {
+    left: 1vw;
+    bottom: 0.23vw;
+    width: 2.38vw;
+}
+#TopbarNavigation a {
+    color: #ffffff;
+}
+
+/* Slogan and related elements */
+#Slogan {
+    background-color: #17588B; 
+}
+
+/* Sitemap and related elements */
+#Sitemap {
+    border-bottom: 1px solid #17588B; 
+}

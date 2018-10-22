@@ -174,7 +174,7 @@ in Carton
 
   @inject('store')
   @observer
-  class ProductPriceList extends Component{
+  class PriceList extends Component{
 
   constructor(props){
     super(props);
@@ -190,9 +190,11 @@ in Carton
     var gender = data[productID].gender;
     var toLink="";
     if(gender=='both'){
-    this.props.store.showSelectGenderDialog.productID=productID;
-    this.props.store.showSelectGenderDialog.show=true;
-    }else{
+    //this.props.store.showSelectGenderDialog.productID=productID;
+    //this.props.store.showSelectGenderDialog.show=true;
+    this.props.store.Dialog.setSelectGenderDialog(productID)
+      
+  }else{
       toLink="/product/"+gender+"/"+productID;
       this.setState({toLink:toLink,redirect:true});
 
@@ -445,4 +447,4 @@ For remote areas is 7 working days.
 
 
 
-  export default ProductPriceList;
+  export default PriceList;

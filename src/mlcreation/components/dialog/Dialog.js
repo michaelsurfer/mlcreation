@@ -12,8 +12,10 @@ constructor(props){
 
 
 renderButton(){
-    var showCloseButton = this.props.store.generalDialog.closeButton.show;
-    var showActionButton = this.props.store.generalDialog.actionButton.show;
+    var showCloseButton = false //this.props.store.generalDialog.closeButton.show;
+    var showActionButton = false //this.props.store.generalDialog.actionButton.show;
+    
+    
     var result = [];
     if(showCloseButton){
         result.push(<c.Button onClick={()=>this.props.store.closeDialog()}>Close</c.Button>);
@@ -28,12 +30,12 @@ renderButton(){
     );
 }
 render(){
-    var show = this.props.store.generalDialog.show;
-    var message = this.props.store.generalDialog.message;
+    var show = false //this.props.store.generalDialog.show;
+    var message = false //this.props.store.generalDialog.message;
  
     return(
         <div>
-        {this.props.store.generalDialog.show &&   
+        {false &&   
         <c.ModalWrapper>
             <c.Modal>
                 <c.TitleText>{message}</c.TitleText>

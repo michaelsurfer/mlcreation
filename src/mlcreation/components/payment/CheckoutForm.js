@@ -113,6 +113,7 @@ class CheckoutForm extends Component{
                     }
                 }).catch(error=>{
                   console.log("error!!")
+                  console.log(error)
                 })
         }else{
             console.log("Stripe.js hasn't loaded yet.");

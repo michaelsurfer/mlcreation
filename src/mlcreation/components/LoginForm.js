@@ -4,7 +4,7 @@ import styled from "styled-components";
 import * as c from '../common/Css2.js';
 import {observer,inject} from "mobx-react";
 import Dialog from '../components/dialog/Dialog';
-
+import Loading from './dialog/Loading'; 
 
 const Wrapper=styled.div`
 background-color:rgb(239,238,242);
@@ -77,11 +77,15 @@ class LoginForm extends Component{
   constructor(props){
     super(props);
     this.state = {
+      showDialog:false,
+      dialogMessage:'this is a local message',
       formData:{
         email:'',
         password:''
       }
     }
+    this.SignIn=this.SignIn.bind(this);
+
   }
 
     updateItem(e){
@@ -98,21 +102,20 @@ class LoginForm extends Component{
       console.log(this.state.formData);
       var formData = this.state.formData;
       if(formData.email != '' && formData.password !=''){
-        this.props.store.retailerLogin(this.state.formData);
+        this.props.store.Retailer.loginF(this.state.formData);
+        
       }else{
-        this.props.store.showDialog("Please enter all information",true,false);
-
+        this.props.store.Dialog.showDialog('please enter all information','close','CLOSE','/')
       }
      }
-
+     
   render(){
  
     return (
 
       <Wrapper>
         <Dialog/>
-        
-        <Input type='text' id="email" onChange={(e)=>this.updateItem(e)} placeholder="susnna@mlcreationco.com"/>
+         <Input type='text' id="email" onChange={(e)=>this.updateItem(e)} placeholder="susnna@mlcreationco.com"/>
         <Input type='password' id="password" onChange={(e)=>this.updateItem(e )} placeholder="Password"/>
         {this.props.store.loginError?(
           <WarningText>Login error, check your password</WarningText>
@@ -121,7 +124,7 @@ class LoginForm extends Component{
         )}
 
         <SignInButton
-        onClick={()=>this.SignIn()}
+        onClick={this.SignIn}
         >Sign In</SignInButton>
         <ColDiv>
         <ForgetPass

@@ -1,0 +1,9 @@
+/**
+* Felix Titling Font Face CSS
+*/
+
+@font-face {
+  font-family: 'Felix Titling';
+  font-style: normal;
+  src: url(FelixTitling.ttf) format('truetype');
+}

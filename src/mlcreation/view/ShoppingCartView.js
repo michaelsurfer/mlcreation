@@ -62,7 +62,7 @@ flex-direction:column;
 class ShoppingCartView extends Component{
 constructor(props){
   super(props);
-  this.props.store.loadShoppingCart();
+  this.props.store.Cart.loadCart();
   this.PaymentDoneCallBackF=this.PaymentDoneCallBackF.bind(this);
   this.state={donePayment:false}
 }
@@ -72,25 +72,32 @@ PaymentDoneCallBackF(){
   this.setState({donePayment:true});
 }
 componentWillUnmount(){
-  this.props.store.resetRedirection()   
+  this.props.store.Cart.resetRedirection()   
 
  }
 render(){
-  var json = this.props.store.customCostBreakDown
+  /*
+  var json = this.props.store.Cart.costBreakDown
   var totalProductCost = json.totalProductCost
   var totalShipmentCost = json.totalShipmentCost
   var finalCost = json.finalCost
   var totalQty = json.totalQty
- 
-  var json=this.props.store.redirectionInfo
+ */
+
+  
+  var json=this.props.store.Cart.redirectionInfo
    if(json.redirect && json.to!=''){
+      var orderUuid = this.props.store.Cart.orderUuid
+      this.props.store.Payment.preparePayment('custom',orderUuid,'')
    return(<Redirect to={json.to}/>)
   }
 
-return(
+  //var paymentDone = this.props.store.paymentProcessJson.done 
+  var paymentDone = false
+  return(
   <Wrapper>
 
-   {this.props.store.paymentProcessJson.done ? (
+   {paymentDone ? (
      <PaymentDone/>
    ):(
     <Fragment> 

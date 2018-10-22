@@ -12,7 +12,7 @@ class OrderHeaderContainer extends Component{
     }
 
     componentDidMount(){
-        this.props.store.refreshOrderNo();
+        this.props.store.Payment.refreshOrderNo();
     }
 
     render(){

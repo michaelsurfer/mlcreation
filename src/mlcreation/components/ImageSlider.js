@@ -56,13 +56,11 @@ class ImageSlider extends Component{
 
 componentDidMount(){
 this.interval = setInterval(()=>{
-  console.log('interval')
-  this.nextSlide();
+   this.nextSlide();
 },5000)
 }
 componentWillReceiveProps(){
-  console.log('componentWillReceiveProps')
-  this.setState({imageIndex:0});
+   this.setState({imageIndex:0});
 
 }
 
@@ -79,17 +77,14 @@ previousSlide=()=>{
     }
   }
 imageLoaded=()=>{
-  console.log('image loaded')
-  var counter = this.state.imageLoadingCounter
+   var counter = this.state.imageLoadingCounter
   if(counter<5){
   counter=counter+1
   this.setState({imageLoadingCounter:counter})
   }
-  console.log(counter)
-}
+ }
   componentWillUpdate(){
-    console.log('component will update')
-  }
+   }
   render(){
     var gender = this.props.gender
     let img = imageJson[gender][this.state.imageIndex];

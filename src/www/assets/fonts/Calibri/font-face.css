@@ -1,0 +1,14 @@
+/**
+* Calibri Font Face CSS
+*/
+@font-face {
+  font-family: 'Calibri Light';
+  font-style: normal;
+  src: url(Calibri_Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Calibri Regular';
+  font-style: normal;
+  src: url(Calibri.ttf) format('truetype');
+}

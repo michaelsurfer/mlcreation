@@ -43,9 +43,10 @@ class PaymentContainer extends Component{
     constructor(props){
         super(props)
   
-        var type = this.props.store.currentPaymentType
+        //var type = this.props.store.currentPaymentType
+        var type = this.props.type
         this.PaymentDoneCallBackF=this.PaymentDoneCallBackF.bind(this);
-        this.props.store.startPaymentProcess(type)
+        this.props.store.Payment.startPaymentProcess()
         console.log('PaymentContainer : startPaymentProcess type = '+type)
         this.state={
             data:{},
@@ -59,19 +60,19 @@ class PaymentContainer extends Component{
         console.log(json.token)
         console.log(json.info)
 
-        this.props.store.payment(json)
+        this.props.store.Payment.payment(json)
      }
 
     render(){
         var costJson={};
         var type = this.state.type;
-        var uuid = this.props.store.orderDetail[this.state.type].uuid
+        var uuid = this.props.store.Payment.orderDetail[this.state.type].uuid
         var email ='';
         if(type=='retailer'){
-            costJson = this.props.store.retailerCostBreakDown;
-            email = this.props.store.retailerData.email.value
+            costJson = this.props.store.Retailer.retailerCostBreakDown;
+            email = this.props.store.Retailer.retailerData.email.value
         }else if(type=='custom'){
-            costJson = this.props.store.customCostBreakDown;
+            costJson = this.props.store.Cart.costBreakDown;
         }
         var totalProductCost=costJson.totalProductCost
         var totalShipmentCost=costJson.totalShipmentCost
@@ -80,7 +81,7 @@ class PaymentContainer extends Component{
         console.log("PAYMENT LOGIC START , type : "+type)
         console.log("transactionUUID :"+uuid)
 
-        if(this.props.store.isPaymentDone){
+        if(this.props.store.Payment.isPaymentDone){
            return(<PaymentDone/>)
         }
 

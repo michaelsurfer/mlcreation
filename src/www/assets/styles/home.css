@@ -1,0 +1,61 @@
+/**
+* home.css
+*/
+
+/*
+#HomeBanner img {
+    position: absolute;
+}
+*/
+
+/* HomeSpotlight and related elements */
+#HomeSpotlight .table-tr:nth-child(1) .table-td,
+#HomeSpotlight .table-tr:nth-child(2) .table-td {
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    width: 50%;
+}
+#HomeSpotlight .table-tr:nth-child(1),
+#HomeSpotlight .table-tr:nth-child(2){
+    height: 20.35vw;
+}
+#HomeSpotlight .table-tr:nth-child(1) .table-td:nth-child(2) img,
+#HomeSpotlight .table-tr:nth-child(2) .table-td:nth-child(1) img {
+    position: absolute;
+    bottom: 0;
+}
+#HomeSpotlight .table-tr:nth-child(1) {
+    background-color: #DBB6A6;
+    color: #000000;
+}
+#HomeSpotlight .table-tr:nth-child(1) .table-td:nth-child(2) {
+    background-color: #ffffff;
+}
+#HomeSpotlight .table-tr:nth-child(1) .table-td:nth-child(2) img {
+    right: 0;
+    width: 42.5vw;
+}
+#HomeSpotlight .table-tr:nth-child(2) {
+    background-color: #141817;
+    color: #ffffff;
+}
+#HomeSpotlight .table-tr:nth-child(2) .table-td:nth-child(1) {
+    background-color: #EAEDEC;
+}
+#HomeSpotlight .table-tr:nth-child(2) .table-td:nth-child(1) img  {
+    left: 0;
+    width: 41.2vw;
+}
+#HomeSpotlight .spotlight-desc h3,  
+#HomeSpotlight .spotlight-desc p{
+    padding: 0;
+    margin: 0;
+}
+#HomeSpotlight .spotlight-desc p {
+    margin-top: 1.4vw;
+    margin-bottom: 3vw;
+}
+#HomeSpotlight .spotlight-desc img {
+    width: 2.5vw;
+}

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {apis} from '../common/config.js';
 import * as c from '../common/Css2.js';
-import {GeneralMessageView} from "./GeneralMessageView";
+import GeneralDialog from '../components/dialog/GeneralDialog'; 
+import {observer,inject} from "mobx-react";
+import Loading from '../components/dialog/Loading'; 
 
 const Wrapper=c.ColCenterDiv.extend`
 background-color:${c.ColorSchema.skyBlue.color};
@@ -10,69 +12,44 @@ height:400px;
 `;
 
 
-
+@inject('store')
+@observer
 class AccountActivation extends Component{
 
     constructor(props){
       super(props);
-      this.state={
-          loaded:false,
-          verified:false,
-          error:""
-      };  
+       this.closeDialog=this.closeDialog.bind(this);
     }
 
     componentDidMount(){
-        var params = this.props.email+"/"+this.props.code;
-        fetch(apis.activation.endpoint+params)
-        .then((response)=>{
-            if(!response.ok){
-                response.text().then((text)=>{
-                throw Error(text);}
-            ).catch(error=>{
-                this.setState({
-                    loaded:true,
-                    verified:false,
-                    error:error.message
-                });
-            })
-            }else{
-                this.setState({
-                    loaded:true,
-                    verified:true
-                });
-            }
-        });
+        var email = this.props.email
+        var code = this.props.code
+        this.props.store.Retailer.accountActivation(email,code)
+
+
     }
+    closeDialog(){
+          this.props.store.Retailer.closeDialog()
+      }
+
+
      render(){
-         console.log(this.state);
-        if(this.state.loaded){
-            if(this.state.verified){
-                return(
-            
-                <GeneralMessageView
-                    link="/yourAccount"
-                    linkTitle="Go to your account now"
-                    message="Thank you for joining us, your account has been activated !"
-                />
-                );
-            }else{
-                return(
-                <GeneralMessageView
-                    link="/"
-                    linkTitle="Go Back"
-                    message="Sorry, we are unable to activate your account, please make sure you have clicked the right activation link in the email we sent you."
-                />
-                );
-            }
-        }else{
-            return(
-            <Wrapper>
-            <label>Loading</label>
-            </Wrapper>
-            );  
-        }
-   
+         return(
+      <Wrapper>
+        <Loading
+          show={this.props.store.Retailer.loading}
+        />
+        <GeneralDialog
+          show = {this.props.store.Retailer.showDialog}
+          message = {this.props.store.Retailer.dialogMessage}
+          buttonType='close'
+          buttonText='CLOSE'
+          callback={this.closeDialog}
+          buttonLink='/'
+        />
+    
+      </Wrapper>
+         )
     }
 
 

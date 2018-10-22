@@ -24,10 +24,11 @@ redirect(gender){
 }
 
 render(){
-     var show = this.props.store.showSelectGenderDialog.show;
-     var productID = this.props.store.showSelectGenderDialog.productID;
+     var show = this.props.store.Dialog.showSelectGenderDialog.show;
+     var productID = this.props.store.Dialog.showSelectGenderDialog.productID;
     if(show && this.state.redirect){
         this.setState({redirect:false});
+        this.props.store.Dialog.resetSelectGenderDialog
     return(<Redirect to={"/product/"+this.state.gender+"/"+productID} />
     )    
     }

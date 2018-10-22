@@ -1,0 +1,21 @@
+/**
+* for_her.css
+*/
+
+/* Topbar and related elements */
+#Topbar {
+    background-color: #DFC8C8; 
+}
+#CompanyLogoIMG {
+    left: 1.2vw;
+    bottom: 0.2vw;
+    width: 2.2vw;
+}
+#TopbarNavigation a {
+    color: #000000;
+}
+
+/* Sitemap and related elements */
+#Sitemap {
+    border-bottom: 1px solid #DFC8C8;
+}

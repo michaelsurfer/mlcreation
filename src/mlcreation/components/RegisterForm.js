@@ -5,32 +5,8 @@ import * as s from '../common/Css2.js';
 import { device } from "../common/device";
 import {apis} from '../common/config.js';
 import {observer,inject} from "mobx-react";
- 
-
-
-const ModalWrapper=styled.div`
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.6);
-display:${(props)=>props.display};
-`;
-
-const Modal=styled.div`
-position:fixed;
-background:white;
-width:500px;
-height:auto;
-top:50%;
-left:50%;
-transform: translate(-50%,-50%);
-
-display:flex;
-flex-direction:column;
-padding:20px;
-`;
+import GeneralDialog from './dialog/GeneralDialog'; 
+import Loading from './dialog/Loading'; 
 
 const RegistrationFormTitle=styled.label`
 color:black;
@@ -336,17 +312,19 @@ class RegisterForm extends Component{
   constructor(props){
     super(props);
     this.state={
+      showDialog:false,
+      dialogMessage:'this is a local message',
       loaded:false,
-      showRegisterModal:false,
       waiting:false
     }
+    this.closeDialog=this.closeDialog.bind(this);
 
   }
   componentDidMount(){
     var state={};
     var data;
-    if(this.props.store.login){
-      var retailerData=this.props.store.retailerData;
+    if(this.props.store.Retailer.login){
+      var retailerData=this.props.store.Retailer.retailerData;
       for(var item in fieldData){
 
         data={
@@ -542,7 +520,7 @@ class RegisterForm extends Component{
 
 
 renderButton(){
-  if(this.props.store.login){
+  if(this.props.store.Retailer.login){
     
     return(
       <s.ButtonDiv>
@@ -553,16 +531,59 @@ renderButton(){
     
   }else{
     return(
-      <s.ButtonDiv>
+      <FormRow border>
       <Button type='button' black>Reset</Button>
       <Button
        onClick={()=>this.handleSubmit()}
       >Confirm</Button>
-      </s.ButtonDiv>
+      </FormRow>
     );
   }
 }
 
+handleSubmit(){
+var formData = this.state.formData;
+  var warning = [];
+  for(var item in formData){
+    var key = formData[item].key;
+
+    if(!formData[item].validFormat && fieldData[key].mandatory){
+       console.log(key);
+      var warningText = fieldData[key].warningText;
+      warning.push(
+        <WarningText>{warningText}</WarningText>
+      )
+    }
+
+    if(formData[item].value=="" && fieldData[key].mandatory){
+       console.log(key);
+       warning.push(
+        <WarningText>{key} is missing</WarningText>
+      )
+    }
+  }
+  if(warning.length==0){
+    for(var item in formData){
+      delete formData[item].validFormat
+      formData[item] = formData[item].value
+    }
+
+    console.log(formData);
+    this.props.store.Retailer.register(formData)
+
+  }else{
+
+    this.setState({
+      dialogMessage:warning,
+       showDialog:true 
+    })
+
+  }
+
+
+}
+
+/*
 handleSubmit(){
    //check all data then pop up modal
   console.log(this.state.formData);
@@ -594,7 +615,10 @@ handleSubmit(){
   if(warning.length==0){
     //check email duplication...
     this.setState({showModal:'block',waiting:true});
-
+    for(var item in formData){
+      delete formData[item].validFormat
+    }
+    console.log(formData);
     fetch(apis.checkEmail.endpoint+"/"+formData.email.value)
       .then(response=>response.json())
       .then(data=>{
@@ -609,7 +633,7 @@ handleSubmit(){
           //register to server
           this.setState({showRegisterModal:true});
           console.log("registering data ");
-          console.log(formData);
+ 
           fetch(apis.register.endpoint,{
             method:'POST',
             headers:{
@@ -641,48 +665,6 @@ handleSubmit(){
   }
 }
 
-login(data){
-  console.log(data);
-  var json={
-    email:'guest@guest.com',
-    password:'guest'
-  };
-  this.props.store.retailerLogin(data);
-
-  this.setState({showModal:'none'});
- }
-handleModal(){
-  var result=[];
-
-
-  if(this.state.showRegisterModal){
-    var formData = this.state.formData;
-
-  result.push(
-    <Modal>
-    <WarningTitle>Registration Success ! Please check your email.</WarningTitle>
-    <Button black
-      onClick={()=>this.login({
-        email:formData.email.value,
-        password:formData.password.value
-      })}
-      >Got it.</Button>
-    </Modal>
-  )
-  }else{
-  result.push(
-    <Modal>
-    <WarningTitle>Cannot register because of following:</WarningTitle>
-    {this.state.warning}
-    <Button black
-      onClick={()=>this.setState({showModal:'none'})}
-      >Got it</Button>
-    </Modal>
-  );
-  }
-
-
-
   return(
     <div>
     {this.state.waiting?(<Modal>Loading</Modal>):(<div>{result}</div>)}
@@ -690,7 +672,37 @@ handleModal(){
   )
 }
 
+*/
+  closeDialog(){
+    console.log('close')
+    this.setState({showDialog:false})    
+    this.props.store.Retailer.closeDialog()
+  }
+  handleDailog(){
+    return(
+      <div>
+   
+     
+      <GeneralDialog
+        show = {this.props.store.Retailer.showDialog}
+        message = {this.props.store.Retailer.dialogMessage}
+        buttonType={this.props.store.Retailer.registrationState=='ok' ? 'link':'close' }
+        buttonText={this.props.store.Retailer.registrationState=='ok' ? 'OK':'CLOSE' }
+        callback={this.closeDialog}
+        buttonLink='/'
+      />
 
+    
+      <GeneralDialog
+        show = {this.state.showDialog}
+        message = {this.state.dialogMessage}
+        buttonType='close'
+        buttonText='CLOSE'
+        callback={this.closeDialog}
+      />
+      </div>
+    )
+  }
 
   render(){
     if(!this.state.loaded){
@@ -699,7 +711,14 @@ handleModal(){
 
     return(
       <Wrapper>
+        {this.handleDailog()}
+        <Loading
+          show={this.props.store.Retailer.loading}
+        />
+
+       <FormRow> 
        {this.renderFormHeader('Company Details')}
+       </FormRow>
       <FormRow >
       {this.renderFormElement('company')}
       </FormRow>
@@ -769,18 +788,17 @@ handleModal(){
       </FormRow>
       <FormRow >
         {this.renderFormElement('homeParties','center')}
+        
         {this.renderEmptyElementSpace()}
         <FormCol doubleSize>
         {this.renderEmptyElementSpace()}
        </FormCol>
        </FormRow>
-      <FormRow border>
-      {this.renderButton()}
-       </FormRow>
 
-       <ModalWrapper display={this.state.showModal}>
-       {this.handleModal()}
-       </ModalWrapper>
+ 
+       <FormRow>
+      {this.renderButton()}
+      </FormRow>
 
 
       </Wrapper>

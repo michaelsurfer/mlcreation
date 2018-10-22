@@ -134,7 +134,7 @@ const StyledTd=styled.td`
 
 @inject('store')
 @observer
-class ProductTableConfirm extends Component{
+class ConfirmOrder extends Component{
 
   constructor(props){
     super(props);
@@ -472,7 +472,7 @@ class ProductTableConfirm extends Component{
      var device = this.props.device;
     
 
-     var costJson = this.props.store.retailerCostBreakDown
+     var costJson = this.props.store.Retailer.costBreakDown
      var totalWeight=costJson.totalWeight
      var totalProductCost=costJson.totalProductCost
      var totalShipmentCost=costJson.totalShipmentCost
@@ -531,4 +531,4 @@ class ProductTableConfirm extends Component{
   }
 
 
-  export default ProductTableConfirm;
+  export default ConfirmOrder;

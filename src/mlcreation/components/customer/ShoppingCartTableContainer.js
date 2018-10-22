@@ -34,12 +34,12 @@ class ShoppingCartTableContainer extends Component{
 
   payNow(finalCost){
     console.log("paying total "+finalCost)
-    this.props.store.createCustomOrder(finalCost);
+    this.props.store.Cart.createOrder(finalCost);
   }
 
   render(){
 
-    var json = this.props.store.customCostBreakDown
+    var json = this.props.store.Cart.costBreakDown
     var totalProductCost = json.totalProductCost
     var totalShipmentCost = json.totalShipmentCost
     var finalCost = json.finalCost
@@ -49,14 +49,14 @@ class ShoppingCartTableContainer extends Component{
         <Fragment>
 
           <ShoppingCartTable 
-          cartData={this.props.store.shoppingCart}
+          cartData={this.props.store.Cart.cart}
           totalProductCost = {totalProductCost}
           totalQty = {totalQty}
           totalShipmentCost = {totalShipmentCost}
           finalCost={finalCost}
            />
 
-          {(this.props.store.cartSize>0) &&
+          {(this.props.store.Cart.cartSize>0) &&
           <ButtonBar>
           <Button onClick={()=>window.history.back()}>BACK TO SHOPPING</Button>
           <Button onClick={()=>this.payNow(finalCost)}>PAY NOW</Button>

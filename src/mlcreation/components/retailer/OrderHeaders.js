@@ -58,9 +58,9 @@ class OrderHeaders extends Component{
             fontSize='12pt'
             type={type}
             >
-            Company Name : {this.props.store.retailerData.company.value}<br/>
-            Tax I.D / EIN No: {this.props.store.retailerData.ein.value}<br/>
-            Shipping Address: {this.props.store.retailerData.address.value}<br/>
+            Company Name : {this.props.store.Retailer.retailerData.company.value}<br/>
+            Tax I.D / EIN No: {this.props.store.Retailer.retailerData.ein.value}<br/>
+            Shipping Address: {this.props.store.Retailer.retailerData.address.value}<br/>
             </OrderHeaderCell>
             } 
             {
@@ -71,9 +71,9 @@ class OrderHeaders extends Component{
             fontSize='12pt'
             type={type}
             >
-            Contact Person: {this.props.store.retailerData.buyer.value} <br/>
-            Phone No: {this.props.store.retailerData.phone.value}<br/>
-            Email: {this.props.store.retailerData.email.value}<br/>
+            Contact Person: {this.props.store.Retailer.retailerData.buyer.value} <br/>
+            Phone No: {this.props.store.Retailer.retailerData.phone.value}<br/>
+            Email: {this.props.store.Retailer.retailerData.email.value}<br/>
             </OrderHeaderCell>
             } 
             </tr>
@@ -126,7 +126,7 @@ class OrderHeaders extends Component{
             fontSize=''
             type={type}
             >
-            Your Order No.: {this.props.store.orderDetail.retailer.orderNo}
+            Your Order No.: {this.props.store.Payment.currentOrderNo}
             </OrderHeaderCell>
             }
             {

@@ -162,7 +162,7 @@ const TableField={
 
   @inject('store')
   @observer
-  class ProductTable extends Component{
+  class TakeOrder extends Component{
 
   constructor(props){
     super(props);
@@ -180,12 +180,12 @@ const TableField={
   
 increaseQuantity(id){
     console.log("increaseQuantity :"+id)
-    this.props.store.increaseFromCart(id,'retailer')
+    this.props.store.Retailer.increaseFromCart(id,'retailer')
 
 }
 decreaseQuantity(id){
     console.log("decreaseQuantity :"+id)
-    this.props.store.decreaseFromCart(id,'retailer')
+    this.props.store.Retailer.decreaseFromCart(id,'retailer')
 }
 
 
@@ -197,8 +197,10 @@ decreaseQuantity(id){
     var gender = data[productID].gender;
     var toLink="";
     if(gender=='both'){
-    this.props.store.showSelectGenderDialog.productID=productID;
-    this.props.store.showSelectGenderDialog.show=true;
+    //this.props.store.showSelectGenderDialog.productID=productID;
+    //this.props.store.showSelectGenderDialog.show=true;
+    this.props.store.Dialog.setSelectGenderDialog(productID)
+
     }else{
       toLink="/product/"+gender+"/"+productID;
       this.setState({toLink:toLink,redirect:true});
@@ -281,8 +283,8 @@ decreaseQuantity(id){
     var output="";
     var rowData=[];
 
-    if(!this.props.store.retailerCart[productID]){
-      this.props.store.retailerCart[productID]={
+    if(!this.props.store.Retailer.cart[productID]){
+      this.props.store.Retailer.cart[productID]={
         name:code,
         qty:0,
         color:color
@@ -297,8 +299,8 @@ decreaseQuantity(id){
              output = ProductColorCode[color].name;
           break;
           case 'selectionBox':
-            if(this.props.store.retailerCart[productID]!=null){
-              if(this.props.store.retailerCart[productID].qty>0){
+            if(this.props.store.Retailer.cart[productID]!=null){
+              if(this.props.store.Retailer.cart[productID].qty>0){
                 output = <SelectionBox selected/>;
               }else{
                 output = <SelectionBox />;
@@ -323,8 +325,8 @@ decreaseQuantity(id){
           break;
           case 'input':
             var qty=0;
-            if(this.props.store.retailerCart[productID]!=null){
-              qty = this.props.store.retailerCart[productID].qty
+            if(this.props.store.Retailer.cart[productID]!=null){
+              qty = this.props.store.Retailer.cart[productID].qty
             }
             /*
             output =
@@ -372,8 +374,8 @@ decreaseQuantity(id){
           case 'state':
           //state mean real time form data, state.
           var qty=0;
-          if(this.props.store.retailerCart[productID]!=null){
-            qty = this.props.store.retailerCart[productID].qty
+          if(this.props.store.Retailer.cart[productID]!=null){
+            qty = this.props.store.Retailer.cart[productID].qty
           }
             //var qty = this.props.store.retailerCart[productID].qty;
             if(qty==""){qty=0;}
@@ -424,7 +426,7 @@ decreaseQuantity(id){
 
  
      var device = this.props.device;
-     var costJson = this.props.store.retailerCostBreakDown
+     var costJson = this.props.store.Retailer.costBreakDown
      var totalWeight=costJson.totalWeight
      var totalProductCost=costJson.totalProductCost
      var totalShipmentCost=costJson.totalShipmentCost
@@ -486,14 +488,4 @@ decreaseQuantity(id){
 
   }
 
-  ProductTable.defaultProps={
-    retailerData:{
-      comnpanyName:'ABC Limited',
-      contact:"Michael Wong",
-      address:'Room H, 6/H Park Island Ma Wan',
-      phone:'98589541',
-      email:'michael@gmail.com'
-    }
-  };
-
-  export default ProductTable;
+  export default TakeOrder;

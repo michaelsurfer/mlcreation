@@ -231,12 +231,12 @@ class ShoppingCartTable extends Component{
 
     increaseQuantity(id){
         console.log("increaseQuantity :"+id)
-        this.props.store.increaseFromCart(id,'customer')
+        this.props.store.Cart.increaseFromCart(id)
 
     }
     decreaseQuantity(id){
         console.log("decreaseQuantity :"+id)
-        this.props.store.decreaseFromCart(id,'customer')
+        this.props.store.Cart.decreaseFromCart(id)
 
     }
 

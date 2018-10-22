@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 import {SloganBanner} from '../components/SloganBanner';
-import ProductTable from '../components/retailer/ProductTable';
-import ProductTableConfirm from '../components/retailer/ProductTableConfirm';
+import TakeOrder from '../components/retailer/TakeOrder';
+import ConfirmOrder from '../components/retailer/ConfirmOrder';
 import PaymentForm from '../components/payment/PaymentForm';
  import {observer,inject} from "mobx-react";
 import RetailerBar from '../navigation/RetailerBar';
-import ProductPriceList from '../components/retailer/ProductPriceList';
+import PriceList from '../components/retailer/PriceList';
 
 
 
@@ -44,7 +44,7 @@ constructor(props){
   super(props);
   var page;
   console.log("retailerData :");
-  console.log(this.props.store.retailerData);
+  console.log(this.props.store.Retailer.retailerData);
   if(this.props.priceList){
     page='priceList';
   }else{
@@ -91,7 +91,7 @@ back(goto){
 }
 
 render(){
-  var costJson = this.props.store.retailerCostBreakDown
+  var costJson = this.props.store.Retailer.costBreakDown
   var totalWeight=costJson.totalWeight
   var totalProductCost=costJson.totalProductCost
   var totalShipmentCost=costJson.totalShipmentCost
@@ -106,12 +106,12 @@ render(){
 
     case 'takeOrder':
       resultView.push(
-      <ProductTable device={device} callbackf={this.confirmCallBack}/>
+      <TakeOrder device={device} callbackf={this.confirmCallBack}/>
       )
     break;
     case 'confirmOrder':
       resultView.push(
-        <ProductTableConfirm device={device}  callbackf={this.confirmCallBack}/>
+        <ConfirmOrder device={device}  callbackf={this.confirmCallBack}/>
       )
     break;
     case 'payment':
@@ -127,7 +127,7 @@ render(){
     break;
     case 'priceList':
     resultView.push(
-        <ProductPriceList device={device}/>
+        <PriceList device={device}/>
       )
     break;
   }

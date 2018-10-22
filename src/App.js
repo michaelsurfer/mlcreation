@@ -4,13 +4,15 @@ import {Redirect} from "react-router";
 
 import styled from "styled-components";
 import data from "./mlcreation/asset/ProductList.json";
-import {Footer} from './mlcreation/components/Footer';
-import NavBar from './mlcreation/navigation/NavBar';
-import Home from './mlcreation/view/Home';
+//import {Footer} from './mlcreation/components/Footer';
+//import NavBar from './mlcreation/navigation/NavBar';
+//import Home from './mlcreation/view/Home';
+import Footer from './www/Footer';
+import NavBar from './www/NavBar';
+import Home from './www/Home';
 import Product from './mlcreation/view/Product';
 import {ProductList} from './mlcreation/view/ProductList';
 import Retailer from './mlcreation/view/Retailer';
-import {StripePayment} from './mlcreation/stripe/StripePayment';
 import LoginView from './mlcreation/view/LoginView';
 import {observer,inject} from "mobx-react";
 import {YourAccountView} from './mlcreation/view/YourAccountView';
@@ -30,7 +32,7 @@ import {SloganBanner} from './mlcreation/components/SloganBanner';
 import  GenderSelection from './mlcreation/components/GenderSelection';
 import TransactionView from './mlcreation/components/transactions/TransactionView';
 import RetailerTransactionHistory from './mlcreation/components/transactions/RetailerTransactionHistory';
-
+import DialogContainer from "./mlcreation/components/dialog/DialogContainer";
 
 const BlackLine=styled.div`
 width:100%;
@@ -149,7 +151,8 @@ const MakeComment=({match})=>(
 
 const Payment=inject('store')(observer((props)=>{
   //var type=props.store.currentPaymentType//retailer or custom
-  var type=props.store.paymentProcessJson.type
+  //var type=props.store.paymentProcessJson.type
+  var type = 'test' //match.params.type;
   var needLogin = false;
   console.log("Payment Route, type :"+type);
 
@@ -319,12 +322,11 @@ const ContactUs = () =>(
 );
 
 const YourAccount=inject('store')(observer((props)=>{
-  console.log(props.store.login);
   return(
   <div>
   <NavBar gender='g'/>
 
-  {props.store.login?(
+  {props.store.Retailer.login?(
     <YourAccountView/>
   ):(
     <LoginView/>
@@ -339,7 +341,7 @@ const RetailerView=inject('store')(observer((props)=>{
   <div>
   <NavBar gender='g'/>
 
-  {props.store.login?(
+  {props.store.Retailer.login?(
 
     <Retailer/>
   ):(
@@ -407,24 +409,17 @@ class App extends Component {
 
   constructor(props){
     super(props);
-   
-    var sessionData=JSON.parse(sessionStorage.getItem("retailerData"));
-    this.props.store.loadShoppingCart()
-    if(sessionData){
-    this.props.store.login=true;
-    //this.props.store.retailerData=sessionData;
-    console.log("session data");
-    console.log(sessionData);
+    this.props.store.Retailer.loadSession()   
+    this.props.store.Cart.loadCart()
     }
 
-
-   }
-
   render() {
-    console.log(this.props.store.retailerCart)
-     var loading = 'none';
+ 
+
+    var loading = 'none';
     if(this.props.store.loading){loading = 'block'}
-     return (
+     
+    return (
        
       <Router>
         
@@ -432,6 +427,9 @@ class App extends Component {
        <ModalWrapper display={loading}>
         <Modal>LOADING....</Modal>
       </ModalWrapper>
+   
+      <DialogContainer/>
+
 
        <Route exact path="/" component={HomeView}/>
        <Route exact path="/product/:gender/:productID" component={ProductView}/>
@@ -450,12 +448,44 @@ class App extends Component {
        <Route exact path="/policy/" component={Policy}/>
        <Route exact path="/retailerPolicy/" component={RetailerPolicy}/>
        <Route exact path="/aboutUs/" component={AboutUs}/>
-       <Route exact path="/payment" component={Payment}/>
+       <Route exact path="/payment2" component={Payment}/>
        <Route exact path="/productRedirect/:productID" component={ProductRedirect}/>
        <Route exact path="/viewTransaction/:type/:uuid" component={ViewTransaction}/>
        <Route exact path="/viewAllTransactions/" component={ViewAllTransactions}/>
        <Route exact path="/mike" component={Mike}/>
- 
+       <Route exact path="/payment/" render={({match})=>{
+         //var type = match.params.type;
+        var type = this.props.store.Payment.currentPaymentType 
+         if(!type || type ==''){
+            return(<Redirect to='/' />)
+          }
+
+          if (type == 'retailer'){
+            if(this.props.store.Retailer.login){
+              return(
+                <div>
+                  <NavBar gender='general'/>
+                  <RetailerBar/>
+                  <PaymentContainer type='retailer'/>
+                </div>
+              )
+            }else{
+              return(
+                <div>
+                  <LoginView/>
+                </div>
+              )  
+            }
+          }else{
+            return(
+            <div>
+            <NavBar gender='general'/>
+             <PaymentContainer type='custom'/>
+           </div>
+            )
+          }
+       }}/>
+
       <Footer/>
       </FixSizeRootWrapper>
       </Router>

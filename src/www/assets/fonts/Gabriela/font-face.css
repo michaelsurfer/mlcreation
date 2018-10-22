@@ -1,0 +1,8 @@
+/**
+* Gabriela Font Face CSS
+*/
+@font-face {
+  font-family: 'Gabriela Regular';
+  font-style: normal;
+  src: url(Gabriela_Regular.ttf) format('truetype');
+}

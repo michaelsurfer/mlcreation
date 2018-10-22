@@ -14,15 +14,15 @@ class Product extends Component{
   constructor(props){
     super(props);
     this.callbackF=this.callbackF.bind(this);
-    this.props.store.loadShoppingCart()
-
+    //this.props.store.loadShoppingCart()
+    this.props.store.Cart.loadCart()
   }
 
   callbackF(selectedColor){
     //var productID = this.props.productID +"-"+ selectedColor;
     window.scrollTo(0, 0);
 
-     this.props.store.addOne2Cart(this.props.productID,selectedColor);
+     this.props.store.Cart.addOne2Cart(this.props.productID,selectedColor);
   }
 
   render(){

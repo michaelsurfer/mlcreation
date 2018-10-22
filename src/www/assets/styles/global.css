@@ -1,0 +1,194 @@
+/**
+* global.css
+*/
+html, body {
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}   
+a {
+    text-decoration: none;
+}
+img {
+    width: 100%;
+    vertical-align: bottom;             /* Solved the bug of the below space */
+}
+
+/* table */
+.table {
+    display: table;
+    position: relative;
+    width: 100%;
+}
+.table-tr {
+    display: table-row;
+    position: relative;
+}
+.table-td {
+    display: table-cell;
+    position: relative;
+    vertical-align: top;
+}
+
+
+/* Topbar and related elements */
+#Topbar {
+    background-color: #032929;
+    height: 2.7vw;
+}
+#Topbar .table-td:nth-child(1) {
+    width: 20%;
+}
+#Topbar .table-td:nth-child(2) {
+    width: 80%;
+}
+#CompanyLogoIMG {
+    position: absolute;
+    left: 1.10vw;
+    bottom: 0.35vw;
+    width: 2.1vw;
+}
+#TopbarNavigation {
+    position: absolute;
+    right: 1.55vw;
+    bottom: 0.1vw;
+}
+#TopbarNavigation a {
+    color: #8696A5;
+    margin-left: 3.74vw;
+}
+
+/* Logobar and related elements */
+#Logobar {
+    background-color: #ffffff;
+    height: 6vw;
+}
+#Logobar .table-td:nth-child(1) {
+    width: 45%;
+}
+#Logobar .table-td:nth-child(2) {
+    text-align: center;
+    width: 10%;
+}
+#Logobar .table-td:nth-child(3) {
+    width: 45%;
+}
+#BrandLogoIMG {
+    position: absolute;
+    left: 0.62vw;
+    bottom: 0.2vw;
+    width: 8.899vw;
+}
+#LogobarLeftNavigation,
+#LogobarRightNavigation {
+    position: absolute;
+    bottom: 0.45vw;
+}
+#LogobarLeftNavigation a,
+#LogobarRightNavigation a {
+    color: #000000;
+}
+#LogobarLeftNavigation {
+    left: 1.10vw;
+}
+#LogobarLeftNavigation a {
+    margin-right: 2vw;
+}
+#LogobarRightNavigation {
+    right: 1.55vw;
+}
+#LogobarRightNavigation a {
+    margin-left: 2vw;
+}
+
+/* Slogan and related elements */
+#Slogan {
+    background-color: #E2C6C6;
+}
+#Slogan .table-td {
+    text-align: center;
+    vertical-align: middle;
+}
+#Slogan h3, 
+#Slogan h4 {
+    padding: 0;
+    margin: 0;
+}
+#Slogan h3 {
+    margin-top: 2.9vw;
+}
+#Slogan h4 {
+    margin-top: 1.1vw;
+    margin-bottom: 2.9vw;
+}
+
+/* Sitemap and related elements */
+#Sitemap {
+    height: 17.98vw;
+    border-bottom: 1px solid #888888;
+}
+#Sitemap h5, 
+#Sitemap h6 {
+    color: #888888;
+    padding: 0;
+    margin: 0;
+}
+#Sitemap .table-td {
+    vertical-align: middle;
+}
+#Sitemap .table-td:nth-child(1) a,
+#Sitemap .table-td:nth-child(3) a {
+    display: block;
+    margin-top: 0.75vw;
+    margin-bottom: 0.75vw;
+}
+#Sitemap .table-td:nth-child(1) {
+    width: 30%;
+}
+#Sitemap .table-td:nth-child(1) div {
+    float: left;
+    margin-left: 2.8vw;
+}
+#Sitemap .table-td:nth-child(2) {
+    text-align: center;
+    width: 40%;
+    vertical-align: top;
+}
+#Sitemap .table-td:nth-child(2) div {
+    position: absolute;
+    width: 100%;
+    margin-top: 3.5vw;
+}
+#Sitemap .table-td:nth-child(2) a {
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+#Sitemap .table-td:nth-child(2) img {
+    margin-top: 2.8vw;
+    width: 1.2vw;
+}
+#Sitemap .table-td:nth-child(3) {
+    width: 30%;
+}
+#Sitemap .table-td:nth-child(3) div {
+    float: right;
+    margin-right: 3vw;
+}
+#Sitemap h6 {
+    margin-top: 1vw;
+    margin-bottom: 1.5vw;
+}
+#Sitemap a {
+    color: #888888;
+}
+
+/* Copyright and related elements */
+#Copyright {
+    height: 6.35vw;
+}
+#Copyright img {
+    float: left;
+    margin-left: 2.2vw;
+    width: 31.4vw;
+}

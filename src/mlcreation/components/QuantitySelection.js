@@ -36,7 +36,10 @@ class QuantitySelection extends Component{
             <AdjustBox
                 onClick={()=>this.props.increaseQuantity(this.props.id)}
             >+</AdjustBox>
-            <QtyText>{this.props.qty}</QtyText>
+            <QtyText>
+            
+            <input value={this.props.qty} style={{'width':'20px'}}/>
+            </QtyText>
             <AdjustBox
                 onClick={()=>this.props.decreaseQuantity(this.props.id)}
             >-</AdjustBox>

@@ -4,8 +4,8 @@ import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
 
 const Star=styled.div`
-width:20px;
-height:20px;
+width:30px;
+height:30px;
 background-color:${(props)=>props.on?'red':'white'};
 padding:0px;
 border:1px solid;
@@ -34,7 +34,7 @@ export const RatingStar = ({noOfStar,callbackF,interactive}) =>{
         */
     return(
         <Wrapper>
-            <Rater total={6} rating={noOfStar} 
+            <Rater total={5} rating={noOfStar} 
             onRate={callbackF}
             onCancelRate={()=>{}}
             interactive={interactive}

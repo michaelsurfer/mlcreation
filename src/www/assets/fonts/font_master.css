@@ -1,0 +1,72 @@
+/**
+* English Family should be placed at the first, Chinese at the last.
+*/
+@import url(Calibri/font-face.css); 
+@import url(FelixTitling/font-face.css);
+@import url(Gabriela/font-face.css);
+
+#TopbarNavigation a {
+    font-family: 'Calibri Light', 'Arial', 'Microsoft YaHei', 'sans-serif' !important;
+    font-weight: 100;
+    font-size: 1.479vw !important;
+}
+
+#LogobarLeftNavigation a,
+#LogobarRightNavigation a {
+    font-family: 'Calibri Regular', 'Arial', 'Microsoft YaHei', 'sans-serif' !important;
+    font-weight: 400;
+    font-size: 1.45vw !important;
+}
+
+#ForHerSpotlightDesc h3{
+    font-family: 'Gabriela Regular', 'Arial', 'Microsoft YaHei', 'sans-serif' !important;
+    font-weight: 400;
+    font-size: 2.5vw !important;    
+}
+
+#ForHimSpotlightDesc h3{
+    font-family: 'Calibri Regular', 'Arial', 'Microsoft YaHei', 'sans-serif' !important;
+    font-weight: 400;
+    font-size: 3vw !important;    
+}
+
+.spotlight-desc p {
+    font-family: 'Arial', 'Microsoft YaHei', 'sans-serif' !important;
+    font-weight: 400;
+    font-size: 1.11vw !important;
+}
+
+#Slogan .table-td h3 {
+    font-family: 'Times New Roman', 'Arial', 'Microsoft YaHei', 'sans-serif' !important;
+    font-weight: 400;
+    font-size: 3.10vw !important;    
+}
+
+#Slogan .table-td h4 {
+    font-family: 'Felix Titling', 'Arial', 'Microsoft YaHei', 'sans-serif' !important;
+    font-weight: 400;
+    font-size: 2.10vw !important;  
+}
+
+#Slogan .table-td h4 span {
+    font-family: 'Arial', 'Microsoft YaHei', 'sans-serif' !important;
+    font-weight: 400;  
+}
+
+#Sitemap h5 {
+    font-family: 'Calibri Regular', 'Arial', 'Microsoft YaHei', 'sans-serif' !important;
+    font-weight: 400;
+    font-size: 1.46vw !important;    
+}
+
+#Sitemap h6 {
+    font-family: 'Calibri Regular', 'Arial', 'Microsoft YaHei', 'sans-serif' !important;
+    font-weight: 400;
+    font-size: 1.32vw !important;    
+}
+
+#Sitemap a {
+    font-family: 'Calibri Regular', 'Arial', 'Microsoft YaHei', 'sans-serif' !important;
+    font-weight: 400;
+    font-size: 1.16vw !important;    
+}
